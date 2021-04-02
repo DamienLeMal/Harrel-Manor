@@ -14,12 +14,12 @@ public class GenerateGrid : MonoBehaviour
     }
 
     private void Generate (MapData data) {
-        int[] map = ReadMapData(data.map);
-        for (int i =0; i<21; i++) {
-            for (int j = 0; j < 21; j++) {
-                if (map[i] != 0) {
-                    GameObject g = Instantiate(tile, new Vector3((float)i*tile.GetComponentInChildren<MeshRenderer>().bounds.size.x, 0, (float)j*tile.GetComponentInChildren<MeshRenderer>().bounds.size.x),Quaternion.identity);
-                    switch (map[i])
+        int[,] map = ReadMapData(data.map);
+        for (int i = 0; i<Mathf.Sqrt(map.Length); i++) {
+            for (int j = 0; j < Mathf.Sqrt(map.Length); j++) {
+                if (map[i,j] != 0) {
+                    GameObject g = Instantiate(tile, new Vector3((float)i*tile.GetComponentInChildren<MeshRenderer>().bounds.size.x, 0, -(float)j*tile.GetComponentInChildren<MeshRenderer>().bounds.size.x),Quaternion.identity);
+                    switch (map[i,j])
                     {
                         case 1 : g.GetComponentInChildren<MeshRenderer>().material = walk;
                             break;
@@ -31,11 +31,25 @@ public class GenerateGrid : MonoBehaviour
         }
     }
 
-    private int[] ReadMapData (string data) {
-        int[] map = new int[data.Length];
-        for (int i = 0; i < data.Length; i++) {
-            char c = data[i];
-            map[i] = c - '0';
+    private int[,] ReadMapData (string data) {
+        
+        string[] correctData = data.Split(',');
+        int size = correctData.Length;
+        int[] mapOne = new int[size];
+        for (int i = 0; i < size; i++) {
+            mapOne[i] = int.Parse(correctData[i]);
+        }
+
+        int[,] map = new int[(int)Mathf.Sqrt(size),(int)Mathf.Sqrt(size)];
+        int count = 0;
+        int rowCount = 0;
+        foreach (int i in mapOne) {
+            map[count,rowCount] = i;
+            count++;
+            if (count == (int)Mathf.Sqrt(size)) {
+                count = 0;
+                rowCount++;
+            }
         }
         return map;
     }
