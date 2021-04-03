@@ -8,17 +8,23 @@ public class GenerateGrid : MonoBehaviour
     [SerializeField] private Material walk = null;
     [SerializeField] private Material wall = null;
     [SerializeField] private MapData map = null;
+    [SerializeField] private GameObject tileParent = null;
     void Start()
     {
         Generate(map);
     }
-
+    /// <summary>
+    /// Generate a grid based on a level data
+    /// </summary>
+    /// <param name="data"></param>
     private void Generate (MapData data) {
         int[,] map = ReadMapData(data.map);
         for (int i = 0; i<Mathf.Sqrt(map.Length); i++) {
             for (int j = 0; j < Mathf.Sqrt(map.Length); j++) {
                 if (map[i,j] != 0) {
                     GameObject g = Instantiate(tile, new Vector3((float)i*tile.GetComponentInChildren<MeshRenderer>().bounds.size.x, 0, -(float)j*tile.GetComponentInChildren<MeshRenderer>().bounds.size.x),Quaternion.identity);
+                    g.transform.SetParent(tileParent.transform);
+                    g.GetComponent<TileEntity>().coordinates = new Vector2(i,j);
                     switch (map[i,j])
                     {
                         case 1 : g.GetComponentInChildren<MeshRenderer>().material = walk;
@@ -31,6 +37,11 @@ public class GenerateGrid : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Read a set of data and return a multi-dimensional array
+    /// </summary>
+    /// <param name="data">A string data of a level</param>
+    /// <returns>Multi-dimensional array of the level</returns>
     private int[,] ReadMapData (string data) {
         
         string[] correctData = data.Split(',');
