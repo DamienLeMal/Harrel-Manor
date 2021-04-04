@@ -44,6 +44,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3110d77e9a2a5c8418e3c18dab796174, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pathM: {fileID: 2100000, guid: 88de8ffa04c2d344990882d57ef27910, type: 2}
+  wallM: {fileID: 2100000, guid: d22f59f4d2392ed448611ac2a2ec5adf, type: 2}
+  coordinates: {x: 0, y: 0}
+  tileState: 
 --- !u!1001 &6967343610459292058
 PrefabInstance:
   m_ObjectHideFlags: 0
