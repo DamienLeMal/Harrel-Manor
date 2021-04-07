@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 80bfe1b1da877b0469863a6d71f39ae9, type: 3}
   m_Name: ActorTest
   m_EditorClassIdentifier: 
-  str: 10
+  str: 60
   dex: 20
   spd: 30
   intl: 40
@@ -20,3 +20,6 @@ MonoBehaviour:
   con: 60
   lck: 70
   mnt: 80
+  pm_max: 4
+  ap_max: 5
+  mp_max: 2

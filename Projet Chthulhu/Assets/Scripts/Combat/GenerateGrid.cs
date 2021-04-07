@@ -18,6 +18,7 @@ public class GenerateGrid : MonoBehaviour
     private void Generate (MapData data) {
         int[,] map = ReadMapData(data.map);
         GetComponent<CombatManager>().grid = new TileEntity[(int)Mathf.Sqrt(map.Length),(int)Mathf.Sqrt(map.Length)];
+        TileEntity[,] tileGrid = GetComponent<CombatManager>().grid;
         
         for (int i = 0; i<Mathf.Sqrt(map.Length); i++) {
             for (int j = 0; j < Mathf.Sqrt(map.Length); j++) {
@@ -25,8 +26,9 @@ public class GenerateGrid : MonoBehaviour
 
                     GameObject g = Instantiate(tile, new Vector3((float)i*tile.GetComponentInChildren<MeshRenderer>().bounds.size.x, 0, -(float)j*tile.GetComponentInChildren<MeshRenderer>().bounds.size.x),Quaternion.identity);
                     g.transform.SetParent(tileParent.transform);
-                    GetComponent<CombatManager>().grid[i,j] = g.GetComponent<TileEntity>();
+                    tileGrid[i,j] = g.GetComponent<TileEntity>();
                     g.GetComponent<TileEntity>().coordinates = new Vector2(i,j);
+                    g.GetComponent<TileEntity>().manager = GetComponent<CombatManager>();
 
                     //Setting the base state of the tile
                     switch (map[i,j])
@@ -43,7 +45,24 @@ public class GenerateGrid : MonoBehaviour
                 }
             }
         }
+        int[,] coord;
+        foreach (TileEntity t in tileGrid) {
+            if (t == null) { continue;}
+            coord = new int[4,2] {
+                {(int)t.coordinates.x-1,(int)t.coordinates.y},
+                {(int)t.coordinates.x+1,(int)t.coordinates.y},
+                {(int)t.coordinates.x,(int)t.coordinates.y-1},
+                {(int)t.coordinates.x,(int)t.coordinates.y+1}};
+            for (int i = 0; i < 4; i++) {
+                if(coord[i,0] < tileGrid.GetLength(0) && coord[i,1] < tileGrid.GetLength(1) && coord[i,0] >= 0 && coord[i,1] >= 0) {
+                    if (tileGrid[coord[i,0],coord[i,1]] != null) {
+                        t.neighbourTiles.Add(tileGrid[coord[i,0],coord[i,1]]);
+                    } 
+                }
+            }
+        }
     }
+    
 
     /// <summary>
     /// Read a set of data and return a multi-dimensional array
