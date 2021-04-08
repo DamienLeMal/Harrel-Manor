@@ -16,6 +16,7 @@ public class TileEntity : MonoBehaviour
     public bool isWalkable;
     public TileState tileState;
     public CombatManager manager;
+    private GridMoveManager gManager;
     //PathFinding
     [HideInInspector] public int gCost;
     [HideInInspector] public int hCost;
@@ -24,6 +25,7 @@ public class TileEntity : MonoBehaviour
 
     private void Start() {
         UpdateMaterial();
+        gManager = manager.GetComponent<GridMoveManager>();
     }
 
     public void SetTileUser (GameObject user) {
@@ -35,7 +37,7 @@ public class TileEntity : MonoBehaviour
         }
     }
 
-    private void UpdateMaterial () {
+    public void UpdateMaterial () {
         switch (tileState) {
             case TileState.Walk : 
                 GetComponentInChildren<MeshRenderer>().material = pathM;
@@ -45,15 +47,29 @@ public class TileEntity : MonoBehaviour
                 break;
         }
     }
-
+#region Interactions
     private void OnMouseEnter() {
-        if (manager.GetComponent<GridMoveManager>().tileHighlightRanges.TryGetValue(this,out int value)){
-            //yes
-            manager.GetComponent<GridMoveManager>().HighlightSurroundingTiles(manager.player.GetComponent<PlayerEntity>().currentTile);
-            manager.GetComponent<GridMoveManager>().StartPathFinding(manager.player.GetComponent<PlayerEntity>().currentTile,this);
+        if (manager.playerState == PlayerState.Moving) {
+            TileEntity currentTile = manager.player.GetComponent<PlayerEntity>().currentTile;
+            if (gManager.tileHighlightRanges.TryGetValue(this,out int value)){
+                //yes
+                gManager.HighlightSurroundingTiles(currentTile);
+                gManager.StartPathFinding(currentTile,this);
+            }else{
+                //no
+                gManager.HighlightSurroundingTiles(currentTile);
+            }
+        }
+        
+    }
+    private void OnMouseDown() {
+        if (manager.playerState == PlayerState.Moving) {
+            manager.playerState = PlayerState.Locked;
+            gManager.ResetHighlight();
+            if (gManager.tileHighlightRanges.TryGetValue(this,out int value)){
+                gManager.MoveAlongPath(manager.player.GetComponent<PlayerEntity>().currentTile,this,manager.player.GetComponent<ActorEntity>());
+            }
         }
     }
-
-    private void OnMouseExit() {
-    }
+#endregion
 }

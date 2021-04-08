@@ -9,6 +9,13 @@ public class GridMoveManager : MonoBehaviour
     private void Start() {
         tileGrid = GetComponent<CombatManager>().grid;
     }
+
+    #region Higlight Surroundings
+    public void ResetHighlight () {
+        foreach (KeyValuePair<TileEntity,int> d in tileHighlightRanges) {
+            d.Key.UpdateMaterial();
+        }
+    }
     public void HighlightSurroundingTiles (TileEntity currentTile) {
         int range = currentTile.tileUser.GetComponent<ActorEntity>().mp;
         
@@ -17,12 +24,10 @@ public class GridMoveManager : MonoBehaviour
             d.Key.GetComponentInChildren<MeshRenderer>().material.color= new Color(d.Value,0,0);
         }
     }
-    public void StartPathFinding (TileEntity startTile, TileEntity endTile) {
-        foreach (TileEntity t in PathFinding(startTile,endTile)) {
-            t.GetComponentInChildren<MeshRenderer>().material.color= new Color(0,0,0);
-        }
-    }
 
+    /// <summary>
+    /// Associate every tile in range with a value decreasing in distance
+    /// </summary>
     private void SetRangeValue (List<TileEntity> nTiles, int range) {
         foreach (TileEntity nt in nTiles) {
             if (nt.tileState == TileState.Walk) {
@@ -41,6 +46,38 @@ public class GridMoveManager : MonoBehaviour
         }
     }
 
+    #endregion
+    #region PathFinding
+    //Show the shortest path to destination
+    public void StartPathFinding (TileEntity startTile, TileEntity endTile) {
+        foreach (TileEntity t in PathFinding(startTile,endTile)) {
+            t.GetComponentInChildren<MeshRenderer>().material.color= new Color(0,0,0);
+        }
+    }
+    
+    /// <summary>
+    /// Move the Actor along the shortest path
+    /// </summary>
+    public void MoveAlongPath (TileEntity startTile, TileEntity endTile, ActorEntity actor) {
+        List<TileEntity> path = PathFinding(startTile,endTile);
+        StartCoroutine(MoveOneTile(path,actor));
+    }
+    /// <summary>
+    /// Move one tile at a time
+    /// </summary>
+    IEnumerator MoveOneTile (List<TileEntity> path, ActorEntity actor) {
+        if (path.Count > 0) {
+            LeanTween.move(actor.gameObject,path[0].transform.position,1f);
+            path.RemoveAt(0);
+            yield return new WaitForSeconds(1.1f);
+            StartCoroutine(MoveOneTile(path,actor));
+        }else{
+            //end
+            GetComponent<CombatManager>().playerState = PlayerState.Normal;
+            GetComponent<CombatManager>().ResetActorsPositions();
+        }
+    }
+    //Main Pathfinding method
     private List<TileEntity> PathFinding (TileEntity startTile, TileEntity endTile) {
         List<TileEntity> openSet = new List<TileEntity>();
         HashSet<TileEntity> closedSet = new HashSet<TileEntity>();
@@ -98,4 +135,5 @@ public class GridMoveManager : MonoBehaviour
     private int GetDistance(TileEntity zoneA, TileEntity zoneB) {
         return (int) (zoneA.transform.position - zoneB.transform.position).magnitude;
     }
+    #endregion
 }

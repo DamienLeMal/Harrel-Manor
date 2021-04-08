@@ -24,10 +24,6 @@ public class ActorEntity : MonoBehaviour
         manager = transform.GetComponentInParent<CombatManager>();
         manager.gameEntities.entities.Add(gameObject);
     }
-    private void Start() {
-        //Temp
-        Invoke("SnapToGrid",2f);
-    }
 
     private void Constructor (ActorData data) {
         str = data.str;
@@ -48,7 +44,7 @@ public class ActorEntity : MonoBehaviour
     /// <summary>
     /// Set the actor to the closest point in the grid and move him to it
     /// </summary>
-    private void SnapToGrid () {
+    public void SnapToGrid () {
         float minDist = Mathf.Infinity;
         float a;
         TileEntity closestTile = null;
