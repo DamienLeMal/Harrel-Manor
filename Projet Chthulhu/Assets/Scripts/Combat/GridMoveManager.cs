@@ -5,6 +5,12 @@ using UnityEngine;
 public class GridMoveManager : MonoBehaviour
 {
     private TileEntity[,] tileGrid = null;
+    /// <summary>
+    /// Highlight all tiles the player can interact with
+    /// </summary>
+    /// <typeparam name="TileEntity">Tiles that are interactable</typeparam>
+    /// <typeparam name="int">Distance of the tile from the player</typeparam>
+    /// <returns></returns>
     public Dictionary<TileEntity,int> tileHighlightRanges = new Dictionary<TileEntity, int>();
     private void Start() {
         tileGrid = GetComponent<CombatManager>().grid;
@@ -17,7 +23,7 @@ public class GridMoveManager : MonoBehaviour
         }
     }
     public void HighlightSurroundingTiles (TileEntity currentTile) {
-        int range = currentTile.tileUser.GetComponent<ActorEntity>().mp;
+        int range = currentTile.tileUser.GetComponent<ActorEntity>().pm;
         
         SetRangeValue(currentTile.neighbourTiles,range);
         foreach (KeyValuePair<TileEntity,int> d in tileHighlightRanges) {
@@ -67,6 +73,7 @@ public class GridMoveManager : MonoBehaviour
     /// </summary>
     IEnumerator MoveOneTile (List<TileEntity> path, ActorEntity actor) {
         if (path.Count > 0) {
+            actor.pm -= 1;
             LeanTween.move(actor.gameObject,path[0].transform.position,1f);
             path.RemoveAt(0);
             yield return new WaitForSeconds(1.1f);

@@ -16,7 +16,7 @@ public class GenerateGrid : MonoBehaviour
     /// </summary>
     /// <param name="data"></param>
     private void Generate (MapData data) {
-        int[,] map = ReadMapData(data.map);
+        int[,] map = data.ReadSheetData(data.map);
         GetComponent<CombatManager>().grid = new TileEntity[(int)Mathf.Sqrt(map.Length),(int)Mathf.Sqrt(map.Length)];
         TileEntity[,] tileGrid = GetComponent<CombatManager>().grid;
         
@@ -61,34 +61,5 @@ public class GenerateGrid : MonoBehaviour
                 }
             }
         }
-    }
-    
-
-    /// <summary>
-    /// Read a set of data and return a multi-dimensional array
-    /// </summary>
-    /// <param name="data">A string data of a level</param>
-    /// <returns>Multi-dimensional array of the level</returns>
-    private int[,] ReadMapData (string data) {
-        
-        string[] correctData = data.Split(',');
-        int size = correctData.Length;
-        int[] mapOne = new int[size];
-        for (int i = 0; i < size; i++) {
-            mapOne[i] = int.Parse(correctData[i]);
-        }
-
-        int[,] map = new int[(int)Mathf.Sqrt(size),(int)Mathf.Sqrt(size)];
-        int count = 0;
-        int rowCount = 0;
-        foreach (int i in mapOne) {
-            map[count,rowCount] = i;
-            count++;
-            if (count == (int)Mathf.Sqrt(size)) {
-                count = 0;
-                rowCount++;
-            }
-        }
-        return map;
     }
 }
