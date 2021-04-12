@@ -19,7 +19,7 @@ public class deplacement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetMouseButtonDown(1))
+        if(Input.GetMouseButton(0))
         {
             RaycastHit hit;
 
@@ -31,6 +31,10 @@ public class deplacement : MonoBehaviour
                 float rotationY = Mathf.SmoothDampAngle(transform.eulerAngles.y,rotationToLookAt.eulerAngles.y,ref rotateVelocity,rotateSpeedMovement * (Time.deltaTime * 5));
                 transform.eulerAngles = new Vector3(0, rotationY, 0);
             }
+        }
+        else if (Input.GetMouseButtonUp(0))
+        {
+            agent.SetDestination(this.transform.position);
         }
     }
 
