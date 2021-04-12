@@ -23,3 +23,5 @@ MonoBehaviour:
   pm_max: 4
   ap_max: 5
   mp_max: 2
+  weaponInvetory:
+  - {fileID: 11400000, guid: 062110da998329b41b39466cb9c89a4f, type: 2}

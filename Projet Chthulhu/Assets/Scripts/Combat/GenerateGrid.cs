@@ -27,7 +27,7 @@ public class GenerateGrid : MonoBehaviour
                     GameObject g = Instantiate(tile, new Vector3((float)i*tile.GetComponentInChildren<MeshRenderer>().bounds.size.x, 0, -(float)j*tile.GetComponentInChildren<MeshRenderer>().bounds.size.x),Quaternion.identity);
                     g.transform.SetParent(tileParent.transform);
                     tileGrid[i,j] = g.GetComponent<TileEntity>();
-                    g.GetComponent<TileEntity>().coordinates = new Vector2(i,j);
+                    g.GetComponent<TileEntity>().coordinates = new Vector2Int(i,j);
                     g.GetComponent<TileEntity>().manager = GetComponent<CombatManager>();
 
                     //Setting the base state of the tile
@@ -49,16 +49,28 @@ public class GenerateGrid : MonoBehaviour
         foreach (TileEntity t in tileGrid) {
             if (t == null) { continue;}
             coord = new int[4,2] {
-                {(int)t.coordinates.x-1,(int)t.coordinates.y},
-                {(int)t.coordinates.x+1,(int)t.coordinates.y},
-                {(int)t.coordinates.x,(int)t.coordinates.y-1},
-                {(int)t.coordinates.x,(int)t.coordinates.y+1}};
-            for (int i = 0; i < 4; i++) {
-                if(coord[i,0] < tileGrid.GetLength(0) && coord[i,1] < tileGrid.GetLength(1) && coord[i,0] >= 0 && coord[i,1] >= 0) {
-                    if (tileGrid[coord[i,0],coord[i,1]] != null) {
-                        t.neighbourTiles.Add(tileGrid[coord[i,0],coord[i,1]]);
-                    } 
-                }
+                {t.coordinates.x-1,t.coordinates.y},
+                {t.coordinates.x+1,t.coordinates.y},
+                {t.coordinates.x,t.coordinates.y-1},
+                {t.coordinates.x,t.coordinates.y+1}};
+            SetNeighbours(coord,t.directNeighbourTiles,tileGrid);
+            SetNeighbours(coord,t.allNeighbourTiles,tileGrid);
+
+            coord = new int[4,2] {
+                {t.coordinates.x-1,t.coordinates.y+1},
+                {t.coordinates.x+1,t.coordinates.y+1},
+                {t.coordinates.x-1,t.coordinates.y-1},
+                {t.coordinates.x+1,t.coordinates.y-1}};
+            SetNeighbours(coord,t.allNeighbourTiles,tileGrid);
+            
+        }
+    }
+    private void SetNeighbours (int[,] coord, List<TileEntity> nList, TileEntity[,] tileGrid) {
+        for (int i = 0; i < 4; i++) {
+            if(coord[i,0] < tileGrid.GetLength(0) && coord[i,1] < tileGrid.GetLength(1) && coord[i,0] >= 0 && coord[i,1] >= 0) {
+                if (tileGrid[coord[i,0],coord[i,1]] != null) {
+                    nList.Add(tileGrid[coord[i,0],coord[i,1]]);
+                } 
             }
         }
     }

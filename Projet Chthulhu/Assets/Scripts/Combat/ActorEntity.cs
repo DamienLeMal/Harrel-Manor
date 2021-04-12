@@ -5,6 +5,7 @@ using UnityEngine;
 public class ActorEntity : MonoBehaviour
 {
     [SerializeField] private ActorData baseStats;
+    public List<WeaponData> weaponInvetory;
     private int str, dex, spd, intl, agi, con, lck, mnt, pm_max, ap_max, mp_max;
     public int pm, ap, mp;
     public TileEntity currentTile;
@@ -16,6 +17,11 @@ public class ActorEntity : MonoBehaviour
         }else{
             Constructor(baseStats);
         }
+        foreach (WeaponData w in weaponInvetory) {
+            foreach (AttackData a in w.attacks) {
+                a.InitialiseData();
+            }
+        }
         
         //Security
         if (transform.GetComponentInParent<CombatManager>() == null) {
@@ -26,6 +32,7 @@ public class ActorEntity : MonoBehaviour
     }
 
     private void Constructor (ActorData data) {
+        weaponInvetory = data.weaponInvetory;
         str = data.str;
         dex = data.dex;
         spd = data.spd;

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
 
 public enum TileState {
     Walk,
@@ -10,13 +11,14 @@ public class TileEntity : MonoBehaviour
 {
     [SerializeField] private Material pathM = null;
     [SerializeField] private Material wallM = null;
-    public Vector2 coordinates;
-    public List<TileEntity> neighbourTiles = new List<TileEntity>();
+    public Vector2Int coordinates;
+    public List<TileEntity> directNeighbourTiles = new List<TileEntity>();
+    public List<TileEntity> allNeighbourTiles = new List<TileEntity>();
     public GameObject tileUser;
     public bool isWalkable;
     public TileState tileState;
     public CombatManager manager;
-    private GridMoveManager gManager;
+    private GridManager gManager;
     //PathFinding
     [HideInInspector] public int gCost;
     [HideInInspector] public int hCost;
@@ -25,7 +27,7 @@ public class TileEntity : MonoBehaviour
 
     private void Start() {
         UpdateMaterial();
-        gManager = manager.GetComponent<GridMoveManager>();
+        gManager = manager.GetComponent<GridManager>();
     }
 
     public void SetTileUser (GameObject user) {
@@ -49,16 +51,26 @@ public class TileEntity : MonoBehaviour
     }
 #region Interactions
     private void OnMouseEnter() {
-        if (manager.playerState == PlayerState.Moving) {
-            TileEntity currentTile = manager.player.GetComponent<PlayerEntity>().currentTile;
+        TileEntity currentTile = manager.player.GetComponent<PlayerEntity>().currentTile;
+        gManager.ResetHighlight();
+        if (manager.pStateAffectGrid.Contains(manager.playerState)) {
             if (gManager.tileHighlightRanges.TryGetValue(this,out int value)){
                 //yes
                 gManager.HighlightSurroundingTiles(currentTile);
-                gManager.StartPathFinding(currentTile,this);
+                switch (manager.playerState) {
+                    case PlayerState.Moving :
+                        gManager.StartPathFinding(currentTile,this);
+                        break;
+                    case PlayerState.Attacking :
+                        gManager.ShowAttackPattern(this);
+                        //Hard code because problems :(
+                        GetComponentInChildren<MeshRenderer>().material.color= new Color(0,0,0);
+                        break;
+                }
             }else{
                 //no
                 gManager.HighlightSurroundingTiles(currentTile);
-            }
+            } 
         }
         
     }
@@ -69,6 +81,9 @@ public class TileEntity : MonoBehaviour
             if (gManager.tileHighlightRanges.TryGetValue(this,out int value)){
                 gManager.MoveAlongPath(manager.player.GetComponent<PlayerEntity>().currentTile,this,manager.player.GetComponent<ActorEntity>());
             }
+        }
+        if (manager.playerState == PlayerState.Attacking) {
+            gManager.LaunchAttach(this);
         }
     }
 #endregion
