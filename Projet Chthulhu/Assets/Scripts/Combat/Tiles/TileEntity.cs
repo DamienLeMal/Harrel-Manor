@@ -82,7 +82,7 @@ public class TileEntity : MonoBehaviour
                 gManager.MoveAlongPath(manager.player.GetComponent<PlayerEntity>().currentTile,this,manager.player.GetComponent<ActorEntity>());
             }
         }
-        if (manager.playerState == PlayerState.Attacking) {
+        if (manager.playerState == PlayerState.Attacking && gManager.tileHighlightRanges.TryGetValue(this,out int val)) {
             gManager.LaunchAttach(this);
         }
     }
