@@ -6,7 +6,8 @@ using UnityEngine.EventSystems;
 
 public enum TileState {
     Walk,
-    Block
+    Block,
+    Occupied
 }
 public class TileEntity : MonoBehaviour
 {
@@ -34,7 +35,7 @@ public class TileEntity : MonoBehaviour
     public void SetTileUser (GameObject user) {
         tileUser = user;
         if (user != null) {
-            tileState = TileState.Block;
+            tileState = TileState.Occupied;
         }else{
             tileState = TileState.Walk;
         }
@@ -48,11 +49,13 @@ public class TileEntity : MonoBehaviour
             case TileState.Block : 
                 GetComponentInChildren<MeshRenderer>().material = wallM;
                 break;
+            default :
+                goto case TileState.Walk;
         }
     }
 #region Interactions
     private void OnMouseEnter() {
-        TileEntity currentTile = manager.player.GetComponent<PlayerEntity>().currentTile;
+        TileEntity currentTile = manager.player.currentTile;
         gManager.ResetHighlight();
         if (manager.pStateAffectGrid.Contains(manager.playerState)) {
             if (gManager.tileHighlightRanges.TryGetValue(this,out int value)){
@@ -83,7 +86,7 @@ public class TileEntity : MonoBehaviour
             manager.playerState = PlayerState.Locked;
             gManager.ResetHighlight();
             if (gManager.tileHighlightRanges.TryGetValue(this,out int value)){
-                gManager.MoveAlongPath(manager.player.GetComponent<PlayerEntity>().currentTile,this,manager.player.GetComponent<ActorEntity>());
+                gManager.MoveAlongPath(manager.player.currentTile,this,manager.player.GetComponent<ActorEntity>());
             }
         }
         if (manager.playerState == PlayerState.Attacking && gManager.tileHighlightRanges.TryGetValue(this,out int val)) {

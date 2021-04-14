@@ -5,10 +5,10 @@ using UnityEngine;
 public class ActorEntity : MonoBehaviour
 {
     [SerializeField] private ActorData baseStats;
-    public List<WeaponData> weaponInvetory;
-    private int str, dex, spd, intl, agi, con, lck, mnt, pm_max, ap_max, mp_max;
-    public int pm, ap, mp;
-    public TileEntity currentTile;
+    [HideInInspector] public List<WeaponData> weaponInventory;
+    [HideInInspector] public int str, dex, spd, intl, agi, con, lck, mnt, pm_max, ap_max, mp_max, hp_max;
+    public int pm, ap, mp, hp;
+    [HideInInspector] public TileEntity currentTile;
     private CombatManager manager = null;
     
     private void Awake() {
@@ -17,7 +17,7 @@ public class ActorEntity : MonoBehaviour
         }else{
             Constructor(baseStats);
         }
-        foreach (WeaponData w in weaponInvetory) {
+        foreach (WeaponData w in weaponInventory) {
             foreach (AttackData a in w.attacks) {
                 a.InitialiseData();
             }
@@ -32,7 +32,7 @@ public class ActorEntity : MonoBehaviour
     }
 
     private void Constructor (ActorData data) {
-        weaponInvetory = data.weaponInvetory;
+        weaponInventory = data.weaponInvetory;
         str = data.str;
         dex = data.dex;
         spd = data.spd;
@@ -44,9 +44,11 @@ public class ActorEntity : MonoBehaviour
         pm_max = (int)data.spd/10;
         ap_max = (int)(data.dex+data.str)/20;
         mp_max = (int)data.intl/10;
+        hp_max = (int)data.con/5;
         pm = pm_max;
         ap = ap_max;
         mp = mp_max;
+        hp = hp_max;
     }
     /// <summary>
     /// Set the actor to the closest point in the grid and move him to it
@@ -67,5 +69,9 @@ public class ActorEntity : MonoBehaviour
         closestTile.SetTileUser(gameObject);
         currentTile = closestTile;
         transform.position = closestTile.transform.position;
+    }
+
+    public void TakeDammage () {
+
     }
 }
