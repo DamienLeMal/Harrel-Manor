@@ -17,14 +17,14 @@ public class CombatManager : MonoBehaviour
     /// Array of Player States that affect the Grid
     /// </summary>
     [HideInInspector] public PlayerState[] pStateAffectGrid = {PlayerState.Moving, PlayerState.Attacking};
-    [HideInInspector] public GameObject player = null;
+    [HideInInspector] public PlayerEntity player = null;
     private GridManager gridManager = null;
     public CombatButton activeButton = null;
     private void Start() {
         gridManager = GetComponent<GridManager>();
         foreach (GameObject g in gameEntities.entities) {
-            if (g.GetComponent<ActorEntity>() != null) {
-                player = g;
+            if (g.GetComponent<PlayerEntity>() != null) {
+                player = g.GetComponent<PlayerEntity>();
                 break;
             }
         }
@@ -43,7 +43,7 @@ public class CombatManager : MonoBehaviour
 
     public void StartCombat () {
         ResetActorsPositions();
-        foreach (WeaponData w in player.GetComponent<PlayerEntity>().weaponInvetory) {
+        foreach (WeaponData w in player.weaponInventory) {
             foreach(AttackData a in w.attacks) {
                 GetComponent<CombatUiManager>().ShowAttackButton(a);
             }

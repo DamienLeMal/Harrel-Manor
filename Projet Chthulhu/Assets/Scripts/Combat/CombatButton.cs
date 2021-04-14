@@ -24,7 +24,7 @@ public class CombatButton : MonoBehaviour
 
     public void ToggleState () {
         if (player == null) {
-            player = manager.player.GetComponent<PlayerEntity>();
+            player = manager.player;
         }
         //Reset grid
         gridManager.ResetHighlight();
