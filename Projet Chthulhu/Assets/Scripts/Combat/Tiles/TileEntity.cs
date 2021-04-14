@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
+using UnityEngine.EventSystems;
 
 public enum TileState {
     Walk,
@@ -56,7 +57,7 @@ public class TileEntity : MonoBehaviour
         if (manager.pStateAffectGrid.Contains(manager.playerState)) {
             if (gManager.tileHighlightRanges.TryGetValue(this,out int value)){
                 //yes
-                gManager.HighlightSurroundingTiles(currentTile);
+                gManager.HighlightActionTiles(currentTile);
                 switch (manager.playerState) {
                     case PlayerState.Moving :
                         gManager.StartPathFinding(currentTile,this);
@@ -69,12 +70,15 @@ public class TileEntity : MonoBehaviour
                 }
             }else{
                 //no
-                gManager.HighlightSurroundingTiles(currentTile);
+                gManager.HighlightActionTiles(currentTile);
             } 
         }
         
     }
     private void OnMouseDown() {
+        if (EventSystem.current.IsPointerOverGameObject()) {
+            return;
+        }
         if (manager.playerState == PlayerState.Moving) {
             manager.playerState = PlayerState.Locked;
             gManager.ResetHighlight();
