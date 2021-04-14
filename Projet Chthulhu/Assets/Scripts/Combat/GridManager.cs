@@ -41,7 +41,7 @@ public class GridManager : MonoBehaviour
             }
         }
     }
-    public void HighlightSurroundingTiles (TileEntity currentTile) {
+    public void HighlightActionTiles (TileEntity currentTile) {
         tileHighlightRanges = new Dictionary<TileEntity, int>();
         
         switch (manager.playerState) {
@@ -49,7 +49,7 @@ public class GridManager : MonoBehaviour
                 SetMoveRangeValue(currentTile.directNeighbourTiles,currentTile.tileUser.GetComponent<ActorEntity>().pm);
                 break;
             case PlayerState.Attacking :
-                SetAttackRangeValue();
+                SetAttackRangeValue(manager.activeButton.attack);
                 break;
         }
         HighlightTiles();
@@ -82,8 +82,8 @@ public class GridManager : MonoBehaviour
             }
         }
     }
-    private void SetAttackRangeValue () {
-        List<TileEntity> tileList = GetPattern(manager.player.GetComponent<PlayerEntity>().currentTile,manager.player.GetComponent<PlayerEntity>().weaponInvetory[0].attacks[0].positionPatternCoord);
+    private void SetAttackRangeValue (AttackData atk) {
+        List<TileEntity> tileList = GetPattern(manager.player.GetComponent<PlayerEntity>().currentTile,atk.positionPatternCoord);
         foreach (TileEntity t in tileList) {
             if (!tileHighlightRanges.ContainsKey(t)) {
                 tileHighlightRanges.Add(t,1);
@@ -189,7 +189,7 @@ public class GridManager : MonoBehaviour
 #region Attack
 
     public void ShowAttackPattern (TileEntity startTile) {
-        tempHighlightedTiles = GetPattern(startTile, manager.player.GetComponent<PlayerEntity>().weaponInvetory[0].attacks[0].damagePatternCoord);
+        tempHighlightedTiles = GetPattern(startTile, manager.activeButton.attack.damagePatternCoord);
         foreach (TileEntity t in tempHighlightedTiles) {
             t.GetComponentInChildren<MeshRenderer>().material.color= new Color(0,0,0);
         }
