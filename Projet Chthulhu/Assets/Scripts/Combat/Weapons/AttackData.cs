@@ -6,7 +6,8 @@ using UnityEngine;
 public class AttackData : SheetData
 {
     public string attackName;
-    public int apCost, mpCost;
+    public int apCost, mpCost, dmg;
+    public bool rangedAttack;
     [SerializeField] private string positionPattern;
     private int[,] positionPatternArray;
     [SerializeField] private string damagePattern;
