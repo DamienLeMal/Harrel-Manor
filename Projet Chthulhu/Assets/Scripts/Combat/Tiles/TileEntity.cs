@@ -16,7 +16,7 @@ public class TileEntity : MonoBehaviour
     public Vector2Int coordinates;
     public List<TileEntity> directNeighbourTiles = new List<TileEntity>();
     public List<TileEntity> allNeighbourTiles = new List<TileEntity>();
-    public GameObject tileUser;
+    public ActorEntity tileUser;
     public bool isWalkable;
     public TileState tileState;
     public CombatManager manager;
@@ -32,7 +32,7 @@ public class TileEntity : MonoBehaviour
         gManager = manager.GetComponent<GridManager>();
     }
 
-    public void SetTileUser (GameObject user) {
+    public void SetTileUser (ActorEntity user) {
         tileUser = user;
         if (user != null) {
             tileState = TileState.Occupied;
@@ -90,7 +90,7 @@ public class TileEntity : MonoBehaviour
             }
         }
         if (manager.playerState == PlayerState.Attacking && gManager.tileHighlightRanges.TryGetValue(this,out int val)) {
-            gManager.LaunchAttach(this);
+            gManager.LaunchAttach(this,manager.player, manager.activeButton.attack);
         }
     }
 #endregion

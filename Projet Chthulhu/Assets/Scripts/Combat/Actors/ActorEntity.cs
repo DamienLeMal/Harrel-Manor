@@ -66,12 +66,28 @@ public class ActorEntity : MonoBehaviour
             }
         }
         //Apply
-        closestTile.SetTileUser(gameObject);
+        closestTile.SetTileUser(this);
         currentTile = closestTile;
         transform.position = closestTile.transform.position;
     }
 
-    public void TakeDammage () {
+    public void TakeDammage (ActorEntity attacker, AttackData attack) {
+        //Damage Calcul
+        int bonusDmg;
+        if (attack.rangedAttack) {
+            bonusDmg = (int)(Random.Range(0,attacker.dex)/10);
+        }else{
+            bonusDmg = (int)(Random.Range(0,attacker.str)/10);
+        }
+        int dmg = attack.dmg + bonusDmg;
 
+        hp -= dmg;
+        if (hp <= 0) {
+            ActorDeath();
+        }
     }
+    /// <summary>
+    /// This Method should be overrided
+    /// </summary>
+    virtual protected void ActorDeath () { }
 }

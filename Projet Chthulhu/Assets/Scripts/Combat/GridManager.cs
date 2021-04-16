@@ -196,14 +196,21 @@ public class GridManager : MonoBehaviour
     /// <summary>
     /// Get all tiles from the attack damage pattern and attack them
     /// </summary>
-    public void LaunchAttach (TileEntity targetTile) {
+    public void LaunchAttach (TileEntity targetTile, ActorEntity attacker, AttackData attack) {
         foreach (KeyValuePair<TileEntity,int> t in tileHighlightAttack) {
             t.Key.GetComponentInChildren<MeshRenderer>().material.color= new Color(0,0,5);
-            bool missed;
-            float rand1 = Random.Range(0,manager.player.agi);
-            float rand2 = Random.Range(0,t.Value*15);
-            float rand3 = Random.Range(0,100);
-            missed = rand1+rand2 < rand3;
+            if (t.Key.tileUser != null) {
+                //Calcul precision
+                bool missed;
+                float rand1 = Random.Range(0,attacker.dex)-attacker.lck/10;
+                float rand2 = Random.Range(0,t.Value*15);
+                float rand3 = Random.Range(0,100)-t.Key.tileUser.agi/10;
+                missed = rand1+rand2 < rand3;
+                if (!missed) {
+                    //Damage Calcul
+                    t.Key.tileUser.TakeDammage(attacker, attack);
+                }
+            }
         }
         //Hard code because problems :(
         targetTile.GetComponentInChildren<MeshRenderer>().material.color= new Color(0,0,5);
