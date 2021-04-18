@@ -189,6 +189,9 @@ public class GridManager : MonoBehaviour
     public void ShowAttackPattern (TileEntity startTile) {
         tileHighlightAttack = new Dictionary<TileEntity, int>();
         tileHighlightAttack = GetPattern(startTile, manager.activeButton.attack.damagePatternCoord);
+        if (tileHighlightAttack.TryGetValue(manager.player.currentTile, out int value)) { 
+            tileHighlightAttack.Remove(manager.player.currentTile); 
+        }
         foreach (KeyValuePair<TileEntity,int> t in tileHighlightAttack) {
             t.Key.GetComponentInChildren<MeshRenderer>().material.color= new Color(0,0,0);
         }
@@ -202,13 +205,15 @@ public class GridManager : MonoBehaviour
             if (t.Key.tileUser != null) {
                 //Calcul precision
                 bool missed;
-                float rand1 = Random.Range(0,attacker.dex)-attacker.lck/10;
+                float rand1 = Random.Range(0,attacker.dex)+attacker.lck/10;
                 float rand2 = Random.Range(0,t.Value*15);
                 float rand3 = Random.Range(0,100)-t.Key.tileUser.agi/10;
                 missed = rand1+rand2 < rand3;
                 if (!missed) {
                     //Damage Calcul
                     t.Key.tileUser.TakeDammage(attacker, attack);
+                }else{
+                    Debug.Log("Attack missed !\n" + rand1 + "\n" + rand2 + "\n" + rand3 + "\n" + (rand1+rand2));
                 }
             }
         }
