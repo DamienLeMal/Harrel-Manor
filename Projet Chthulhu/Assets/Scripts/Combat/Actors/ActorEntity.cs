@@ -82,6 +82,7 @@ public class ActorEntity : MonoBehaviour
         int dmg = attack.dmg + bonusDmg;
 
         hp -= dmg;
+        Debug.Log("Damage taken : " + dmg);
         if (hp <= 0) {
             ActorDeath();
         }
