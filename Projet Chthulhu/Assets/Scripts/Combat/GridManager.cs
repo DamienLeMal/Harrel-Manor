@@ -60,7 +60,11 @@ public class GridManager : MonoBehaviour
             d.Key.GetComponentInChildren<MeshRenderer>().material.color= new Color(d.Value,0,0);
         }
     }
-
+    public Dictionary<TileEntity,int> EnnemyGetMoveRange (List<TileEntity> nTiles, int range) {
+        tileHighlightRanges = new Dictionary<TileEntity, int>();
+        SetMoveRangeValue(nTiles,range);
+        return tileHighlightRanges;
+    }
 
     /// <summary>
     /// Associate every tile in range with a value decreasing in distance
@@ -251,37 +255,6 @@ public class GridManager : MonoBehaviour
         return finalTargets;
     }
 
-        //get closest neighbor from source to end tile unil you reach it and 
-        //if there's a wall (check if a tile dist is == to wall /!\) remove the tile because it's not accessible
-    #region legacy CheckTileAccess
-    //private bool CheckTileAccess (TileEntity currentTile, TileEntity targetTile) {
-    //    TileEntity closestTile = null;
-    //    float dist = Mathf.Infinity;
-    //    //Debug.Log("-----Start------------------------------------");
-    //    foreach (TileEntity n in currentTile.directNeighbourTiles) {
-    //        float nDist = (targetTile.transform.position - n.transform.position).magnitude;
-    //        //Debug.Log("Block ? " + (n.tileState == TileState.Block) + " | Dist : " + nDist + " | Coord : " + n.coordinates);
-    //        if (nDist < dist) {
-    //            dist = nDist;
-    //            closestTile = n;
-    //        }else if (nDist == dist) {
-    //            
-    //            //if (closestTile.tileState == TileState.Block) {
-    //            //    closestTile = n;
-    //            //}
-    //        }
-    //    }
-    //    //Debug.Log("Chosen : Block ? " + (closestTile.tileState == TileState.Block) + " | Dist : " + dist + "\n------END---------------------------------");
-    //    if (closestTile.tileState == TileState.Block) {
-    //        return false;
-    //    }else if (closestTile == targetTile) {
-    //        return true;
-    //    }else{
-    //        //Debug.Log("----Next---------------------------------");
-    //        return CheckTileAccess(closestTile, targetTile);
-    //    }
-    //}
-    #endregion
     private (bool,int) CheckTileAccess (TileEntity currentTile, TileEntity targetTile, int tileDistance = 0) {
         TileEntity closestTile = null;
         float dist = Mathf.Infinity;
