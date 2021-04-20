@@ -211,6 +211,7 @@ public class GridManager : MonoBehaviour
                 bool missed;
                 float rand1 = Random.Range(0,attacker.dex)+attacker.lck/10;
                 float rand2 = Random.Range(0,t.Value*15);
+                Debug.Log(t.Value);
                 float rand3 = Random.Range(0,100)-t.Key.tileUser.agi/10;
                 missed = rand1+rand2 < rand3;
                 if (!missed) {
@@ -222,12 +223,12 @@ public class GridManager : MonoBehaviour
             }
         }
         //Hard code because problems :(
-        targetTile.GetComponentInChildren<MeshRenderer>().material.color= new Color(0,0,5);
+        targetTile.GetComponentInChildren<MeshRenderer>().material.color = new Color(0,0,5);
         Invoke("ResetHighlight",0.2f);
         Invoke("HighlightTiles",0.2f);
     }
 
-    private Dictionary<TileEntity,int> GetPattern (TileEntity startTile, List<Vector2Int> pattern) {
+    public Dictionary<TileEntity,int> GetPattern (TileEntity startTile, List<Vector2Int> pattern) {
         int startPosX = startTile.coordinates.x;
         int startPosY = startTile.coordinates.y;
         TileEntity[,] grid = manager.grid;
