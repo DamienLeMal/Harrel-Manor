@@ -31,14 +31,31 @@ public class EnnemyBrain : MonoBehaviour
             //GET BEST ATTACK METHOD
                 //get attack position pattern -> get attack pattern
                 //for all these tiles if player not on them -> 0
-                //If player on one of them, score = damage - x and hihest is best
+                //If player on one of them, score = potential damage - x and hihest is best
                 //Highest score is this tile damage score
 
             //z is defense score
             //get attack position pattern -> get attack pattern but for the player this time
-                //this tile score is the distance from the player attack range and -1 if it's not in the Dictionary
+                //this tile score is the distance from the player attack range and -1 if it's not in the Dictionary, lowest is best
         }
 
         //Choose Tile based on comportement
+    }
+
+    private void AttackScore (TileEntity tileToScore, AttackData attack) {
+        int score = 0;
+        Dictionary<TileEntity,int> pattern = gridManager.GetPattern(tileToScore,attack.positionPatternCoord);
+        foreach (KeyValuePair<TileEntity,int> t in pattern) {
+            Dictionary<TileEntity,int> damagePattern = gridManager.GetPattern(t.Key,attack.damagePatternCoord);
+            foreach (KeyValuePair<TileEntity,int> tile in damagePattern) {
+                if (tile.Key.tileUser != null) {
+                    if (attack.rangedAttack) {
+                        score += (entity.dex/10 + attack.dmg + entity.dex/5 - t.Value);//Dex + potential damage - dist
+                    }else{
+                        score += (entity.dex/10 + attack.dmg + entity.str/5 - t.Value);//Dex + potential damage - dist
+                    }
+                }
+            }
+        }
     }
 }

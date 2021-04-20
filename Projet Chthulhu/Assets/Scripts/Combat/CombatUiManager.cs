@@ -36,9 +36,9 @@ public class CombatUiManager : MonoBehaviour
         float rotation = cameraTarget.transform.eulerAngles.y;
         Debug.Log(rotation);
         if (clockwise) {
-            LeanTween.rotateY(cameraTarget,rotation+90f,0.2f);
+            LeanTween.rotateY(cameraTarget,rotation+90f,0.8f).setEaseInOutQuint();
         }else{
-            LeanTween.rotateY(cameraTarget,rotation-90f,0.2f);
+            LeanTween.rotateY(cameraTarget,rotation-90f,0.8f).setEaseInOutQuint();
         }
     }   
 }
