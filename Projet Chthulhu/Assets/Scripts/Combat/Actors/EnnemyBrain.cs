@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
 
 public class EnnemyBrain : MonoBehaviour
 {
@@ -43,15 +44,13 @@ public class EnnemyBrain : MonoBehaviour
                     z += AttackScore(t.Key,a,manager.player,entity);
                 }
             }
-
             tileScore.Add(t.Key,new int[] {x,y,z});
         }
 
         //Choose Tile based on comportement
-        GetBestTile(tileScore,0,true).GetComponentInChildren<MeshRenderer>().material.color = new Color(5,0,0);
-        GetBestTile(tileScore,1,false).GetComponentInChildren<MeshRenderer>().material.color = new Color(0,5,0);
-        GetBestTile(tileScore,2,true).GetComponentInChildren<MeshRenderer>().material.color = new Color(0,0,5);
-        GetBestAverageTile(tileScore).GetComponentInChildren<MeshRenderer>().material.color = new Color(0,5,5);
+        GetBestTile(tileScore,1,false).GetComponentInChildren<MeshRenderer>().material.color = new Color(0,5,0);//agressive tile
+        GetBestTile(tileScore,2,true).GetComponentInChildren<MeshRenderer>().material.color = new Color(0,0,5);//defensive tile
+        GetBestAverageTile(tileScore).GetComponentInChildren<MeshRenderer>().material.color = new Color(0,5,5);//balanced tile
     }
 
     /// <summary>
@@ -63,7 +62,7 @@ public class EnnemyBrain : MonoBehaviour
         foreach (KeyValuePair<TileEntity,int> t in pattern) {
             Dictionary<TileEntity,int> damagePattern = gridManager.GetPattern(t.Key,attack.damagePatternCoord);
             foreach (KeyValuePair<TileEntity,int> tile in damagePattern) {
-                if (tile.Key.tileUser != target) { continue; }
+                if (tile.Key.tileUser != target) continue;
                 if (attack.rangedAttack) {
                     score += (actor.dex/10 + attack.dmg + actor.dex/5 - t.Value);//Dex + potential damage - dist
                 }else{
@@ -83,13 +82,15 @@ public class EnnemyBrain : MonoBehaviour
         foreach (KeyValuePair<TileEntity,int> t in pattern) {
             Dictionary<TileEntity,int> damagePattern = gridManager.GetPattern(t.Key,playerAttack.damagePatternCoord);
             foreach (KeyValuePair<TileEntity,int> tile in damagePattern) {
-                if (tile.Key != tileToScore) { continue; }
+                if (tile.Key != tileToScore) continue;
                 score = 100/t.Value;
             }
         }
-        Debug.Log("-----score : " + score);
         return score;
     }
+    /// <summary>
+    /// Get the tile with the lowest or highest value on one parameter
+    /// </summary>
     private TileEntity GetBestTile (Dictionary<TileEntity,int[]> tileScore, int index, bool lowest) {
         TileEntity selectedTile = null;
         int score;
@@ -99,39 +100,23 @@ public class EnnemyBrain : MonoBehaviour
         }else{
             score = 0;
         }
-        
         foreach (KeyValuePair<TileEntity,int[]> t in tileScore) {
             if (lowest) {
-                if (t.Value[index] < score) {
-                    score = t.Value[index];
-                    selectedTile = t.Key;
-                    dist = t.Value[0];
-                }else if (t.Value[index] == score) {
-                    if (t.Value[0] < dist) {
-                        dist = t.Value[0];
-                        selectedTile = t.Key;
-                        score = t.Value[index];
-                    }
-                }
-            }else{
-                if (t.Value[index] > score) {
-                    score = t.Value[index];
-                    selectedTile = t.Key;
-                    dist = t.Value[0];
-                }else if (t.Value[index] == score) {
-                    if (t.Value[0] < dist) {
-                        dist = t.Value[0];
-                        selectedTile = t.Key;
-                        score = t.Value[index];
-                    }
-                }
+                if (t.Value[index] >= score) continue;
+            }else{   
+                if (t.Value[index] <= score) continue;
             }
+            if (t.Value[index] == score && t.Value[0] >= dist) continue;
+            score = t.Value[index];
+            selectedTile = t.Key;
+            dist = t.Value[0];
         }
-        Debug.Log(selectedTile.coordinates);
-        Debug.Log("index : " + index + " | score : " + score + " bool : " + lowest);
+        //Debug.Log(selectedTile.coordinates);
+        //Debug.Log("index : " + index + " | score : " + score + " bool : " + lowest);
         return selectedTile;
     }
-
+    
+    /// <returns>Tile with the best average values</returns>
     private TileEntity GetBestAverageTile (Dictionary<TileEntity,int[]> tileScore) {
         TileEntity selectedTile = null;
         int score = 9000;
@@ -151,20 +136,14 @@ public class EnnemyBrain : MonoBehaviour
 
         foreach (KeyValuePair<TileEntity,int[]> t in tileScore) {
             int s = (t.Value[1]+t.Value[2])/2;
-            if (Mathf.Abs(average - s) < score) {
-                score = (int)(average - s);
-                selectedTile = t.Key;
-                dist = t.Value[0];
-            }else if (Mathf.Abs(average - s) == score) {
-                if (t.Value[0] < dist) {
-                    dist = t.Value[0];
-                    selectedTile = t.Key;
-                    score = (int)(average - s);
-                }
-            }
+            if (Mathf.Abs(average - s) >= score) continue;
+            if (Mathf.Abs(average - s) == score && t.Value[0] >= dist) continue;
+            score = (int)(average - s);
+            selectedTile = t.Key;
+            dist = t.Value[0];
         }
-        Debug.Log(selectedTile.coordinates);
-        Debug.Log("average : " + average + " | score : " + score);
+        //Debug.Log(selectedTile.coordinates);
+        //Debug.Log("average : " + average + " | score : " + score);
         return selectedTile;
     }
 }
