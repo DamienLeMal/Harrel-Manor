@@ -26,6 +26,7 @@ public class CombatButton : MonoBehaviour
         if (player == null) {
             player = manager.player;
         }
+        if (manager.playerState == PlayerState.Locked) return;
         //Reset grid
         gridManager.ResetHighlight();
         //Toggle Deactivate
