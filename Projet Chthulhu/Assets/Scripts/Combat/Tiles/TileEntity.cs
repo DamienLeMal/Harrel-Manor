@@ -79,9 +79,7 @@ public class TileEntity : MonoBehaviour
         
     }
     private void OnMouseDown() {
-        if (EventSystem.current.IsPointerOverGameObject()) {
-            return;
-        }
+        if (EventSystem.current.IsPointerOverGameObject()) return;
         if (manager.playerState == PlayerState.Moving) {
             manager.playerState = PlayerState.Locked;
             gManager.ResetHighlight();

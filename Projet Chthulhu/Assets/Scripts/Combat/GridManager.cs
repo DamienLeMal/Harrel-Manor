@@ -227,7 +227,9 @@ public class GridManager : MonoBehaviour
         Invoke("ResetHighlight",0.2f);
         Invoke("HighlightTiles",0.2f);
     }
-
+    /// <summary>
+    /// Use a list of coordinates to return a list of corresponding tiles in the level
+    /// </summary>
     public Dictionary<TileEntity,int> GetPattern (TileEntity startTile, List<Vector2Int> pattern) {
         int startPosX = startTile.coordinates.x;
         int startPosY = startTile.coordinates.y;
