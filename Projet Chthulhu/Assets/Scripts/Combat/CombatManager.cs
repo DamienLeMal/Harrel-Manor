@@ -13,6 +13,7 @@ public class CombatManager : MonoBehaviour
     [HideInInspector] public EntityManager gameEntities = new EntityManager();
     public TileEntity[,] grid;
     public PlayerState playerState = PlayerState.Normal;
+    public Turn turn = Turn.Start;
     /// <summary>
     /// Array of Player States that affect the Grid
     /// </summary>

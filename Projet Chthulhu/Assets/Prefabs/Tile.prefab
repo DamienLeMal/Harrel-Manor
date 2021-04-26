@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3967729115441855666}
   - component: {fileID: 8552418132606862306}
+  - component: {fileID: 1229385355826847415}
   - component: {fileID: 7742255542589420512}
   m_Layer: 0
   m_Name: Tile
@@ -45,13 +46,37 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3110d77e9a2a5c8418e3c18dab796174, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pathM: {fileID: 2100000, guid: 88de8ffa04c2d344990882d57ef27910, type: 2}
+  pathM: {fileID: 2100000, guid: 4cf7646917b65994eabd1bec71d8c990, type: 2}
   wallM: {fileID: 2100000, guid: d22f59f4d2392ed448611ac2a2ec5adf, type: 2}
   coordinates: {x: 0, y: 0}
-  neighbourTiles: []
+  directNeighbourTiles: []
+  allNeighbourTiles: []
   tileUser: {fileID: 0}
   isWalkable: 0
   tileState: 0
+  manager: {fileID: 0}
+  gCost: 0
+  hCost: 0
+  previousInPath: {fileID: 0}
+--- !u!114 &1229385355826847415
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1245912158556355762}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 099306ea28538cd4ab7519804bd1a5e2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  wallM: {fileID: 2100000, guid: d22f59f4d2392ed448611ac2a2ec5adf, type: 2}
+  pathM: {fileID: 2100000, guid: 4cf7646917b65994eabd1bec71d8c990, type: 2}
+  lineT: {fileID: 2800000, guid: c3a54cb5269150641bf47d1ebd330355, type: 3}
+  angleT: {fileID: 2800000, guid: 9961664b61fb8ae40b2b0f1c4bef5e69, type: 3}
+  singleT: {fileID: 2800000, guid: 23840bb25594e3245b4324e751924eb5, type: 3}
+  normalT: {fileID: 2800000, guid: b769795f603f42c488a6cdac3bba80d0, type: 3}
+  occupiedT: {fileID: 2800000, guid: 64a1b12276fbb044b9d49ecdb499e6c0, type: 3}
 --- !u!65 &7742255542589420512
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -116,6 +141,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 1bc06a4e340169c41b6ebf112bc008b4, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 4cf7646917b65994eabd1bec71d8c990, type: 2}
     - target: {fileID: 919132149155446097, guid: 1bc06a4e340169c41b6ebf112bc008b4, type: 3}
       propertyPath: m_Name
       value: carre_tile
