@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 1967698054393002362}
   - component: {fileID: 5711169005223669155}
   - component: {fileID: 7990773666099741504}
+  - component: {fileID: 1149737764}
   m_Layer: 0
   m_Name: EnnemyBase
   m_TagString: Untagged
@@ -26,7 +27,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2431751822891285173}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 2.1688375, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -94,9 +95,34 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a4b8546e43d3a47b290ba16cfdbc52, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  baseStats: {fileID: 0}
-  weaponInvetory: []
+  baseStats: {fileID: 11400000, guid: 979d7dab3b925ac4cbafb07f3ef7efa0, type: 2}
+  weaponInventory: []
+  str: 0
+  dex: 0
+  spd: 0
+  intl: 0
+  agi: 0
+  con: 0
+  lck: 0
+  mnt: 0
+  pm_max: 0
+  ap_max: 0
+  mp_max: 0
+  hp_max: 0
   pm: 0
   ap: 0
   mp: 0
+  hp: 0
   currentTile: {fileID: 0}
+--- !u!114 &1149737764
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2431751822891285173}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e0a207b0f46c664aa44fe97c8904f48, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

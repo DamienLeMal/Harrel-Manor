@@ -29,7 +29,7 @@ public class GridManager : MonoBehaviour
             tileHighlightAttack.Clear();
         }
     }
-    public void ResetHighlight () {
+    public void ResetTileHighlight () {
         if (tileHighlightRanges != null) {
             foreach (KeyValuePair<TileEntity,int> d in tileHighlightRanges) {
                 d.Key.UpdateMaterial();
@@ -57,7 +57,7 @@ public class GridManager : MonoBehaviour
 
     private void HighlightTiles () {
         foreach (KeyValuePair<TileEntity,int> d in tileHighlightRanges) {
-            d.Key.GetComponentInChildren<MeshRenderer>().material.color= new Color(d.Value,0,0);
+            d.Key.cosmetic.ChangeTextureColor(new Color(d.Value,0,0));
         }
     }
     public Dictionary<TileEntity,int> EnnemyGetMoveRange (List<TileEntity> nTiles, int range) {
@@ -96,8 +96,22 @@ public class GridManager : MonoBehaviour
     #region PathFinding
     //Show the shortest path to destination
     public void StartPathFinding (TileEntity startTile, TileEntity endTile) {
-        foreach (TileEntity t in PathFinding(startTile,endTile)) {
-            t.GetComponentInChildren<MeshRenderer>().material.color= new Color(0,0,0);
+        TileEntity prev = null;
+        TileEntity current = manager.player.currentTile;
+        bool first = true;
+        foreach (TileEntity next in PathFinding(startTile,endTile)) {
+            if (!first) {
+                current.cosmetic.TraceLine(prev,next);
+            }else{
+                manager.player.currentTile.cosmetic.TraceLine(next);
+                tileHighlightRanges.Add(manager.player.currentTile,0);
+            }
+            prev = current;
+            current = next;
+            first = false;
+        }
+        if (!first) {
+            current.cosmetic.TraceLine(prev);
         }
     }
     
@@ -197,7 +211,7 @@ public class GridManager : MonoBehaviour
             tileHighlightAttack.Remove(manager.player.currentTile); 
         }
         foreach (KeyValuePair<TileEntity,int> t in tileHighlightAttack) {
-            t.Key.GetComponentInChildren<MeshRenderer>().material.color= new Color(0,0,0);
+            t.Key.cosmetic.ChangeTextureColor(new Color(0,0,0));
         }
     }
     /// <summary>
@@ -205,7 +219,7 @@ public class GridManager : MonoBehaviour
     /// </summary>
     public void LaunchAttach (TileEntity targetTile, ActorEntity attacker, AttackData attack) {
         foreach (KeyValuePair<TileEntity,int> t in tileHighlightAttack) {
-            t.Key.GetComponentInChildren<MeshRenderer>().material.color= new Color(0,0,5);
+            t.Key.cosmetic.ChangeTextureColor(new Color(0,0,5));
             if (t.Key.tileUser != null) {
                 //Calcul precision
                 bool missed;
@@ -223,7 +237,7 @@ public class GridManager : MonoBehaviour
             }
         }
         //Hard code because problems :(
-        targetTile.GetComponentInChildren<MeshRenderer>().material.color = new Color(0,0,5);
+        targetTile.cosmetic.ChangeTextureColor(new Color(0,0,5));
         Invoke("ResetHighlight",0.2f);
         Invoke("HighlightTiles",0.2f);
     }

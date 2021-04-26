@@ -187,6 +187,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerState: 0
+  turn: 0
   pStateAffectGrid: 0100000002000000
   player: {fileID: 0}
   activeButton: {fileID: 0}
@@ -1003,18 +1004,12 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!1 &1149737763 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2431751822891285173, guid: d70ab6b709e2cfe47b4b24cabefc263d, type: 3}
+--- !u!114 &1149737764 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1149737764, guid: d70ab6b709e2cfe47b4b24cabefc263d, type: 3}
   m_PrefabInstance: {fileID: 6140753167255143755}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1149737764
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1149737763}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6e0a207b0f46c664aa44fe97c8904f48, type: 3}
@@ -1988,9 +1983,5 @@ PrefabInstance:
       propertyPath: m_Name
       value: EnnemyBase
       objectReference: {fileID: 0}
-    - target: {fileID: 7990773666099741504, guid: d70ab6b709e2cfe47b4b24cabefc263d, type: 3}
-      propertyPath: baseStats
-      value: 
-      objectReference: {fileID: 11400000, guid: 979d7dab3b925ac4cbafb07f3ef7efa0, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d70ab6b709e2cfe47b4b24cabefc263d, type: 3}

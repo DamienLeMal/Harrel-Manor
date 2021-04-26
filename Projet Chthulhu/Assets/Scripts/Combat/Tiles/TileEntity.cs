@@ -21,12 +21,16 @@ public class TileEntity : MonoBehaviour
     public TileState tileState;
     public CombatManager manager;
     private GridManager gManager;
+    public TileCosmetic cosmetic;
     //PathFinding
     [HideInInspector] public int gCost;
     [HideInInspector] public int hCost;
     public int fCost { get { return gCost + hCost;}}
     [HideInInspector]public TileEntity previousInPath = null;
 
+    private void Awake() {
+        cosmetic = GetComponent<TileCosmetic>();
+    }
     private void Start() {
         UpdateMaterial();
         gManager = manager.GetComponent<GridManager>();
@@ -39,24 +43,16 @@ public class TileEntity : MonoBehaviour
         }else{
             tileState = TileState.Walk;
         }
+        UpdateMaterial();
     }
 
     public void UpdateMaterial () {
-        switch (tileState) {
-            case TileState.Walk : 
-                GetComponentInChildren<MeshRenderer>().material = pathM;
-                break;
-            case TileState.Block : 
-                GetComponentInChildren<MeshRenderer>().material = wallM;
-                break;
-            default :
-                goto case TileState.Walk;
-        }
+        cosmetic.UpdateMaterial(tileState);
     }
 #region Interactions
     private void OnMouseEnter() {
         TileEntity currentTile = manager.player.currentTile;
-        gManager.ResetHighlight();
+        gManager.ResetTileHighlight();
         if (manager.pStateAffectGrid.Contains(manager.playerState)) {
             if (gManager.tileHighlightRanges.TryGetValue(this,out int value)){
                 //yes
@@ -82,7 +78,7 @@ public class TileEntity : MonoBehaviour
         if (EventSystem.current.IsPointerOverGameObject()) return;
         if (manager.playerState == PlayerState.Moving) {
             manager.playerState = PlayerState.Locked;
-            gManager.ResetHighlight();
+            gManager.ResetTileHighlight();
             if (gManager.tileHighlightRanges.TryGetValue(this,out int value)){
                 gManager.MoveAlongPath(manager.player.currentTile,this,manager.player.GetComponent<ActorEntity>());
             }
