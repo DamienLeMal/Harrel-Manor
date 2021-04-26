@@ -7,7 +7,6 @@ public class CombatUiManager : MonoBehaviour
 {
     [SerializeField] private GameObject canvasButtonParent;
     [SerializeField] private GameObject buttonPrefab;
-    [SerializeField] private GameObject cameraTarget;
     public void ShowAttackButton (AttackData attack) {
         bool recycling = false;
         foreach (Transform button in canvasButtonParent.transform) {
@@ -31,14 +30,4 @@ public class CombatUiManager : MonoBehaviour
         button.GetComponentInChildren<Text>().text = attack.attackName;
         button.GetComponent<CombatButton>().ButtonConstructor(GetComponent<CombatManager>(),PlayerState.Attacking,attack);
     }
-
-    public void RotateCamera (bool clockwise) {
-        float rotation = cameraTarget.transform.eulerAngles.y;
-        Debug.Log(rotation);
-        if (clockwise) {
-            LeanTween.rotateY(cameraTarget,rotation+90f,0.8f).setEaseInOutQuint();
-        }else{
-            LeanTween.rotateY(cameraTarget,rotation-90f,0.8f).setEaseInOutQuint();
-        }
-    }   
 }
