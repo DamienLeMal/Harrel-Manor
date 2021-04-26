@@ -77,7 +77,8 @@ public class EnnemyBrain : MonoBehaviour
             TileEntity SafeTile = GetBestTile(Score.Defense);
             Debug.Log("Go to tile : " + SafeTile.coordinates);
         }
-        //End   
+        //End
+        manager.GetComponent<CombatTurnManager>().EndTurn(entity);
     }
 
     private void AttackLoop () {

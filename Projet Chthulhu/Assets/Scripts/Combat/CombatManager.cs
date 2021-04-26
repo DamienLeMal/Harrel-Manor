@@ -43,6 +43,10 @@ public class CombatManager : MonoBehaviour
     }
 
     public void StartCombat () {
+        foreach (GameObject g in gameEntities.entities) {
+            if (Vector3.Distance(player.transform.position,g.transform.position) > 123456789) continue;
+            GetComponent<CombatTurnManager>().fightingEntities.Add(g.GetComponent<ActorEntity>());
+        }
         ResetActorsPositions();
         foreach (WeaponData w in player.weaponInventory) {
             foreach(AttackData a in w.attacks) {

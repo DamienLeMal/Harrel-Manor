@@ -11,8 +11,6 @@ public enum TileState {
 }
 public class TileEntity : MonoBehaviour
 {
-    [SerializeField] private Material pathM = null;
-    [SerializeField] private Material wallM = null;
     public Vector2Int coordinates;
     public List<TileEntity> directNeighbourTiles = new List<TileEntity>();
     public List<TileEntity> allNeighbourTiles = new List<TileEntity>();

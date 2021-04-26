@@ -217,7 +217,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canvasButtonParent: {fileID: 1947914777}
   buttonPrefab: {fileID: 3659706783343686361, guid: 56c3ebf168d6eb24ea1d519d5c395da7, type: 3}
-  cameraTarget: {fileID: 651445267}
 --- !u!1001 &203685656
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -917,8 +916,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 122226232}
-        m_TargetAssemblyTypeName: CombatUiManager, Assembly-CSharp
+      - m_Target: {fileID: 623175951}
+        m_TargetAssemblyTypeName: CombatButton, Assembly-CSharp
         m_MethodName: RotateCamera
         m_Mode: 6
         m_Arguments:
@@ -1261,8 +1260,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 122226232}
-        m_TargetAssemblyTypeName: CombatUiManager, Assembly-CSharp
+      - m_Target: {fileID: 623175951}
+        m_TargetAssemblyTypeName: CombatButton, Assembly-CSharp
         m_MethodName: RotateCamera
         m_Mode: 6
         m_Arguments:

@@ -10,19 +10,29 @@ public enum Turn {
 public class CombatTurnManager : MonoBehaviour
 {
     private CombatManager manager = null;
+    private bool playerPriority;
+    public List<ActorEntity> fightingEntities = new List<ActorEntity>();
 
     private void Awake() {
         manager = GetComponent<CombatManager>();
     }
-    // Start is called before the first frame update
-    void Start()
-    {
-        
+    
+    private void NewTurn() {
+        manager.turn = Turn.Start;
+        foreach (ActorEntity a in fightingEntities) {
+            a.mp = a.mp_max;
+            a.pm = a.pm_max;
+            a.ap = a.ap_max;
+        }
+        if (playerPriority) {
+            manager.turn = Turn.PlayerTurn;
+        }else{
+            manager.turn = Turn.EnnemyTurn;
+            Debug.Log("Ennemy's Turn");
+        }
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+    public void EndTurn (ActorEntity a) {
+
     }
 }

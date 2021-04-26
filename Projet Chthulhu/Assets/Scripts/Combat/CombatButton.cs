@@ -7,6 +7,7 @@ public class CombatButton : MonoBehaviour
 {
     [SerializeField] private CombatManager manager = null;
     [SerializeField] private PlayerState newState;
+    [SerializeField] private GameObject cameraTarget;
     public AttackData attack = null;
     private GridManager gridManager = null;
     private PlayerEntity player;
@@ -27,6 +28,7 @@ public class CombatButton : MonoBehaviour
             player = manager.player;
         }
         if (manager.playerState == PlayerState.Locked) return;
+        if (manager.turn != Turn.PlayerTurn) return;
         //Reset grid
         gridManager.ResetTileHighlight();
         //Toggle Deactivate
@@ -49,6 +51,16 @@ public class CombatButton : MonoBehaviour
                     gridManager.HighlightActionTiles(player.currentTile);
                 }
                 break;
+        }
+    }
+
+    public void RotateCamera (bool clockwise) {
+        float rotation = cameraTarget.transform.eulerAngles.y;
+        Debug.Log(rotation);
+        if (clockwise) {
+            LeanTween.rotateY(cameraTarget,rotation+90f,0.8f).setEaseInOutQuint();
+        }else{
+            LeanTween.rotateY(cameraTarget,rotation-90f,0.8f).setEaseInOutQuint();
         }
     }
 }
