@@ -7,7 +7,7 @@ public class GridManager : MonoBehaviour
     private CombatManager manager = null;
     private TileEntity[,] tileGrid = null;
     /// <summary>
-    /// Highlight all tiles the player can interact with
+    /// Refers to the tiles the program is processing right now, they are potentialy lighten up
     /// </summary>
     /// <typeparam name="TileEntity">Tiles that are interactable</typeparam>
     /// <typeparam name="int">Distance of the tile from the player</typeparam>
@@ -60,18 +60,18 @@ public class GridManager : MonoBehaviour
             d.Key.cosmetic.ChangeTextureColor(new Color(d.Value,0,0));
         }
     }
-    public Dictionary<TileEntity,int> EnnemyGetMoveRange (List<TileEntity> nTiles, int range) {
+    public Dictionary<TileEntity,int> EnnemyGetMoveRange (ActorEntity ennemyEntity, int range) {
         tileHighlightRanges = new Dictionary<TileEntity, int>();
-        SetMoveRangeValue(nTiles,range);
+        SetMoveRangeValue(new List<TileEntity>() {ennemyEntity.currentTile},range+1,true);//Range +1 since we also want the starting tile in the dictionnary
         return tileHighlightRanges;
     }
 
     /// <summary>
     /// Associate every tile in range with a value decreasing in distance
     /// </summary>
-    private void SetMoveRangeValue (List<TileEntity> nTiles, int range) {
+    private void SetMoveRangeValue (List<TileEntity> nTiles, int range, bool ennemyGetMoveRange = false) {
         foreach (TileEntity nt in nTiles) {
-            if (nt.tileState == TileState.Walk) {
+            if (nt.tileState == TileState.Walk || ennemyGetMoveRange) {
                 if (tileHighlightRanges.TryGetValue(nt,out int value)){
                     if (range > value) {
                         tileHighlightRanges.Remove(nt);
@@ -87,7 +87,7 @@ public class GridManager : MonoBehaviour
         }
     }
     private void SetAttackRangeValue (AttackData atk) {
-        tileHighlightRanges = GetPattern(manager.player.currentTile,atk.positionPatternCoord);
+        tileHighlightRanges = GetPattern(manager.player.currentTile,atk.positionPatternCoord,manager.player);
     }
 
     #endregion
@@ -118,8 +118,8 @@ public class GridManager : MonoBehaviour
     /// <summary>
     /// Move the Actor along the shortest path
     /// </summary>
-    public void MoveAlongPath (TileEntity startTile, TileEntity endTile, ActorEntity actor) {
-        List<TileEntity> path = PathFinding(startTile,endTile);
+    public void MoveAlongPath (TileEntity endTile, ActorEntity actor) {
+        List<TileEntity> path = PathFinding(actor.currentTile,endTile);
         StartCoroutine(MoveOneTile(path,actor));
     }
     /// <summary>
@@ -204,11 +204,11 @@ public class GridManager : MonoBehaviour
     /// <summary>
     /// Get all tiles from the attack damage pattern and color them
     /// </summary>
-    public void ShowAttackPattern (TileEntity startTile) {
+    public void ShowAttackPattern (TileEntity startTile, ActorEntity attacker, AttackData attack) {
         tileHighlightAttack = new Dictionary<TileEntity, int>();
-        tileHighlightAttack = GetPattern(startTile, manager.activeButton.attack.damagePatternCoord);
-        if (tileHighlightAttack.TryGetValue(manager.player.currentTile, out int value)) { 
-            tileHighlightAttack.Remove(manager.player.currentTile); 
+        tileHighlightAttack = GetPattern(startTile, attack.damagePatternCoord,attacker);
+        if (tileHighlightAttack.TryGetValue(attacker.currentTile, out int value)) { 
+            tileHighlightAttack.Remove(attacker.currentTile); 
         }
         foreach (KeyValuePair<TileEntity,int> t in tileHighlightAttack) {
             t.Key.cosmetic.ChangeTextureColor(new Color(0,0,0));
@@ -218,6 +218,7 @@ public class GridManager : MonoBehaviour
     /// Get all tiles from the attack damage pattern and attack them
     /// </summary>
     public void LaunchAttach (TileEntity targetTile, ActorEntity attacker, AttackData attack) {
+        ShowAttackPattern(targetTile,attacker,attack);
         foreach (KeyValuePair<TileEntity,int> t in tileHighlightAttack) {
             t.Key.cosmetic.ChangeTextureColor(new Color(0,0,5));
             if (t.Key.tileUser != null) {
@@ -238,13 +239,12 @@ public class GridManager : MonoBehaviour
         }
         //Hard code because problems :(
         targetTile.cosmetic.ChangeTextureColor(new Color(0,0,5));
-        Invoke("ResetHighlight",0.2f);
-        Invoke("HighlightTiles",0.2f);
+        Invoke("ResetTileHighlight",0.2f);
     }
     /// <summary>
     /// Use a list of coordinates to return a list of corresponding tiles in the level
     /// </summary>
-    public Dictionary<TileEntity,int> GetPattern (TileEntity startTile, List<Vector2Int> pattern) {
+    public Dictionary<TileEntity,int> GetPattern (TileEntity startTile, List<Vector2Int> pattern, ActorEntity attacker) {
         int startPosX = startTile.coordinates.x;
         int startPosY = startTile.coordinates.y;
         TileEntity[,] grid = manager.grid;
@@ -259,16 +259,16 @@ public class GridManager : MonoBehaviour
             potentialTargets.Add(grid[startPosX + v.x, startPosY + v.y]);
         }
         //Clear tiles that are blocked in the path
-        //List<TileEntity> finalTargets = new List<TileEntity>();
         Dictionary<TileEntity,int> finalTargets = new Dictionary<TileEntity, int>();
         for (int i = potentialTargets.Count - 1; i >= 0; i--) {
             (bool,int) tupleAccess;
-            if (potentialTargets[i] == manager.player) continue;
+            if (potentialTargets[i] == attacker) continue;
             tupleAccess = CheckTileAccess(grid[startPosX, startPosY],potentialTargets[i]);
-            if (tupleAccess.Item1 && ! finalTargets.TryGetValue(potentialTargets[i],out int value)) {
+            if (tupleAccess.Item1 && !finalTargets.TryGetValue(potentialTargets[i],out int value)) {
                 finalTargets.Add(potentialTargets[i],tupleAccess.Item2);
             }
         }
+        Debug.Log("start tile dans le dico ?" + finalTargets.TryGetValue(startTile, out int fez) + " pattern : " + pattern[0]);
         return finalTargets;
     }
 

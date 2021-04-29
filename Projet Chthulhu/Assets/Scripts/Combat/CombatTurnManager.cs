@@ -10,29 +10,42 @@ public enum Turn {
 public class CombatTurnManager : MonoBehaviour
 {
     private CombatManager manager = null;
-    private bool playerPriority;
-    public List<ActorEntity> fightingEntities = new List<ActorEntity>();
+    public List<ActorEntity> fightingEntities;
+    private int currentActorIndex = 0;
 
     private void Awake() {
         manager = GetComponent<CombatManager>();
     }
     
-    private void NewTurn() {
+    public void NewTurn() {
+        Debug.Log("Very new turn");
         manager.turn = Turn.Start;
         foreach (ActorEntity a in fightingEntities) {
             a.mp = a.mp_max;
             a.pm = a.pm_max;
             a.ap = a.ap_max;
         }
-        if (playerPriority) {
-            manager.turn = Turn.PlayerTurn;
-        }else{
-            manager.turn = Turn.EnnemyTurn;
-            Debug.Log("Ennemy's Turn");
-        }
+        currentActorIndex = 0;
+        StartTurn(fightingEntities[currentActorIndex]);
     }
 
     public void EndTurn (ActorEntity a) {
+        Debug.Log(a + " end of turn");
+        currentActorIndex += 1;
+        if (currentActorIndex > fightingEntities.Count - 1) {
+            NewTurn();
+            return;
+        }
+        StartTurn(fightingEntities[currentActorIndex]);
+    }
 
+    private void StartTurn (ActorEntity a) {
+        Debug.Log(a + " turn");
+        if (a == manager.player) {
+            manager.turn = Turn.PlayerTurn;
+        }else{
+            manager.turn = Turn.EnnemyTurn;
+            StartCoroutine(a.GetComponent<EnnemyBrain>().PlayTurn());
+        }
     }
 }
