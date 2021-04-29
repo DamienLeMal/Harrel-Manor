@@ -29,7 +29,12 @@ public class CombatManager : MonoBehaviour
                 break;
             }
         }
-        Invoke("StartCombat",1f);
+        Invoke("InvokeCombat",1f);
+    }
+
+    //TEMP
+    private void InvokeCombat () {
+        StartCombat(player);
     }
     public void ResetActorsPositions() {
         foreach (TileEntity t in grid) {
@@ -42,10 +47,14 @@ public class CombatManager : MonoBehaviour
         gridManager.ClearTileHighlight();
     }
 
-    public void StartCombat () {
+    public void StartCombat (ActorEntity actorPriority) {
+        CombatTurnManager turnManager = GetComponent<CombatTurnManager>();
+        turnManager.fightingEntities = new List<ActorEntity>();
+        turnManager.fightingEntities.Add(actorPriority);
         foreach (GameObject g in gameEntities.entities) {
             if (Vector3.Distance(player.transform.position,g.transform.position) > 123456789) continue;
-            GetComponent<CombatTurnManager>().fightingEntities.Add(g.GetComponent<ActorEntity>());
+            if (turnManager.fightingEntities.Contains(g.GetComponent<ActorEntity>())) continue;
+            turnManager.fightingEntities.Add(g.GetComponent<ActorEntity>());
         }
         ResetActorsPositions();
         foreach (WeaponData w in player.weaponInventory) {
@@ -53,5 +62,6 @@ public class CombatManager : MonoBehaviour
                 GetComponent<CombatUiManager>().ShowAttackButton(a);
             }
         }
+        turnManager.NewTurn();
     }
 }

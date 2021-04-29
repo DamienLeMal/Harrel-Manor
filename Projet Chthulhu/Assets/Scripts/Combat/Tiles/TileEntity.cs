@@ -4,6 +4,8 @@ using UnityEngine;
 using System.Linq;
 using UnityEngine.EventSystems;
 
+using UnityEngine.UI;
+
 public enum TileState {
     Walk,
     Block,
@@ -20,6 +22,13 @@ public class TileEntity : MonoBehaviour
     public CombatManager manager;
     private GridManager gManager;
     public TileCosmetic cosmetic;
+
+    //Test
+    public Text text;
+    public void SetText (string txt) {
+        text.text = txt;
+    }
+
     //PathFinding
     [HideInInspector] public int gCost;
     [HideInInspector] public int hCost;
@@ -49,25 +58,24 @@ public class TileEntity : MonoBehaviour
     }
 #region Interactions
     private void OnMouseEnter() {
-        TileEntity currentTile = manager.player.currentTile;
         gManager.ResetTileHighlight();
         if (manager.pStateAffectGrid.Contains(manager.playerState)) {
             if (gManager.tileHighlightRanges.TryGetValue(this,out int value)){
                 //yes
-                gManager.HighlightActionTiles(currentTile);
+                gManager.HighlightActionTiles(manager.player.currentTile);
                 switch (manager.playerState) {
                     case PlayerState.Moving :
-                        gManager.StartPathFinding(currentTile,this);
+                        gManager.StartPathFinding(manager.player.currentTile,this);
                         break;
                     case PlayerState.Attacking :
-                        gManager.ShowAttackPattern(this);
+                        gManager.ShowAttackPattern(this, manager.player, manager.activeButton.attack);
                         //Hard code because problems :(
-                        GetComponentInChildren<MeshRenderer>().material.color= new Color(0,0,0);
+                        cosmetic.ChangeTextureColor(new Color(0,0,0));
                         break;
                 }
             }else{
                 //no
-                gManager.HighlightActionTiles(currentTile);
+                gManager.HighlightActionTiles(manager.player.currentTile);
             } 
         }
         
@@ -78,11 +86,12 @@ public class TileEntity : MonoBehaviour
             manager.playerState = PlayerState.Locked;
             gManager.ResetTileHighlight();
             if (gManager.tileHighlightRanges.TryGetValue(this,out int value)){
-                gManager.MoveAlongPath(manager.player.currentTile,this,manager.player.GetComponent<ActorEntity>());
+                gManager.MoveAlongPath(this,manager.player);
             }
         }
         if (manager.playerState == PlayerState.Attacking && gManager.tileHighlightRanges.TryGetValue(this,out int val)) {
             gManager.LaunchAttach(this,manager.player, manager.activeButton.attack);
+            gManager.Invoke("HighlightTiles",0.2f);
         }
     }
 #endregion
