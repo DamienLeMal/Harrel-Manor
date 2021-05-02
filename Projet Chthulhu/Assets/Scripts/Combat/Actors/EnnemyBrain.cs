@@ -20,7 +20,7 @@ public class EnnemyBrain : MonoBehaviour
     private CombatManager manager;
     private Dictionary<TileEntity,Dictionary<Score,int>> tileScore;
     private Dictionary<TileEntity,AttackData> bestAttack;
-    private EnnemyState state = EnnemyState.Regular;
+    [SerializeField] private EnnemyState state = EnnemyState.Regular;
     private bool attackEnded;
 
     private void Start() {
@@ -36,40 +36,30 @@ public class EnnemyBrain : MonoBehaviour
 
 #region Take Decisions
     public IEnumerator PlayTurn() {
+
         //Start
         EvaluateTiles();
-        //Can I Attack Player ?
-        int bestAtkScore = GetBestScore(Score.Attack);
-        if (bestAtkScore > 0) {
+
+        //Is it better to Attack Player ?    
+        if (tileScore[GetMoveToTile()][Score.Attack] <= tileScore[entity.currentTile][Score.Attack]) {
             //Yes
             StartCoroutine(AttackLoop());
             yield return new WaitUntil(()=>attackEnded == true);
         }else{
             //No
-            switch (state) {
-                case EnnemyState.Regular :
-                    //Go to average tile
-                    TileEntity regularTile = GetBestAverageTile();
-                    Debug.Log("Go to regular tile : " + regularTile.coordinates);
-                    break;
-                case EnnemyState.Defensive :
-                    //Go to safest attack tile
-                    TileEntity defensiveTile = GetBestDefensiveAttackTile();
-                    Debug.Log("Go to defensive tile : " + defensiveTile.coordinates);
-                    break;
-                case EnnemyState.Aggressive :
-                    //Go to best attack tile
-                    TileEntity attackTile = GetBestTile(Score.Attack);
-                    Debug.Log("Go to aggressive tile : " + attackTile.coordinates);
-                    break;
-            }
+            TileEntity goToTile = GetMoveToTile();
+            MoveToTile(goToTile);
+            //Wait until he's arrived
+            yield return new WaitUntil(()=>entity.currentTile == goToTile);
+
             EvaluateTiles();
+
+            if (GetBestScore(Score.Attack) > 0) {
+                StartCoroutine(AttackLoop());
+                yield return new WaitUntil(()=>attackEnded == true);
+            }
         }
-        bestAtkScore = GetBestScore(Score.Attack);
-        if (bestAtkScore > 0) {
-            StartCoroutine(AttackLoop());//Will do nothing if not enough ap
-            yield return new WaitUntil(()=>attackEnded == true);
-        }
+
         if (entity.pm > 0) {
             //Go to safest tile
             TileEntity safeTile = GetBestTile(Score.Defense);
@@ -77,19 +67,33 @@ public class EnnemyBrain : MonoBehaviour
             Debug.Log("Go to safe tile : " + safeTile.coordinates);
         }
         //End
-        manager.GetComponent<CombatTurnManager>().EndTurn(entity);
+        manager.turnManager.EndTurn(entity);
+    }
+
+    private TileEntity GetMoveToTile () {
+        switch (state) {
+            case EnnemyState.Regular :
+                //Go to average tile
+                return GetBestAverageTile();
+            case EnnemyState.Defensive :
+                //Go to safest attack tile
+                return GetBestDefensiveAttackTile();
+            case EnnemyState.Aggressive :
+                //Go to best attack tile
+                return GetBestTile(Score.Attack);
+            default :
+                return null;
+        }
     }
 
     IEnumerator AttackLoop () {
         attackEnded = false;
         TileEntity attackedTile = GetBestTile(Score.Attack);
         int newAp = entity.ap - bestAttack[attackedTile].apCost;
-        Debug.Log("New Ap : " + newAp);
         if (newAp < 0) {
             attackEnded = true;
             yield break;
         }
-        Debug.Log("Launch Attack on " + attackedTile.coordinates + " with " + bestAttack[attackedTile].name);
         gridManager.ShowAttackPattern(attackedTile,entity,bestAttack[attackedTile]);
         gridManager.LaunchAttach(attackedTile,entity,bestAttack[attackedTile]);
         //TEMPORARY IT WILL NOT BE DONE HERE AFTER
@@ -165,10 +169,6 @@ public class EnnemyBrain : MonoBehaviour
             Dictionary<TileEntity,int> damagePattern = gridManager.GetPattern(t.Key,attack.damagePatternCoord,actor);
 
             if (!damagePattern.TryGetValue(target.currentTile, out int value)) continue;
-
-            if (tileToScore.coordinates == new Vector2Int(9,10) && actor == entity) {
-                Debug.Log("ié soui là");
-            }
 
             if (attack.rangedAttack) {
                 newScore = (actor.dex/10 + attack.dmg + actor.dex/5 - (int)Vector3.Distance(tileToScore.transform.position,target.currentTile.transform.position));//Dex + potential damage - dist

@@ -41,9 +41,9 @@ public class GridManager : MonoBehaviour
             }
         }
     }
-    public void HighlightActionTiles (TileEntity currentTile) {
+    public void HighlightActionTiles () {
         tileHighlightRanges = new Dictionary<TileEntity, int>();
-        
+        TileEntity currentTile = manager.player.currentTile;
         switch (manager.playerState) {
             case PlayerState.Moving :
                 SetMoveRangeValue(currentTile.directNeighbourTiles,currentTile.tileUser.GetComponent<ActorEntity>().pm);
@@ -219,6 +219,7 @@ public class GridManager : MonoBehaviour
     /// </summary>
     public void LaunchAttach (TileEntity targetTile, ActorEntity attacker, AttackData attack) {
         ShowAttackPattern(targetTile,attacker,attack);
+        List<TileEntity> tileToAttack = new List<TileEntity>();
         foreach (KeyValuePair<TileEntity,int> t in tileHighlightAttack) {
             t.Key.cosmetic.ChangeTextureColor(new Color(0,0,5));
             if (t.Key.tileUser != null) {
@@ -231,11 +232,15 @@ public class GridManager : MonoBehaviour
                 missed = rand1+rand2 < rand3;
                 if (!missed) {
                     //Damage Calcul
-                    t.Key.tileUser.TakeDammage(attacker, attack);
+                    
+                    tileToAttack.Add(t.Key);
                 }else{
-                    Debug.Log("Attack missed !\n" + rand1 + "\n" + rand2 + "\n" + rand3 + "\n" + (rand1+rand2));
+                    t.Key.tileUser.ui.ShowDamageAmount(0);
                 }
             }
+        }
+        foreach (TileEntity t in tileToAttack) {
+            t.tileUser.TakeDammage(attacker, attack);
         }
         //Hard code because problems :(
         targetTile.cosmetic.ChangeTextureColor(new Color(0,0,5));
@@ -268,7 +273,6 @@ public class GridManager : MonoBehaviour
                 finalTargets.Add(potentialTargets[i],tupleAccess.Item2);
             }
         }
-        Debug.Log("start tile dans le dico ?" + finalTargets.TryGetValue(startTile, out int fez) + " pattern : " + pattern[0]);
         return finalTargets;
     }
 

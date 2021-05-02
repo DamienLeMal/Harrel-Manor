@@ -11,18 +11,23 @@ public enum PlayerState {
 public class CombatManager : MonoBehaviour
 {
     [HideInInspector] public EntityManager gameEntities = new EntityManager();
-    public TileEntity[,] grid;
     public PlayerState playerState = PlayerState.Normal;
+    
     public Turn turn = Turn.Start;
+    public CombatTurnManager turnManager;
+
+    public TileEntity[,] grid;
     /// <summary>
     /// Array of Player States that affect the Grid
     /// </summary>
     [HideInInspector] public PlayerState[] pStateAffectGrid = {PlayerState.Moving, PlayerState.Attacking};
     [HideInInspector] public PlayerEntity player = null;
     private GridManager gridManager = null;
+
     public CombatButton activeButton = null;
     private void Start() {
         gridManager = GetComponent<GridManager>();
+        turnManager = GetComponent<CombatTurnManager>();
         foreach (GameObject g in gameEntities.entities) {
             if (g.GetComponent<PlayerEntity>() != null) {
                 player = g.GetComponent<PlayerEntity>();
@@ -41,14 +46,13 @@ public class CombatManager : MonoBehaviour
             if (t == null || t.tileUser == null) { continue; }
             t.SetTileUser(null);
         }
-        foreach (GameObject a in gameEntities.entities) {
-            a.GetComponent<ActorEntity>().SnapToGrid();
+        foreach (ActorEntity a in turnManager.fightingEntities) {
+            a.SnapToGrid();
         }
         gridManager.ClearTileHighlight();
     }
 
     public void StartCombat (ActorEntity actorPriority) {
-        CombatTurnManager turnManager = GetComponent<CombatTurnManager>();
         turnManager.fightingEntities = new List<ActorEntity>();
         turnManager.fightingEntities.Add(actorPriority);
         foreach (GameObject g in gameEntities.entities) {
@@ -57,9 +61,11 @@ public class CombatManager : MonoBehaviour
             turnManager.fightingEntities.Add(g.GetComponent<ActorEntity>());
         }
         ResetActorsPositions();
+        CombatUiManager uiManager = GetComponent<CombatUiManager>();
         foreach (WeaponData w in player.weaponInventory) {
+            Transform wb = uiManager.ShowWeaponButton().attackContainer;
             foreach(AttackData a in w.attacks) {
-                GetComponent<CombatUiManager>().ShowAttackButton(a);
+                GetComponent<CombatUiManager>().ShowAttackButton(a,wb);
             }
         }
         turnManager.NewTurn();

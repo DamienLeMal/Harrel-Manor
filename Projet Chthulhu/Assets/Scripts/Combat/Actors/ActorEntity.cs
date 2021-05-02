@@ -9,7 +9,8 @@ public class ActorEntity : MonoBehaviour
     [HideInInspector] public int str, dex, spd, intl, agi, con, lck, mnt, pm_max, ap_max, mp_max, hp_max;
     public int pm, ap, mp, hp;
     [HideInInspector] public TileEntity currentTile;
-    private CombatManager manager = null;
+    protected CombatManager manager = null;
+    public ActorUi ui;
     
     private void Awake() {
         if (baseStats == null) {
@@ -82,6 +83,7 @@ public class ActorEntity : MonoBehaviour
         int dmg = attack.dmg + bonusDmg;
 
         hp -= dmg;
+        ui.ShowDamageAmount(dmg);
         Debug.Log("Damage taken : " + dmg);
         if (hp <= 0) {
             ActorDeath();

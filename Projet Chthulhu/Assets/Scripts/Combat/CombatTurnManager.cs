@@ -48,4 +48,10 @@ public class CombatTurnManager : MonoBehaviour
             StartCoroutine(a.GetComponent<EnnemyBrain>().PlayTurn());
         }
     }
+
+    public void TestCombatEnd () {
+        if (fightingEntities.Count != 1) return;
+        //manager.turn = Turn.End;
+        //Combat end, player win
+    }
 }

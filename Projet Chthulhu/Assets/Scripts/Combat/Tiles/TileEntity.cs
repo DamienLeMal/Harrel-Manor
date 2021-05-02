@@ -62,7 +62,7 @@ public class TileEntity : MonoBehaviour
         if (manager.pStateAffectGrid.Contains(manager.playerState)) {
             if (gManager.tileHighlightRanges.TryGetValue(this,out int value)){
                 //yes
-                gManager.HighlightActionTiles(manager.player.currentTile);
+                gManager.HighlightActionTiles();
                 switch (manager.playerState) {
                     case PlayerState.Moving :
                         gManager.StartPathFinding(manager.player.currentTile,this);
@@ -75,7 +75,7 @@ public class TileEntity : MonoBehaviour
                 }
             }else{
                 //no
-                gManager.HighlightActionTiles(manager.player.currentTile);
+                gManager.HighlightActionTiles();
             } 
         }
         
