@@ -42,13 +42,13 @@ public class CombatButton : MonoBehaviour
             case PlayerState.Moving :
                 if (player.pm > 0) {
                     manager.playerState = PlayerState.Moving;
-                    gridManager.HighlightActionTiles(player.currentTile);
+                    gridManager.HighlightActionTiles();
                 }
                 break;
             case PlayerState.Attacking :
                 if (player.ap >= attack.apCost && player.mp >= attack.mpCost){
                     manager.playerState = PlayerState.Attacking;
-                    gridManager.HighlightActionTiles(player.currentTile);
+                    gridManager.HighlightActionTiles();
                 }
                 break;
         }
