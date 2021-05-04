@@ -23,6 +23,11 @@ public class AttackData : SheetData
         damagePatternCoord = ProcessData(damagePatternArray);
     }
 
+    public void Cost (ActorEntity attacker) {
+        if (attacker.ap - apCost < 0) Debug.LogWarning("Ap under 0");
+        attacker.ap -= apCost;
+    }
+
     private List<Vector2Int> ProcessData (int[,] data) {
         List<Vector2Int> quarterCoords = new List<Vector2Int>();
         for (int i = 0; i<Mathf.Sqrt(data.Length); i++) {

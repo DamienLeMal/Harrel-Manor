@@ -227,7 +227,6 @@ public class GridManager : MonoBehaviour
                 bool missed;
                 float rand1 = Random.Range(0,attacker.dex)+attacker.lck/10;
                 float rand2 = Random.Range(0,t.Value*15);
-                Debug.Log(t.Value);
                 float rand3 = Random.Range(0,100)-t.Key.tileUser.agi/10;
                 missed = rand1+rand2 < rand3;
                 if (!missed) {
@@ -242,6 +241,22 @@ public class GridManager : MonoBehaviour
         foreach (TileEntity t in tileToAttack) {
             t.tileUser.TakeDammage(attacker, attack);
         }
+
+        attack.Cost(attacker);
+
+        bool canAttack = false;
+        foreach (WeaponData w in attacker.weaponInventory) {
+            foreach (AttackData a in w.attacks) {
+                if (a.apCost <= attacker.ap && a.mpCost <= attacker.mp) continue;
+                canAttack = true;
+            }
+        }
+        if (canAttack) {
+            ResetTileHighlight();
+            manager.playerState = PlayerState.Normal;
+            HighlightActionTiles();
+        }
+
         //Hard code because problems :(
         targetTile.cosmetic.ChangeTextureColor(new Color(0,0,5));
         Invoke("ResetTileHighlight",0.2f);
@@ -269,9 +284,9 @@ public class GridManager : MonoBehaviour
             (bool,int) tupleAccess;
             if (potentialTargets[i] == attacker) continue;
             tupleAccess = CheckTileAccess(grid[startPosX, startPosY],potentialTargets[i]);
-            if (tupleAccess.Item1 && !finalTargets.TryGetValue(potentialTargets[i],out int value)) {
-                finalTargets.Add(potentialTargets[i],tupleAccess.Item2);
-            }
+            if (!tupleAccess.Item1 || finalTargets.TryGetValue(potentialTargets[i],out int value)) continue;
+            if (potentialTargets[i].tileState == TileState.Occupied && potentialTargets[i].tileUser == null) continue;
+            finalTargets.Add(potentialTargets[i],tupleAccess.Item2);
         }
         return finalTargets;
     }

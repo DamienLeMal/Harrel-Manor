@@ -22,6 +22,7 @@ public class EnnemyBrain : MonoBehaviour
     private Dictionary<TileEntity,AttackData> bestAttack;
     [SerializeField] private EnnemyState state = EnnemyState.Regular;
     private bool attackEnded;
+    private TileEntity tileToAttack;
 
     private void Start() {
         entity = GetComponent<EnnemyEntity>();
@@ -41,7 +42,8 @@ public class EnnemyBrain : MonoBehaviour
         EvaluateTiles();
 
         //Is it better to Attack Player ?    
-        if (tileScore[GetMoveToTile()][Score.Attack] <= tileScore[entity.currentTile][Score.Attack]) {
+        if (tileScore[GetMoveToTile()][Score.Attack] <= tileScore[entity.currentTile][Score.Attack] && tileScore[entity.currentTile][Score.Attack] > 0) {
+            Debug.Log("Better to attack first");
             //Yes
             StartCoroutine(AttackLoop());
             yield return new WaitUntil(()=>attackEnded == true);
@@ -49,12 +51,13 @@ public class EnnemyBrain : MonoBehaviour
             //No
             TileEntity goToTile = GetMoveToTile();
             MoveToTile(goToTile);
+            Debug.Log("Better to move to " + goToTile.coordinates + " first");
             //Wait until he's arrived
             yield return new WaitUntil(()=>entity.currentTile == goToTile);
 
             EvaluateTiles();
 
-            if (GetBestScore(Score.Attack) > 0) {
+            if (GetBestScore(Score.Attack) > 0) {/// Warning : doesn't care if the tile we're on can attack
                 StartCoroutine(AttackLoop());
                 yield return new WaitUntil(()=>attackEnded == true);
             }
@@ -64,7 +67,7 @@ public class EnnemyBrain : MonoBehaviour
             //Go to safest tile
             TileEntity safeTile = GetBestTile(Score.Defense);
             MoveToTile(safeTile);
-            Debug.Log("Go to safe tile : " + safeTile.coordinates);
+            yield return new WaitUntil(()=>entity.currentTile == safeTile);
         }
         //End
         manager.turnManager.EndTurn(entity);
@@ -87,15 +90,18 @@ public class EnnemyBrain : MonoBehaviour
     }
 
     IEnumerator AttackLoop () {
+        EvaluateTiles();
+        if (tileScore[entity.currentTile][Score.Attack] == 0) Debug.LogWarning("The ennemy can't attack from this tile !");
         attackEnded = false;
-        TileEntity attackedTile = GetBestTile(Score.Attack);
-        int newAp = entity.ap - bestAttack[attackedTile].apCost;
+        AttackScore(entity.currentTile,bestAttack[entity.currentTile],entity,manager.player);
+        TileEntity attackedTile = tileToAttack;
+        int newAp = entity.ap - bestAttack[entity.currentTile].apCost;
         if (newAp < 0) {
             attackEnded = true;
             yield break;
         }
-        gridManager.ShowAttackPattern(attackedTile,entity,bestAttack[attackedTile]);
-        gridManager.LaunchAttach(attackedTile,entity,bestAttack[attackedTile]);
+        gridManager.ShowAttackPattern(attackedTile,entity,bestAttack[entity.currentTile]);
+        gridManager.LaunchAttach(attackedTile,entity,bestAttack[entity.currentTile]);
         //TEMPORARY IT WILL NOT BE DONE HERE AFTER
         entity.ap = newAp;
         //foreach (WeaponData w in entity.weaponInventory) {
@@ -177,6 +183,7 @@ public class EnnemyBrain : MonoBehaviour
             }
             if (newScore <= score) continue;
             score = newScore;
+            tileToAttack = t.Key;
             
         }
         return score;
@@ -249,13 +256,15 @@ public class EnnemyBrain : MonoBehaviour
                 bestDef = t.Value[Score.Defense];
             }
             if (t.Value[Score.Attack] > bestAtk) {
-                bestDef = t.Value[Score.Attack];
+                bestAtk = t.Value[Score.Attack];
             }
         }
+
         float average = (bestAtk+bestDef)/2;
 
         foreach (KeyValuePair<TileEntity, Dictionary<Score, int>> t in tileScore) {
             int s = (t.Value[Score.Attack]+t.Value[Score.Defense])/2;
+            if(t.Value[Score.Attack] == 0) continue;
             if (Mathf.Abs(average - s) >= score) continue;
             if (Mathf.Abs(average - s) == score && t.Value[0] >= dist) continue;
             score = (int)(average - s);
