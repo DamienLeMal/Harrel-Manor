@@ -10,15 +10,19 @@ public enum Turn {
 public class CombatTurnManager : MonoBehaviour
 {
     private CombatManager manager = null;
+    private GridManager gridManager = null;
     public List<ActorEntity> fightingEntities;
     private int currentActorIndex = 0;
 
     private void Awake() {
         manager = GetComponent<CombatManager>();
+        gridManager = GetComponent<GridManager>();
     }
     
     public void NewTurn() {
         Debug.Log("Very new turn");
+        gridManager.ResetTileHighlight();
+        manager.playerState = PlayerState.Normal;
         manager.turn = Turn.Start;
         foreach (ActorEntity a in fightingEntities) {
             a.mp = a.mp_max;

@@ -59,26 +59,24 @@ public class TileEntity : MonoBehaviour
 #region Interactions
     private void OnMouseEnter() {
         gManager.ResetTileHighlight();
-        if (manager.pStateAffectGrid.Contains(manager.playerState)) {
-            if (gManager.tileHighlightRanges.TryGetValue(this,out int value)){
-                //yes
-                gManager.HighlightActionTiles();
-                switch (manager.playerState) {
-                    case PlayerState.Moving :
-                        gManager.StartPathFinding(manager.player.currentTile,this);
-                        break;
-                    case PlayerState.Attacking :
-                        gManager.ShowAttackPattern(this, manager.player, manager.activeButton.attack);
-                        //Hard code because problems :(
-                        cosmetic.ChangeTextureColor(new Color(0,0,0));
-                        break;
-                }
-            }else{
-                //no
-                gManager.HighlightActionTiles();
-            } 
+        if (!manager.pStateAffectGrid.Contains(manager.playerState)) return;
+        if (gManager.tileHighlightRanges.TryGetValue(this,out int value)){
+            //yes
+            gManager.HighlightActionTiles();
+            switch (manager.playerState) {
+                case PlayerState.Moving :
+                    gManager.StartPathFinding(manager.player.currentTile,this);
+                    break;
+                case PlayerState.Attacking :
+                    gManager.ShowAttackPattern(this, manager.player, manager.activeButton.attack);
+                    //Hard code because problems :(
+                    cosmetic.ChangeTextureColor(new Color(0,0,0));
+                    break;
+            }
+        }else{
+            //no
+            gManager.HighlightActionTiles();
         }
-        
     }
     private void OnMouseDown() {
         if (EventSystem.current.IsPointerOverGameObject()) return;

@@ -12,7 +12,6 @@ public class ActorUi : MonoBehaviour
     }
 
     public void ShowDamageAmount (int damageAmount) {
-        Debug.Log("Show Damage");
         if (damageAmount == 0) {
             SetDamageText("Raté!");
         }else{

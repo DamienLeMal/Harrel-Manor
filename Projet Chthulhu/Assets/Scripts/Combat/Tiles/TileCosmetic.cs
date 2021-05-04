@@ -32,7 +32,8 @@ public class TileCosmetic : MonoBehaviour
     public void UpdateMaterial (TileState state) {
         if (state != TileState.Walk && state != TileState.Occupied) return;
         tileRenderer.material = pathM;
-        if (currentTile.tileUser == null) return;
+        //if (currentTile.tileUser == null) return;
+        if (currentTile.tileState != TileState.Occupied) return;
         SetSprite(occupiedT,0);
     }
 
