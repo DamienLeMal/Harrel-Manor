@@ -35,7 +35,7 @@ public class WeaponButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
         }
     }
 
-    private void Unactive () {
+    public void Unactive () {
         foreach (Transform child in attackContainer) {
             child.gameObject.SetActive(false);
         }
