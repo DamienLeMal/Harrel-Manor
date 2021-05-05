@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Slash
   m_EditorClassIdentifier: 
   attackName: Slash
+  description: "Inflige dmg points de d\xE9gats"
   apCost: 1
   mpCost: 0
   dmg: 3

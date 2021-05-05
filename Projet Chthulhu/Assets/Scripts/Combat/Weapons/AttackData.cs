@@ -6,6 +6,7 @@ using UnityEngine;
 public class AttackData : SheetData
 {
     public string attackName;
+    public string description;
     public int apCost, mpCost, dmg;
     public bool rangedAttack;
     [SerializeField] private string positionPattern;
@@ -21,6 +22,15 @@ public class AttackData : SheetData
         damagePatternArray = ReadSheetData(damagePattern);
         positionPatternCoord = ProcessData(positionPatternArray);
         damagePatternCoord = ProcessData(damagePatternArray);
+        ProcessText();
+    }
+
+    private void ProcessText () {
+        attackName = "<B>" + attackName + "</B>";
+        description = "Coût AP : <color=green>" + apCost.ToString() +
+                      "</color>\nCoût MP : <color=purple>" + mpCost.ToString() +
+                      "</color>\nDégâts : <color=red>" + dmg.ToString() + "</color>";
+
     }
 
     public void Cost (ActorEntity attacker) {

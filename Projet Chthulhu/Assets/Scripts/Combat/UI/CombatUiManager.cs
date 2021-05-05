@@ -8,6 +8,7 @@ public class CombatUiManager : MonoBehaviour
     [SerializeField] private GameObject canvasButtonParent;
     [SerializeField] private GameObject attackButtonPrefab;
     [SerializeField] private GameObject weaponButtonPrefab;
+    [SerializeField] private TooltipUi attackTooltip;
 
     public WeaponButton ShowWeaponButton () {
         bool recycling = false;
@@ -47,6 +48,6 @@ public class CombatUiManager : MonoBehaviour
     private void PrepareButton (AttackData attack, GameObject button) {
         button.gameObject.name = attack.attackName;
         button.GetComponentInChildren<Text>().text = attack.attackName;
-        button.GetComponent<CombatButton>().ButtonConstructor(GetComponent<CombatManager>(),PlayerState.Attacking,attack);
+        button.GetComponent<CombatButton>().ButtonConstructor(GetComponent<CombatManager>(),PlayerState.Attacking,attack,attackTooltip);
     }
 }

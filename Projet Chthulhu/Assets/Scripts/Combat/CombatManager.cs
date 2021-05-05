@@ -15,6 +15,7 @@ public class CombatManager : MonoBehaviour
     
     public Turn turn = Turn.Start;
     public CombatTurnManager turnManager;
+    public CombatUiManager uiManager;
 
     public TileEntity[,] grid;
     /// <summary>
@@ -26,6 +27,7 @@ public class CombatManager : MonoBehaviour
 
     public CombatButton activeButton = null;
     private void Start() {
+        uiManager = GetComponent<CombatUiManager>();
         gridManager = GetComponent<GridManager>();
         turnManager = GetComponent<CombatTurnManager>();
         foreach (GameObject g in gameEntities.entities) {
@@ -61,7 +63,6 @@ public class CombatManager : MonoBehaviour
             turnManager.fightingEntities.Add(g.GetComponent<ActorEntity>());
         }
         ResetActorsPositions();
-        CombatUiManager uiManager = GetComponent<CombatUiManager>();
         foreach (WeaponData w in player.weaponInventory) {
             Transform wb = uiManager.ShowWeaponButton().attackContainer;
             foreach(AttackData a in w.attacks) {
