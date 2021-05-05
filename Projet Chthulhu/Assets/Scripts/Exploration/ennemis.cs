@@ -7,40 +7,43 @@ public class ennemis : MonoBehaviour
 {
     public GameObject targetDestination;
     NavMeshAgent theAgent;
-    //public Collider detectorPlayer;
     private bool hasDetectedPlayer;
+    private bool playerStealth;
 
-    private GameObject player;
-    private float countTime;
-    public float maxTime = 4f;
-
-    // Start is called before the first frame update
-
+    public Collider bigDetect;
+    public Collider lilDetect;
+    private GameObject thePlayer;
+    deplacement stealth;
 
 
     void Start()
     {
         theAgent = GetComponent<NavMeshAgent>();
         hasDetectedPlayer = false;
+        GameObject thePlayer = GameObject.Find("player");
+        stealth = thePlayer.GetComponent<deplacement>();
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (!hasDetectedPlayer) 
-        {
-            theAgent.SetDestination(targetDestination.transform.position);
+        playerStealth = stealth.stealth;
+        changeDetection(playerStealth);
+
+
+        if (!hasDetectedPlayer)
+        {  
+            theAgent.SetDestination(targetDestination.transform.position); 
         }
 
-        else
+        else if (hasDetectedPlayer)
         {
-            theAgent.SetDestination(player.transform.position);
-            countTime += Time.deltaTime;
-            if (countTime >= maxTime)
-            {
-                hasDetectedPlayer = false;
-            }
+            theAgent.SetDestination(this.transform.position);
         }
+       
+
+        
         
     }
 
@@ -48,10 +51,14 @@ public class ennemis : MonoBehaviour
     {
         if(other.tag == "Player")
         {
-            player = other.gameObject;
-            hasDetectedPlayer = true;
-            countTime = 0;
-            Debug.Log("FindPlayer");
+            hasDetectedPlayer = true;           
+            Debug.Log("Combat !");
         }
+    }
+
+    private void changeDetection(bool state)
+    {
+            lilDetect.enabled = state;
+            bigDetect.enabled = !state;
     }
 }

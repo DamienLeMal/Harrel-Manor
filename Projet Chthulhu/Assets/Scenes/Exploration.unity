@@ -355,6 +355,7 @@ GameObject:
   - component: {fileID: 168281451}
   - component: {fileID: 168281457}
   - component: {fileID: 168281458}
+  - component: {fileID: 168281459}
   m_Layer: 0
   m_Name: TestEnnemis
   m_TagString: Ennemis
@@ -472,8 +473,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 3.24, z: 21}
   m_LocalScale: {x: 1, y: 5.1963, z: 1}
-  m_Children:
-  - {fileID: 1461817138}
+  m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -490,7 +490,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetDestination: {fileID: 287516553}
-  maxTime: 4
+  bigDetect: {fileID: 168281458}
+  lilDetect: {fileID: 168281459}
 --- !u!135 &168281458
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -503,6 +504,19 @@ SphereCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 2
+  m_Center: {x: 0, y: -0.46, z: 0}
+--- !u!135 &168281459
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 168281450}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 0
+  serializedVersion: 2
+  m_Radius: 1
   m_Center: {x: 0, y: -0.46, z: 0}
 --- !u!1 &195233726
 GameObject:
@@ -583,11 +597,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 195233726}
   m_LocalRotation: {x: 0.35372, y: -0.57015955, z: 0.29680628, w: 0.6794898}
-  m_LocalPosition: {x: 22.6, y: 35.4, z: -3.1}
-  m_LocalScale: {x: 1, y: 1.5441993, z: 2.3103008}
+  m_LocalPosition: {x: 60.260002, y: 36.813446, z: 31.09}
+  m_LocalScale: {x: 1, y: 1.5441997, z: 2.3103013}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 55, y: -80, z: 0}
 --- !u!114 &195233730
 MonoBehaviour:
@@ -934,7 +948,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 629600705}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.25, y: 1.96, z: 1.21}
+  m_LocalPosition: {x: 40.2, y: 1.96, z: 31.8}
   m_LocalScale: {x: 1, y: 2.8545, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -953,6 +967,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rotateSpeedMovement: 0.1
+  stealth: 0
+  inBattle: 0
 --- !u!195 &629600712
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -1165,62 +1181,5 @@ Transform:
   m_Children:
   - {fileID: 792774491}
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1461817137
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1461817138}
-  - component: {fileID: 1461817139}
-  - component: {fileID: 1461817140}
-  m_Layer: 0
-  m_Name: CombatTrigger
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1461817138
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1461817137}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 168281456}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!135 &1461817139
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1461817137}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 1
-  m_Center: {x: 0, y: -0.46, z: 0}
---- !u!114 &1461817140
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1461817137}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 764f85b0d50df41469d81974b9f59f28, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 

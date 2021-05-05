@@ -10,6 +10,10 @@ public class deplacement : MonoBehaviour
     public float rotateSpeedMovement = 0.1f;
     float rotateVelocity;
 
+    public bool stealth = false;
+    public bool inBattle;
+
+
     // Start is called before the first frame update
     void Start()
     {
