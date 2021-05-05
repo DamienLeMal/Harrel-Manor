@@ -3,32 +3,31 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class ennemis : MonoBehaviour
+public class Ennemis : MonoBehaviour
 {
     public GameObject targetDestination;
     NavMeshAgent theAgent;
-    private bool hasDetectedPlayer;
+    public bool hasDetectedPlayer;
     private bool playerStealth;
 
-    public Collider bigDetect;
-    public Collider lilDetect;
-    private GameObject thePlayer;
-    deplacement stealth;
+    public SphereCollider bigDetect;
+    public SphereCollider lilDetect;
+    public GameObject thePlayer;
+    public PlayerDeplacement player;
 
-
-    void Start()
+    void Awake()
     {
         theAgent = GetComponent<NavMeshAgent>();
         hasDetectedPlayer = false;
         GameObject thePlayer = GameObject.Find("player");
-        stealth = thePlayer.GetComponent<deplacement>();
+        player = thePlayer.GetComponent<PlayerDeplacement>();
 
     }
 
     // Update is called once per frame
     void Update()
     {
-        playerStealth = stealth.stealth;
+        playerStealth = player.stealth;
         changeDetection(playerStealth);
 
 
@@ -39,22 +38,11 @@ public class ennemis : MonoBehaviour
 
         else if (hasDetectedPlayer)
         {
-            theAgent.SetDestination(this.transform.position);
-        }
-       
-
-        
-        
-    }
-
-    private void OnTriggerEnter(Collider other)
-    {
-        if(other.tag == "Player")
-        {
-            hasDetectedPlayer = true;           
-            Debug.Log("Combat !");
+            //theAgent.SetDestination(this.transform.position);
+            theAgent.isStopped = true;
         }
     }
+
 
     private void changeDetection(bool state)
     {
