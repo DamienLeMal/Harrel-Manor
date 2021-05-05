@@ -20,14 +20,14 @@ public class TargetChange : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.tag == "Ennemis")
         {
-            if (!hasMoved) 
+            if (!hasMoved)
             {
                 this.gameObject.transform.position = ennemisStartingPos;
                 hasMoved = !hasMoved;

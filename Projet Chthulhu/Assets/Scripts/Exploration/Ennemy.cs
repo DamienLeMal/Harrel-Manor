@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class Ennemis : MonoBehaviour
+public class Ennemy : MonoBehaviour
 {
     public GameObject targetDestination;
     NavMeshAgent theAgent;
@@ -12,8 +12,7 @@ public class Ennemis : MonoBehaviour
 
     public SphereCollider bigDetect;
     public SphereCollider lilDetect;
-    public GameObject thePlayer;
-    public PlayerDeplacement player;
+    [HideInInspector] public PlayerDeplacement player;
 
     void Awake()
     {
@@ -32,8 +31,8 @@ public class Ennemis : MonoBehaviour
 
 
         if (!hasDetectedPlayer)
-        {  
-            theAgent.SetDestination(targetDestination.transform.position); 
+        {
+            theAgent.SetDestination(targetDestination.transform.position);
         }
 
         else if (hasDetectedPlayer)
@@ -46,7 +45,7 @@ public class Ennemis : MonoBehaviour
 
     private void changeDetection(bool state)
     {
-            lilDetect.enabled = state;
-            bigDetect.enabled = !state;
+        lilDetect.enabled = state;
+        bigDetect.enabled = !state;
     }
 }

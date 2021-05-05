@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class CombatTrigger : MonoBehaviour
+public class ExplorationCombatTrigger : MonoBehaviour
 {
     public string s;
-    public Ennemis ennemis;
+    private Ennemy ennemis;
     //private ennemis Ennemis;
     private NavMeshAgent theAgentEnnemis;
     private PlayerDeplacement player;
@@ -15,6 +15,7 @@ public class CombatTrigger : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        ennemis = GetComponentInParent<Ennemy>();
         theAgentEnnemis = ennemis.GetComponent<NavMeshAgent>();
         player = ennemis.player;
     }
@@ -22,7 +23,7 @@ public class CombatTrigger : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     private void OnTriggerEnter(Collider other)
@@ -33,14 +34,10 @@ public class CombatTrigger : MonoBehaviour
             ennemis.hasDetectedPlayer = true;
             theAgentEnnemis.SetDestination(this.transform.position);
             player.ToggleBattle();
-            //Debug.Log(s);
+            Debug.Log(s);
 
-            if(s == "ennemis" && player.stealth)
-            {
-                Debug.Log("Avatage joueur ici");
-            }
-
+            if (s == "ennemis" || !player.stealth) return;
+            Debug.Log("Avatage joueur ici");
         }
     }
-
 }
