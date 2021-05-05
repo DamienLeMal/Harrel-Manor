@@ -28,7 +28,6 @@ public class CombatUiManager : MonoBehaviour
         return returnButton;
     }
     public void ShowAttackButton (AttackData attack, Transform parentTransform) {
-        Debug.Log(parentTransform.gameObject);
         bool recycling = false;
         foreach (Transform button in parentTransform) {
             if (!button.gameObject.activeSelf) {
@@ -43,6 +42,7 @@ public class CombatUiManager : MonoBehaviour
             button.transform.localScale = Vector3.one;
             PrepareButton(attack,button);
         }
+        parentTransform.transform.parent.GetComponent<WeaponButton>().Invoke("Unactive",0.01f);
     }
 
     private void PrepareButton (AttackData attack, GameObject button) {
