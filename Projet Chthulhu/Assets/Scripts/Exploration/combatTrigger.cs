@@ -34,6 +34,12 @@ public class CombatTrigger : MonoBehaviour
             theAgentEnnemis.SetDestination(this.transform.position);
             player.ToggleBattle();
             //Debug.Log(s);
+
+            if(s == "ennemis" && player.stealth)
+            {
+                Debug.Log("Avatage joueur ici");
+            }
+
         }
     }
 
