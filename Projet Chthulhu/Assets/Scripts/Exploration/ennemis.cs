@@ -3,55 +3,50 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class ennemis : MonoBehaviour
+public class Ennemis : MonoBehaviour
 {
     public GameObject targetDestination;
     NavMeshAgent theAgent;
-    //public Collider detectorPlayer;
-    private bool hasDetectedPlayer;
+    public bool hasDetectedPlayer;
+    private bool playerStealth;
 
-    private GameObject player;
-    private float countTime;
-    public float maxTime = 4f;
+    public SphereCollider bigDetect;
+    public SphereCollider lilDetect;
+    public GameObject thePlayer;
+    public PlayerDeplacement player;
 
-    // Start is called before the first frame update
-
-
-
-    void Start()
+    void Awake()
     {
         theAgent = GetComponent<NavMeshAgent>();
         hasDetectedPlayer = false;
+        GameObject thePlayer = GameObject.Find("player");
+        player = thePlayer.GetComponent<PlayerDeplacement>();
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (!hasDetectedPlayer) 
-        {
-            theAgent.SetDestination(targetDestination.transform.position);
+        playerStealth = player.stealth;
+        changeDetection(playerStealth);
+
+
+        if (!hasDetectedPlayer)
+        {  
+            theAgent.SetDestination(targetDestination.transform.position); 
         }
 
-        else
+        else if (hasDetectedPlayer)
         {
-            theAgent.SetDestination(player.transform.position);
-            countTime += Time.deltaTime;
-            if (countTime >= maxTime)
-            {
-                hasDetectedPlayer = false;
-            }
+            //theAgent.SetDestination(this.transform.position);
+            theAgent.isStopped = true;
         }
-        
     }
 
-    private void OnTriggerEnter(Collider other)
+
+    private void changeDetection(bool state)
     {
-        if(other.tag == "Player")
-        {
-            player = other.gameObject;
-            hasDetectedPlayer = true;
-            countTime = 0;
-            Debug.Log("FindPlayer");
-        }
+            lilDetect.enabled = state;
+            bigDetect.enabled = !state;
     }
 }
