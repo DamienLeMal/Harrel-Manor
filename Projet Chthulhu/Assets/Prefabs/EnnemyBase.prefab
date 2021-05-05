@@ -110,6 +110,7 @@ MonoBehaviour:
   ap_max: 0
   mp_max: 0
   hp_max: 0
+  mnt_max: 0
   pm: 0
   ap: 0
   mp: 0
@@ -128,6 +129,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e0a207b0f46c664aa44fe97c8904f48, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  state: 0
 --- !u!1001 &7723068964123991433
 PrefabInstance:
   m_ObjectHideFlags: 0

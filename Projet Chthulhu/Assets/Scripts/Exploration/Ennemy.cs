@@ -18,7 +18,7 @@ public class Ennemy : MonoBehaviour
     {
         theAgent = GetComponent<NavMeshAgent>();
         hasDetectedPlayer = false;
-        GameObject thePlayer = GameObject.Find("player");
+        GameObject thePlayer = GameObject.Find("Player");
         player = thePlayer.GetComponent<PlayerDeplacement>();
 
     }

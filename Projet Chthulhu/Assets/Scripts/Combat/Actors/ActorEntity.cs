@@ -9,7 +9,7 @@ public class ActorEntity : MonoBehaviour
     [HideInInspector] public int str, dex, spd, intl, agi, con, lck, mnt, pm_max, ap_max, mp_max, hp_max, mnt_max;
     public int pm, ap, mp, hp;
     [HideInInspector] public TileEntity currentTile;
-    protected CombatManager manager = null;
+    public CombatManager manager = null;
     public ActorUi ui;
     
     private void Awake() {

@@ -57,10 +57,11 @@ public class PlayerDeplacement : MonoBehaviour
     }
 
     
-    public void ToggleBattle()
+    public void ToggleBattle(ActorEntity actorPriority)
     {
         Debug.Log("enbattle");
-        agent.SetDestination(this.transform.position);
+        GetComponent<PlayerEntity>().manager.StartCombat(actorPriority);
+        //agent.SetDestination(this.transform.position);
         inBattle = true;
     }
 

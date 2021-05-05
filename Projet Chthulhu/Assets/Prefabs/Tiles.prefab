@@ -9,7 +9,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7337996168813478205}
-  - component: {fileID: 1409280782153099347}
   - component: {fileID: 5980321829197507471}
   m_Layer: 0
   m_Name: Tile_Clone__66
@@ -33,32 +32,6 @@ Transform:
   m_Father: {fileID: 8004609579448578438}
   m_RootOrder: 66
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1409280782153099347
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 521143542134443}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3110d77e9a2a5c8418e3c18dab796174, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pathM: {fileID: 2100000, guid: 88de8ffa04c2d344990882d57ef27910, type: 2}
-  wallM: {fileID: 2100000, guid: d22f59f4d2392ed448611ac2a2ec5adf, type: 2}
-  coordinates: {x: 11, y: 15}
-  neighbourTiles:
-  - {fileID: 3249899769608593237}
-  - {fileID: 102659198924898618}
-  - {fileID: 1005745261114168172}
-  tileUser: {fileID: 0}
-  isWalkable: 0
-  tileState: 1
-  manager: {fileID: 0}
-  gCost: 0
-  hCost: 0
-  previousInPath: {fileID: 0}
 --- !u!65 &5980321829197507471
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -81,7 +54,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7850701231878189501}
-  - component: {fileID: 8939638375847649868}
   - component: {fileID: 7063299874073635828}
   m_Layer: 0
   m_Name: Tile_Clone__35
@@ -105,33 +77,6 @@ Transform:
   m_Father: {fileID: 8004609579448578438}
   m_RootOrder: 35
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &8939638375847649868
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 32075497314249418}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3110d77e9a2a5c8418e3c18dab796174, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pathM: {fileID: 2100000, guid: 88de8ffa04c2d344990882d57ef27910, type: 2}
-  wallM: {fileID: 2100000, guid: d22f59f4d2392ed448611ac2a2ec5adf, type: 2}
-  coordinates: {x: 9, y: 10}
-  neighbourTiles:
-  - {fileID: 7780154833972965533}
-  - {fileID: 5114181608861399266}
-  - {fileID: 4255616995303450582}
-  - {fileID: 7123337066025993845}
-  tileUser: {fileID: 0}
-  isWalkable: 1
-  tileState: 0
-  manager: {fileID: 0}
-  gCost: 0
-  hCost: 0
-  previousInPath: {fileID: 0}
 --- !u!65 &7063299874073635828
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -154,7 +99,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3281915197040756331}
-  - component: {fileID: 7574624332712709059}
   - component: {fileID: 2488051460735545082}
   m_Layer: 0
   m_Name: Tile_Clone__46
@@ -178,33 +122,6 @@ Transform:
   m_Father: {fileID: 8004609579448578438}
   m_RootOrder: 46
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &7574624332712709059
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 39118671022142678}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3110d77e9a2a5c8418e3c18dab796174, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pathM: {fileID: 2100000, guid: 88de8ffa04c2d344990882d57ef27910, type: 2}
-  wallM: {fileID: 2100000, guid: d22f59f4d2392ed448611ac2a2ec5adf, type: 2}
-  coordinates: {x: 10, y: 8}
-  neighbourTiles:
-  - {fileID: 4335422252952437745}
-  - {fileID: 6502482780270929643}
-  - {fileID: 7017216014363701579}
-  - {fileID: 8787726456675811339}
-  tileUser: {fileID: 0}
-  isWalkable: 0
-  tileState: 1
-  manager: {fileID: 0}
-  gCost: 0
-  hCost: 0
-  previousInPath: {fileID: 0}
 --- !u!65 &2488051460735545082
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -227,7 +144,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2236262559656811439}
-  - component: {fileID: 1819213866060399965}
   - component: {fileID: 4163844924374258320}
   m_Layer: 0
   m_Name: Tile_Clone__5
@@ -251,32 +167,6 @@ Transform:
   m_Father: {fileID: 8004609579448578438}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1819213866060399965
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 60712329559915502}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3110d77e9a2a5c8418e3c18dab796174, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pathM: {fileID: 2100000, guid: 88de8ffa04c2d344990882d57ef27910, type: 2}
-  wallM: {fileID: 2100000, guid: d22f59f4d2392ed448611ac2a2ec5adf, type: 2}
-  coordinates: {x: 6, y: 9}
-  neighbourTiles:
-  - {fileID: 4479213325561336027}
-  - {fileID: 9044147254132684602}
-  - {fileID: 63762707341360715}
-  tileUser: {fileID: 0}
-  isWalkable: 0
-  tileState: 1
-  manager: {fileID: 0}
-  gCost: 0
-  hCost: 0
-  previousInPath: {fileID: 0}
 --- !u!65 &4163844924374258320
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -299,7 +189,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1410378237935254858}
-  - component: {fileID: 6502482780270929643}
   - component: {fileID: 1363606677578339894}
   m_Layer: 0
   m_Name: Tile_Clone__59
@@ -323,33 +212,6 @@ Transform:
   m_Father: {fileID: 8004609579448578438}
   m_RootOrder: 59
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &6502482780270929643
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 64932226418839424}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3110d77e9a2a5c8418e3c18dab796174, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pathM: {fileID: 2100000, guid: 88de8ffa04c2d344990882d57ef27910, type: 2}
-  wallM: {fileID: 2100000, guid: d22f59f4d2392ed448611ac2a2ec5adf, type: 2}
-  coordinates: {x: 11, y: 8}
-  neighbourTiles:
-  - {fileID: 7574624332712709059}
-  - {fileID: 9200316950334235816}
-  - {fileID: 8360080262424974069}
-  - {fileID: 109339357409724931}
-  tileUser: {fileID: 0}
-  isWalkable: 0
-  tileState: 1
-  manager: {fileID: 0}
-  gCost: 0
-  hCost: 0
-  previousInPath: {fileID: 0}
 --- !u!65 &1363606677578339894
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -372,7 +234,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3946213853086755224}
-  - component: {fileID: 109339357409724931}
   - component: {fileID: 6822899714146207616}
   m_Layer: 0
   m_Name: Tile_Clone__60
@@ -396,33 +257,6 @@ Transform:
   m_Father: {fileID: 8004609579448578438}
   m_RootOrder: 60
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &109339357409724931
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 107273690567373337}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3110d77e9a2a5c8418e3c18dab796174, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pathM: {fileID: 2100000, guid: 88de8ffa04c2d344990882d57ef27910, type: 2}
-  wallM: {fileID: 2100000, guid: d22f59f4d2392ed448611ac2a2ec5adf, type: 2}
-  coordinates: {x: 11, y: 9}
-  neighbourTiles:
-  - {fileID: 8787726456675811339}
-  - {fileID: 2294516743467311665}
-  - {fileID: 6502482780270929643}
-  - {fileID: 6883968152784981682}
-  tileUser: {fileID: 0}
-  isWalkable: 0
-  tileState: 1
-  manager: {fileID: 0}
-  gCost: 0
-  hCost: 0
-  previousInPath: {fileID: 0}
 --- !u!65 &6822899714146207616
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -526,7 +360,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5412331727609781922}
-  - component: {fileID: 7123337066025993845}
   - component: {fileID: 2582440854654435920}
   m_Layer: 0
   m_Name: Tile_Clone__36
@@ -550,33 +383,6 @@ Transform:
   m_Father: {fileID: 8004609579448578438}
   m_RootOrder: 36
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &7123337066025993845
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 240375734404880243}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3110d77e9a2a5c8418e3c18dab796174, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pathM: {fileID: 2100000, guid: 88de8ffa04c2d344990882d57ef27910, type: 2}
-  wallM: {fileID: 2100000, guid: d22f59f4d2392ed448611ac2a2ec5adf, type: 2}
-  coordinates: {x: 9, y: 11}
-  neighbourTiles:
-  - {fileID: 2670276372141897180}
-  - {fileID: 1417565877648111449}
-  - {fileID: 8939638375847649868}
-  - {fileID: 1779146242711198327}
-  tileUser: {fileID: 0}
-  isWalkable: 1
-  tileState: 0
-  manager: {fileID: 0}
-  gCost: 0
-  hCost: 0
-  previousInPath: {fileID: 0}
 --- !u!65 &2582440854654435920
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -680,7 +486,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1513509185906398699}
-  - component: {fileID: 5616543540994144249}
   - component: {fileID: 6908612657808561665}
   m_Layer: 0
   m_Name: Tile_Clone__91
@@ -704,33 +509,6 @@ Transform:
   m_Father: {fileID: 8004609579448578438}
   m_RootOrder: 91
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &5616543540994144249
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 294140680899399872}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3110d77e9a2a5c8418e3c18dab796174, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pathM: {fileID: 2100000, guid: 88de8ffa04c2d344990882d57ef27910, type: 2}
-  wallM: {fileID: 2100000, guid: d22f59f4d2392ed448611ac2a2ec5adf, type: 2}
-  coordinates: {x: 14, y: 9}
-  neighbourTiles:
-  - {fileID: 5247826373090776301}
-  - {fileID: 2318795174297443598}
-  - {fileID: 7496096539746983099}
-  - {fileID: 578161361929154093}
-  tileUser: {fileID: 0}
-  isWalkable: 1
-  tileState: 0
-  manager: {fileID: 0}
-  gCost: 0
-  hCost: 0
-  previousInPath: {fileID: 0}
 --- !u!65 &6908612657808561665
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -834,7 +612,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5564403105573279878}
-  - component: {fileID: 4269573545950059884}
   - component: {fileID: 6677568637710359792}
   m_Layer: 0
   m_Name: Tile_Clone__14
@@ -858,33 +635,6 @@ Transform:
   m_Father: {fileID: 8004609579448578438}
   m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &4269573545950059884
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 356975007857298789}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3110d77e9a2a5c8418e3c18dab796174, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pathM: {fileID: 2100000, guid: 88de8ffa04c2d344990882d57ef27910, type: 2}
-  wallM: {fileID: 2100000, guid: d22f59f4d2392ed448611ac2a2ec5adf, type: 2}
-  coordinates: {x: 7, y: 10}
-  neighbourTiles:
-  - {fileID: 63762707341360715}
-  - {fileID: 7780154833972965533}
-  - {fileID: 9044147254132684602}
-  - {fileID: 4873700952643300664}
-  tileUser: {fileID: 0}
-  isWalkable: 0
-  tileState: 1
-  manager: {fileID: 0}
-  gCost: 0
-  hCost: 0
-  previousInPath: {fileID: 0}
 --- !u!65 &6677568637710359792
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -907,7 +657,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5009665290959932519}
-  - component: {fileID: 2670276372141897180}
   - component: {fileID: 2273621660348106552}
   m_Layer: 0
   m_Name: Tile_Clone__23
@@ -931,33 +680,6 @@ Transform:
   m_Father: {fileID: 8004609579448578438}
   m_RootOrder: 23
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2670276372141897180
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 365330379005188092}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3110d77e9a2a5c8418e3c18dab796174, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pathM: {fileID: 2100000, guid: 88de8ffa04c2d344990882d57ef27910, type: 2}
-  wallM: {fileID: 2100000, guid: d22f59f4d2392ed448611ac2a2ec5adf, type: 2}
-  coordinates: {x: 8, y: 11}
-  neighbourTiles:
-  - {fileID: 4873700952643300664}
-  - {fileID: 7123337066025993845}
-  - {fileID: 7780154833972965533}
-  - {fileID: 4987656584442115517}
-  tileUser: {fileID: 0}
-  isWalkable: 1
-  tileState: 0
-  manager: {fileID: 0}
-  gCost: 0
-  hCost: 0
-  previousInPath: {fileID: 0}
 --- !u!65 &2273621660348106552
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -980,7 +702,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1456399620776728964}
-  - component: {fileID: 2318795174297443598}
   - component: {fileID: 5417030646480485748}
   m_Layer: 0
   m_Name: Tile_Clone__99
@@ -1004,32 +725,6 @@ Transform:
   m_Father: {fileID: 8004609579448578438}
   m_RootOrder: 99
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2318795174297443598
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 393855942296889726}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3110d77e9a2a5c8418e3c18dab796174, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pathM: {fileID: 2100000, guid: 88de8ffa04c2d344990882d57ef27910, type: 2}
-  wallM: {fileID: 2100000, guid: d22f59f4d2392ed448611ac2a2ec5adf, type: 2}
-  coordinates: {x: 15, y: 9}
-  neighbourTiles:
-  - {fileID: 5616543540994144249}
-  - {fileID: 1662618778539812487}
-  - {fileID: 5047663419657835850}
-  tileUser: {fileID: 0}
-  isWalkable: 0
-  tileState: 1
-  manager: {fileID: 0}
-  gCost: 0
-  hCost: 0
-  previousInPath: {fileID: 0}
 --- !u!65 &5417030646480485748
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1052,7 +747,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6621960464573592644}
-  - component: {fileID: 102659198924898618}
   - component: {fileID: 2929174916384321685}
   m_Layer: 0
   m_Name: Tile_Clone__65
@@ -1076,33 +770,6 @@ Transform:
   m_Father: {fileID: 8004609579448578438}
   m_RootOrder: 65
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &102659198924898618
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 434044585792157543}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3110d77e9a2a5c8418e3c18dab796174, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pathM: {fileID: 2100000, guid: 88de8ffa04c2d344990882d57ef27910, type: 2}
-  wallM: {fileID: 2100000, guid: d22f59f4d2392ed448611ac2a2ec5adf, type: 2}
-  coordinates: {x: 11, y: 14}
-  neighbourTiles:
-  - {fileID: 2105908264019169400}
-  - {fileID: 4007256618320265126}
-  - {fileID: 820610488005145770}
-  - {fileID: 1409280782153099347}
-  tileUser: {fileID: 0}
-  isWalkable: 0
-  tileState: 1
-  manager: {fileID: 0}
-  gCost: 0
-  hCost: 0
-  previousInPath: {fileID: 0}
 --- !u!65 &2929174916384321685
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1287,7 +954,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3854782911931494472}
-  - component: {fileID: 6883968152784981682}
   - component: {fileID: 2693373627388707743}
   m_Layer: 0
   m_Name: Tile_Clone__61
@@ -1311,33 +977,6 @@ Transform:
   m_Father: {fileID: 8004609579448578438}
   m_RootOrder: 61
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &6883968152784981682
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 467187860939528372}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3110d77e9a2a5c8418e3c18dab796174, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pathM: {fileID: 2100000, guid: 88de8ffa04c2d344990882d57ef27910, type: 2}
-  wallM: {fileID: 2100000, guid: d22f59f4d2392ed448611ac2a2ec5adf, type: 2}
-  coordinates: {x: 11, y: 10}
-  neighbourTiles:
-  - {fileID: 5114181608861399266}
-  - {fileID: 1924648647701106268}
-  - {fileID: 109339357409724931}
-  - {fileID: 8021917072890375327}
-  tileUser: {fileID: 0}
-  isWalkable: 0
-  tileState: 1
-  manager: {fileID: 0}
-  gCost: 0
-  hCost: 0
-  previousInPath: {fileID: 0}
 --- !u!65 &2693373627388707743
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1360,7 +999,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8891670910571909533}
-  - component: {fileID: 7017216014363701579}
   - component: {fileID: 2277280941359673444}
   m_Layer: 0
   m_Name: Tile_Clone__45
@@ -1384,33 +1022,6 @@ Transform:
   m_Father: {fileID: 8004609579448578438}
   m_RootOrder: 45
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &7017216014363701579
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 478620130222979764}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3110d77e9a2a5c8418e3c18dab796174, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pathM: {fileID: 2100000, guid: 88de8ffa04c2d344990882d57ef27910, type: 2}
-  wallM: {fileID: 2100000, guid: d22f59f4d2392ed448611ac2a2ec5adf, type: 2}
-  coordinates: {x: 10, y: 7}
-  neighbourTiles:
-  - {fileID: 741509154306350788}
-  - {fileID: 8360080262424974069}
-  - {fileID: 5098243568058720200}
-  - {fileID: 7574624332712709059}
-  tileUser: {fileID: 0}
-  isWalkable: 1
-  tileState: 0
-  manager: {fileID: 0}
-  gCost: 0
-  hCost: 0
-  previousInPath: {fileID: 0}
 --- !u!65 &2277280941359673444
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1514,7 +1125,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3566943122323231775}
-  - component: {fileID: 3002255063490531681}
   - component: {fileID: 7734157316738136003}
   m_Layer: 0
   m_Name: Tile_Clone__83
@@ -1538,33 +1148,6 @@ Transform:
   m_Father: {fileID: 8004609579448578438}
   m_RootOrder: 83
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &3002255063490531681
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 591577297054933206}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3110d77e9a2a5c8418e3c18dab796174, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pathM: {fileID: 2100000, guid: 88de8ffa04c2d344990882d57ef27910, type: 2}
-  wallM: {fileID: 2100000, guid: d22f59f4d2392ed448611ac2a2ec5adf, type: 2}
-  coordinates: {x: 13, y: 10}
-  neighbourTiles:
-  - {fileID: 1924648647701106268}
-  - {fileID: 578161361929154093}
-  - {fileID: 5247826373090776301}
-  - {fileID: 7877882250705441351}
-  tileUser: {fileID: 0}
-  isWalkable: 1
-  tileState: 0
-  manager: {fileID: 0}
-  gCost: 0
-  hCost: 0
-  previousInPath: {fileID: 0}
 --- !u!65 &7734157316738136003
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1668,7 +1251,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2755834884613440978}
-  - component: {fileID: 2210777100713660541}
   - component: {fileID: 504355391370689686}
   m_Layer: 0
   m_Name: Tile_Clone__30
@@ -1692,31 +1274,6 @@ Transform:
   m_Father: {fileID: 8004609579448578438}
   m_RootOrder: 30
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2210777100713660541
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 701803342569307928}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3110d77e9a2a5c8418e3c18dab796174, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pathM: {fileID: 2100000, guid: 88de8ffa04c2d344990882d57ef27910, type: 2}
-  wallM: {fileID: 2100000, guid: d22f59f4d2392ed448611ac2a2ec5adf, type: 2}
-  coordinates: {x: 8, y: 18}
-  neighbourTiles:
-  - {fileID: 2032036916736418450}
-  - {fileID: 8006580729866722372}
-  tileUser: {fileID: 0}
-  isWalkable: 0
-  tileState: 1
-  manager: {fileID: 0}
-  gCost: 0
-  hCost: 0
-  previousInPath: {fileID: 0}
 --- !u!65 &504355391370689686
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2144,7 +1701,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8504121295838928744}
-  - component: {fileID: 7473391961866796597}
   - component: {fileID: 1272660043531404243}
   m_Layer: 0
   m_Name: Tile_Clone__7
@@ -2168,33 +1724,6 @@ Transform:
   m_Father: {fileID: 8004609579448578438}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &7473391961866796597
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 976701882308884432}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3110d77e9a2a5c8418e3c18dab796174, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pathM: {fileID: 2100000, guid: 88de8ffa04c2d344990882d57ef27910, type: 2}
-  wallM: {fileID: 2100000, guid: d22f59f4d2392ed448611ac2a2ec5adf, type: 2}
-  coordinates: {x: 6, y: 11}
-  neighbourTiles:
-  - {fileID: 2192524603163379214}
-  - {fileID: 4873700952643300664}
-  - {fileID: 63762707341360715}
-  - {fileID: 2192971070637556556}
-  tileUser: {fileID: 0}
-  isWalkable: 1
-  tileState: 0
-  manager: {fileID: 0}
-  gCost: 0
-  hCost: 0
-  previousInPath: {fileID: 0}
 --- !u!65 &1272660043531404243
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2217,7 +1746,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7643618395636609321}
-  - component: {fileID: 8861445759320276422}
   - component: {fileID: 3349376692742687300}
   m_Layer: 0
   m_Name: Tile_Clone__16
@@ -2241,33 +1769,6 @@ Transform:
   m_Father: {fileID: 8004609579448578438}
   m_RootOrder: 16
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &8861445759320276422
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1018474763256973956}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3110d77e9a2a5c8418e3c18dab796174, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pathM: {fileID: 2100000, guid: 88de8ffa04c2d344990882d57ef27910, type: 2}
-  wallM: {fileID: 2100000, guid: d22f59f4d2392ed448611ac2a2ec5adf, type: 2}
-  coordinates: {x: 7, y: 12}
-  neighbourTiles:
-  - {fileID: 2192971070637556556}
-  - {fileID: 4987656584442115517}
-  - {fileID: 4873700952643300664}
-  - {fileID: 487512470236366004}
-  tileUser: {fileID: 0}
-  isWalkable: 1
-  tileState: 0
-  manager: {fileID: 0}
-  gCost: 0
-  hCost: 0
-  previousInPath: {fileID: 0}
 --- !u!65 &3349376692742687300
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2290,7 +1791,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7593622677044818806}
-  - component: {fileID: 6973397386306460599}
   - component: {fileID: 1068642163887195661}
   m_Layer: 0
   m_Name: Tile_Clone__94
@@ -2314,32 +1814,6 @@ Transform:
   m_Father: {fileID: 8004609579448578438}
   m_RootOrder: 94
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &6973397386306460599
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1093270626980435227}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3110d77e9a2a5c8418e3c18dab796174, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pathM: {fileID: 2100000, guid: 88de8ffa04c2d344990882d57ef27910, type: 2}
-  wallM: {fileID: 2100000, guid: d22f59f4d2392ed448611ac2a2ec5adf, type: 2}
-  coordinates: {x: 14, y: 12}
-  neighbourTiles:
-  - {fileID: 3998988129551073817}
-  - {fileID: 8392403213770810149}
-  - {fileID: 5529796320827178590}
-  tileUser: {fileID: 0}
-  isWalkable: 0
-  tileState: 1
-  manager: {fileID: 0}
-  gCost: 0
-  hCost: 0
-  previousInPath: {fileID: 0}
 --- !u!65 &1068642163887195661
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2362,7 +1836,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5131055885521934139}
-  - component: {fileID: 9193786726367537469}
   - component: {fileID: 8353318245295651942}
   m_Layer: 0
   m_Name: Tile_Clone__76
@@ -2386,33 +1859,6 @@ Transform:
   m_Father: {fileID: 8004609579448578438}
   m_RootOrder: 76
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &9193786726367537469
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1144048024572493934}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3110d77e9a2a5c8418e3c18dab796174, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pathM: {fileID: 2100000, guid: 88de8ffa04c2d344990882d57ef27910, type: 2}
-  wallM: {fileID: 2100000, guid: d22f59f4d2392ed448611ac2a2ec5adf, type: 2}
-  coordinates: {x: 12, y: 12}
-  neighbourTiles:
-  - {fileID: 4873792488667593952}
-  - {fileID: 3998988129551073817}
-  - {fileID: 6757683609822924652}
-  - {fileID: 8686706532685423763}
-  tileUser: {fileID: 0}
-  isWalkable: 1
-  tileState: 0
-  manager: {fileID: 0}
-  gCost: 0
-  hCost: 0
-  previousInPath: {fileID: 0}
 --- !u!65 &8353318245295651942
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2435,7 +1881,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5121718870680589828}
-  - component: {fileID: 8021917072890375327}
   - component: {fileID: 916443708079202262}
   m_Layer: 0
   m_Name: Tile_Clone__62
@@ -2459,33 +1904,6 @@ Transform:
   m_Father: {fileID: 8004609579448578438}
   m_RootOrder: 62
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &8021917072890375327
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1240481379986440406}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3110d77e9a2a5c8418e3c18dab796174, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pathM: {fileID: 2100000, guid: 88de8ffa04c2d344990882d57ef27910, type: 2}
-  wallM: {fileID: 2100000, guid: d22f59f4d2392ed448611ac2a2ec5adf, type: 2}
-  coordinates: {x: 11, y: 11}
-  neighbourTiles:
-  - {fileID: 1417565877648111449}
-  - {fileID: 6757683609822924652}
-  - {fileID: 6883968152784981682}
-  - {fileID: 4873792488667593952}
-  tileUser: {fileID: 0}
-  isWalkable: 1
-  tileState: 0
-  manager: {fileID: 0}
-  gCost: 0
-  hCost: 0
-  previousInPath: {fileID: 0}
 --- !u!65 &916443708079202262
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2508,7 +1926,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4136694545298926052}
-  - component: {fileID: 3998988129551073817}
   - component: {fileID: 5807836841065422507}
   m_Layer: 0
   m_Name: Tile_Clone__85
@@ -2532,33 +1949,6 @@ Transform:
   m_Father: {fileID: 8004609579448578438}
   m_RootOrder: 85
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &3998988129551073817
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1321309004525996387}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3110d77e9a2a5c8418e3c18dab796174, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pathM: {fileID: 2100000, guid: 88de8ffa04c2d344990882d57ef27910, type: 2}
-  wallM: {fileID: 2100000, guid: d22f59f4d2392ed448611ac2a2ec5adf, type: 2}
-  coordinates: {x: 13, y: 12}
-  neighbourTiles:
-  - {fileID: 9193786726367537469}
-  - {fileID: 6973397386306460599}
-  - {fileID: 7877882250705441351}
-  - {fileID: 6302639497403080011}
-  tileUser: {fileID: 0}
-  isWalkable: 1
-  tileState: 0
-  manager: {fileID: 0}
-  gCost: 0
-  hCost: 0
-  previousInPath: {fileID: 0}
 --- !u!65 &5807836841065422507
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2662,7 +2052,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3528916216797574327}
-  - component: {fileID: 4335422252952437745}
   - component: {fileID: 6005851166719403776}
   m_Layer: 0
   m_Name: Tile_Clone__33
@@ -2686,33 +2075,6 @@ Transform:
   m_Father: {fileID: 8004609579448578438}
   m_RootOrder: 33
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &4335422252952437745
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1432410169425653395}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3110d77e9a2a5c8418e3c18dab796174, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pathM: {fileID: 2100000, guid: 88de8ffa04c2d344990882d57ef27910, type: 2}
-  wallM: {fileID: 2100000, guid: d22f59f4d2392ed448611ac2a2ec5adf, type: 2}
-  coordinates: {x: 9, y: 8}
-  neighbourTiles:
-  - {fileID: 193556537992157525}
-  - {fileID: 7574624332712709059}
-  - {fileID: 741509154306350788}
-  - {fileID: 4255616995303450582}
-  tileUser: {fileID: 0}
-  isWalkable: 1
-  tileState: 0
-  manager: {fileID: 0}
-  gCost: 0
-  hCost: 0
-  previousInPath: {fileID: 0}
 --- !u!65 &6005851166719403776
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2735,7 +2097,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6491927525392122645}
-  - component: {fileID: 7877882250705441351}
   - component: {fileID: 7708153161619269271}
   m_Layer: 0
   m_Name: Tile_Clone__84
@@ -2759,33 +2120,6 @@ Transform:
   m_Father: {fileID: 8004609579448578438}
   m_RootOrder: 84
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &7877882250705441351
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1465471815596825859}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3110d77e9a2a5c8418e3c18dab796174, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pathM: {fileID: 2100000, guid: 88de8ffa04c2d344990882d57ef27910, type: 2}
-  wallM: {fileID: 2100000, guid: d22f59f4d2392ed448611ac2a2ec5adf, type: 2}
-  coordinates: {x: 13, y: 11}
-  neighbourTiles:
-  - {fileID: 6757683609822924652}
-  - {fileID: 8392403213770810149}
-  - {fileID: 3002255063490531681}
-  - {fileID: 3998988129551073817}
-  tileUser: {fileID: 0}
-  isWalkable: 1
-  tileState: 0
-  manager: {fileID: 0}
-  gCost: 0
-  hCost: 0
-  previousInPath: {fileID: 0}
 --- !u!65 &7708153161619269271
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2889,7 +2223,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2452802157315203899}
-  - component: {fileID: 7496096539746983099}
   - component: {fileID: 5695671497966840237}
   m_Layer: 0
   m_Name: Tile_Clone__90
@@ -2913,33 +2246,6 @@ Transform:
   m_Father: {fileID: 8004609579448578438}
   m_RootOrder: 90
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &7496096539746983099
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1589401098982420597}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3110d77e9a2a5c8418e3c18dab796174, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pathM: {fileID: 2100000, guid: 88de8ffa04c2d344990882d57ef27910, type: 2}
-  wallM: {fileID: 2100000, guid: d22f59f4d2392ed448611ac2a2ec5adf, type: 2}
-  coordinates: {x: 14, y: 8}
-  neighbourTiles:
-  - {fileID: 5437747404432339362}
-  - {fileID: 1662618778539812487}
-  - {fileID: 74363714735259770}
-  - {fileID: 5616543540994144249}
-  tileUser: {fileID: 0}
-  isWalkable: 1
-  tileState: 0
-  manager: {fileID: 0}
-  gCost: 0
-  hCost: 0
-  previousInPath: {fileID: 0}
 --- !u!65 &5695671497966840237
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3124,7 +2430,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7282380101524998808}
-  - component: {fileID: 7381177610437544869}
   - component: {fileID: 1330307619907381991}
   m_Layer: 0
   m_Name: Tile_Clone__21
@@ -3148,33 +2453,6 @@ Transform:
   m_Father: {fileID: 8004609579448578438}
   m_RootOrder: 21
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &7381177610437544869
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1865685189715328938}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3110d77e9a2a5c8418e3c18dab796174, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pathM: {fileID: 2100000, guid: 88de8ffa04c2d344990882d57ef27910, type: 2}
-  wallM: {fileID: 2100000, guid: d22f59f4d2392ed448611ac2a2ec5adf, type: 2}
-  coordinates: {x: 8, y: 9}
-  neighbourTiles:
-  - {fileID: 9044147254132684602}
-  - {fileID: 4255616995303450582}
-  - {fileID: 193556537992157525}
-  - {fileID: 7780154833972965533}
-  tileUser: {fileID: 0}
-  isWalkable: 1
-  tileState: 0
-  manager: {fileID: 0}
-  gCost: 0
-  hCost: 0
-  previousInPath: {fileID: 0}
 --- !u!65 &1330307619907381991
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3197,7 +2475,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 9153732465880470521}
-  - component: {fileID: 8360080262424974069}
   - component: {fileID: 4941033543392594788}
   m_Layer: 0
   m_Name: Tile_Clone__58
@@ -3221,33 +2498,6 @@ Transform:
   m_Father: {fileID: 8004609579448578438}
   m_RootOrder: 58
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &8360080262424974069
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1884327552622572386}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3110d77e9a2a5c8418e3c18dab796174, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pathM: {fileID: 2100000, guid: 88de8ffa04c2d344990882d57ef27910, type: 2}
-  wallM: {fileID: 2100000, guid: d22f59f4d2392ed448611ac2a2ec5adf, type: 2}
-  coordinates: {x: 11, y: 7}
-  neighbourTiles:
-  - {fileID: 7017216014363701579}
-  - {fileID: 9202822424652266710}
-  - {fileID: 8790278969610049409}
-  - {fileID: 6502482780270929643}
-  tileUser: {fileID: 0}
-  isWalkable: 1
-  tileState: 0
-  manager: {fileID: 0}
-  gCost: 0
-  hCost: 0
-  previousInPath: {fileID: 0}
 --- !u!65 &4941033543392594788
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3432,7 +2682,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2676695593162279545}
-  - component: {fileID: 4007256618320265126}
   - component: {fileID: 3720165338269082597}
   m_Layer: 0
   m_Name: Tile_Clone__78
@@ -3456,32 +2705,6 @@ Transform:
   m_Father: {fileID: 8004609579448578438}
   m_RootOrder: 78
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &4007256618320265126
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1963500821802208633}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3110d77e9a2a5c8418e3c18dab796174, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pathM: {fileID: 2100000, guid: 88de8ffa04c2d344990882d57ef27910, type: 2}
-  wallM: {fileID: 2100000, guid: d22f59f4d2392ed448611ac2a2ec5adf, type: 2}
-  coordinates: {x: 12, y: 14}
-  neighbourTiles:
-  - {fileID: 102659198924898618}
-  - {fileID: 477537825816344855}
-  - {fileID: 8686706532685423763}
-  tileUser: {fileID: 0}
-  isWalkable: 0
-  tileState: 1
-  manager: {fileID: 0}
-  gCost: 0
-  hCost: 0
-  previousInPath: {fileID: 0}
 --- !u!65 &3720165338269082597
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3504,7 +2727,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5899359276139720830}
-  - component: {fileID: 148055413080084465}
   - component: {fileID: 4264001416743658729}
   m_Layer: 0
   m_Name: Tile_Clone__39
@@ -3528,33 +2750,6 @@ Transform:
   m_Father: {fileID: 8004609579448578438}
   m_RootOrder: 39
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &148055413080084465
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1967549558021152427}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3110d77e9a2a5c8418e3c18dab796174, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pathM: {fileID: 2100000, guid: 88de8ffa04c2d344990882d57ef27910, type: 2}
-  wallM: {fileID: 2100000, guid: d22f59f4d2392ed448611ac2a2ec5adf, type: 2}
-  coordinates: {x: 9, y: 14}
-  neighbourTiles:
-  - {fileID: 4808977050795298840}
-  - {fileID: 2105908264019169400}
-  - {fileID: 2336885893669360978}
-  - {fileID: 2803885136501585880}
-  tileUser: {fileID: 0}
-  isWalkable: 1
-  tileState: 0
-  manager: {fileID: 0}
-  gCost: 0
-  hCost: 0
-  previousInPath: {fileID: 0}
 --- !u!65 &4264001416743658729
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4063,7 +3258,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8024627573381697796}
-  - component: {fileID: 578161361929154093}
   - component: {fileID: 1071140240780387377}
   m_Layer: 0
   m_Name: Tile_Clone__92
@@ -4087,33 +3281,6 @@ Transform:
   m_Father: {fileID: 8004609579448578438}
   m_RootOrder: 92
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &578161361929154093
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2264506583257634568}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3110d77e9a2a5c8418e3c18dab796174, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pathM: {fileID: 2100000, guid: 88de8ffa04c2d344990882d57ef27910, type: 2}
-  wallM: {fileID: 2100000, guid: d22f59f4d2392ed448611ac2a2ec5adf, type: 2}
-  coordinates: {x: 14, y: 10}
-  neighbourTiles:
-  - {fileID: 3002255063490531681}
-  - {fileID: 5047663419657835850}
-  - {fileID: 5616543540994144249}
-  - {fileID: 8392403213770810149}
-  tileUser: {fileID: 0}
-  isWalkable: 1
-  tileState: 0
-  manager: {fileID: 0}
-  gCost: 0
-  hCost: 0
-  previousInPath: {fileID: 0}
 --- !u!65 &1071140240780387377
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4136,7 +3303,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7092247730705880702}
-  - component: {fileID: 3807302481593218048}
   - component: {fileID: 6410107845613748953}
   m_Layer: 0
   m_Name: Tile_Clone__50
@@ -4160,33 +3326,6 @@ Transform:
   m_Father: {fileID: 8004609579448578438}
   m_RootOrder: 50
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &3807302481593218048
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2495051107341294952}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3110d77e9a2a5c8418e3c18dab796174, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pathM: {fileID: 2100000, guid: 88de8ffa04c2d344990882d57ef27910, type: 2}
-  wallM: {fileID: 2100000, guid: d22f59f4d2392ed448611ac2a2ec5adf, type: 2}
-  coordinates: {x: 10, y: 12}
-  neighbourTiles:
-  - {fileID: 1779146242711198327}
-  - {fileID: 4873792488667593952}
-  - {fileID: 1417565877648111449}
-  - {fileID: 8570819450925607626}
-  tileUser: {fileID: 0}
-  isWalkable: 1
-  tileState: 0
-  manager: {fileID: 0}
-  gCost: 0
-  hCost: 0
-  previousInPath: {fileID: 0}
 --- !u!65 &6410107845613748953
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4290,7 +3429,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3817891443506788003}
-  - component: {fileID: 63762707341360715}
   - component: {fileID: 6624781781077838494}
   m_Layer: 0
   m_Name: Tile_Clone__6
@@ -4314,33 +3452,6 @@ Transform:
   m_Father: {fileID: 8004609579448578438}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &63762707341360715
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2576715403322317835}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3110d77e9a2a5c8418e3c18dab796174, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pathM: {fileID: 2100000, guid: 88de8ffa04c2d344990882d57ef27910, type: 2}
-  wallM: {fileID: 2100000, guid: d22f59f4d2392ed448611ac2a2ec5adf, type: 2}
-  coordinates: {x: 6, y: 10}
-  neighbourTiles:
-  - {fileID: 6282181792386069812}
-  - {fileID: 4269573545950059884}
-  - {fileID: 1819213866060399965}
-  - {fileID: 7473391961866796597}
-  tileUser: {fileID: 0}
-  isWalkable: 1
-  tileState: 0
-  manager: {fileID: 0}
-  gCost: 0
-  hCost: 0
-  previousInPath: {fileID: 0}
 --- !u!65 &6624781781077838494
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4363,7 +3474,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8668138785043052876}
-  - component: {fileID: 314289440582265013}
   - component: {fileID: 2104848034592782929}
   m_Layer: 0
   m_Name: Tile_Clone__3
@@ -4387,32 +3497,6 @@ Transform:
   m_Father: {fileID: 8004609579448578438}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &314289440582265013
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2582720286197870015}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3110d77e9a2a5c8418e3c18dab796174, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pathM: {fileID: 2100000, guid: 88de8ffa04c2d344990882d57ef27910, type: 2}
-  wallM: {fileID: 2100000, guid: d22f59f4d2392ed448611ac2a2ec5adf, type: 2}
-  coordinates: {x: 5, y: 12}
-  neighbourTiles:
-  - {fileID: 2192971070637556556}
-  - {fileID: 2192524603163379214}
-  - {fileID: 5965922408108466630}
-  tileUser: {fileID: 0}
-  isWalkable: 0
-  tileState: 1
-  manager: {fileID: 0}
-  gCost: 0
-  hCost: 0
-  previousInPath: {fileID: 0}
 --- !u!65 &2104848034592782929
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4597,7 +3681,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3566984784749999023}
-  - component: {fileID: 2148004312912205105}
   - component: {fileID: 963679572469110072}
   m_Layer: 0
   m_Name: Tile_Clone__69
@@ -4621,31 +3704,6 @@ Transform:
   m_Father: {fileID: 8004609579448578438}
   m_RootOrder: 69
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2148004312912205105
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2692533409523029620}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3110d77e9a2a5c8418e3c18dab796174, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pathM: {fileID: 2100000, guid: 88de8ffa04c2d344990882d57ef27910, type: 2}
-  wallM: {fileID: 2100000, guid: d22f59f4d2392ed448611ac2a2ec5adf, type: 2}
-  coordinates: {x: 11, y: 18}
-  neighbourTiles:
-  - {fileID: 6102807354985150526}
-  - {fileID: 4204293387195200348}
-  tileUser: {fileID: 0}
-  isWalkable: 0
-  tileState: 1
-  manager: {fileID: 0}
-  gCost: 0
-  hCost: 0
-  previousInPath: {fileID: 0}
 --- !u!65 &963679572469110072
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4749,7 +3807,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5508637234405891314}
-  - component: {fileID: 6282181792386069812}
   - component: {fileID: 2112241534001797231}
   m_Layer: 0
   m_Name: Tile_Clone__1
@@ -4773,32 +3830,6 @@ Transform:
   m_Father: {fileID: 8004609579448578438}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &6282181792386069812
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2702275316875338126}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3110d77e9a2a5c8418e3c18dab796174, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pathM: {fileID: 2100000, guid: 88de8ffa04c2d344990882d57ef27910, type: 2}
-  wallM: {fileID: 2100000, guid: d22f59f4d2392ed448611ac2a2ec5adf, type: 2}
-  coordinates: {x: 5, y: 10}
-  neighbourTiles:
-  - {fileID: 63762707341360715}
-  - {fileID: 4479213325561336027}
-  - {fileID: 2192524603163379214}
-  tileUser: {fileID: 0}
-  isWalkable: 0
-  tileState: 1
-  manager: {fileID: 0}
-  gCost: 0
-  hCost: 0
-  previousInPath: {fileID: 0}
 --- !u!65 &2112241534001797231
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4983,7 +4014,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8012934229558770128}
-  - component: {fileID: 1005745261114168172}
   - component: {fileID: 988012116092064279}
   m_Layer: 0
   m_Name: Tile_Clone__67
@@ -5007,32 +4037,6 @@ Transform:
   m_Father: {fileID: 8004609579448578438}
   m_RootOrder: 67
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1005745261114168172
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2806405617279398922}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3110d77e9a2a5c8418e3c18dab796174, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pathM: {fileID: 2100000, guid: 88de8ffa04c2d344990882d57ef27910, type: 2}
-  wallM: {fileID: 2100000, guid: d22f59f4d2392ed448611ac2a2ec5adf, type: 2}
-  coordinates: {x: 11, y: 16}
-  neighbourTiles:
-  - {fileID: 3836490420474225378}
-  - {fileID: 1409280782153099347}
-  - {fileID: 4204293387195200348}
-  tileUser: {fileID: 0}
-  isWalkable: 0
-  tileState: 1
-  manager: {fileID: 0}
-  gCost: 0
-  hCost: 0
-  previousInPath: {fileID: 0}
 --- !u!65 &988012116092064279
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -5055,7 +4059,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6276511761046400296}
-  - component: {fileID: 5098243568058720200}
   - component: {fileID: 8549613604726810007}
   m_Layer: 0
   m_Name: Tile_Clone__44
@@ -5079,32 +4082,6 @@ Transform:
   m_Father: {fileID: 8004609579448578438}
   m_RootOrder: 44
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &5098243568058720200
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2808891482044408752}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3110d77e9a2a5c8418e3c18dab796174, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pathM: {fileID: 2100000, guid: 88de8ffa04c2d344990882d57ef27910, type: 2}
-  wallM: {fileID: 2100000, guid: d22f59f4d2392ed448611ac2a2ec5adf, type: 2}
-  coordinates: {x: 10, y: 6}
-  neighbourTiles:
-  - {fileID: 3534322019039866458}
-  - {fileID: 8790278969610049409}
-  - {fileID: 7017216014363701579}
-  tileUser: {fileID: 0}
-  isWalkable: 0
-  tileState: 1
-  manager: {fileID: 0}
-  gCost: 0
-  hCost: 0
-  previousInPath: {fileID: 0}
 --- !u!65 &8549613604726810007
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -5127,7 +4104,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2372721574597734644}
-  - component: {fileID: 7084647774238935504}
   - component: {fileID: 1921386307181964059}
   m_Layer: 0
   m_Name: Tile_Clone__25
@@ -5151,33 +4127,6 @@ Transform:
   m_Father: {fileID: 8004609579448578438}
   m_RootOrder: 25
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &7084647774238935504
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2820703512761683720}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3110d77e9a2a5c8418e3c18dab796174, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pathM: {fileID: 2100000, guid: 88de8ffa04c2d344990882d57ef27910, type: 2}
-  wallM: {fileID: 2100000, guid: d22f59f4d2392ed448611ac2a2ec5adf, type: 2}
-  coordinates: {x: 8, y: 13}
-  neighbourTiles:
-  - {fileID: 487512470236366004}
-  - {fileID: 2336885893669360978}
-  - {fileID: 4987656584442115517}
-  - {fileID: 4808977050795298840}
-  tileUser: {fileID: 0}
-  isWalkable: 0
-  tileState: 1
-  manager: {fileID: 0}
-  gCost: 0
-  hCost: 0
-  previousInPath: {fileID: 0}
 --- !u!65 &1921386307181964059
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -5200,7 +4149,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2589244409686471533}
-  - component: {fileID: 6757683609822924652}
   - component: {fileID: 3315465480862119103}
   m_Layer: 0
   m_Name: Tile_Clone__75
@@ -5224,33 +4172,6 @@ Transform:
   m_Father: {fileID: 8004609579448578438}
   m_RootOrder: 75
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &6757683609822924652
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2851024660125107899}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3110d77e9a2a5c8418e3c18dab796174, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pathM: {fileID: 2100000, guid: 88de8ffa04c2d344990882d57ef27910, type: 2}
-  wallM: {fileID: 2100000, guid: d22f59f4d2392ed448611ac2a2ec5adf, type: 2}
-  coordinates: {x: 12, y: 11}
-  neighbourTiles:
-  - {fileID: 8021917072890375327}
-  - {fileID: 7877882250705441351}
-  - {fileID: 1924648647701106268}
-  - {fileID: 9193786726367537469}
-  tileUser: {fileID: 0}
-  isWalkable: 1
-  tileState: 0
-  manager: {fileID: 0}
-  gCost: 0
-  hCost: 0
-  previousInPath: {fileID: 0}
 --- !u!65 &3315465480862119103
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -5516,7 +4437,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3356188770314217216}
-  - component: {fileID: 6102807354985150526}
   - component: {fileID: 4375614974928109010}
   m_Layer: 0
   m_Name: Tile_Clone__56
@@ -5540,32 +4460,6 @@ Transform:
   m_Father: {fileID: 8004609579448578438}
   m_RootOrder: 56
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &6102807354985150526
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2939761982433835204}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3110d77e9a2a5c8418e3c18dab796174, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pathM: {fileID: 2100000, guid: 88de8ffa04c2d344990882d57ef27910, type: 2}
-  wallM: {fileID: 2100000, guid: d22f59f4d2392ed448611ac2a2ec5adf, type: 2}
-  coordinates: {x: 10, y: 18}
-  neighbourTiles:
-  - {fileID: 2032036916736418450}
-  - {fileID: 2148004312912205105}
-  - {fileID: 6110964626866749657}
-  tileUser: {fileID: 0}
-  isWalkable: 1
-  tileState: 0
-  manager: {fileID: 0}
-  gCost: 0
-  hCost: 0
-  previousInPath: {fileID: 0}
 --- !u!65 &4375614974928109010
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -5588,7 +4482,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6723995092827937153}
-  - component: {fileID: 477537825816344855}
   - component: {fileID: 322403782522068759}
   m_Layer: 0
   m_Name: Tile_Clone__87
@@ -5612,31 +4505,6 @@ Transform:
   m_Father: {fileID: 8004609579448578438}
   m_RootOrder: 87
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &477537825816344855
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2979567475126631391}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3110d77e9a2a5c8418e3c18dab796174, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pathM: {fileID: 2100000, guid: 88de8ffa04c2d344990882d57ef27910, type: 2}
-  wallM: {fileID: 2100000, guid: d22f59f4d2392ed448611ac2a2ec5adf, type: 2}
-  coordinates: {x: 13, y: 14}
-  neighbourTiles:
-  - {fileID: 4007256618320265126}
-  - {fileID: 6302639497403080011}
-  tileUser: {fileID: 0}
-  isWalkable: 0
-  tileState: 1
-  manager: {fileID: 0}
-  gCost: 0
-  hCost: 0
-  previousInPath: {fileID: 0}
 --- !u!65 &322403782522068759
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -5902,7 +4770,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4088083265678366989}
-  - component: {fileID: 8570819450925607626}
   - component: {fileID: 63146395289146479}
   m_Layer: 0
   m_Name: Tile_Clone__51
@@ -5926,33 +4793,6 @@ Transform:
   m_Father: {fileID: 8004609579448578438}
   m_RootOrder: 51
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &8570819450925607626
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3205033730294508199}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3110d77e9a2a5c8418e3c18dab796174, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pathM: {fileID: 2100000, guid: 88de8ffa04c2d344990882d57ef27910, type: 2}
-  wallM: {fileID: 2100000, guid: d22f59f4d2392ed448611ac2a2ec5adf, type: 2}
-  coordinates: {x: 10, y: 13}
-  neighbourTiles:
-  - {fileID: 2336885893669360978}
-  - {fileID: 820610488005145770}
-  - {fileID: 3807302481593218048}
-  - {fileID: 2105908264019169400}
-  tileUser: {fileID: 0}
-  isWalkable: 1
-  tileState: 0
-  manager: {fileID: 0}
-  gCost: 0
-  hCost: 0
-  previousInPath: {fileID: 0}
 --- !u!65 &63146395289146479
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -6056,7 +4896,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4578152214534435998}
-  - component: {fileID: 5567240365984136153}
   - component: {fileID: 3507158885076723235}
   m_Layer: 0
   m_Name: Tile_Clone__10
@@ -6080,31 +4919,6 @@ Transform:
   m_Father: {fileID: 8004609579448578438}
   m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &5567240365984136153
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3222171151609800804}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3110d77e9a2a5c8418e3c18dab796174, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pathM: {fileID: 2100000, guid: 88de8ffa04c2d344990882d57ef27910, type: 2}
-  wallM: {fileID: 2100000, guid: d22f59f4d2392ed448611ac2a2ec5adf, type: 2}
-  coordinates: {x: 7, y: 6}
-  neighbourTiles:
-  - {fileID: 8188462230100548377}
-  - {fileID: 3253550202474114768}
-  tileUser: {fileID: 0}
-  isWalkable: 0
-  tileState: 1
-  manager: {fileID: 0}
-  gCost: 0
-  hCost: 0
-  previousInPath: {fileID: 0}
 --- !u!65 &3507158885076723235
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -6127,7 +4941,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8785663378270892548}
-  - component: {fileID: 6903021189171555930}
   - component: {fileID: 4571275158679098865}
   m_Layer: 0
   m_Name: Tile_Clone__101
@@ -6151,31 +4964,6 @@ Transform:
   m_Father: {fileID: 8004609579448578438}
   m_RootOrder: 101
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &6903021189171555930
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3258198629079415411}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3110d77e9a2a5c8418e3c18dab796174, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pathM: {fileID: 2100000, guid: 88de8ffa04c2d344990882d57ef27910, type: 2}
-  wallM: {fileID: 2100000, guid: d22f59f4d2392ed448611ac2a2ec5adf, type: 2}
-  coordinates: {x: 15, y: 11}
-  neighbourTiles:
-  - {fileID: 8392403213770810149}
-  - {fileID: 5047663419657835850}
-  tileUser: {fileID: 0}
-  isWalkable: 0
-  tileState: 1
-  manager: {fileID: 0}
-  gCost: 0
-  hCost: 0
-  previousInPath: {fileID: 0}
 --- !u!65 &4571275158679098865
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -6198,7 +4986,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5729291814508415787}
-  - component: {fileID: 133890775387742916}
   - component: {fileID: 3651576620766170747}
   m_Layer: 0
   m_Name: Tile_Clone__42
@@ -6222,33 +5009,6 @@ Transform:
   m_Father: {fileID: 8004609579448578438}
   m_RootOrder: 42
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &133890775387742916
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3273773594046334337}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3110d77e9a2a5c8418e3c18dab796174, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pathM: {fileID: 2100000, guid: 88de8ffa04c2d344990882d57ef27910, type: 2}
-  wallM: {fileID: 2100000, guid: d22f59f4d2392ed448611ac2a2ec5adf, type: 2}
-  coordinates: {x: 9, y: 17}
-  neighbourTiles:
-  - {fileID: 8006580729866722372}
-  - {fileID: 6110964626866749657}
-  - {fileID: 5823604277993538296}
-  - {fileID: 2032036916736418450}
-  tileUser: {fileID: 0}
-  isWalkable: 1
-  tileState: 0
-  manager: {fileID: 0}
-  gCost: 0
-  hCost: 0
-  previousInPath: {fileID: 0}
 --- !u!65 &3651576620766170747
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -6271,7 +5031,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8829493443821548951}
-  - component: {fileID: 4204293387195200348}
   - component: {fileID: 5526013590417927961}
   m_Layer: 0
   m_Name: Tile_Clone__68
@@ -6295,32 +5054,6 @@ Transform:
   m_Father: {fileID: 8004609579448578438}
   m_RootOrder: 68
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &4204293387195200348
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3424875888453896272}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3110d77e9a2a5c8418e3c18dab796174, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pathM: {fileID: 2100000, guid: 88de8ffa04c2d344990882d57ef27910, type: 2}
-  wallM: {fileID: 2100000, guid: d22f59f4d2392ed448611ac2a2ec5adf, type: 2}
-  coordinates: {x: 11, y: 17}
-  neighbourTiles:
-  - {fileID: 6110964626866749657}
-  - {fileID: 1005745261114168172}
-  - {fileID: 2148004312912205105}
-  tileUser: {fileID: 0}
-  isWalkable: 0
-  tileState: 1
-  manager: {fileID: 0}
-  gCost: 0
-  hCost: 0
-  previousInPath: {fileID: 0}
 --- !u!65 &5526013590417927961
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -6505,7 +5238,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7699316759115277786}
-  - component: {fileID: 3303834549892622197}
   - component: {fileID: 7405412362585235385}
   m_Layer: 0
   m_Name: Tile_Clone__9
@@ -6529,32 +5261,6 @@ Transform:
   m_Father: {fileID: 8004609579448578438}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &3303834549892622197
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3613283261004314332}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3110d77e9a2a5c8418e3c18dab796174, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pathM: {fileID: 2100000, guid: 88de8ffa04c2d344990882d57ef27910, type: 2}
-  wallM: {fileID: 2100000, guid: d22f59f4d2392ed448611ac2a2ec5adf, type: 2}
-  coordinates: {x: 6, y: 13}
-  neighbourTiles:
-  - {fileID: 5965922408108466630}
-  - {fileID: 487512470236366004}
-  - {fileID: 2192971070637556556}
-  tileUser: {fileID: 0}
-  isWalkable: 0
-  tileState: 1
-  manager: {fileID: 0}
-  gCost: 0
-  hCost: 0
-  previousInPath: {fileID: 0}
 --- !u!65 &7405412362585235385
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -6658,7 +5364,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7014618277725628617}
-  - component: {fileID: 2192971070637556556}
   - component: {fileID: 4792067823243328242}
   m_Layer: 0
   m_Name: Tile_Clone__8
@@ -6682,33 +5387,6 @@ Transform:
   m_Father: {fileID: 8004609579448578438}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2192971070637556556
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3627473228194026660}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3110d77e9a2a5c8418e3c18dab796174, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pathM: {fileID: 2100000, guid: 88de8ffa04c2d344990882d57ef27910, type: 2}
-  wallM: {fileID: 2100000, guid: d22f59f4d2392ed448611ac2a2ec5adf, type: 2}
-  coordinates: {x: 6, y: 12}
-  neighbourTiles:
-  - {fileID: 314289440582265013}
-  - {fileID: 8861445759320276422}
-  - {fileID: 7473391961866796597}
-  - {fileID: 3303834549892622197}
-  tileUser: {fileID: 0}
-  isWalkable: 1
-  tileState: 0
-  manager: {fileID: 0}
-  gCost: 0
-  hCost: 0
-  previousInPath: {fileID: 0}
 --- !u!65 &4792067823243328242
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -6731,7 +5409,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5154562570020078372}
-  - component: {fileID: 8392403213770810149}
   - component: {fileID: 1357690181882250779}
   m_Layer: 0
   m_Name: Tile_Clone__93
@@ -6755,33 +5432,6 @@ Transform:
   m_Father: {fileID: 8004609579448578438}
   m_RootOrder: 93
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &8392403213770810149
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3730448730857367422}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3110d77e9a2a5c8418e3c18dab796174, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pathM: {fileID: 2100000, guid: 88de8ffa04c2d344990882d57ef27910, type: 2}
-  wallM: {fileID: 2100000, guid: d22f59f4d2392ed448611ac2a2ec5adf, type: 2}
-  coordinates: {x: 14, y: 11}
-  neighbourTiles:
-  - {fileID: 7877882250705441351}
-  - {fileID: 6903021189171555930}
-  - {fileID: 578161361929154093}
-  - {fileID: 6973397386306460599}
-  tileUser: {fileID: 0}
-  isWalkable: 0
-  tileState: 1
-  manager: {fileID: 0}
-  gCost: 0
-  hCost: 0
-  previousInPath: {fileID: 0}
 --- !u!65 &1357690181882250779
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -6885,7 +5535,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6059782646926912695}
-  - component: {fileID: 8686706532685423763}
   - component: {fileID: 3256038902901146919}
   m_Layer: 0
   m_Name: Tile_Clone__77
@@ -6909,33 +5558,6 @@ Transform:
   m_Father: {fileID: 8004609579448578438}
   m_RootOrder: 77
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &8686706532685423763
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3808712578011004119}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3110d77e9a2a5c8418e3c18dab796174, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pathM: {fileID: 2100000, guid: 88de8ffa04c2d344990882d57ef27910, type: 2}
-  wallM: {fileID: 2100000, guid: d22f59f4d2392ed448611ac2a2ec5adf, type: 2}
-  coordinates: {x: 12, y: 13}
-  neighbourTiles:
-  - {fileID: 820610488005145770}
-  - {fileID: 6302639497403080011}
-  - {fileID: 9193786726367537469}
-  - {fileID: 4007256618320265126}
-  tileUser: {fileID: 0}
-  isWalkable: 1
-  tileState: 0
-  manager: {fileID: 0}
-  gCost: 0
-  hCost: 0
-  previousInPath: {fileID: 0}
 --- !u!65 &3256038902901146919
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -6958,7 +5580,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4655394155488450004}
-  - component: {fileID: 6530712344522993199}
   - component: {fileID: 3120468492169707015}
   m_Layer: 0
   m_Name: Tile_Clone__19
@@ -6982,33 +5603,6 @@ Transform:
   m_Father: {fileID: 8004609579448578438}
   m_RootOrder: 19
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &6530712344522993199
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3812347378452908687}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3110d77e9a2a5c8418e3c18dab796174, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pathM: {fileID: 2100000, guid: 88de8ffa04c2d344990882d57ef27910, type: 2}
-  wallM: {fileID: 2100000, guid: d22f59f4d2392ed448611ac2a2ec5adf, type: 2}
-  coordinates: {x: 8, y: 7}
-  neighbourTiles:
-  - {fileID: 3253550202474114768}
-  - {fileID: 741509154306350788}
-  - {fileID: 8188462230100548377}
-  - {fileID: 193556537992157525}
-  tileUser: {fileID: 0}
-  isWalkable: 1
-  tileState: 0
-  manager: {fileID: 0}
-  gCost: 0
-  hCost: 0
-  previousInPath: {fileID: 0}
 --- !u!65 &3120468492169707015
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -7031,7 +5625,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 365275942591246695}
-  - component: {fileID: 741509154306350788}
   - component: {fileID: 2665117437362197825}
   m_Layer: 0
   m_Name: Tile_Clone__32
@@ -7055,33 +5648,6 @@ Transform:
   m_Father: {fileID: 8004609579448578438}
   m_RootOrder: 32
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &741509154306350788
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3922049670904216692}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3110d77e9a2a5c8418e3c18dab796174, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pathM: {fileID: 2100000, guid: 88de8ffa04c2d344990882d57ef27910, type: 2}
-  wallM: {fileID: 2100000, guid: d22f59f4d2392ed448611ac2a2ec5adf, type: 2}
-  coordinates: {x: 9, y: 7}
-  neighbourTiles:
-  - {fileID: 6530712344522993199}
-  - {fileID: 7017216014363701579}
-  - {fileID: 3534322019039866458}
-  - {fileID: 4335422252952437745}
-  tileUser: {fileID: 0}
-  isWalkable: 1
-  tileState: 0
-  manager: {fileID: 0}
-  gCost: 0
-  hCost: 0
-  previousInPath: {fileID: 0}
 --- !u!65 &2665117437362197825
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -7185,7 +5751,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6251400747971231094}
-  - component: {fileID: 5430434387258638019}
   - component: {fileID: 7638070045505315960}
   m_Layer: 0
   m_Name: Tile_Clone__12
@@ -7209,32 +5774,6 @@ Transform:
   m_Father: {fileID: 8004609579448578438}
   m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &5430434387258638019
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4121397475972826747}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3110d77e9a2a5c8418e3c18dab796174, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pathM: {fileID: 2100000, guid: 88de8ffa04c2d344990882d57ef27910, type: 2}
-  wallM: {fileID: 2100000, guid: d22f59f4d2392ed448611ac2a2ec5adf, type: 2}
-  coordinates: {x: 7, y: 8}
-  neighbourTiles:
-  - {fileID: 193556537992157525}
-  - {fileID: 3253550202474114768}
-  - {fileID: 9044147254132684602}
-  tileUser: {fileID: 0}
-  isWalkable: 0
-  tileState: 1
-  manager: {fileID: 0}
-  gCost: 0
-  hCost: 0
-  previousInPath: {fileID: 0}
 --- !u!65 &7638070045505315960
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -7419,7 +5958,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5407943293222914390}
-  - component: {fileID: 8188462230100548377}
   - component: {fileID: 4325579969113713279}
   m_Layer: 0
   m_Name: Tile_Clone__18
@@ -7443,32 +5981,6 @@ Transform:
   m_Father: {fileID: 8004609579448578438}
   m_RootOrder: 18
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &8188462230100548377
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4283079206129128803}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3110d77e9a2a5c8418e3c18dab796174, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pathM: {fileID: 2100000, guid: 88de8ffa04c2d344990882d57ef27910, type: 2}
-  wallM: {fileID: 2100000, guid: d22f59f4d2392ed448611ac2a2ec5adf, type: 2}
-  coordinates: {x: 8, y: 6}
-  neighbourTiles:
-  - {fileID: 5567240365984136153}
-  - {fileID: 3534322019039866458}
-  - {fileID: 6530712344522993199}
-  tileUser: {fileID: 0}
-  isWalkable: 0
-  tileState: 1
-  manager: {fileID: 0}
-  gCost: 0
-  hCost: 0
-  previousInPath: {fileID: 0}
 --- !u!65 &4325579969113713279
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -7653,7 +6165,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5964130990528986123}
-  - component: {fileID: 820610488005145770}
   - component: {fileID: 7529224878611109762}
   m_Layer: 0
   m_Name: Tile_Clone__64
@@ -7677,33 +6188,6 @@ Transform:
   m_Father: {fileID: 8004609579448578438}
   m_RootOrder: 64
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &820610488005145770
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4390278616597988502}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3110d77e9a2a5c8418e3c18dab796174, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pathM: {fileID: 2100000, guid: 88de8ffa04c2d344990882d57ef27910, type: 2}
-  wallM: {fileID: 2100000, guid: d22f59f4d2392ed448611ac2a2ec5adf, type: 2}
-  coordinates: {x: 11, y: 13}
-  neighbourTiles:
-  - {fileID: 8570819450925607626}
-  - {fileID: 8686706532685423763}
-  - {fileID: 4873792488667593952}
-  - {fileID: 102659198924898618}
-  tileUser: {fileID: 0}
-  isWalkable: 0
-  tileState: 1
-  manager: {fileID: 0}
-  gCost: 0
-  hCost: 0
-  previousInPath: {fileID: 0}
 --- !u!65 &7529224878611109762
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -7807,7 +6291,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5154679270939182338}
-  - component: {fileID: 5437747404432339362}
   - component: {fileID: 4337050315245703321}
   m_Layer: 0
   m_Name: Tile_Clone__81
@@ -7831,33 +6314,6 @@ Transform:
   m_Father: {fileID: 8004609579448578438}
   m_RootOrder: 81
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &5437747404432339362
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4423018834990518625}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3110d77e9a2a5c8418e3c18dab796174, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pathM: {fileID: 2100000, guid: 88de8ffa04c2d344990882d57ef27910, type: 2}
-  wallM: {fileID: 2100000, guid: d22f59f4d2392ed448611ac2a2ec5adf, type: 2}
-  coordinates: {x: 13, y: 8}
-  neighbourTiles:
-  - {fileID: 9200316950334235816}
-  - {fileID: 7496096539746983099}
-  - {fileID: 5585772819863613159}
-  - {fileID: 5247826373090776301}
-  tileUser: {fileID: 0}
-  isWalkable: 1
-  tileState: 0
-  manager: {fileID: 0}
-  gCost: 0
-  hCost: 0
-  previousInPath: {fileID: 0}
 --- !u!65 &4337050315245703321
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -7880,7 +6336,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2716949370389656580}
-  - component: {fileID: 6302639497403080011}
   - component: {fileID: 7485992478201951571}
   m_Layer: 0
   m_Name: Tile_Clone__86
@@ -7904,33 +6359,6 @@ Transform:
   m_Father: {fileID: 8004609579448578438}
   m_RootOrder: 86
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &6302639497403080011
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4442956866678029865}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3110d77e9a2a5c8418e3c18dab796174, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pathM: {fileID: 2100000, guid: 88de8ffa04c2d344990882d57ef27910, type: 2}
-  wallM: {fileID: 2100000, guid: d22f59f4d2392ed448611ac2a2ec5adf, type: 2}
-  coordinates: {x: 13, y: 13}
-  neighbourTiles:
-  - {fileID: 8686706532685423763}
-  - {fileID: 5529796320827178590}
-  - {fileID: 3998988129551073817}
-  - {fileID: 477537825816344855}
-  tileUser: {fileID: 0}
-  isWalkable: 0
-  tileState: 1
-  manager: {fileID: 0}
-  gCost: 0
-  hCost: 0
-  previousInPath: {fileID: 0}
 --- !u!65 &7485992478201951571
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -7953,7 +6381,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4192056570003280839}
-  - component: {fileID: 2529817042225151477}
   - component: {fileID: 1664278648188973267}
   m_Layer: 0
   m_Name: Tile_Clone__96
@@ -7977,31 +6404,6 @@ Transform:
   m_Father: {fileID: 8004609579448578438}
   m_RootOrder: 96
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2529817042225151477
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4453619153787004233}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3110d77e9a2a5c8418e3c18dab796174, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pathM: {fileID: 2100000, guid: 88de8ffa04c2d344990882d57ef27910, type: 2}
-  wallM: {fileID: 2100000, guid: d22f59f4d2392ed448611ac2a2ec5adf, type: 2}
-  coordinates: {x: 15, y: 6}
-  neighbourTiles:
-  - {fileID: 1784710697707276424}
-  - {fileID: 9215302556036687199}
-  tileUser: {fileID: 0}
-  isWalkable: 0
-  tileState: 1
-  manager: {fileID: 0}
-  gCost: 0
-  hCost: 0
-  previousInPath: {fileID: 0}
 --- !u!65 &1664278648188973267
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -8105,7 +6507,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 54889902782740727}
-  - component: {fileID: 5047663419657835850}
   - component: {fileID: 7690743595307927149}
   m_Layer: 0
   m_Name: Tile_Clone__100
@@ -8129,32 +6530,6 @@ Transform:
   m_Father: {fileID: 8004609579448578438}
   m_RootOrder: 100
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &5047663419657835850
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4549623346964114139}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3110d77e9a2a5c8418e3c18dab796174, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pathM: {fileID: 2100000, guid: 88de8ffa04c2d344990882d57ef27910, type: 2}
-  wallM: {fileID: 2100000, guid: d22f59f4d2392ed448611ac2a2ec5adf, type: 2}
-  coordinates: {x: 15, y: 10}
-  neighbourTiles:
-  - {fileID: 578161361929154093}
-  - {fileID: 2318795174297443598}
-  - {fileID: 6903021189171555930}
-  tileUser: {fileID: 0}
-  isWalkable: 0
-  tileState: 1
-  manager: {fileID: 0}
-  gCost: 0
-  hCost: 0
-  previousInPath: {fileID: 0}
 --- !u!65 &7690743595307927149
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -8177,7 +6552,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5959879065242819913}
-  - component: {fileID: 6110964626866749657}
   - component: {fileID: 1506248547856170322}
   m_Layer: 0
   m_Name: Tile_Clone__55
@@ -8201,33 +6575,6 @@ Transform:
   m_Father: {fileID: 8004609579448578438}
   m_RootOrder: 55
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &6110964626866749657
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4573111495328091335}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3110d77e9a2a5c8418e3c18dab796174, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pathM: {fileID: 2100000, guid: 88de8ffa04c2d344990882d57ef27910, type: 2}
-  wallM: {fileID: 2100000, guid: d22f59f4d2392ed448611ac2a2ec5adf, type: 2}
-  coordinates: {x: 10, y: 17}
-  neighbourTiles:
-  - {fileID: 133890775387742916}
-  - {fileID: 4204293387195200348}
-  - {fileID: 3836490420474225378}
-  - {fileID: 6102807354985150526}
-  tileUser: {fileID: 0}
-  isWalkable: 1
-  tileState: 0
-  manager: {fileID: 0}
-  gCost: 0
-  hCost: 0
-  previousInPath: {fileID: 0}
 --- !u!65 &1506248547856170322
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -8412,7 +6759,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5558668299646186542}
-  - component: {fileID: 2294516743467311665}
   - component: {fileID: 3359544540164369868}
   m_Layer: 0
   m_Name: Tile_Clone__73
@@ -8436,33 +6782,6 @@ Transform:
   m_Father: {fileID: 8004609579448578438}
   m_RootOrder: 73
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2294516743467311665
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4758543830857555053}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3110d77e9a2a5c8418e3c18dab796174, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pathM: {fileID: 2100000, guid: 88de8ffa04c2d344990882d57ef27910, type: 2}
-  wallM: {fileID: 2100000, guid: d22f59f4d2392ed448611ac2a2ec5adf, type: 2}
-  coordinates: {x: 12, y: 9}
-  neighbourTiles:
-  - {fileID: 109339357409724931}
-  - {fileID: 5247826373090776301}
-  - {fileID: 9200316950334235816}
-  - {fileID: 1924648647701106268}
-  tileUser: {fileID: 0}
-  isWalkable: 1
-  tileState: 0
-  manager: {fileID: 0}
-  gCost: 0
-  hCost: 0
-  previousInPath: {fileID: 0}
 --- !u!65 &3359544540164369868
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -8485,7 +6804,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7082584977506462539}
-  - component: {fileID: 3753648178136111626}
   - component: {fileID: 7840567145951388838}
   m_Layer: 0
   m_Name: Tile_Clone__28
@@ -8509,32 +6827,6 @@ Transform:
   m_Father: {fileID: 8004609579448578438}
   m_RootOrder: 28
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &3753648178136111626
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4917767758632945952}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3110d77e9a2a5c8418e3c18dab796174, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pathM: {fileID: 2100000, guid: 88de8ffa04c2d344990882d57ef27910, type: 2}
-  wallM: {fileID: 2100000, guid: d22f59f4d2392ed448611ac2a2ec5adf, type: 2}
-  coordinates: {x: 8, y: 16}
-  neighbourTiles:
-  - {fileID: 5823604277993538296}
-  - {fileID: 7974970001889803723}
-  - {fileID: 8006580729866722372}
-  tileUser: {fileID: 0}
-  isWalkable: 0
-  tileState: 1
-  manager: {fileID: 0}
-  gCost: 0
-  hCost: 0
-  previousInPath: {fileID: 0}
 --- !u!65 &7840567145951388838
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -8557,7 +6849,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6649299437089183423}
-  - component: {fileID: 1779146242711198327}
   - component: {fileID: 4364661158179118897}
   m_Layer: 0
   m_Name: Tile_Clone__37
@@ -8581,33 +6872,6 @@ Transform:
   m_Father: {fileID: 8004609579448578438}
   m_RootOrder: 37
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1779146242711198327
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4963702035392354437}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3110d77e9a2a5c8418e3c18dab796174, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pathM: {fileID: 2100000, guid: 88de8ffa04c2d344990882d57ef27910, type: 2}
-  wallM: {fileID: 2100000, guid: d22f59f4d2392ed448611ac2a2ec5adf, type: 2}
-  coordinates: {x: 9, y: 12}
-  neighbourTiles:
-  - {fileID: 4987656584442115517}
-  - {fileID: 3807302481593218048}
-  - {fileID: 7123337066025993845}
-  - {fileID: 2336885893669360978}
-  tileUser: {fileID: 0}
-  isWalkable: 1
-  tileState: 0
-  manager: {fileID: 0}
-  gCost: 0
-  hCost: 0
-  previousInPath: {fileID: 0}
 --- !u!65 &4364661158179118897
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -8792,7 +7056,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 452963370586120681}
-  - component: {fileID: 7780154833972965533}
   - component: {fileID: 8577078192358097868}
   m_Layer: 0
   m_Name: Tile_Clone__22
@@ -8816,33 +7079,6 @@ Transform:
   m_Father: {fileID: 8004609579448578438}
   m_RootOrder: 22
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &7780154833972965533
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5089529109060589755}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3110d77e9a2a5c8418e3c18dab796174, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pathM: {fileID: 2100000, guid: 88de8ffa04c2d344990882d57ef27910, type: 2}
-  wallM: {fileID: 2100000, guid: d22f59f4d2392ed448611ac2a2ec5adf, type: 2}
-  coordinates: {x: 8, y: 10}
-  neighbourTiles:
-  - {fileID: 4269573545950059884}
-  - {fileID: 8939638375847649868}
-  - {fileID: 7381177610437544869}
-  - {fileID: 2670276372141897180}
-  tileUser: {fileID: 0}
-  isWalkable: 1
-  tileState: 0
-  manager: {fileID: 0}
-  gCost: 0
-  hCost: 0
-  previousInPath: {fileID: 0}
 --- !u!65 &8577078192358097868
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -9432,7 +7668,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8099381009983530993}
-  - component: {fileID: 6396989930046306233}
   - component: {fileID: 1930120100116817350}
   m_Layer: 0
   m_Name: Tile_Clone__70
@@ -9456,32 +7691,6 @@ Transform:
   m_Father: {fileID: 8004609579448578438}
   m_RootOrder: 70
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &6396989930046306233
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5479360126520572712}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3110d77e9a2a5c8418e3c18dab796174, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pathM: {fileID: 2100000, guid: 88de8ffa04c2d344990882d57ef27910, type: 2}
-  wallM: {fileID: 2100000, guid: d22f59f4d2392ed448611ac2a2ec5adf, type: 2}
-  coordinates: {x: 12, y: 6}
-  neighbourTiles:
-  - {fileID: 8790278969610049409}
-  - {fileID: 8698958058417601748}
-  - {fileID: 9202822424652266710}
-  tileUser: {fileID: 0}
-  isWalkable: 0
-  tileState: 1
-  manager: {fileID: 0}
-  gCost: 0
-  hCost: 0
-  previousInPath: {fileID: 0}
 --- !u!65 &1930120100116817350
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -9666,7 +7875,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7326944699350232782}
-  - component: {fileID: 4987656584442115517}
   - component: {fileID: 8123109920196137064}
   m_Layer: 0
   m_Name: Tile_Clone__24
@@ -9690,33 +7898,6 @@ Transform:
   m_Father: {fileID: 8004609579448578438}
   m_RootOrder: 24
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &4987656584442115517
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5650573645012901425}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3110d77e9a2a5c8418e3c18dab796174, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pathM: {fileID: 2100000, guid: 88de8ffa04c2d344990882d57ef27910, type: 2}
-  wallM: {fileID: 2100000, guid: d22f59f4d2392ed448611ac2a2ec5adf, type: 2}
-  coordinates: {x: 8, y: 12}
-  neighbourTiles:
-  - {fileID: 8861445759320276422}
-  - {fileID: 1779146242711198327}
-  - {fileID: 2670276372141897180}
-  - {fileID: 7084647774238935504}
-  tileUser: {fileID: 0}
-  isWalkable: 1
-  tileState: 1
-  manager: {fileID: 0}
-  gCost: 0
-  hCost: 0
-  previousInPath: {fileID: 0}
 --- !u!65 &8123109920196137064
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -9739,7 +7920,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1408701969034840810}
-  - component: {fileID: 9044147254132684602}
   - component: {fileID: 912654001577189087}
   m_Layer: 0
   m_Name: Tile_Clone__13
@@ -9763,33 +7943,6 @@ Transform:
   m_Father: {fileID: 8004609579448578438}
   m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &9044147254132684602
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5702428037465487111}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3110d77e9a2a5c8418e3c18dab796174, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pathM: {fileID: 2100000, guid: 88de8ffa04c2d344990882d57ef27910, type: 2}
-  wallM: {fileID: 2100000, guid: d22f59f4d2392ed448611ac2a2ec5adf, type: 2}
-  coordinates: {x: 7, y: 9}
-  neighbourTiles:
-  - {fileID: 1819213866060399965}
-  - {fileID: 7381177610437544869}
-  - {fileID: 5430434387258638019}
-  - {fileID: 4269573545950059884}
-  tileUser: {fileID: 0}
-  isWalkable: 0
-  tileState: 1
-  manager: {fileID: 0}
-  gCost: 0
-  hCost: 0
-  previousInPath: {fileID: 0}
 --- !u!65 &912654001577189087
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -9812,7 +7965,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5672443322951978668}
-  - component: {fileID: 8698958058417601748}
   - component: {fileID: 6249641444376045597}
   m_Layer: 0
   m_Name: Tile_Clone__79
@@ -9836,32 +7988,6 @@ Transform:
   m_Father: {fileID: 8004609579448578438}
   m_RootOrder: 79
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &8698958058417601748
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5717828645001789383}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3110d77e9a2a5c8418e3c18dab796174, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pathM: {fileID: 2100000, guid: 88de8ffa04c2d344990882d57ef27910, type: 2}
-  wallM: {fileID: 2100000, guid: d22f59f4d2392ed448611ac2a2ec5adf, type: 2}
-  coordinates: {x: 13, y: 6}
-  neighbourTiles:
-  - {fileID: 6396989930046306233}
-  - {fileID: 1784710697707276424}
-  - {fileID: 5585772819863613159}
-  tileUser: {fileID: 0}
-  isWalkable: 0
-  tileState: 1
-  manager: {fileID: 0}
-  gCost: 0
-  hCost: 0
-  previousInPath: {fileID: 0}
 --- !u!65 &6249641444376045597
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -9884,7 +8010,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 9209505681341065221}
-  - component: {fileID: 1417565877648111449}
   - component: {fileID: 4345497962264710739}
   m_Layer: 0
   m_Name: Tile_Clone__49
@@ -9908,33 +8033,6 @@ Transform:
   m_Father: {fileID: 8004609579448578438}
   m_RootOrder: 49
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1417565877648111449
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5727207609272143469}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3110d77e9a2a5c8418e3c18dab796174, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pathM: {fileID: 2100000, guid: 88de8ffa04c2d344990882d57ef27910, type: 2}
-  wallM: {fileID: 2100000, guid: d22f59f4d2392ed448611ac2a2ec5adf, type: 2}
-  coordinates: {x: 10, y: 11}
-  neighbourTiles:
-  - {fileID: 7123337066025993845}
-  - {fileID: 8021917072890375327}
-  - {fileID: 5114181608861399266}
-  - {fileID: 3807302481593218048}
-  tileUser: {fileID: 0}
-  isWalkable: 1
-  tileState: 0
-  manager: {fileID: 0}
-  gCost: 0
-  hCost: 0
-  previousInPath: {fileID: 0}
 --- !u!65 &4345497962264710739
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -9957,7 +8055,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6358824189527537810}
-  - component: {fileID: 5529796320827178590}
   - component: {fileID: 509652258775972319}
   m_Layer: 0
   m_Name: Tile_Clone__95
@@ -9981,31 +8078,6 @@ Transform:
   m_Father: {fileID: 8004609579448578438}
   m_RootOrder: 95
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &5529796320827178590
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5727965588612395902}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3110d77e9a2a5c8418e3c18dab796174, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pathM: {fileID: 2100000, guid: 88de8ffa04c2d344990882d57ef27910, type: 2}
-  wallM: {fileID: 2100000, guid: d22f59f4d2392ed448611ac2a2ec5adf, type: 2}
-  coordinates: {x: 14, y: 13}
-  neighbourTiles:
-  - {fileID: 6302639497403080011}
-  - {fileID: 6973397386306460599}
-  tileUser: {fileID: 0}
-  isWalkable: 0
-  tileState: 1
-  manager: {fileID: 0}
-  gCost: 0
-  hCost: 0
-  previousInPath: {fileID: 0}
 --- !u!65 &509652258775972319
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -10514,7 +8586,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4351779031164720862}
-  - component: {fileID: 2192524603163379214}
   - component: {fileID: 889549105727701121}
   m_Layer: 0
   m_Name: Tile_Clone__2
@@ -10538,32 +8609,6 @@ Transform:
   m_Father: {fileID: 8004609579448578438}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2192524603163379214
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6098704805351938193}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3110d77e9a2a5c8418e3c18dab796174, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pathM: {fileID: 2100000, guid: 88de8ffa04c2d344990882d57ef27910, type: 2}
-  wallM: {fileID: 2100000, guid: d22f59f4d2392ed448611ac2a2ec5adf, type: 2}
-  coordinates: {x: 5, y: 11}
-  neighbourTiles:
-  - {fileID: 7473391961866796597}
-  - {fileID: 6282181792386069812}
-  - {fileID: 314289440582265013}
-  tileUser: {fileID: 0}
-  isWalkable: 0
-  tileState: 1
-  manager: {fileID: 0}
-  gCost: 0
-  hCost: 0
-  previousInPath: {fileID: 0}
 --- !u!65 &889549105727701121
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -10829,7 +8874,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4410010713146021265}
-  - component: {fileID: 193556537992157525}
   - component: {fileID: 8350706061674375643}
   m_Layer: 0
   m_Name: Tile_Clone__20
@@ -10853,33 +8897,6 @@ Transform:
   m_Father: {fileID: 8004609579448578438}
   m_RootOrder: 20
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &193556537992157525
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6224279829468234271}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3110d77e9a2a5c8418e3c18dab796174, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pathM: {fileID: 2100000, guid: 88de8ffa04c2d344990882d57ef27910, type: 2}
-  wallM: {fileID: 2100000, guid: d22f59f4d2392ed448611ac2a2ec5adf, type: 2}
-  coordinates: {x: 8, y: 8}
-  neighbourTiles:
-  - {fileID: 5430434387258638019}
-  - {fileID: 4335422252952437745}
-  - {fileID: 6530712344522993199}
-  - {fileID: 7381177610437544869}
-  tileUser: {fileID: 0}
-  isWalkable: 1
-  tileState: 0
-  manager: {fileID: 0}
-  gCost: 0
-  hCost: 0
-  previousInPath: {fileID: 0}
 --- !u!65 &8350706061674375643
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -10983,7 +9000,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2221245482464126788}
-  - component: {fileID: 4873792488667593952}
   - component: {fileID: 3332232623135090798}
   m_Layer: 0
   m_Name: Tile_Clone__63
@@ -11007,33 +9023,6 @@ Transform:
   m_Father: {fileID: 8004609579448578438}
   m_RootOrder: 63
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &4873792488667593952
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6431106979610104006}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3110d77e9a2a5c8418e3c18dab796174, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pathM: {fileID: 2100000, guid: 88de8ffa04c2d344990882d57ef27910, type: 2}
-  wallM: {fileID: 2100000, guid: d22f59f4d2392ed448611ac2a2ec5adf, type: 2}
-  coordinates: {x: 11, y: 12}
-  neighbourTiles:
-  - {fileID: 3807302481593218048}
-  - {fileID: 9193786726367537469}
-  - {fileID: 8021917072890375327}
-  - {fileID: 820610488005145770}
-  tileUser: {fileID: 0}
-  isWalkable: 0
-  tileState: 1
-  manager: {fileID: 0}
-  gCost: 0
-  hCost: 0
-  previousInPath: {fileID: 0}
 --- !u!65 &3332232623135090798
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -11542,7 +9531,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5399485384419265142}
-  - component: {fileID: 5247826373090776301}
   - component: {fileID: 524947325691129002}
   m_Layer: 0
   m_Name: Tile_Clone__82
@@ -11566,33 +9554,6 @@ Transform:
   m_Father: {fileID: 8004609579448578438}
   m_RootOrder: 82
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &5247826373090776301
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6794880338616595475}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3110d77e9a2a5c8418e3c18dab796174, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pathM: {fileID: 2100000, guid: 88de8ffa04c2d344990882d57ef27910, type: 2}
-  wallM: {fileID: 2100000, guid: d22f59f4d2392ed448611ac2a2ec5adf, type: 2}
-  coordinates: {x: 13, y: 9}
-  neighbourTiles:
-  - {fileID: 2294516743467311665}
-  - {fileID: 5616543540994144249}
-  - {fileID: 5437747404432339362}
-  - {fileID: 3002255063490531681}
-  tileUser: {fileID: 0}
-  isWalkable: 1
-  tileState: 0
-  manager: {fileID: 0}
-  gCost: 0
-  hCost: 0
-  previousInPath: {fileID: 0}
 --- !u!65 &524947325691129002
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -11615,7 +9576,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 858563526300716008}
-  - component: {fileID: 4808977050795298840}
   - component: {fileID: 6291254616285153847}
   m_Layer: 0
   m_Name: Tile_Clone__26
@@ -11639,32 +9599,6 @@ Transform:
   m_Father: {fileID: 8004609579448578438}
   m_RootOrder: 26
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &4808977050795298840
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6795316551766204417}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3110d77e9a2a5c8418e3c18dab796174, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pathM: {fileID: 2100000, guid: 88de8ffa04c2d344990882d57ef27910, type: 2}
-  wallM: {fileID: 2100000, guid: d22f59f4d2392ed448611ac2a2ec5adf, type: 2}
-  coordinates: {x: 8, y: 14}
-  neighbourTiles:
-  - {fileID: 148055413080084465}
-  - {fileID: 7084647774238935504}
-  - {fileID: 7974970001889803723}
-  tileUser: {fileID: 0}
-  isWalkable: 0
-  tileState: 1
-  manager: {fileID: 0}
-  gCost: 0
-  hCost: 0
-  previousInPath: {fileID: 0}
 --- !u!65 &6291254616285153847
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -11930,7 +9864,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6774648101575323470}
-  - component: {fileID: 2105908264019169400}
   - component: {fileID: 7710444216090579864}
   m_Layer: 0
   m_Name: Tile_Clone__52
@@ -11954,33 +9887,6 @@ Transform:
   m_Father: {fileID: 8004609579448578438}
   m_RootOrder: 52
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2105908264019169400
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6838975961467203018}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3110d77e9a2a5c8418e3c18dab796174, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pathM: {fileID: 2100000, guid: 88de8ffa04c2d344990882d57ef27910, type: 2}
-  wallM: {fileID: 2100000, guid: d22f59f4d2392ed448611ac2a2ec5adf, type: 2}
-  coordinates: {x: 10, y: 14}
-  neighbourTiles:
-  - {fileID: 148055413080084465}
-  - {fileID: 102659198924898618}
-  - {fileID: 8570819450925607626}
-  - {fileID: 3249899769608593237}
-  tileUser: {fileID: 0}
-  isWalkable: 1
-  tileState: 0
-  manager: {fileID: 0}
-  gCost: 0
-  hCost: 0
-  previousInPath: {fileID: 0}
 --- !u!65 &7710444216090579864
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -12003,7 +9909,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5728778984105302672}
-  - component: {fileID: 3836490420474225378}
   - component: {fileID: 3672028499348448227}
   m_Layer: 0
   m_Name: Tile_Clone__54
@@ -12027,33 +9932,6 @@ Transform:
   m_Father: {fileID: 8004609579448578438}
   m_RootOrder: 54
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &3836490420474225378
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6852877058586206553}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3110d77e9a2a5c8418e3c18dab796174, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pathM: {fileID: 2100000, guid: 88de8ffa04c2d344990882d57ef27910, type: 2}
-  wallM: {fileID: 2100000, guid: d22f59f4d2392ed448611ac2a2ec5adf, type: 2}
-  coordinates: {x: 10, y: 16}
-  neighbourTiles:
-  - {fileID: 5823604277993538296}
-  - {fileID: 1005745261114168172}
-  - {fileID: 3249899769608593237}
-  - {fileID: 6110964626866749657}
-  tileUser: {fileID: 0}
-  isWalkable: 1
-  tileState: 0
-  manager: {fileID: 0}
-  gCost: 0
-  hCost: 0
-  previousInPath: {fileID: 0}
 --- !u!65 &3672028499348448227
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -12319,7 +10197,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8203126305815589943}
-  - component: {fileID: 2032036916736418450}
   - component: {fileID: 814854085357715819}
   m_Layer: 0
   m_Name: Tile_Clone__43
@@ -12343,32 +10220,6 @@ Transform:
   m_Father: {fileID: 8004609579448578438}
   m_RootOrder: 43
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2032036916736418450
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7090909579903049078}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3110d77e9a2a5c8418e3c18dab796174, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pathM: {fileID: 2100000, guid: 88de8ffa04c2d344990882d57ef27910, type: 2}
-  wallM: {fileID: 2100000, guid: d22f59f4d2392ed448611ac2a2ec5adf, type: 2}
-  coordinates: {x: 9, y: 18}
-  neighbourTiles:
-  - {fileID: 2210777100713660541}
-  - {fileID: 6102807354985150526}
-  - {fileID: 133890775387742916}
-  tileUser: {fileID: 0}
-  isWalkable: 1
-  tileState: 0
-  manager: {fileID: 0}
-  gCost: 0
-  hCost: 0
-  previousInPath: {fileID: 0}
 --- !u!65 &814854085357715819
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -12634,7 +10485,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2127150872942390466}
-  - component: {fileID: 74363714735259770}
   - component: {fileID: 2597218741931050576}
   m_Layer: 0
   m_Name: Tile_Clone__89
@@ -12658,33 +10508,6 @@ Transform:
   m_Father: {fileID: 8004609579448578438}
   m_RootOrder: 89
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &74363714735259770
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7259812498594429229}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3110d77e9a2a5c8418e3c18dab796174, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pathM: {fileID: 2100000, guid: 88de8ffa04c2d344990882d57ef27910, type: 2}
-  wallM: {fileID: 2100000, guid: d22f59f4d2392ed448611ac2a2ec5adf, type: 2}
-  coordinates: {x: 14, y: 7}
-  neighbourTiles:
-  - {fileID: 5585772819863613159}
-  - {fileID: 9215302556036687199}
-  - {fileID: 1784710697707276424}
-  - {fileID: 7496096539746983099}
-  tileUser: {fileID: 0}
-  isWalkable: 1
-  tileState: 0
-  manager: {fileID: 0}
-  gCost: 0
-  hCost: 0
-  previousInPath: {fileID: 0}
 --- !u!65 &2597218741931050576
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -12869,7 +10692,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1635550047569445607}
-  - component: {fileID: 8006580729866722372}
   - component: {fileID: 5665637786380310405}
   m_Layer: 0
   m_Name: Tile_Clone__29
@@ -12893,32 +10715,6 @@ Transform:
   m_Father: {fileID: 8004609579448578438}
   m_RootOrder: 29
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &8006580729866722372
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7361286410860587518}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3110d77e9a2a5c8418e3c18dab796174, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pathM: {fileID: 2100000, guid: 88de8ffa04c2d344990882d57ef27910, type: 2}
-  wallM: {fileID: 2100000, guid: d22f59f4d2392ed448611ac2a2ec5adf, type: 2}
-  coordinates: {x: 8, y: 17}
-  neighbourTiles:
-  - {fileID: 133890775387742916}
-  - {fileID: 3753648178136111626}
-  - {fileID: 2210777100713660541}
-  tileUser: {fileID: 0}
-  isWalkable: 0
-  tileState: 1
-  manager: {fileID: 0}
-  gCost: 0
-  hCost: 0
-  previousInPath: {fileID: 0}
 --- !u!65 &5665637786380310405
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -12941,7 +10737,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8170592581815960178}
-  - component: {fileID: 2803885136501585880}
   - component: {fileID: 9193375137211115240}
   m_Layer: 0
   m_Name: Tile_Clone__40
@@ -12965,33 +10760,6 @@ Transform:
   m_Father: {fileID: 8004609579448578438}
   m_RootOrder: 40
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2803885136501585880
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7400371119574177422}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3110d77e9a2a5c8418e3c18dab796174, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pathM: {fileID: 2100000, guid: 88de8ffa04c2d344990882d57ef27910, type: 2}
-  wallM: {fileID: 2100000, guid: d22f59f4d2392ed448611ac2a2ec5adf, type: 2}
-  coordinates: {x: 9, y: 15}
-  neighbourTiles:
-  - {fileID: 7974970001889803723}
-  - {fileID: 3249899769608593237}
-  - {fileID: 148055413080084465}
-  - {fileID: 5823604277993538296}
-  tileUser: {fileID: 0}
-  isWalkable: 1
-  tileState: 0
-  manager: {fileID: 0}
-  gCost: 0
-  hCost: 0
-  previousInPath: {fileID: 0}
 --- !u!65 &9193375137211115240
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -13014,7 +10782,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2494333210267467058}
-  - component: {fileID: 5965922408108466630}
   - component: {fileID: 809966911167079141}
   m_Layer: 0
   m_Name: Tile_Clone__4
@@ -13038,31 +10805,6 @@ Transform:
   m_Father: {fileID: 8004609579448578438}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &5965922408108466630
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7407346480254200260}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3110d77e9a2a5c8418e3c18dab796174, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pathM: {fileID: 2100000, guid: 88de8ffa04c2d344990882d57ef27910, type: 2}
-  wallM: {fileID: 2100000, guid: d22f59f4d2392ed448611ac2a2ec5adf, type: 2}
-  coordinates: {x: 5, y: 13}
-  neighbourTiles:
-  - {fileID: 3303834549892622197}
-  - {fileID: 314289440582265013}
-  tileUser: {fileID: 0}
-  isWalkable: 0
-  tileState: 1
-  manager: {fileID: 0}
-  gCost: 0
-  hCost: 0
-  previousInPath: {fileID: 0}
 --- !u!65 &809966911167079141
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -13247,7 +10989,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8600403656692144139}
-  - component: {fileID: 4479213325561336027}
   - component: {fileID: 436936030843683976}
   m_Layer: 0
   m_Name: Tile_Clone_
@@ -13271,31 +11012,6 @@ Transform:
   m_Father: {fileID: 8004609579448578438}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &4479213325561336027
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7536933238536692971}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3110d77e9a2a5c8418e3c18dab796174, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pathM: {fileID: 2100000, guid: 88de8ffa04c2d344990882d57ef27910, type: 2}
-  wallM: {fileID: 2100000, guid: d22f59f4d2392ed448611ac2a2ec5adf, type: 2}
-  coordinates: {x: 5, y: 9}
-  neighbourTiles:
-  - {fileID: 1819213866060399965}
-  - {fileID: 6282181792386069812}
-  tileUser: {fileID: 0}
-  isWalkable: 0
-  tileState: 1
-  manager: {fileID: 0}
-  gCost: 0
-  hCost: 0
-  previousInPath: {fileID: 0}
 --- !u!65 &436936030843683976
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -13399,7 +11115,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 381177808480617028}
-  - component: {fileID: 5114181608861399266}
   - component: {fileID: 1559288182117165381}
   m_Layer: 0
   m_Name: Tile_Clone__48
@@ -13423,33 +11138,6 @@ Transform:
   m_Father: {fileID: 8004609579448578438}
   m_RootOrder: 48
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &5114181608861399266
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7650026466157153037}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3110d77e9a2a5c8418e3c18dab796174, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pathM: {fileID: 2100000, guid: 88de8ffa04c2d344990882d57ef27910, type: 2}
-  wallM: {fileID: 2100000, guid: d22f59f4d2392ed448611ac2a2ec5adf, type: 2}
-  coordinates: {x: 10, y: 10}
-  neighbourTiles:
-  - {fileID: 8939638375847649868}
-  - {fileID: 6883968152784981682}
-  - {fileID: 8787726456675811339}
-  - {fileID: 1417565877648111449}
-  tileUser: {fileID: 0}
-  isWalkable: 1
-  tileState: 0
-  manager: {fileID: 0}
-  gCost: 0
-  hCost: 0
-  previousInPath: {fileID: 0}
 --- !u!65 &1559288182117165381
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -13472,7 +11160,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6698727066778255230}
-  - component: {fileID: 8790278969610049409}
   - component: {fileID: 966219319039265477}
   m_Layer: 0
   m_Name: Tile_Clone__57
@@ -13496,32 +11183,6 @@ Transform:
   m_Father: {fileID: 8004609579448578438}
   m_RootOrder: 57
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &8790278969610049409
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7661110023889443209}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3110d77e9a2a5c8418e3c18dab796174, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pathM: {fileID: 2100000, guid: 88de8ffa04c2d344990882d57ef27910, type: 2}
-  wallM: {fileID: 2100000, guid: d22f59f4d2392ed448611ac2a2ec5adf, type: 2}
-  coordinates: {x: 11, y: 6}
-  neighbourTiles:
-  - {fileID: 5098243568058720200}
-  - {fileID: 6396989930046306233}
-  - {fileID: 8360080262424974069}
-  tileUser: {fileID: 0}
-  isWalkable: 0
-  tileState: 1
-  manager: {fileID: 0}
-  gCost: 0
-  hCost: 0
-  previousInPath: {fileID: 0}
 --- !u!65 &966219319039265477
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -13625,7 +11286,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6564478137930986477}
-  - component: {fileID: 4255616995303450582}
   - component: {fileID: 4544921349502185271}
   m_Layer: 0
   m_Name: Tile_Clone__34
@@ -13649,33 +11309,6 @@ Transform:
   m_Father: {fileID: 8004609579448578438}
   m_RootOrder: 34
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &4255616995303450582
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7766874021564617735}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3110d77e9a2a5c8418e3c18dab796174, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pathM: {fileID: 2100000, guid: 88de8ffa04c2d344990882d57ef27910, type: 2}
-  wallM: {fileID: 2100000, guid: d22f59f4d2392ed448611ac2a2ec5adf, type: 2}
-  coordinates: {x: 9, y: 9}
-  neighbourTiles:
-  - {fileID: 7381177610437544869}
-  - {fileID: 8787726456675811339}
-  - {fileID: 4335422252952437745}
-  - {fileID: 8939638375847649868}
-  tileUser: {fileID: 0}
-  isWalkable: 1
-  tileState: 0
-  manager: {fileID: 0}
-  gCost: 0
-  hCost: 0
-  previousInPath: {fileID: 0}
 --- !u!65 &4544921349502185271
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -13698,7 +11331,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8791821764320717153}
-  - component: {fileID: 1784710697707276424}
   - component: {fileID: 1718770864857978373}
   m_Layer: 0
   m_Name: Tile_Clone__88
@@ -13722,32 +11354,6 @@ Transform:
   m_Father: {fileID: 8004609579448578438}
   m_RootOrder: 88
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1784710697707276424
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7797500999854875246}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3110d77e9a2a5c8418e3c18dab796174, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pathM: {fileID: 2100000, guid: 88de8ffa04c2d344990882d57ef27910, type: 2}
-  wallM: {fileID: 2100000, guid: d22f59f4d2392ed448611ac2a2ec5adf, type: 2}
-  coordinates: {x: 14, y: 6}
-  neighbourTiles:
-  - {fileID: 8698958058417601748}
-  - {fileID: 2529817042225151477}
-  - {fileID: 74363714735259770}
-  tileUser: {fileID: 0}
-  isWalkable: 0
-  tileState: 1
-  manager: {fileID: 0}
-  gCost: 0
-  hCost: 0
-  previousInPath: {fileID: 0}
 --- !u!65 &1718770864857978373
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -13770,7 +11376,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 960362702393783467}
-  - component: {fileID: 1662618778539812487}
   - component: {fileID: 5306837409519754098}
   m_Layer: 0
   m_Name: Tile_Clone__98
@@ -13794,32 +11399,6 @@ Transform:
   m_Father: {fileID: 8004609579448578438}
   m_RootOrder: 98
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1662618778539812487
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7884465159835053739}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3110d77e9a2a5c8418e3c18dab796174, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pathM: {fileID: 2100000, guid: 88de8ffa04c2d344990882d57ef27910, type: 2}
-  wallM: {fileID: 2100000, guid: d22f59f4d2392ed448611ac2a2ec5adf, type: 2}
-  coordinates: {x: 15, y: 8}
-  neighbourTiles:
-  - {fileID: 7496096539746983099}
-  - {fileID: 9215302556036687199}
-  - {fileID: 2318795174297443598}
-  tileUser: {fileID: 0}
-  isWalkable: 0
-  tileState: 1
-  manager: {fileID: 0}
-  gCost: 0
-  hCost: 0
-  previousInPath: {fileID: 0}
 --- !u!65 &5306837409519754098
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -13842,7 +11421,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7829742961358824273}
-  - component: {fileID: 3249899769608593237}
   - component: {fileID: 75403068961487658}
   m_Layer: 0
   m_Name: Tile_Clone__53
@@ -13866,33 +11444,6 @@ Transform:
   m_Father: {fileID: 8004609579448578438}
   m_RootOrder: 53
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &3249899769608593237
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7972115807008520174}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3110d77e9a2a5c8418e3c18dab796174, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pathM: {fileID: 2100000, guid: 88de8ffa04c2d344990882d57ef27910, type: 2}
-  wallM: {fileID: 2100000, guid: d22f59f4d2392ed448611ac2a2ec5adf, type: 2}
-  coordinates: {x: 10, y: 15}
-  neighbourTiles:
-  - {fileID: 2803885136501585880}
-  - {fileID: 1409280782153099347}
-  - {fileID: 2105908264019169400}
-  - {fileID: 3836490420474225378}
-  tileUser: {fileID: 0}
-  isWalkable: 1
-  tileState: 0
-  manager: {fileID: 0}
-  gCost: 0
-  hCost: 0
-  previousInPath: {fileID: 0}
 --- !u!65 &75403068961487658
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -13915,7 +11466,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8178954146113887729}
-  - component: {fileID: 1924648647701106268}
   - component: {fileID: 651211687389047121}
   m_Layer: 0
   m_Name: Tile_Clone__74
@@ -13939,33 +11489,6 @@ Transform:
   m_Father: {fileID: 8004609579448578438}
   m_RootOrder: 74
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1924648647701106268
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7995782101586309604}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3110d77e9a2a5c8418e3c18dab796174, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pathM: {fileID: 2100000, guid: 88de8ffa04c2d344990882d57ef27910, type: 2}
-  wallM: {fileID: 2100000, guid: d22f59f4d2392ed448611ac2a2ec5adf, type: 2}
-  coordinates: {x: 12, y: 10}
-  neighbourTiles:
-  - {fileID: 6883968152784981682}
-  - {fileID: 3002255063490531681}
-  - {fileID: 2294516743467311665}
-  - {fileID: 6757683609822924652}
-  tileUser: {fileID: 0}
-  isWalkable: 1
-  tileState: 0
-  manager: {fileID: 0}
-  gCost: 0
-  hCost: 0
-  previousInPath: {fileID: 0}
 --- !u!65 &651211687389047121
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -14120,7 +11643,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6354908296198872612}
-  - component: {fileID: 5585772819863613159}
   - component: {fileID: 2682897710260852541}
   m_Layer: 0
   m_Name: Tile_Clone__80
@@ -14144,33 +11666,6 @@ Transform:
   m_Father: {fileID: 8004609579448578438}
   m_RootOrder: 80
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &5585772819863613159
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8253151201719755939}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3110d77e9a2a5c8418e3c18dab796174, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pathM: {fileID: 2100000, guid: 88de8ffa04c2d344990882d57ef27910, type: 2}
-  wallM: {fileID: 2100000, guid: d22f59f4d2392ed448611ac2a2ec5adf, type: 2}
-  coordinates: {x: 13, y: 7}
-  neighbourTiles:
-  - {fileID: 9202822424652266710}
-  - {fileID: 74363714735259770}
-  - {fileID: 8698958058417601748}
-  - {fileID: 5437747404432339362}
-  tileUser: {fileID: 0}
-  isWalkable: 1
-  tileState: 0
-  manager: {fileID: 0}
-  gCost: 0
-  hCost: 0
-  previousInPath: {fileID: 0}
 --- !u!65 &2682897710260852541
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -14193,7 +11688,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5807359935696068779}
-  - component: {fileID: 5823604277993538296}
   - component: {fileID: 81306122134522187}
   m_Layer: 0
   m_Name: Tile_Clone__41
@@ -14217,33 +11711,6 @@ Transform:
   m_Father: {fileID: 8004609579448578438}
   m_RootOrder: 41
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &5823604277993538296
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8272108072941928160}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3110d77e9a2a5c8418e3c18dab796174, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pathM: {fileID: 2100000, guid: 88de8ffa04c2d344990882d57ef27910, type: 2}
-  wallM: {fileID: 2100000, guid: d22f59f4d2392ed448611ac2a2ec5adf, type: 2}
-  coordinates: {x: 9, y: 16}
-  neighbourTiles:
-  - {fileID: 3753648178136111626}
-  - {fileID: 3836490420474225378}
-  - {fileID: 2803885136501585880}
-  - {fileID: 133890775387742916}
-  tileUser: {fileID: 0}
-  isWalkable: 1
-  tileState: 0
-  manager: {fileID: 0}
-  gCost: 0
-  hCost: 0
-  previousInPath: {fileID: 0}
 --- !u!65 &81306122134522187
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -14347,7 +11814,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8133897206785511603}
-  - component: {fileID: 7974970001889803723}
   - component: {fileID: 5967325272981822425}
   m_Layer: 0
   m_Name: Tile_Clone__27
@@ -14371,32 +11837,6 @@ Transform:
   m_Father: {fileID: 8004609579448578438}
   m_RootOrder: 27
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &7974970001889803723
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8345627014232115954}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3110d77e9a2a5c8418e3c18dab796174, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pathM: {fileID: 2100000, guid: 88de8ffa04c2d344990882d57ef27910, type: 2}
-  wallM: {fileID: 2100000, guid: d22f59f4d2392ed448611ac2a2ec5adf, type: 2}
-  coordinates: {x: 8, y: 15}
-  neighbourTiles:
-  - {fileID: 2803885136501585880}
-  - {fileID: 4808977050795298840}
-  - {fileID: 3753648178136111626}
-  tileUser: {fileID: 0}
-  isWalkable: 0
-  tileState: 1
-  manager: {fileID: 0}
-  gCost: 0
-  hCost: 0
-  previousInPath: {fileID: 0}
 --- !u!65 &5967325272981822425
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -14500,7 +11940,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 418494835908190302}
-  - component: {fileID: 9200316950334235816}
   - component: {fileID: 3334508365627227767}
   m_Layer: 0
   m_Name: Tile_Clone__72
@@ -14524,33 +11963,6 @@ Transform:
   m_Father: {fileID: 8004609579448578438}
   m_RootOrder: 72
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &9200316950334235816
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8372535647885944085}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3110d77e9a2a5c8418e3c18dab796174, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pathM: {fileID: 2100000, guid: 88de8ffa04c2d344990882d57ef27910, type: 2}
-  wallM: {fileID: 2100000, guid: d22f59f4d2392ed448611ac2a2ec5adf, type: 2}
-  coordinates: {x: 12, y: 8}
-  neighbourTiles:
-  - {fileID: 6502482780270929643}
-  - {fileID: 5437747404432339362}
-  - {fileID: 9202822424652266710}
-  - {fileID: 2294516743467311665}
-  tileUser: {fileID: 0}
-  isWalkable: 1
-  tileState: 0
-  manager: {fileID: 0}
-  gCost: 0
-  hCost: 0
-  previousInPath: {fileID: 0}
 --- !u!65 &3334508365627227767
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -14573,7 +11985,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8504295872901193150}
-  - component: {fileID: 4873700952643300664}
   - component: {fileID: 1959291051879974753}
   m_Layer: 0
   m_Name: Tile_Clone__15
@@ -14597,33 +12008,6 @@ Transform:
   m_Father: {fileID: 8004609579448578438}
   m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &4873700952643300664
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8411533751943829434}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3110d77e9a2a5c8418e3c18dab796174, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pathM: {fileID: 2100000, guid: 88de8ffa04c2d344990882d57ef27910, type: 2}
-  wallM: {fileID: 2100000, guid: d22f59f4d2392ed448611ac2a2ec5adf, type: 2}
-  coordinates: {x: 7, y: 11}
-  neighbourTiles:
-  - {fileID: 7473391961866796597}
-  - {fileID: 2670276372141897180}
-  - {fileID: 4269573545950059884}
-  - {fileID: 8861445759320276422}
-  tileUser: {fileID: 0}
-  isWalkable: 0
-  tileState: 1
-  manager: {fileID: 0}
-  gCost: 0
-  hCost: 0
-  previousInPath: {fileID: 0}
 --- !u!65 &1959291051879974753
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -14808,7 +12192,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6159490932386469388}
-  - component: {fileID: 2336885893669360978}
   - component: {fileID: 5112339350472544681}
   m_Layer: 0
   m_Name: Tile_Clone__38
@@ -14832,33 +12215,6 @@ Transform:
   m_Father: {fileID: 8004609579448578438}
   m_RootOrder: 38
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2336885893669360978
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8575177463742988947}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3110d77e9a2a5c8418e3c18dab796174, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pathM: {fileID: 2100000, guid: 88de8ffa04c2d344990882d57ef27910, type: 2}
-  wallM: {fileID: 2100000, guid: d22f59f4d2392ed448611ac2a2ec5adf, type: 2}
-  coordinates: {x: 9, y: 13}
-  neighbourTiles:
-  - {fileID: 7084647774238935504}
-  - {fileID: 8570819450925607626}
-  - {fileID: 1779146242711198327}
-  - {fileID: 148055413080084465}
-  tileUser: {fileID: 0}
-  isWalkable: 1
-  tileState: 0
-  manager: {fileID: 0}
-  gCost: 0
-  hCost: 0
-  previousInPath: {fileID: 0}
 --- !u!65 &5112339350472544681
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -14881,7 +12237,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6643108178000167974}
-  - component: {fileID: 8787726456675811339}
   - component: {fileID: 9074197010177228277}
   m_Layer: 0
   m_Name: Tile_Clone__47
@@ -14905,33 +12260,6 @@ Transform:
   m_Father: {fileID: 8004609579448578438}
   m_RootOrder: 47
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &8787726456675811339
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8655489766886212441}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3110d77e9a2a5c8418e3c18dab796174, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pathM: {fileID: 2100000, guid: 88de8ffa04c2d344990882d57ef27910, type: 2}
-  wallM: {fileID: 2100000, guid: d22f59f4d2392ed448611ac2a2ec5adf, type: 2}
-  coordinates: {x: 10, y: 9}
-  neighbourTiles:
-  - {fileID: 4255616995303450582}
-  - {fileID: 109339357409724931}
-  - {fileID: 7574624332712709059}
-  - {fileID: 5114181608861399266}
-  tileUser: {fileID: 0}
-  isWalkable: 1
-  tileState: 0
-  manager: {fileID: 0}
-  gCost: 0
-  hCost: 0
-  previousInPath: {fileID: 0}
 --- !u!65 &9074197010177228277
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -15278,7 +12606,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 602202302045071254}
-  - component: {fileID: 9202822424652266710}
   - component: {fileID: 4860351621148377827}
   m_Layer: 0
   m_Name: Tile_Clone__71
@@ -15302,33 +12629,6 @@ Transform:
   m_Father: {fileID: 8004609579448578438}
   m_RootOrder: 71
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &9202822424652266710
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8886616273949231613}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3110d77e9a2a5c8418e3c18dab796174, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pathM: {fileID: 2100000, guid: 88de8ffa04c2d344990882d57ef27910, type: 2}
-  wallM: {fileID: 2100000, guid: d22f59f4d2392ed448611ac2a2ec5adf, type: 2}
-  coordinates: {x: 12, y: 7}
-  neighbourTiles:
-  - {fileID: 8360080262424974069}
-  - {fileID: 5585772819863613159}
-  - {fileID: 6396989930046306233}
-  - {fileID: 9200316950334235816}
-  tileUser: {fileID: 0}
-  isWalkable: 1
-  tileState: 0
-  manager: {fileID: 0}
-  gCost: 0
-  hCost: 0
-  previousInPath: {fileID: 0}
 --- !u!65 &4860351621148377827
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -15351,7 +12651,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4466032520298400583}
-  - component: {fileID: 3534322019039866458}
   - component: {fileID: 8926725169382245814}
   m_Layer: 0
   m_Name: Tile_Clone__31
@@ -15375,32 +12674,6 @@ Transform:
   m_Father: {fileID: 8004609579448578438}
   m_RootOrder: 31
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &3534322019039866458
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9052653316071167699}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3110d77e9a2a5c8418e3c18dab796174, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pathM: {fileID: 2100000, guid: 88de8ffa04c2d344990882d57ef27910, type: 2}
-  wallM: {fileID: 2100000, guid: d22f59f4d2392ed448611ac2a2ec5adf, type: 2}
-  coordinates: {x: 9, y: 6}
-  neighbourTiles:
-  - {fileID: 8188462230100548377}
-  - {fileID: 5098243568058720200}
-  - {fileID: 741509154306350788}
-  tileUser: {fileID: 0}
-  isWalkable: 0
-  tileState: 1
-  manager: {fileID: 0}
-  gCost: 0
-  hCost: 0
-  previousInPath: {fileID: 0}
 --- !u!65 &8926725169382245814
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -15423,7 +12696,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1893532060248506036}
-  - component: {fileID: 9215302556036687199}
   - component: {fileID: 3846064016778373017}
   m_Layer: 0
   m_Name: Tile_Clone__97
@@ -15447,32 +12719,6 @@ Transform:
   m_Father: {fileID: 8004609579448578438}
   m_RootOrder: 97
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &9215302556036687199
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9064599107770385422}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3110d77e9a2a5c8418e3c18dab796174, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pathM: {fileID: 2100000, guid: 88de8ffa04c2d344990882d57ef27910, type: 2}
-  wallM: {fileID: 2100000, guid: d22f59f4d2392ed448611ac2a2ec5adf, type: 2}
-  coordinates: {x: 15, y: 7}
-  neighbourTiles:
-  - {fileID: 74363714735259770}
-  - {fileID: 2529817042225151477}
-  - {fileID: 1662618778539812487}
-  tileUser: {fileID: 0}
-  isWalkable: 0
-  tileState: 1
-  manager: {fileID: 0}
-  gCost: 0
-  hCost: 0
-  previousInPath: {fileID: 0}
 --- !u!65 &3846064016778373017
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -15657,7 +12903,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2129805188495442516}
-  - component: {fileID: 3253550202474114768}
   - component: {fileID: 2597832775365357906}
   m_Layer: 0
   m_Name: Tile_Clone__11
@@ -15681,32 +12926,6 @@ Transform:
   m_Father: {fileID: 8004609579448578438}
   m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &3253550202474114768
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9180272069147155858}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3110d77e9a2a5c8418e3c18dab796174, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pathM: {fileID: 2100000, guid: 88de8ffa04c2d344990882d57ef27910, type: 2}
-  wallM: {fileID: 2100000, guid: d22f59f4d2392ed448611ac2a2ec5adf, type: 2}
-  coordinates: {x: 7, y: 7}
-  neighbourTiles:
-  - {fileID: 6530712344522993199}
-  - {fileID: 5567240365984136153}
-  - {fileID: 5430434387258638019}
-  tileUser: {fileID: 0}
-  isWalkable: 0
-  tileState: 1
-  manager: {fileID: 0}
-  gCost: 0
-  hCost: 0
-  previousInPath: {fileID: 0}
 --- !u!65 &2597832775365357906
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -15729,7 +12948,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1339300193603969924}
-  - component: {fileID: 487512470236366004}
   - component: {fileID: 2235456726594083883}
   m_Layer: 0
   m_Name: Tile_Clone__17
@@ -15753,32 +12971,6 @@ Transform:
   m_Father: {fileID: 8004609579448578438}
   m_RootOrder: 17
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &487512470236366004
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9195458521779233022}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3110d77e9a2a5c8418e3c18dab796174, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pathM: {fileID: 2100000, guid: 88de8ffa04c2d344990882d57ef27910, type: 2}
-  wallM: {fileID: 2100000, guid: d22f59f4d2392ed448611ac2a2ec5adf, type: 2}
-  coordinates: {x: 7, y: 13}
-  neighbourTiles:
-  - {fileID: 3303834549892622197}
-  - {fileID: 7084647774238935504}
-  - {fileID: 8861445759320276422}
-  tileUser: {fileID: 0}
-  isWalkable: 0
-  tileState: 1
-  manager: {fileID: 0}
-  gCost: 0
-  hCost: 0
-  previousInPath: {fileID: 0}
 --- !u!65 &2235456726594083883
 BoxCollider:
   m_ObjectHideFlags: 0

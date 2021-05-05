@@ -36,7 +36,7 @@ public class CombatManager : MonoBehaviour
                 break;
             }
         }
-        Invoke("InvokeCombat",1f);
+        //Invoke("InvokeCombat",1f);
     }
 
     //TEMP
