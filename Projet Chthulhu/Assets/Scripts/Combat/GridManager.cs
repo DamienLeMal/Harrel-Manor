@@ -128,7 +128,8 @@ public class GridManager : MonoBehaviour
     IEnumerator MoveOneTile (List<TileEntity> path, ActorEntity actor) {
         if (path.Count > 0) {
             actor.pm -= 1;
-            LeanTween.move(actor.gameObject,path[0].transform.position,1f);
+            Vector3 newPos = path[0].transform.position + new Vector3(0, actor.GetComponent<MeshRenderer>().bounds.size.y / 2, 0);
+            LeanTween.move(actor.gameObject,newPos,1f);
             path.RemoveAt(0);
             yield return new WaitForSeconds(1.1f);
             StartCoroutine(MoveOneTile(path,actor));

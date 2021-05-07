@@ -7,17 +7,16 @@ public class Ennemy : MonoBehaviour
 {
     public GameObject targetDestination;
     NavMeshAgent theAgent;
-    public bool hasDetectedPlayer;
-    private bool playerStealth;
+    public bool inCombat = false;
 
     public SphereCollider bigDetect;
     public SphereCollider lilDetect;
+    [SerializeField] private MeshCollider viewDetect;
     [HideInInspector] public PlayerDeplacement player;
 
     void Awake()
     {
         theAgent = GetComponent<NavMeshAgent>();
-        hasDetectedPlayer = false;
         GameObject thePlayer = GameObject.Find("Player");
         player = thePlayer.GetComponent<PlayerDeplacement>();
 
@@ -26,20 +25,23 @@ public class Ennemy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        playerStealth = player.stealth;
-        changeDetection(playerStealth);
 
-
-        if (!hasDetectedPlayer)
+        if (!inCombat)
         {
+            changeDetection(player.stealth);
             theAgent.SetDestination(targetDestination.transform.position);
         }
+    }
 
-        else if (hasDetectedPlayer)
-        {
-            //theAgent.SetDestination(this.transform.position);
-            theAgent.isStopped = true;
-        }
+    public void SetCombatMode ()
+    {
+        theAgent.SetDestination(this.transform.position);
+        theAgent.isStopped = true;
+        Destroy(bigDetect);
+        Destroy(lilDetect);
+        Destroy(viewDetect);
+        Destroy(theAgent);
+        inCombat = true;
     }
 
 

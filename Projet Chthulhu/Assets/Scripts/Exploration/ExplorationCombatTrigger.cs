@@ -23,16 +23,15 @@ public class ExplorationCombatTrigger : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
 
-        if (other.tag == "Player")
+        if (other.tag == "Player" && !ennemy.inCombat)
         {
-            ennemy.hasDetectedPlayer = true;
-            theAgentEnnemy.SetDestination(this.transform.position);
             ActorEntity actorPriority = player.GetComponent<ActorEntity>();
             if (s == "ennemis" || !player.stealth)
             {
                 actorPriority = ennemy.GetComponent<ActorEntity>();
             }
-            player.ToggleBattle(actorPriority);
+            ennemy.SetCombatMode();
+            player.SetCombatMode(actorPriority);
         }
     }
 }

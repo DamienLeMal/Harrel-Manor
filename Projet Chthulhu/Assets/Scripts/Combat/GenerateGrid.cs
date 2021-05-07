@@ -42,7 +42,6 @@ public class GenerateGrid : MonoBehaviour
                     case 2 : 
                         t.isWalkable = false;
                         t.tileState = TileState.Block;
-                        Destroy(t.gameObject);
                         break;
                 }
             }

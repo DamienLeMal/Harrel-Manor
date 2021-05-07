@@ -57,12 +57,24 @@ public class PlayerDeplacement : MonoBehaviour
     }
 
     
-    public void ToggleBattle(ActorEntity actorPriority)
+    public void SetCombatMode(ActorEntity actorPriority)
     {
         Debug.Log("enbattle");
-        GetComponent<PlayerEntity>().manager.StartCombat(actorPriority);
-        //agent.SetDestination(this.transform.position);
+        agent.SetDestination(this.transform.position);
+        agent.isStopped = true;
+        agent.enabled = false;
         inBattle = true;
+        GetComponent<PlayerEntity>().manager.StartCombat(actorPriority);
+        GetComponent<Rigidbody>().detectCollisions = false;
+    }
+
+    public void SetExplorationMode()
+    {
+        Debug.Log("enexplo");
+        agent.enabled = true;
+        agent.isStopped = false;
+        inBattle = false;
+        GetComponent<Rigidbody>().detectCollisions = true;
     }
 
     private void ToggleSteath()

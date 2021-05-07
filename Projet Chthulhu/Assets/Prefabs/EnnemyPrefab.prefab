@@ -258,9 +258,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetDestination: {fileID: 0}
-  hasDetectedPlayer: 0
+  inCombat: 0
   bigDetect: {fileID: 3856078588439576883}
   lilDetect: {fileID: 5710666845131815934}
+  viewDetect: {fileID: 8858953757312838899}
   player: {fileID: 0}
 --- !u!114 &9055267391914508815
 MonoBehaviour:
@@ -339,15 +340,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1595324052741496193, guid: a4909acada1b63a4a8206860a6235616, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -24.930004
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1595324052741496193, guid: a4909acada1b63a4a8206860a6235616, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.34169453
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1595324052741496193, guid: a4909acada1b63a4a8206860a6235616, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -1.7000046
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1595324052741496193, guid: a4909acada1b63a4a8206860a6235616, type: 3}
       propertyPath: m_LocalRotation.w

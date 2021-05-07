@@ -70,7 +70,7 @@ public class ActorEntity : MonoBehaviour
         //Apply
         closestTile.SetTileUser(this);
         currentTile = closestTile;
-        transform.position = closestTile.transform.position;
+        transform.position = closestTile.transform.position + new Vector3(0, GetComponent<MeshRenderer>().bounds.size.y / 2, 0);
     }
 
     public void TakeDammage (ActorEntity attacker, AttackData attack) {

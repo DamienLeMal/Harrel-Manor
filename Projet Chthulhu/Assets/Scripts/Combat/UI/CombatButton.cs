@@ -78,6 +78,7 @@ public class CombatButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
 
     public void OnPointerExit(PointerEventData eventData)
     {
+        if (newState != PlayerState.Attacking) return;
         attackTooltip.gameObject.SetActive(false);
     }
 }
