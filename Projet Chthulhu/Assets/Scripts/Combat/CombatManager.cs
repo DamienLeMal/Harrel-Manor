@@ -23,7 +23,7 @@ public class CombatManager : MonoBehaviour
     /// </summary>
     [HideInInspector] public PlayerState[] pStateAffectGrid = {PlayerState.Moving, PlayerState.Attacking};
     [HideInInspector] public PlayerEntity player = null;
-    private GridManager gridManager = null;
+    public GridManager gridManager = null;
 
     public CombatButton activeButton = null;
     private void Start() {
@@ -36,12 +36,6 @@ public class CombatManager : MonoBehaviour
                 break;
             }
         }
-        //Invoke("InvokeCombat",1f);
-    }
-
-    //TEMP
-    private void InvokeCombat () {
-        StartCombat(player);
     }
     public void ResetActorsPositions() {
         foreach (TileEntity t in grid) {
@@ -70,5 +64,9 @@ public class CombatManager : MonoBehaviour
             }
         }
         turnManager.NewTurn();
+    }
+
+    public void EndCombatMode () {
+        //Set everything off and player exploration mode on
     }
 }

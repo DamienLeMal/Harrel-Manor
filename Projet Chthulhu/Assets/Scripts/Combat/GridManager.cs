@@ -11,7 +11,6 @@ public class GridManager : MonoBehaviour
     /// </summary>
     /// <typeparam name="TileEntity">Tiles that are interactable</typeparam>
     /// <typeparam name="int">Distance of the tile from the player</typeparam>
-    /// <returns></returns>
     public Dictionary<TileEntity,int> tileHighlightRanges;
     private Dictionary<TileEntity,int> tileHighlightAttack;
     private void Start() {
@@ -19,8 +18,7 @@ public class GridManager : MonoBehaviour
         tileGrid = manager.grid;
     }
 
-
-    #region Higlight Surroundings
+#region Higlight Surroundings
     public void ClearTileHighlight () {
         if (tileHighlightRanges != null) {
             tileHighlightRanges.Clear();
@@ -90,10 +88,8 @@ public class GridManager : MonoBehaviour
         tileHighlightRanges = GetPattern(manager.player.currentTile,atk.positionPatternCoord,manager.player);
     }
 
-    #endregion
+#endregion
 #region Move
-    
-    #region PathFinding
     //Show the shortest path to destination
     public void StartPathFinding (TileEntity startTile, TileEntity endTile) {
         TileEntity prev = null;
@@ -120,25 +116,9 @@ public class GridManager : MonoBehaviour
     /// </summary>
     public void MoveAlongPath (TileEntity endTile, ActorEntity actor) {
         List<TileEntity> path = PathFinding(actor.currentTile,endTile);
-        StartCoroutine(MoveOneTile(path,actor));
+        StartCoroutine(actor.MoveOneTile(path));
     }
-    /// <summary>
-    /// Move one tile at a time
-    /// </summary>
-    IEnumerator MoveOneTile (List<TileEntity> path, ActorEntity actor) {
-        if (path.Count > 0) {
-            actor.pm -= 1;
-            Vector3 newPos = path[0].transform.position + new Vector3(0, actor.GetComponent<MeshRenderer>().bounds.size.y / 2, 0);
-            LeanTween.move(actor.gameObject,newPos,1f);
-            path.RemoveAt(0);
-            yield return new WaitForSeconds(1.1f);
-            StartCoroutine(MoveOneTile(path,actor));
-        }else{
-            //end
-            GetComponent<CombatManager>().playerState = PlayerState.Normal;
-            GetComponent<CombatManager>().ResetActorsPositions();
-        }
-    }
+
     //Main Pathfinding method
     private List<TileEntity> PathFinding (TileEntity startTile, TileEntity endTile) {
         List<TileEntity> openSet = new List<TileEntity>();
@@ -197,9 +177,8 @@ public class GridManager : MonoBehaviour
     private int GetDistance(TileEntity zoneA, TileEntity zoneB) {
         return (int) (zoneA.transform.position - zoneB.transform.position).magnitude;
     }
-    #endregion
+    
 #endregion
-
 #region Attack
 
     /// <summary>
@@ -223,20 +202,18 @@ public class GridManager : MonoBehaviour
         List<TileEntity> tileToAttack = new List<TileEntity>();
         foreach (KeyValuePair<TileEntity,int> t in tileHighlightAttack) {
             t.Key.cosmetic.ChangeTextureColor(new Color(0,0,5));
-            if (t.Key.tileUser != null) {
-                //Calcul precision
-                bool missed;
-                float rand1 = Random.Range(0,attacker.dex)+attacker.lck/10;
-                float rand2 = Random.Range(0,t.Value*15);
-                float rand3 = Random.Range(0,100)-t.Key.tileUser.agi/10;
-                missed = rand1+rand2 < rand3;
-                if (!missed) {
-                    //Damage Calcul
-                    
-                    tileToAttack.Add(t.Key);
-                }else{
-                    t.Key.tileUser.ui.ShowDamageAmount(0);
-                }
+            if (t.Key.tileUser == null) continue;
+            //Calcul precision
+            bool missed;
+            float rand1 = Random.Range(0,attacker.dex)+attacker.lck/10;
+            float rand2 = Random.Range(0,t.Value*15);
+            float rand3 = Random.Range(0,100)-t.Key.tileUser.agi/10;
+            missed = rand1+rand2 < rand3;
+            if (!missed) {
+                //Damage Calcul
+                tileToAttack.Add(t.Key);
+            }else{
+                t.Key.tileUser.ui.ShowDamageAmount(0);
             }
         }
         foreach (TileEntity t in tileToAttack) {

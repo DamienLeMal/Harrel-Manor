@@ -73,6 +73,24 @@ public class ActorEntity : MonoBehaviour
         transform.position = closestTile.transform.position + new Vector3(0, GetComponent<MeshRenderer>().bounds.size.y / 2, 0);
     }
 
+    /// <summary>
+    /// Move one tile at a time
+    /// </summary>
+    public IEnumerator MoveOneTile (List<TileEntity> path) {
+        if (path.Count > 0) {
+            pm -= 1;
+            Vector3 newPos = path[0].transform.position + new Vector3(0, GetComponent<MeshRenderer>().bounds.size.y / 2, 0);
+            LeanTween.move(gameObject,newPos,1f);
+            path.RemoveAt(0);
+            yield return new WaitForSeconds(1.1f);
+            StartCoroutine(MoveOneTile(path));
+        }else{
+            //end
+            GetComponent<CombatManager>().playerState = PlayerState.Normal;
+            GetComponent<CombatManager>().ResetActorsPositions();
+        }
+    }
+
     public void TakeDammage (ActorEntity attacker, AttackData attack) {
         //Damage Calcul
         int bonusDmg;
