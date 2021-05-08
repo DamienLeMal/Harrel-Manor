@@ -68,5 +68,7 @@ public class CombatManager : MonoBehaviour
 
     public void EndCombatMode () {
         //Set everything off and player exploration mode on
+        playerState = PlayerState.Locked;
+        player.GetComponent<PlayerDeplacement>().SetExplorationMode();
     }
 }

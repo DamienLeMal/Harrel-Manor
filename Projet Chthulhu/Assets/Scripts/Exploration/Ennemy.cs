@@ -29,7 +29,6 @@ public class Ennemy : MonoBehaviour
         if (!inCombat)
         {
             changeDetection(player.stealth);
-            theAgent.SetDestination(targetDestination.transform.position);
         }
     }
 

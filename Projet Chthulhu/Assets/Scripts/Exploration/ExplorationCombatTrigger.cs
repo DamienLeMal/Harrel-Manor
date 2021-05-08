@@ -19,7 +19,6 @@ public class ExplorationCombatTrigger : MonoBehaviour
         theAgentEnnemy = ennemy.GetComponent<NavMeshAgent>();
         player = ennemy.player;
     }
-
     private void OnTriggerEnter(Collider other)
     {
 

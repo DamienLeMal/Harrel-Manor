@@ -86,8 +86,8 @@ public class ActorEntity : MonoBehaviour
             StartCoroutine(MoveOneTile(path));
         }else{
             //end
-            GetComponent<CombatManager>().playerState = PlayerState.Normal;
-            GetComponent<CombatManager>().ResetActorsPositions();
+            manager.playerState = PlayerState.Normal;
+            manager.ResetActorsPositions();
         }
     }
 
