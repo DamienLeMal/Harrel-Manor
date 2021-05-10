@@ -9,7 +9,7 @@ public class ActorEntity : MonoBehaviour
     [HideInInspector] public int str, dex, spd, intl, agi, con, lck, mnt, pm_max, ap_max, mp_max, hp_max, mnt_max;
     public int pm, ap, mp, hp;
     [HideInInspector] public TileEntity currentTile;
-    protected CombatManager manager = null;
+    public CombatManager manager = null;
     public ActorUi ui;
     
     private void Awake() {
@@ -70,7 +70,25 @@ public class ActorEntity : MonoBehaviour
         //Apply
         closestTile.SetTileUser(this);
         currentTile = closestTile;
-        transform.position = closestTile.transform.position;
+        transform.position = closestTile.transform.position + new Vector3(0, GetComponent<MeshRenderer>().bounds.size.y / 2, 0);
+    }
+
+    /// <summary>
+    /// Move one tile at a time
+    /// </summary>
+    public IEnumerator MoveOneTile (List<TileEntity> path) {
+        if (path.Count > 0) {
+            pm -= 1;
+            Vector3 newPos = path[0].transform.position + new Vector3(0, GetComponent<MeshRenderer>().bounds.size.y / 2, 0);
+            LeanTween.move(gameObject,newPos,1f);
+            path.RemoveAt(0);
+            yield return new WaitForSeconds(1.1f);
+            StartCoroutine(MoveOneTile(path));
+        }else{
+            //end
+            manager.playerState = PlayerState.Normal;
+            manager.ResetActorsPositions();
+        }
     }
 
     public void TakeDammage (ActorEntity attacker, AttackData attack) {

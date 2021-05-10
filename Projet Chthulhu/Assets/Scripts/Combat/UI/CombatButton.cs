@@ -59,7 +59,6 @@ public class CombatButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
 
     public void RotateCamera (bool clockwise) {
         float rotation = cameraTarget.transform.eulerAngles.y;
-        Debug.Log(rotation);
         if (clockwise) {
             LeanTween.rotateY(cameraTarget,rotation+90f,0.8f).setEaseInOutQuint();
         }else{
@@ -78,6 +77,7 @@ public class CombatButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
 
     public void OnPointerExit(PointerEventData eventData)
     {
+        if (newState != PlayerState.Attacking) return;
         attackTooltip.gameObject.SetActive(false);
     }
 }

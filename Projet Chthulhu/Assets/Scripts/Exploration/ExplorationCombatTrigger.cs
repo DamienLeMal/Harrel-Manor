@@ -6,38 +6,31 @@ using UnityEngine.AI;
 public class ExplorationCombatTrigger : MonoBehaviour
 {
     public string s;
-    private Ennemy ennemis;
+    private Ennemy ennemy;
     //private ennemis Ennemis;
-    private NavMeshAgent theAgentEnnemis;
+    private NavMeshAgent theAgentEnnemy;
     private PlayerDeplacement player;
 
 
     // Start is called before the first frame update
     void Start()
     {
-        ennemis = GetComponentInParent<Ennemy>();
-        theAgentEnnemis = ennemis.GetComponent<NavMeshAgent>();
-        player = ennemis.player;
+        ennemy = GetComponentInParent<Ennemy>();
+        theAgentEnnemy = ennemy.GetComponent<NavMeshAgent>();
+        player = ennemy.player;
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-
     private void OnTriggerEnter(Collider other)
     {
 
-        if (other.tag == "Player")
+        if (other.tag == "Player" && !ennemy.inCombat)
         {
-            ennemis.hasDetectedPlayer = true;
-            theAgentEnnemis.SetDestination(this.transform.position);
-            player.ToggleBattle();
-            Debug.Log(s);
-
-            if (s == "ennemis" || !player.stealth) return;
-            Debug.Log("Avatage joueur ici");
+            ActorEntity actorPriority = player.GetComponent<ActorEntity>();
+            if (s == "ennemis" || !player.stealth)
+            {
+                actorPriority = ennemy.GetComponent<ActorEntity>();
+            }
+            ennemy.SetCombatMode();
+            player.SetCombatMode(actorPriority);
         }
     }
 }

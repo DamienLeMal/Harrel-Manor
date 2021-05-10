@@ -24,26 +24,25 @@ public class GenerateGrid : MonoBehaviour
         
         for (int i = 0; i<Mathf.Sqrt(map.Length); i++) {
             for (int j = 0; j < Mathf.Sqrt(map.Length); j++) {
-                if (map[i,j] != 0) {
-                    MeshRenderer mesh = tile.GetComponentInChildren<MeshRenderer>();
-                    GameObject g = Instantiate(tile, new Vector3((float)i*mesh.bounds.size.x, 0, -(float)j*mesh.bounds.size.x),Quaternion.identity,tileParent.transform);
-                    TileEntity t = g.GetComponent<TileEntity>();
-                    tileGrid[i,j] = t;
-                    t.coordinates = new Vector2Int(i,j);
-                    t.manager = manager;
+                if (map[i, j] == 0) continue;
+                MeshRenderer mesh = tile.GetComponentInChildren<MeshRenderer>();
+                GameObject g = Instantiate(tile, new Vector3((float)i*mesh.bounds.size.x, 0, -(float)j*mesh.bounds.size.x),Quaternion.identity,tileParent.transform);
+                TileEntity t = g.GetComponent<TileEntity>();
+                tileGrid[i,j] = t;
+                t.coordinates = new Vector2Int(i,j);
+                t.manager = manager;
 
-                    //Setting the base state of the tile
-                    switch (map[i,j])
-                    {
-                        case 1 : 
-                                t.isWalkable = true;
-                                t.tileState = TileState.Walk;
-                            break;
-                        case 2 : 
-                                t.isWalkable = false;
-                                t.tileState = TileState.Block;
-                            break;
-                    }
+                //Setting the base state of the tile
+                switch (map[i,j])
+                {
+                    case 1 : 
+                        t.isWalkable = true;
+                        t.tileState = TileState.Walk;
+                        break;
+                    case 2 : 
+                        t.isWalkable = false;
+                        t.tileState = TileState.Block;
+                        break;
                 }
             }
         }
@@ -64,7 +63,7 @@ public class GenerateGrid : MonoBehaviour
                 {t.coordinates.x-1,t.coordinates.y-1},
                 {t.coordinates.x+1,t.coordinates.y-1}};
             SetNeighbours(coord,t.allNeighbourTiles,tileGrid);
-            
+            t.gameObject.SetActive(false);
         }
     }
     private void SetNeighbours (int[,] coord, List<TileEntity> nList, TileEntity[,] tileGrid) {

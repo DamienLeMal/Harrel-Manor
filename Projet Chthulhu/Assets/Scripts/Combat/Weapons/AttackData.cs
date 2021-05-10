@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "Attack", menuName = "ScriptableObjects/Combat/Attack", order = 2)]
+[CreateAssetMenu(fileName = "Attack", menuName = "ScriptableObjects/Combat/Attack", order = 3)]
 public class AttackData : SheetData
 {
     public string attackName;
@@ -27,9 +27,9 @@ public class AttackData : SheetData
 
     private void ProcessText () {
         attackName = "<B>" + attackName + "</B>";
-        description = "Coût AP : <color=green>" + apCost.ToString() +
-                      "</color>\nCoût MP : <color=purple>" + mpCost.ToString() +
-                      "</color>\nDégâts : <color=red>" + dmg.ToString() + "</color>";
+        description = "Coï¿½t AP : <color=green>" + apCost.ToString() +
+                      "</color>\nCoï¿½t MP : <color=purple>" + mpCost.ToString() +
+                      "</color>\nDï¿½gï¿½ts : <color=red>" + dmg.ToString() + "</color>";
 
     }
 

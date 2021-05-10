@@ -10,7 +10,6 @@ public class TileCosmetic : MonoBehaviour
     [SerializeField] Texture lineT = null;
     [SerializeField] Texture angleT = null;
     [SerializeField] Texture singleT = null;
-    [SerializeField] Texture normalT = null;
     [SerializeField] Texture occupiedT = null;
     private TileEntity currentTile;
     private MeshRenderer tileRenderer;
@@ -26,7 +25,6 @@ public class TileCosmetic : MonoBehaviour
         }else{
             tileRenderer.material = wallM;
         }
-        
     }
 
     public void UpdateMaterial (TileState state) {

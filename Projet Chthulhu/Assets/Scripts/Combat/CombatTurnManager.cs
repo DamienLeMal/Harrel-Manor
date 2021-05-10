@@ -55,7 +55,8 @@ public class CombatTurnManager : MonoBehaviour
 
     public void TestCombatEnd () {
         if (fightingEntities.Count != 1) return;
-        //manager.turn = Turn.End;
+        manager.turn = Turn.End;
         //Combat end, player win
+        manager.EndCombatMode();
     }
 }
