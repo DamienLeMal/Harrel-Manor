@@ -7,6 +7,5 @@ public class ActorData : ScriptableObject
 {
     public int str, dex, spd, intl, agi, con, lck, mnt;
     public List<WeaponData> weaponInvetory;
-    //public Spell[] spellInventory;
-    //public Armor[] armorInvetory;
+    public ActorDialogue dialogue;
 }

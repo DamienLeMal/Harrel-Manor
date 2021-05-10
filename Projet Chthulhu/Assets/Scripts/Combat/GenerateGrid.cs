@@ -63,7 +63,7 @@ public class GenerateGrid : MonoBehaviour
                 {t.coordinates.x-1,t.coordinates.y-1},
                 {t.coordinates.x+1,t.coordinates.y-1}};
             SetNeighbours(coord,t.allNeighbourTiles,tileGrid);
-            
+            t.gameObject.SetActive(false);
         }
     }
     private void SetNeighbours (int[,] coord, List<TileEntity> nList, TileEntity[,] tileGrid) {

@@ -51,6 +51,10 @@ public class CombatManager : MonoBehaviour
     public void StartCombat (ActorEntity actorPriority) {
         turnManager.fightingEntities = new List<ActorEntity>();
         turnManager.fightingEntities.Add(actorPriority);
+        foreach (TileEntity t in grid) {
+            if (t == null) continue;
+            t.gameObject.SetActive(true);
+        }
         foreach (GameObject g in gameEntities.entities) {
             if (Vector3.Distance(player.transform.position,g.transform.position) > 123456789) continue;
             if (turnManager.fightingEntities.Contains(g.GetComponent<ActorEntity>())) continue;
@@ -69,6 +73,11 @@ public class CombatManager : MonoBehaviour
     public void EndCombatMode () {
         //Set everything off and player exploration mode on
         playerState = PlayerState.Locked;
+        gridManager.ResetTileHighlight();
+        foreach (TileEntity t in grid) {
+            if (t == null) continue;
+            t.gameObject.SetActive(false);
+        }
         player.GetComponent<PlayerDeplacement>().SetExplorationMode();
     }
 }

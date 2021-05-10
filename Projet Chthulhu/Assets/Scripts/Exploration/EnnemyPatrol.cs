@@ -19,6 +19,10 @@ public class EnnemyPatrol : MonoBehaviour
     }
 
     private void Update() {
+        if (navMesh == null) {
+            Destroy(gameObject);
+            return;
+        }
         navMesh.SetDestination(waypoints[currentIndex].position);
         if (Vector3.Distance(waypoints[currentIndex].position,navMesh.transform.position) > distThreshold) return;
         NextTarget();
