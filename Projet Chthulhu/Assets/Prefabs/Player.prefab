@@ -136,8 +136,9 @@ MonoBehaviour:
   rotateSpeedMovement: 0.1
   stealth: 0
   inBattle: 0
-  minSpeed: 5
-  maxSpeed: 10
+  minSpeed: 1.5
+  maxSpeed: 3.5
+  minClick: 2
 --- !u!195 &6877543952668379125
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -148,8 +149,8 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.5
-  m_Speed: 3.5
-  m_Acceleration: 8
+  m_Speed: 4
+  m_Acceleration: 60
   avoidancePriority: 50
   m_AngularSpeed: 120000
   m_StoppingDistance: 0
