@@ -8,9 +8,11 @@ public class ActorEntity : MonoBehaviour
     [HideInInspector] public List<WeaponData> weaponInventory;
     [HideInInspector] public int str, dex, spd, intl, agi, con, lck, mnt, pm_max, ap_max, mp_max, hp_max, mnt_max;
     public int pm, ap, mp, hp;
+    [HideInInspector] public int level = 0;
     [HideInInspector] public TileEntity currentTile;
     public CombatManager manager = null;
     public ActorUi ui;
+
     
     private void Awake() {
         if (baseStats == null) {
@@ -43,15 +45,20 @@ public class ActorEntity : MonoBehaviour
         lck = data.lck;
         mnt = data.mnt;
         mnt_max = mnt;
-        pm_max = (int)data.spd/10;
-        ap_max = (int)(data.dex+data.str)/20;
-        mp_max = (int)data.intl/10;
-        hp_max = (int)data.con/5;
+        NewMaxStat();
         pm = pm_max;
         ap = ap_max;
         mp = mp_max;
         hp = hp_max;
     }
+
+    protected void NewMaxStat () {
+        pm_max = (int)spd/10;
+        ap_max = (int)(dex+str)/20;
+        mp_max = (int)intl/10;
+        hp_max = (int)con/5;
+    }
+
     /// <summary>
     /// Set the actor to the closest point in the grid and move him to it
     /// </summary>

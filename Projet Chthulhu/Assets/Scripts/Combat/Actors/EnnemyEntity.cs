@@ -4,6 +4,13 @@ using UnityEngine;
 
 public class EnnemyEntity : ActorEntity
 {
+
+    private void Start() {
+        level = (str + dex + spd + intl + agi + con + lck)/7;
+        Debug.Log(level);
+    }
+
+
     /// <summary>
     /// Make the ennemy disapear
     /// </summary>
