@@ -18,6 +18,8 @@ public class PlayerDeplacement : MonoBehaviour
 
     private Rigidbody rb;
 
+    [SerializeField]private float minClick = 2;
+
 
     // Start is called before the first frame update
     void Start()
@@ -38,12 +40,20 @@ public class PlayerDeplacement : MonoBehaviour
 
                 if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hit, Mathf.Infinity))
                 {
-                    agent.SetDestination(hit.point);
+                    if (Vector3.Distance(transform.position,hit.point) > minClick)
+                    {
+                        agent.SetDestination(hit.point);
+                        Quaternion rotationToLookAt = Quaternion.LookRotation(hit.point - transform.position);
+                        float rotationY = Mathf.SmoothDampAngle(transform.eulerAngles.y, rotationToLookAt.eulerAngles.y, ref rotateVelocity, rotateSpeedMovement * (Time.deltaTime * 5));
+                        transform.eulerAngles = new Vector3(0, rotationY, 0);
+                    }
+                    else
+                    {
+                        agent.SetDestination(transform.position);
+                    }
 
-                    Quaternion rotationToLookAt = Quaternion.LookRotation(hit.point - transform.position);
-                    float rotationY = Mathf.SmoothDampAngle(transform.eulerAngles.y, rotationToLookAt.eulerAngles.y, ref rotateVelocity, rotateSpeedMovement * (Time.deltaTime * 5));
-                    transform.eulerAngles = new Vector3(0, rotationY, 0);
                 }
+                
             }
             else if (Input.GetMouseButtonUp(0))
             {

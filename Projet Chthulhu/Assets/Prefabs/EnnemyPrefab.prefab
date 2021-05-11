@@ -18,7 +18,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &8704972076066241306
 Transform:
   m_ObjectHideFlags: 0
@@ -89,13 +89,12 @@ GameObject:
   - component: {fileID: 5071152625333167521}
   - component: {fileID: 7256660579154805605}
   - component: {fileID: 384826618490073795}
-  - component: {fileID: 3856078588439576883}
-  - component: {fileID: 5710666845131815934}
   - component: {fileID: 3177449020552234698}
   - component: {fileID: 9055267391914508815}
   - component: {fileID: 5509379124813324430}
   - component: {fileID: 9187895825382230339}
-  m_Layer: 0
+  - component: {fileID: 556217458}
+  m_Layer: 14
   m_Name: EnnemyPrefab
   m_TagString: Ennemis
   m_Icon: {fileID: 0}
@@ -190,10 +189,10 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.5
-  m_Speed: 6
-  m_Acceleration: 12
+  m_Speed: 2
+  m_Acceleration: 60
   avoidancePriority: 50
-  m_AngularSpeed: 999
+  m_AngularSpeed: 120000
   m_StoppingDistance: 0
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 0
@@ -202,32 +201,6 @@ NavMeshAgent:
   m_BaseOffset: 0.49999997
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
---- !u!135 &3856078588439576883
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5996582160080080292}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 2
-  m_Center: {x: 0, y: -0.46, z: 0}
---- !u!135 &5710666845131815934
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5996582160080080292}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 0
-  serializedVersion: 2
-  m_Radius: 1
-  m_Center: {x: 0, y: -0.46, z: 0}
 --- !u!114 &3177449020552234698
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -242,10 +215,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   targetDestination: {fileID: 0}
   inCombat: 0
-  bigDetect: {fileID: 3856078588439576883}
-  lilDetect: {fileID: 5710666845131815934}
+  sphereDetec: {fileID: 556217458}
   viewDetect: {fileID: 8858953757312838899}
   player: {fileID: 0}
+  minSize: 1
+  maxSize: 2
 --- !u!114 &9055267391914508815
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -306,6 +280,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   state: 0
+--- !u!135 &556217458
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5996582160080080292}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 1
+  m_Center: {x: 0, y: -0.46, z: 0}
 --- !u!1001 &3304292598179504131
 PrefabInstance:
   m_ObjectHideFlags: 0
