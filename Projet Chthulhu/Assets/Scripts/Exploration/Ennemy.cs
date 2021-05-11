@@ -9,10 +9,11 @@ public class Ennemy : MonoBehaviour
     NavMeshAgent theAgent;
     public bool inCombat = false;
 
-    public SphereCollider bigDetect;
-    public SphereCollider lilDetect;
+    public SphereCollider sphereDetec;
     [SerializeField] private MeshCollider viewDetect;
     [HideInInspector] public PlayerDeplacement player;
+
+    [SerializeField] private int minSize = 1, maxSize = 2;
 
     void Awake()
     {
@@ -36,8 +37,7 @@ public class Ennemy : MonoBehaviour
     {
         theAgent.SetDestination(this.transform.position);
         theAgent.isStopped = true;
-        Destroy(bigDetect);
-        Destroy(lilDetect);
+        Destroy(sphereDetec);
         Destroy(viewDetect);
         Destroy(theAgent);
         inCombat = true;
@@ -46,7 +46,18 @@ public class Ennemy : MonoBehaviour
 
     private void changeDetection(bool state)
     {
+
+        if (state)
+        {
+            sphereDetec.radius = minSize;
+        }
+        else
+        {
+            sphereDetec.radius = maxSize;
+        }
+        /*
         lilDetect.enabled = state;
         bigDetect.enabled = !state;
+        */
     }
 }

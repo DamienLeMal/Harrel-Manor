@@ -16,12 +16,15 @@ public class PlayerDeplacement : MonoBehaviour
     public float minSpeed = 5;
     public float maxSpeed = 10;
 
+    private Rigidbody rb;
+
 
     // Start is called before the first frame update
     void Start()
     {
         agent = gameObject.GetComponent<NavMeshAgent>();
         agent.speed = maxSpeed;
+        rb = GetComponent<Rigidbody>();
     }
 
     // Update is called once per frame
@@ -65,7 +68,9 @@ public class PlayerDeplacement : MonoBehaviour
         agent.enabled = false;
         inBattle = true;
         GetComponent<PlayerEntity>().manager.StartCombat(actorPriority);
-        GetComponent<Rigidbody>().detectCollisions = false;
+        rb.detectCollisions = false;
+        rb.constraints = RigidbodyConstraints.FreezeRotationZ | RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezePosition;
+
     }
 
     public void SetExplorationMode()
@@ -74,7 +79,8 @@ public class PlayerDeplacement : MonoBehaviour
         agent.enabled = true;
         agent.isStopped = false;
         inBattle = false;
-        GetComponent<Rigidbody>().detectCollisions = true;
+        rb.detectCollisions = true;
+        rb.constraints = RigidbodyConstraints.FreezeRotationZ | RigidbodyConstraints.FreezeRotationX;
     }
 
     private void ToggleSteath()
