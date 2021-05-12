@@ -80,16 +80,12 @@ public class TileEntity : MonoBehaviour
     }
     private void OnMouseDown() {
         if (EventSystem.current.IsPointerOverGameObject()) return;
-        if (manager.playerState == PlayerState.Moving) {
+        if (manager.playerState == PlayerState.Moving && gManager.tileHighlightRanges.TryGetValue(this,out int val)) {
             manager.playerState = PlayerState.Locked;
-            gManager.ResetTileHighlight();
-            if (gManager.tileHighlightRanges.TryGetValue(this,out int value)){
-                gManager.MoveAlongPath(this,manager.player);
-            }
+            gManager.MoveAlongPath(this,manager.player);
         }
-        if (manager.playerState == PlayerState.Attacking && gManager.tileHighlightRanges.TryGetValue(this,out int val)) {
+        if (manager.playerState == PlayerState.Attacking && gManager.tileHighlightRanges.TryGetValue(this,out int value)) {
             gManager.LaunchAttach(this,manager.player, manager.activeButton.attack);
-            gManager.Invoke("HighlightTiles",0.2f);
         }
     }
 #endregion

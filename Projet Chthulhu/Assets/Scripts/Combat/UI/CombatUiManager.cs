@@ -5,7 +5,8 @@ using UnityEngine.UI;
 
 public class CombatUiManager : MonoBehaviour
 {
-    [SerializeField] private GameObject canvasButtonParent;
+    [SerializeField] private List<GameObject> combatCanvas = new List<GameObject>();
+    [SerializeField] private GameObject canvasWeaponButtonParent;
     [SerializeField] private GameObject attackButtonPrefab;
     [SerializeField] private GameObject weaponButtonPrefab;
     [SerializeField] private TooltipUi attackTooltip;
@@ -13,7 +14,7 @@ public class CombatUiManager : MonoBehaviour
     public WeaponButton ShowWeaponButton () {
         bool recycling = false;
         WeaponButton returnButton = null;
-        foreach (Transform button in canvasButtonParent.transform) {
+        foreach (Transform button in canvasWeaponButtonParent.transform) {
            if (!button.gameObject.activeSelf) {
                 button.gameObject.SetActive(true);
                 recycling = true;
@@ -21,7 +22,7 @@ public class CombatUiManager : MonoBehaviour
             }
         }
         if (!recycling) {
-            GameObject button = Instantiate(weaponButtonPrefab,Vector3.zero,Quaternion.identity,canvasButtonParent.transform);
+            GameObject button = Instantiate(weaponButtonPrefab,Vector3.zero,Quaternion.identity,canvasWeaponButtonParent.transform);
             button.transform.localScale = Vector3.one;
             returnButton = button.GetComponent<WeaponButton>();
         }
@@ -49,5 +50,11 @@ public class CombatUiManager : MonoBehaviour
         button.gameObject.name = attack.attackName;
         button.GetComponentInChildren<Text>().text = attack.attackName;
         button.GetComponent<CombatButton>().ButtonConstructor(GetComponent<CombatManager>(),PlayerState.Attacking,attack,attackTooltip);
+    }
+
+    public void ToggleCombatUi(bool toggle) {
+        foreach (GameObject go in combatCanvas) {
+            go.SetActive(toggle);
+        }
     }
 }

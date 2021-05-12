@@ -13,6 +13,7 @@ public class GridManager : MonoBehaviour
     /// <typeparam name="int">Distance of the tile from the player</typeparam>
     public Dictionary<TileEntity,int> tileHighlightRanges;
     private Dictionary<TileEntity,int> tileHighlightAttack;
+    [HideInInspector] public bool attackCooldownEnded = true;
     private void Start() {
         manager = GetComponent<CombatManager>();
         tileGrid = manager.grid;
@@ -187,9 +188,6 @@ public class GridManager : MonoBehaviour
     public void ShowAttackPattern (TileEntity startTile, ActorEntity attacker, AttackData attack) {
         tileHighlightAttack = new Dictionary<TileEntity, int>();
         tileHighlightAttack = GetPattern(startTile, attack.damagePatternCoord,attacker);
-        if (tileHighlightAttack.TryGetValue(attacker.currentTile, out int value)) { 
-            tileHighlightAttack.Remove(attacker.currentTile); 
-        }
         foreach (KeyValuePair<TileEntity,int> t in tileHighlightAttack) {
             t.Key.cosmetic.ChangeTextureColor(new Color(0,0,0));
         }
@@ -201,7 +199,6 @@ public class GridManager : MonoBehaviour
         ShowAttackPattern(targetTile,attacker,attack);
         List<TileEntity> tileToAttack = new List<TileEntity>();
         foreach (KeyValuePair<TileEntity,int> t in tileHighlightAttack) {
-            t.Key.cosmetic.ChangeTextureColor(new Color(0,0,5));
             if (t.Key.tileUser == null) continue;
             //Calcul precision
             bool missed;
@@ -229,16 +226,20 @@ public class GridManager : MonoBehaviour
                 canAttack = true;
             }
         }
-        if (canAttack) {
-            ResetTileHighlight();
-            manager.playerState = PlayerState.Normal;
-            HighlightActionTiles();
-        }
+        if (canAttack) manager.playerState = PlayerState.Normal;
 
-        //Hard code because problems :(
-        targetTile.cosmetic.ChangeTextureColor(new Color(0,0,5));
-        Invoke("ResetTileHighlight",0.2f);
+        //Effects
+        foreach (KeyValuePair<TileEntity,int> t in tileHighlightAttack) {
+            t.Key.cosmetic.ChangeTextureColor(new Color(0,0,5));
+        }
+        Invoke("LaunchAttackEnd",0.2f);
     }
+
+    private void LaunchAttackEnd() {
+        ResetTileHighlight();
+        if (manager.playerState == PlayerState.Attacking) manager.playerState = PlayerState.Normal;
+    }
+
     /// <summary>
     /// Use a list of coordinates to return a list of corresponding tiles in the level
     /// </summary>
@@ -265,6 +266,9 @@ public class GridManager : MonoBehaviour
             if (!tupleAccess.Item1 || finalTargets.TryGetValue(potentialTargets[i],out int value)) continue;
             if (potentialTargets[i].tileState == TileState.Occupied && potentialTargets[i].tileUser == null) continue;
             finalTargets.Add(potentialTargets[i],tupleAccess.Item2);
+        }
+        if (finalTargets.TryGetValue(attacker.currentTile, out int val)) { 
+            finalTargets.Remove(attacker.currentTile); 
         }
         return finalTargets;
     }
