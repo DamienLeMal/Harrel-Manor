@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.EventSystems;
 
 public class PlayerDeplacement : MonoBehaviour
 {
@@ -32,14 +33,15 @@ public class PlayerDeplacement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!inBattle)
-        {
+        if (inBattle) return;
+        if (EventSystem.current.IsPointerOverGameObject()) return;
             if (Input.GetMouseButton(0))
             {
                 RaycastHit hit;
 
                 if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hit, Mathf.Infinity))
                 {
+                if (hit.collider.gameObject.GetComponent<IClicked>() != null) return;
                     if (Vector3.Distance(transform.position,hit.point) > minClick)
                     {
                         agent.SetDestination(hit.point);
@@ -64,9 +66,6 @@ public class PlayerDeplacement : MonoBehaviour
             {
                 ToggleSteath();
             }
-        }
-
-        
     }
 
     
