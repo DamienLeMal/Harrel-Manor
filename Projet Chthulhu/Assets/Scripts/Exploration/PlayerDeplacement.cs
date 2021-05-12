@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.EventSystems;
 
 public class PlayerDeplacement : MonoBehaviour
 {
@@ -16,31 +17,45 @@ public class PlayerDeplacement : MonoBehaviour
     public float minSpeed = 5;
     public float maxSpeed = 10;
 
+    private Rigidbody rb;
+
+    [SerializeField]private float minClick = 2;
+
 
     // Start is called before the first frame update
     void Start()
     {
         agent = gameObject.GetComponent<NavMeshAgent>();
         agent.speed = maxSpeed;
+        rb = GetComponent<Rigidbody>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (!inBattle)
-        {
+        if (inBattle) return;
+        if (EventSystem.current.IsPointerOverGameObject()) return;
             if (Input.GetMouseButton(0))
             {
                 RaycastHit hit;
 
                 if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hit, Mathf.Infinity))
                 {
-                    agent.SetDestination(hit.point);
+                if (hit.collider.gameObject.GetComponent<IClicked>() != null) return;
+                    if (Vector3.Distance(transform.position,hit.point) > minClick)
+                    {
+                        agent.SetDestination(hit.point);
+                        Quaternion rotationToLookAt = Quaternion.LookRotation(hit.point - transform.position);
+                        float rotationY = Mathf.SmoothDampAngle(transform.eulerAngles.y, rotationToLookAt.eulerAngles.y, ref rotateVelocity, rotateSpeedMovement * (Time.deltaTime * 5));
+                        transform.eulerAngles = new Vector3(0, rotationY, 0);
+                    }
+                    else
+                    {
+                        agent.SetDestination(transform.position);
+                    }
 
-                    Quaternion rotationToLookAt = Quaternion.LookRotation(hit.point - transform.position);
-                    float rotationY = Mathf.SmoothDampAngle(transform.eulerAngles.y, rotationToLookAt.eulerAngles.y, ref rotateVelocity, rotateSpeedMovement * (Time.deltaTime * 5));
-                    transform.eulerAngles = new Vector3(0, rotationY, 0);
                 }
+                
             }
             else if (Input.GetMouseButtonUp(0))
             {
@@ -51,9 +66,6 @@ public class PlayerDeplacement : MonoBehaviour
             {
                 ToggleSteath();
             }
-        }
-
-        
     }
 
     
@@ -65,7 +77,9 @@ public class PlayerDeplacement : MonoBehaviour
         agent.enabled = false;
         inBattle = true;
         GetComponent<PlayerEntity>().manager.StartCombat(actorPriority);
-        GetComponent<Rigidbody>().detectCollisions = false;
+        rb.detectCollisions = false;
+        rb.constraints = RigidbodyConstraints.FreezeRotationZ | RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezePosition;
+
     }
 
     public void SetExplorationMode()
@@ -74,7 +88,8 @@ public class PlayerDeplacement : MonoBehaviour
         agent.enabled = true;
         agent.isStopped = false;
         inBattle = false;
-        GetComponent<Rigidbody>().detectCollisions = true;
+        rb.detectCollisions = true;
+        rb.constraints = RigidbodyConstraints.FreezeRotationZ | RigidbodyConstraints.FreezeRotationX;
     }
 
     private void ToggleSteath()

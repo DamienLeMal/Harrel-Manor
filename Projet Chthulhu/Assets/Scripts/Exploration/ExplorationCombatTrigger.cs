@@ -10,6 +10,7 @@ public class ExplorationCombatTrigger : MonoBehaviour
     //private ennemis Ennemis;
     private NavMeshAgent theAgentEnnemy;
     private PlayerDeplacement player;
+    private RaycastHit[] hits;
 
 
     // Start is called before the first frame update
@@ -19,10 +20,12 @@ public class ExplorationCombatTrigger : MonoBehaviour
         theAgentEnnemy = ennemy.GetComponent<NavMeshAgent>();
         player = ennemy.player;
     }
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerStay(Collider other)
     {
-
-        if (other.tag == "Player" && !ennemy.inCombat)
+        if (ennemy.inCombat) return;
+        
+        LaunchRaycastCheck();
+        if (other.tag == "Player" && hits.Length == 0)
         {
             ActorEntity actorPriority = player.GetComponent<ActorEntity>();
             if (s == "ennemis" || !player.stealth)
@@ -32,5 +35,33 @@ public class ExplorationCombatTrigger : MonoBehaviour
             ennemy.SetCombatMode();
             player.SetCombatMode(actorPriority);
         }
+        
+    }
+
+    private void FixedUpdate()
+    {
+       
+    }
+
+    private void LaunchRaycastCheck()
+    {
+        Vector3 direction = (ennemy.transform.position - player.transform.position);
+        hits = Physics.RaycastAll(player.transform.position, direction, Mathf.Infinity, 14);
+
+        //Debug.Log(hits.Length);
+
+        if (hits.Length != 0)
+        {
+            Debug.DrawLine(ennemy.transform.position, player.transform.position, Color.red);
+        }
+        else
+        {
+            Debug.DrawLine(ennemy.transform.position, player.transform.position, Color.green);
+        }
+
+        /*foreach (RaycastHit hit in hits)
+        {
+            Debug.Log(hit.collider.gameObject.name);
+        }*/
     }
 }
