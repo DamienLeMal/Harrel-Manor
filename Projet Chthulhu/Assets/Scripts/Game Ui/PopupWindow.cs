@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using System;
 
 public enum PopupType {
     Information,
@@ -13,13 +14,20 @@ public class PopupWindow : MonoBehaviour
     [SerializeField] private Text txt;
     [SerializeField] private GameObject infoButton;
     [SerializeField] private GameObject lvlUpButtons;
+    private bool popupActivated = false;
+    private Action afterCoroutineMethod;
     
 
     private void Start() {
-        ActivatePopup("text", PopupType.Information);
+        //ActivatePopup("text", PopupType.Information);
     }
 
-    public void ActivatePopup (string popupText, PopupType type) {
+
+
+    public IEnumerator ActivatePopup (string popupText, PopupType type, Action afterMethod = null) {
+        Debug.Log("call popup");
+        afterCoroutineMethod = afterMethod;
+        popupWindow.SetActive(true);
         switch (type) {
             case PopupType.Information :
                 lvlUpButtons.SetActive(false);
@@ -32,9 +40,14 @@ public class PopupWindow : MonoBehaviour
         }
         txt.text = popupText;
         Time.timeScale = 0;
+        popupActivated = true;
+        while (popupActivated) yield return null;
     }
 
     public void UnactivatePopup () {
+        popupActivated = false;
+        popupWindow.SetActive(false);
+        afterCoroutineMethod();
         Debug.Log("unactivation");
     }
 }

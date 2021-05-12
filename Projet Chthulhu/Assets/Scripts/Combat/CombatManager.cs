@@ -24,6 +24,7 @@ public class CombatManager : MonoBehaviour
     [HideInInspector] public PlayerState[] pStateAffectGrid = {PlayerState.Moving, PlayerState.Attacking};
     [HideInInspector] public PlayerEntity player = null;
     [HideInInspector] public GridManager gridManager = null;
+    public PopupWindow popup = null;
 
     public CombatButton activeButton = null;
     private void Start() {

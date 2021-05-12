@@ -1538,7 +1538,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &595430169
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4256,6 +4256,7 @@ MonoBehaviour:
   pStateAffectGrid: 0100000002000000
   player: {fileID: 0}
   gridManager: {fileID: 0}
+  popup: {fileID: 144006574}
   activeButton: {fileID: 0}
 --- !u!114 &1391306514
 MonoBehaviour:
@@ -7056,7 +7057,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 400, y: 0}
+  m_SizeDelta: {x: 400, y: 202.734}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &1666483935
 MonoBehaviour:
@@ -7511,8 +7512,8 @@ RectTransform:
   m_Father: {fileID: 984852173}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 0.33410275}
+  m_AnchorMax: {x: 1, y: 0.9999999}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}

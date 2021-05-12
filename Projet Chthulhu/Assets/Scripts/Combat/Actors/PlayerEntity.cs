@@ -4,26 +4,43 @@ using UnityEngine;
 
 public class PlayerEntity : ActorEntity
 {
-    private int exp;
+    private int exp = 0;
     private int exp_goal;
+    [HideInInspector] public int realLevel;
+    private int amountLeft;
 
-    private void CalculateXpGain (int ennemyLvl) {
-        //Calculate xp gain
-
-        
+    private void Start() {
+        exp_goal = level * 10;
+        realLevel = GetRealLevel();
     }
-
-    private void AddXpGain (int amount) {
+    public void AddXpGain (int amount) {
         //if exp + xp gain > exp goal -> LevelUp()
         //Else apply
+        if (exp + amount >= exp_goal) {
+            Debug.Log("Level Up");
+            LevelUp(exp + amount - exp_goal);
+            return;
+        }
+        Debug.Log("Not enough xp");
+        exp+=amount;
     }
 
     private void LevelUp (int amountRemaining) {
         //level up -> popup -> upgrade some stats
+        level++;
+        exp_goal = level * 10;
+        amountLeft = amountRemaining;
+        string popupText = "Vous gagnez un niveau !\nVous êtes niveau " + level.ToString() + " !\nSélectionnez une stat à améliorer";
+        StartCoroutine(manager.popup.ActivatePopup(popupText,PopupType.LevelUp,LevelUpEnd));
         
         
         
+        
+    }
+
+    private void LevelUpEnd() {
         //add remaining xp gain -> add XpGain(reste)
+        AddXpGain(amountLeft);
     }
 
     public void UpgradeStat (PlayerStat pStat) {
@@ -51,6 +68,7 @@ public class PlayerEntity : ActorEntity
                 lck += ProcessUpgradeAmount(lck, upgradeAmount);
                 break; 
         }
+        realLevel = GetRealLevel();
     }
 
     private int ProcessUpgradeAmount (int stat, int upgradeAmount) {

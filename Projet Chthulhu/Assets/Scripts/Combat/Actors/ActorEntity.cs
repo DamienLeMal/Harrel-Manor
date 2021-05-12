@@ -8,6 +8,7 @@ public class ActorEntity : MonoBehaviour
     [HideInInspector] public List<WeaponData> weaponInventory;
     [HideInInspector] public int str, dex, spd, intl, agi, con, lck, mnt, pm_max, ap_max, mp_max, hp_max, mnt_max;
     public int pm, ap, mp, hp;
+    [HideInInspector] public string entityName;
     [HideInInspector] public int level = 0;
     [HideInInspector] public TileEntity currentTile;
     public CombatManager manager = null;
@@ -35,6 +36,7 @@ public class ActorEntity : MonoBehaviour
     }
 
     private void Constructor (ActorData data) {
+        entityName = data.name;
         weaponInventory = data.weaponInvetory;
         str = data.str;
         dex = data.dex;
@@ -57,6 +59,9 @@ public class ActorEntity : MonoBehaviour
         ap_max = (int)(dex+str)/20;
         mp_max = (int)intl/10;
         hp_max = (int)con/5;
+    }
+    protected int GetRealLevel () {
+        return (str + dex + spd + intl + agi + con + lck)/7;
     }
 
     /// <summary>
