@@ -215,3 +215,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   manager: {fileID: 0}
   newState: 1
+  cameraTarget: {fileID: 0}
+  attack: {fileID: 0}
