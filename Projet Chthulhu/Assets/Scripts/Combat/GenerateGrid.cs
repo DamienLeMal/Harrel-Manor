@@ -36,12 +36,13 @@ public class GenerateGrid : MonoBehaviour
                 switch (map[i,j])
                 {
                     case 1 : 
-                        t.isWalkable = true;
                         t.tileState = TileState.Walk;
                         break;
                     case 2 : 
-                        t.isWalkable = false;
                         t.tileState = TileState.Block;
+                        break;
+                    case 3 :
+                        t.tileState = TileState.Occupied;
                         break;
                 }
             }

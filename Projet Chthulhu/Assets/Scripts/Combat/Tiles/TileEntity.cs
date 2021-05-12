@@ -17,7 +17,6 @@ public class TileEntity : MonoBehaviour
     public List<TileEntity> directNeighbourTiles = new List<TileEntity>();
     public List<TileEntity> allNeighbourTiles = new List<TileEntity>();
     public ActorEntity tileUser;
-    public bool isWalkable;
     public TileState tileState;
     public CombatManager manager;
     private GridManager gManager;
