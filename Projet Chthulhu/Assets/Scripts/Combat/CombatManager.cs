@@ -14,16 +14,17 @@ public class CombatManager : MonoBehaviour
     public PlayerState playerState = PlayerState.Normal;
     
     public Turn turn = Turn.Start;
-    public CombatTurnManager turnManager;
-    public CombatUiManager uiManager;
+    [HideInInspector] public CombatTurnManager turnManager;
+    [HideInInspector] public CombatUiManager uiManager;
 
-    public TileEntity[,] grid;
+    [HideInInspector] public TileEntity[,] grid;
     /// <summary>
     /// Array of Player States that affect the Grid
     /// </summary>
     [HideInInspector] public PlayerState[] pStateAffectGrid = {PlayerState.Moving, PlayerState.Attacking};
     [HideInInspector] public PlayerEntity player = null;
-    public GridManager gridManager = null;
+    [HideInInspector] public GridManager gridManager = null;
+    public PopupWindow popup = null;
 
     public CombatButton activeButton = null;
     private void Start() {
