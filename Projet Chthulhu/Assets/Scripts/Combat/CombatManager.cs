@@ -11,8 +11,6 @@ public enum PlayerState {
 public class CombatManager : MonoBehaviour
 {
     [HideInInspector] public EntityManager gameEntities = new EntityManager();
-    
-    
     public Turn turn = Turn.Start;
     [HideInInspector] public CombatTurnManager turnManager;
     [HideInInspector] public CombatUiManager uiManager;
@@ -33,6 +31,10 @@ public class CombatManager : MonoBehaviour
     }
     private PlayerState _playerState = PlayerState.Normal;
     public PopupWindow popup = null;
+    //Editor Materials
+    public Material walkMaterial;
+    public Material blockMaterial;
+    public Material occupiedMaterial;
 
     [HideInInspector] public CombatButton activeButton = null;
     private void Start() {
