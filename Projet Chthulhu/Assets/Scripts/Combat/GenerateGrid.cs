@@ -44,6 +44,10 @@ public class GenerateGrid : MonoBehaviour
                     case 3 :
                         t.tileState = TileState.Occupied;
                         break;
+                    case 4 :
+                        //Add door interface
+                        t.tileState = TileState.Block;
+                        break;
                 }
             }
         }
