@@ -38,6 +38,7 @@ public class CombatManager : MonoBehaviour
 
     [HideInInspector] public CombatButton activeButton = null;
     private void Start() {
+        SoundEventManager.current.onGamemodeChange += OnGamemodeChange;
         uiManager = GetComponent<CombatUiManager>();
         gridManager = GetComponent<GridManager>();
         turnManager = GetComponent<CombatTurnManager>();
@@ -91,10 +92,15 @@ public class CombatManager : MonoBehaviour
         }
         uiManager.ToggleCombatUi(false);
         player.GetComponent<PlayerDeplacement>().SetExplorationMode();
+        SoundEventManager.current.GamemodeChange();
     }
 
     private void UpdateTileHighlight () {
         gridManager.ResetTileHighlight();
         gridManager.HighlightActionTiles();
+    }
+
+    private void OnGamemodeChange () {
+        Debug.Log("gameModeChange");
     }
 }
