@@ -95,5 +95,11 @@ public class SoundEventManager : MonoBehaviour
         if (onPause == null) return;
         onPause();
     }
+
+    public event Action<int> onDialogue;
+    public void Dialogue (int id) {
+        if (onDialogue == null) return;
+        onDialogue(id);
+    }
 #endregion
 }
