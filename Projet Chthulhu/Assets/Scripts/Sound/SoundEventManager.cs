@@ -71,6 +71,7 @@ public class SoundEventManager : MonoBehaviour
     //Changing gamemode
     public event Action onGamemodeChange;
     public void GamemodeChange() {
+        CombatManager.current.combatOn = !CombatManager.current.combatOn;
         if (onGamemodeChange == null) return;
         onGamemodeChange();
     }

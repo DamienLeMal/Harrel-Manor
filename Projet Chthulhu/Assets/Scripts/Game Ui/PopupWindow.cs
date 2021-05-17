@@ -11,6 +11,7 @@ public enum PopupType {
 public class PopupWindow : MonoBehaviour
 {
     [SerializeField] private GameObject popupWindow;
+    [SerializeField] private Text title;
     [SerializeField] private Text txt;
     [SerializeField] private GameObject infoButton;
     [SerializeField] private GameObject lvlUpButtons;
@@ -22,23 +23,27 @@ public class PopupWindow : MonoBehaviour
         //ActivatePopup("text", PopupType.Information);
     }
 
+    public void ActivatePopup (string popupText, string popupTitle, PopupType type, Action afterMethod = null) {
+        StartCoroutine(StartPopup(popupText,popupTitle,type,afterMethod));
+    }
 
-
-    public IEnumerator ActivatePopup (string popupText, PopupType type, Action afterMethod = null) {
+    public IEnumerator StartPopup (string popupText, string popupTitle, PopupType type, Action afterMethod = null) {
+        if (popupActivated) yield break;
         Debug.Log("call popup");
         afterCoroutineMethod = afterMethod;
         popupWindow.SetActive(true);
         switch (type) {
             case PopupType.Information :
-                lvlUpButtons.SetActive(false);
+                if (lvlUpButtons != null) lvlUpButtons.SetActive(false);
                 infoButton.SetActive(true);
                 break;
             case PopupType.LevelUp :
-                lvlUpButtons.SetActive(true);
+                if (lvlUpButtons != null) lvlUpButtons.SetActive(true);
                 infoButton.SetActive(false);
                 break;
         }
         txt.text = popupText;
+        title.text = popupText;
         Time.timeScale = 0;
         popupActivated = true;
         while (popupActivated) yield return null;
@@ -47,7 +52,7 @@ public class PopupWindow : MonoBehaviour
     public void UnactivatePopup () {
         popupActivated = false;
         popupWindow.SetActive(false);
-        afterCoroutineMethod();
+        if (afterCoroutineMethod != null) afterCoroutineMethod();
         Debug.Log("unactivation");
     }
 }

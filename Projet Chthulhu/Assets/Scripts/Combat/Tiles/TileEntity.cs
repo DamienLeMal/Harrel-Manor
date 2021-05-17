@@ -55,6 +55,12 @@ public class TileEntity : MonoBehaviour
     public void UpdateMaterial () {
         cosmetic.UpdateMaterial(tileState);
     }
+
+    public void DoorToggleOpenClose () {
+        if (tileState == TileState.Walk) tileState = TileState.Block;
+        if (tileState == TileState.Block) tileState = TileState.Walk;
+    }
+
 #region Interactions
     private void OnMouseEnter() {
         gManager.ResetTileHighlight();
