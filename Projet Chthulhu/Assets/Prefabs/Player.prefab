@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 6877543952668379120}
   - component: {fileID: 6877543952668379121}
   - component: {fileID: 6877543952668379126}
+  - component: {fileID: 6510804839492042852}
   - component: {fileID: 6877543952668379125}
   - component: {fileID: 6877543952668378123}
   - component: {fileID: 6877543952668379124}
@@ -118,9 +119,12 @@ MonoBehaviour:
   ap: 0
   mp: 0
   hp: 0
+  entityName: 
+  level: 0
   currentTile: {fileID: 0}
   manager: {fileID: 0}
   ui: {fileID: 5283367842206002321}
+  realLevel: 0
 --- !u!114 &6877543952668379126
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -139,6 +143,18 @@ MonoBehaviour:
   minSpeed: 1.5
   maxSpeed: 3.5
   minClick: 2
+--- !u!114 &6510804839492042852
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6877543952668379123}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7761e5ce48286fb4c8a586615e6d62df, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!195 &6877543952668379125
 NavMeshAgent:
   m_ObjectHideFlags: 0

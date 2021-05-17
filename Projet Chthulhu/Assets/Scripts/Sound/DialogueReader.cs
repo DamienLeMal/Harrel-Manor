@@ -8,7 +8,7 @@ public class DialogueReader : MonoBehaviour
 
     private void Start() {
         SoundEventManager.current.onDialogue += StartDialogueCoroutine;
-        dialogue = GetComponent<CombatManager>().player.GetDialogue();
+        dialogue = GetComponent<PlayerEntity>().GetDialogue();
     }
 
     private void StartDialogueCoroutine (int id) {
