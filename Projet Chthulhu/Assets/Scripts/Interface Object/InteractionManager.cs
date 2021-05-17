@@ -1,15 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class InteractionManager : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
+    [SerializeField] private float maxDistInteract;
     // Update is called once per frame
     void Update()
     {
@@ -17,9 +13,6 @@ public class InteractionManager : MonoBehaviour
         {
             DetectObject();
         }
-
-
-
     }
 
     private void DetectObject()
@@ -27,13 +20,12 @@ public class InteractionManager : MonoBehaviour
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         RaycastHit hit;
 
-
         if(Physics.Raycast(ray, out hit))
         {
-
-            if(hit.collider.gameObject.GetComponent<IClicked>() != null)
+            if (EventSystem.current.IsPointerOverGameObject()) return;
+            if(hit.collider.gameObject.GetComponent<IClicked>() != null && !CombatManager.current.combatOn)
             {
-                hit.collider.gameObject.GetComponent<IClicked>().onClickAction();
+                hit.collider.gameObject.GetComponent<IClicked>().OnClickAction();
                 Debug.Log(hit.collider.gameObject.name);
             }
         }

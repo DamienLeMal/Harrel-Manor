@@ -4,5 +4,5 @@ using UnityEngine;
 
 public interface IClicked
 {
-    void onClickAction();
+    void OnClickAction();
 }

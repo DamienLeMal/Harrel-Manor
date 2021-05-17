@@ -10,6 +10,8 @@ public enum PlayerState {
 }
 public class CombatManager : MonoBehaviour
 {
+    public static CombatManager current;
+    public bool combatOn = false;
     [HideInInspector] public EntityManager gameEntities = new EntityManager();
     public Turn turn = Turn.Start;
     [HideInInspector] public CombatTurnManager turnManager;
@@ -37,6 +39,9 @@ public class CombatManager : MonoBehaviour
     public Material occupiedMaterial;
 
     [HideInInspector] public CombatButton activeButton = null;
+    private void Awake() {
+        current = this;
+    }
     private void Start() {
         SoundEventManager.current.onGamemodeChange += OnGamemodeChange;
         uiManager = GetComponent<CombatUiManager>();

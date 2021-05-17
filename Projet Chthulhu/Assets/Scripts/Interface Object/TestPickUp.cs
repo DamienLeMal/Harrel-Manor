@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class TestPickUp : MonoBehaviour, IClicked
 {
-    public void onClickAction()
+    public void OnClickAction()
     {
         //Destroy(gameObject);
         GetComponent<MeshRenderer>().material.color = new Color(255, 1, 1);
