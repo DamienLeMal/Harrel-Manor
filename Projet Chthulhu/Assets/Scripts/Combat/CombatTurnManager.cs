@@ -58,6 +58,6 @@ public class CombatTurnManager : MonoBehaviour
         if (fightingEntities.Count != 1) return;
         manager.turn = Turn.End;
         //Combat end, player win
-        manager.EndCombatMode();
+        SoundEventManager.current.CombatEnd(true);
     }
 }

@@ -29,7 +29,6 @@ public class PopupWindow : MonoBehaviour
 
     public IEnumerator StartPopup (string popupText, string popupTitle, PopupType type, Action afterMethod = null) {
         if (popupActivated) yield break;
-        Debug.Log("call popup");
         afterCoroutineMethod = afterMethod;
         popupWindow.SetActive(true);
         switch (type) {
@@ -53,6 +52,5 @@ public class PopupWindow : MonoBehaviour
         popupActivated = false;
         popupWindow.SetActive(false);
         if (afterCoroutineMethod != null) afterCoroutineMethod();
-        Debug.Log("unactivation");
     }
 }

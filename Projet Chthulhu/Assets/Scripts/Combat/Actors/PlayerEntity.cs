@@ -81,4 +81,11 @@ public class PlayerEntity : ActorEntity
         if (stat+amount <= 100) return amount;
         return 100-stat;
     }
+
+    protected override void ActorDeath()
+    {
+        //GameOver
+        
+        SoundEventManager.current.CombatEnd(false);
+    }
 }

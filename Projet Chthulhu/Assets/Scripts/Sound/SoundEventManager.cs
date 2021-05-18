@@ -75,17 +75,17 @@ public class SoundEventManager : MonoBehaviour
     }
 
     //New player's turn and low hp
-    public event Action onPlayerTunrLowHp;
-    public void PlayerTunrLowHp() {
-        if (onPlayerTunrLowHp == null) return;
-        onPlayerTunrLowHp();
+    public event Action onPlayerTurn;
+    public void PlayerTurn() {
+        if (onPlayerTurn == null) return;
+        onPlayerTurn();
     }
 
     //End of Combat
-    public event Action onCombatEnd;
-    public void CombatEnd() {
+    public event Action<bool> onCombatEnd;
+    public void CombatEnd(bool playerWin) {
         if (onCombatEnd == null) return;
-        onCombatEnd();
+        onCombatEnd(playerWin);
     }
 
     //Pause
@@ -93,6 +93,12 @@ public class SoundEventManager : MonoBehaviour
     public void Pause() {
         if (onPause == null) return;
         onPause();
+    }
+    //Unpause
+    public event Action onUnpause;
+    public void Unpause() {
+        if (onUnpause == null) return;
+        onUnpause();
     }
 
     public event Action<int> onDialogue;
