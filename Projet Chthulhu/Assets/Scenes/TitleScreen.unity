@@ -1675,6 +1675,10 @@ MonoBehaviour:
   boutonJouer: {fileID: 1471911785}
   boutonRetourOption: {fileID: 1552166409}
   boutonRetourTuto: {fileID: 385223146}
+  Hall: Hall
+  EastWing: EastWing
+  WestWing: WestWing
+  FirstFloor: FirstFloor
 --- !u!4 &1409179424
 Transform:
   m_ObjectHideFlags: 0
