@@ -39,4 +39,5 @@ public class EnnemyEntity : ActorEntity
         int xpGain = manager.player.realLevel/level*60;
         return xpGain;
     }
+
 }

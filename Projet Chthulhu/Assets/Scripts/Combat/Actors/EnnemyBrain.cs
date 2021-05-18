@@ -1,7 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using System;
+public enum CombatEvents {
+    DealGreat,
+    DealSmall,
+    Miss,
+    TakeGreat,
+    TakeSmall,
+    Dodge
+}
 public enum EnnemyState {
     Regular,
     Defensive,
@@ -26,8 +34,10 @@ public class EnnemyBrain : MonoBehaviour
 
     private void Start() {
         entity = GetComponent<EnnemyEntity>();
-        gridManager = transform.GetComponentInParent<GridManager>();
-        manager = gridManager.GetComponent<CombatManager>();
+        manager = CombatManager.current;
+        gridManager = manager.GetComponent<GridManager>();
+        CombatEventSystem.current.onDealDamage += ChangeStateDamageGiven;
+        CombatEventSystem.current.onTakeDamage += ChangeStateDamageTaken;
     }
     //Get Move range value
     //Foreach tiles, evaluate potential damage output and survivability
@@ -102,21 +112,78 @@ public class EnnemyBrain : MonoBehaviour
         }
         gridManager.ShowAttackPattern(attackedTile,entity,bestAttack[entity.currentTile]);
         gridManager.LaunchAttach(attackedTile,entity,bestAttack[entity.currentTile]);
-        //TEMPORARY IT WILL NOT BE DONE HERE AFTER
-        entity.ap = newAp;
-        //foreach (WeaponData w in entity.weaponInventory) {
-        //    foreach (AttackData a in w.attacks) {
-        //        if (entity.ap < a.apCost) yield break;
-        //    }
-        //}
         yield return new WaitForSeconds(1f);
         EvaluateTiles();
         StartCoroutine(AttackLoop());
     }
 
-    private void MoveToTile (TileEntity targetTile) {
+    private void MoveToTile(TileEntity targetTile) {
         gridManager.MoveAlongPath(targetTile,entity);
     }
+    //0 :
+    private Dictionary<(CombatEvents,EnnemyState),(int,EnnemyState)> stateChangeData = new Dictionary<(CombatEvents, EnnemyState), (int, EnnemyState)>
+    {
+        {(CombatEvents.DealGreat,EnnemyState.Defensive),(25,EnnemyState.Aggressive)},
+        {(CombatEvents.Miss,EnnemyState.Defensive),(25,EnnemyState.Regular)},
+        {(CombatEvents.Dodge,EnnemyState.Defensive),(50,EnnemyState.Regular)},
+        {(CombatEvents.DealSmall,EnnemyState.Defensive),(25,EnnemyState.Regular)},
+
+        {(CombatEvents.TakeGreat,EnnemyState.Regular),(75,EnnemyState.Defensive)},
+        {(CombatEvents.Dodge,EnnemyState.Regular),(25,EnnemyState.Defensive)},
+        {(CombatEvents.Miss,EnnemyState.Regular),(50,EnnemyState.Aggressive)},
+        {(CombatEvents.DealSmall,EnnemyState.Regular),(25,EnnemyState.Aggressive)},
+
+        {(CombatEvents.TakeGreat,EnnemyState.Aggressive),(25,EnnemyState.Defensive)},
+        {(CombatEvents.TakeSmall,EnnemyState.Aggressive),(25,EnnemyState.Regular)},
+        {(CombatEvents.DealGreat,EnnemyState.Aggressive),(25,EnnemyState.Regular)},
+    };
+
+    private void ChangeStateDamageTaken (int damageAmount) {
+        (int,EnnemyState) eventParam;
+        //Dodged
+        if (damageAmount == 0) {
+            if (!stateChangeData.ContainsKey((CombatEvents.Dodge,state))) return;
+            eventParam = stateChangeData[(CombatEvents.Dodge,state)];
+        }else
+        //Small amount
+        if (damageAmount < entity.hp_max/2) {
+            if (!stateChangeData.ContainsKey((CombatEvents.TakeSmall,state))) return;
+            eventParam = stateChangeData[(CombatEvents.TakeSmall,state)];
+        }
+        //Big amount
+        else{
+            if (!stateChangeData.ContainsKey((CombatEvents.TakeGreat,state))) return;
+            eventParam = stateChangeData[(CombatEvents.TakeGreat,state)];
+        }
+        RandomChangeState(eventParam.Item1,eventParam.Item2);
+    }
+    private void ChangeStateDamageGiven (int damageAmount) {
+        (int,EnnemyState) eventParam;
+        //Missed
+        if (damageAmount == 0) {
+            if (!stateChangeData.ContainsKey((CombatEvents.Miss,state))) return;
+            eventParam = stateChangeData[(CombatEvents.Miss,state)];
+        }else
+        //Small amount
+        if (damageAmount < entity.hp_max/2) {
+            if (!stateChangeData.ContainsKey((CombatEvents.DealSmall,state))) return;
+            eventParam = stateChangeData[(CombatEvents.DealSmall,state)];
+        }
+        //Big amount
+        else{
+            if (!stateChangeData.ContainsKey((CombatEvents.DealGreat,state))) return;
+            eventParam = stateChangeData[(CombatEvents.DealGreat,state)];
+        }
+        RandomChangeState(eventParam.Item1,eventParam.Item2);
+    }
+
+    private void RandomChangeState(int chances, EnnemyState result) {
+        int dice = UnityEngine.Random.Range(0,100);
+        if (dice <= chances) {
+            state = result;
+        }
+    }
+
 #endregion
 #region Calculations
     private void EvaluateTiles () {

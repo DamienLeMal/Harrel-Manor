@@ -117,7 +117,7 @@ public class GridManager : MonoBehaviour
     /// </summary>
     public void MoveAlongPath (TileEntity endTile, ActorEntity actor) {
         List<TileEntity> path = PathFinding(actor.currentTile,endTile);
-        StartCoroutine(actor.MoveOneTile(path));
+        StartCoroutine(actor.MoveOneTile(path, true));
     }
 
     //Main Pathfinding method
@@ -211,6 +211,8 @@ public class GridManager : MonoBehaviour
                 tileToAttack.Add(t.Key);
             }else{
                 t.Key.tileUser.ui.ShowDamageAmount(0);
+                CombatEventSystem.current.DealDamage(0,attacker);
+                CombatEventSystem.current.TakeDamage(0,targetTile.tileUser);
             }
         }
         foreach (TileEntity t in tileToAttack) {
