@@ -14,4 +14,16 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Human Instrumentality Project.unity
     guid: 8e58b980e4c17d641942418ac5515e62
+  - enabled: 1
+    path: Assets/Scenes/GameScene/Hall.unity
+    guid: 35fdfa30cd01ca44594636e287925d9e
+  - enabled: 1
+    path: Assets/Scenes/GameScene/EastWing.unity
+    guid: b362c31f22db01647a5b0badbf069aad
+  - enabled: 1
+    path: Assets/Scenes/GameScene/WestWing.unity
+    guid: fb2187ea442a9304abd7d98386b2a6cf
+  - enabled: 1
+    path: Assets/Scenes/GameScene/FirstFloor.unity
+    guid: e6995dadfbbd55f458add91f87749edc
   m_configObjects: {}
