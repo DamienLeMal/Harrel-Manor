@@ -129,5 +129,7 @@ public class ActorEntity : MonoBehaviour
     /// <summary>
     /// This Method should be overrided
     /// </summary>
-    virtual protected void ActorDeath () { }
+    virtual protected void ActorDeath () { 
+        SoundEventManager.current.ActorDeath();
+    }
 }

@@ -1,10 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Audio;
 
 public class SoundMusicManager : MonoBehaviour
 {
-    [SerializeField] private List<AudioClip> musics = new List<AudioClip>();
+    [SerializeField] private AudioMixerGroup[] bus = new AudioMixerGroup[2];
+    [SerializeField] private AudioClip[] musics = new AudioClip[11];
     [SerializeField] private AudioSource[] source = new AudioSource[5];
 
     private void Start() {
@@ -24,10 +26,15 @@ public class SoundMusicManager : MonoBehaviour
 #region Combat Mode
     private void SetCombatMusic () {
         Debug.Log("Music Combat");
+        source[0].outputAudioMixerGroup = bus[0];
         source[0].clip = musics[0];//c-layer 1
+        source[1].outputAudioMixerGroup = bus[0];
         source[1].clip = musics[1];//c-layer 1 Game Over
+        source[2].outputAudioMixerGroup = bus[0];
         source[2].clip = musics[2];//c-layer 1 Intro
+        source[3].outputAudioMixerGroup = bus[0];
         source[3].clip = musics[3];//c-layer 1 Low Hp
+        source[4].outputAudioMixerGroup = bus[0];
         source[4].clip = musics[4];//c-layer 1 Victory
         StartCoroutine(PlayCombatMusic());
     }
@@ -37,11 +44,7 @@ public class SoundMusicManager : MonoBehaviour
         //      -> c-layer 1 low hp 0%
         source[2].PlayOneShot(source[2].clip);
         yield return new WaitForSeconds(0.444f);
-        source[0].volume = 0;
-        source[3].volume = 0;
-        source[0].Play();
-        source[3].Play();
-        StartCoroutine(StartFade(source[0],0.222f,1));
+        PlayMusic(0,true);
     }
 
     private void CombatEndMusic (bool playerWin) {
@@ -80,20 +83,35 @@ public class SoundMusicManager : MonoBehaviour
 
     private void SetExplorationMusic () {
         Debug.Log("Music Exploration");
+        source[0].outputAudioMixerGroup = bus[0];
         source[0].clip = musics[5];//e-layer 1
+        source[1].outputAudioMixerGroup = bus[1];
         source[1].clip = musics[6];//e-layer 1 Pause
+        source[2].outputAudioMixerGroup = bus[0];
         source[2].clip = musics[7];//e-layer 2
+        source[3].outputAudioMixerGroup = bus[1];
         source[3].clip = musics[8];//e-layer 2 Pause
+        source[4].outputAudioMixerGroup = bus[0];
         source[4].clip = musics[9];//e-layer 2 Stealth
+        PlayExplorationMusic();
     }
     private void PlayExplorationMusic () {
-
+        PlayMusic(0,true);
     }
 #endregion
 
 
 #region Effects
 
+    private void PlayMusic(int sourceId, bool fadeIn) {
+        if (fadeIn) {
+            source[sourceId].volume = 0;
+            StartCoroutine(StartFade(source[0],0.222f,1));
+        }else{
+            source[sourceId].volume = 100;
+        }
+        source[sourceId].Play();
+    }
     private IEnumerator SetLowPassFilter (float targetValue, float duration) {
         float currentTime = 0;
         float start;

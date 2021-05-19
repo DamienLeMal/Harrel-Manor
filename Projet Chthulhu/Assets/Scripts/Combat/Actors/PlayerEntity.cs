@@ -84,6 +84,7 @@ public class PlayerEntity : ActorEntity
 
     protected override void ActorDeath()
     {
+        base.ActorDeath();
         //GameOver
         
         SoundEventManager.current.CombatEnd(false);

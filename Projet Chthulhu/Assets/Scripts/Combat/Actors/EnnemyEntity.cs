@@ -16,6 +16,7 @@ public class EnnemyEntity : ActorEntity
     /// Make the ennemy disapear
     /// </summary>
     override protected void ActorDeath () {
+        base.ActorDeath();
         Destroy(gameObject);
         manager.turnManager.fightingEntities.Remove(this);
         manager.ResetActorsPositions();
