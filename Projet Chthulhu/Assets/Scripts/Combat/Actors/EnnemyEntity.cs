@@ -26,7 +26,7 @@ public class EnnemyEntity : ActorEntity
     private IEnumerator GivePlayerXp () {
         int xpGain = CalculateExpGain();
         string popupText = "Vous avec vaincu " + entityName + "\nVous avez gagné " + xpGain.ToString() + " xp !";
-        yield return StartCoroutine(manager.popup.ActivatePopup(popupText,PopupType.Information,GivePlayerXpEnd));
+        yield return StartCoroutine(manager.popup.StartPopup(popupText,"Level Up",PopupType.Information,GivePlayerXpEnd));
         
     }
 
@@ -39,4 +39,5 @@ public class EnnemyEntity : ActorEntity
         int xpGain = manager.player.realLevel/level*60;
         return xpGain;
     }
+
 }

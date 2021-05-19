@@ -33,7 +33,7 @@ public class CombatButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
         if (manager.playerState == PlayerState.Locked) return;
         if (manager.turn != Turn.PlayerTurn) return;
         //Reset grid
-        gridManager.ResetTileHighlight();
+        //gridManager.ResetTileHighlight();
         //Toggle Deactivate
         if (manager.playerState == newState && manager.activeButton == this) { 
             manager.playerState = PlayerState.Normal;
@@ -45,13 +45,13 @@ public class CombatButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
             case PlayerState.Moving :
                 if (player.pm > 0) {
                     manager.playerState = PlayerState.Moving;
-                    gridManager.HighlightActionTiles();
+                    //gridManager.HighlightActionTiles();
                 }
                 break;
             case PlayerState.Attacking :
                 if (player.ap >= attack.apCost && player.mp >= attack.mpCost){
                     manager.playerState = PlayerState.Attacking;
-                    gridManager.HighlightActionTiles();
+                    //gridManager.HighlightActionTiles();
                 }
                 break;
         }

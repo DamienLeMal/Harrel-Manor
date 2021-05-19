@@ -13,15 +13,18 @@ public class PlayerEntity : ActorEntity
         exp_goal = level * 10;
         realLevel = GetRealLevel();
     }
+
+    public ActorDialogue GetDialogue() {
+        return baseStats.dialogue;
+    }
+
     public void AddXpGain (int amount) {
         //if exp + xp gain > exp goal -> LevelUp()
         //Else apply
         if (exp + amount >= exp_goal) {
-            Debug.Log("Level Up");
             LevelUp(exp + amount - exp_goal);
             return;
         }
-        Debug.Log("Not enough xp");
         exp+=amount;
     }
 
@@ -31,13 +34,9 @@ public class PlayerEntity : ActorEntity
         exp_goal = level * 10;
         amountLeft = amountRemaining;
         string popupText = "Vous gagnez un niveau !\nVous êtes niveau " + level.ToString() + " !\nSélectionnez une stat à améliorer";
-        StartCoroutine(manager.popup.ActivatePopup(popupText,PopupType.LevelUp,LevelUpEnd));
-        
-        
-        
-        
+        manager.popup.ActivatePopup(popupText,"Level Up",PopupType.LevelUp,LevelUpEnd);
+        //StartCoroutine(manager.popup.ActivatePopup(popupText,PopupType.LevelUp,LevelUpEnd));
     }
-
     private void LevelUpEnd() {
         //add remaining xp gain -> add XpGain(reste)
         AddXpGain(amountLeft);

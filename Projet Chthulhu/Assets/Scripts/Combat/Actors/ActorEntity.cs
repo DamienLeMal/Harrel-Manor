@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ActorEntity : MonoBehaviour
 {
-    [SerializeField] private ActorData baseStats;
+    [SerializeField] protected ActorData baseStats;
     [HideInInspector] public List<WeaponData> weaponInventory;
     [HideInInspector] public int str, dex, spd, intl, agi, con, lck, mnt, pm_max, ap_max, mp_max, hp_max, mnt_max;
     public int pm, ap, mp, hp;
@@ -88,14 +88,19 @@ public class ActorEntity : MonoBehaviour
     /// <summary>
     /// Move one tile at a time
     /// </summary>
-    public IEnumerator MoveOneTile (List<TileEntity> path) {
+    public IEnumerator MoveOneTile (List<TileEntity> path, bool firstMove) {
         if (path.Count > 0) {
             pm -= 1;
             Vector3 newPos = path[0].transform.position + new Vector3(0, GetComponent<MeshRenderer>().bounds.size.y / 2, 0);
-            LeanTween.move(gameObject,newPos,1f);
+            float speed = 50/spd;
+            if (firstMove) {
+                LeanTween.move(gameObject,newPos,speed).setEaseInSine();
+            }else{
+                LeanTween.move(gameObject,newPos,speed);
+            }
             path.RemoveAt(0);
-            yield return new WaitForSeconds(1.1f);
-            StartCoroutine(MoveOneTile(path));
+            yield return new WaitForSeconds(speed);
+            StartCoroutine(MoveOneTile(path, false));
         }else{
             //end
             manager.playerState = PlayerState.Normal;
@@ -115,10 +120,11 @@ public class ActorEntity : MonoBehaviour
 
         hp -= dmg;
         ui.ShowDamageAmount(dmg);
-        Debug.Log("Damage taken : " + dmg);
         if (hp <= 0) {
             ActorDeath();
         }
+        CombatEventSystem.current.TakeDamage(dmg,this);
+        CombatEventSystem.current.DealDamage(dmg,attacker);
     }
     /// <summary>
     /// This Method should be overrided

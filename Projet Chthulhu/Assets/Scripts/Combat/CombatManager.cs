@@ -10,9 +10,9 @@ public enum PlayerState {
 }
 public class CombatManager : MonoBehaviour
 {
+    public static CombatManager current;
+    public bool combatOn = false;
     [HideInInspector] public EntityManager gameEntities = new EntityManager();
-    public PlayerState playerState = PlayerState.Normal;
-    
     public Turn turn = Turn.Start;
     [HideInInspector] public CombatTurnManager turnManager;
     [HideInInspector] public CombatUiManager uiManager;
@@ -24,10 +24,26 @@ public class CombatManager : MonoBehaviour
     [HideInInspector] public PlayerState[] pStateAffectGrid = {PlayerState.Moving, PlayerState.Attacking};
     [HideInInspector] public PlayerEntity player = null;
     [HideInInspector] public GridManager gridManager = null;
+    public PlayerState playerState {
+        get {return _playerState;}
+        set {
+            _playerState = value;
+            UpdateTileHighlight();
+        }
+    }
+    private PlayerState _playerState = PlayerState.Normal;
     public PopupWindow popup = null;
+    //Editor Materials
+    public Material walkMaterial;
+    public Material blockMaterial;
+    public Material occupiedMaterial;
 
-    public CombatButton activeButton = null;
+    [HideInInspector] public CombatButton activeButton = null;
+    private void Awake() {
+        current = this;
+    }
     private void Start() {
+        SoundEventManager.current.onGamemodeChange += OnGamemodeChange;
         uiManager = GetComponent<CombatUiManager>();
         gridManager = GetComponent<GridManager>();
         turnManager = GetComponent<CombatTurnManager>();
@@ -50,6 +66,7 @@ public class CombatManager : MonoBehaviour
     }
 
     public void StartCombat (ActorEntity actorPriority) {
+        uiManager.ToggleCombatUi(true);
         turnManager.fightingEntities = new List<ActorEntity>();
         turnManager.fightingEntities.Add(actorPriority);
         foreach (TileEntity t in grid) {
@@ -74,11 +91,21 @@ public class CombatManager : MonoBehaviour
     public void EndCombatMode () {
         //Set everything off and player exploration mode on
         playerState = PlayerState.Locked;
-        gridManager.ResetTileHighlight();
         foreach (TileEntity t in grid) {
             if (t == null) continue;
             t.gameObject.SetActive(false);
         }
+        uiManager.ToggleCombatUi(false);
         player.GetComponent<PlayerDeplacement>().SetExplorationMode();
+        SoundEventManager.current.GamemodeChange();
+    }
+
+    private void UpdateTileHighlight () {
+        gridManager.ResetTileHighlight();
+        gridManager.HighlightActionTiles();
+    }
+
+    private void OnGamemodeChange () {
+        Debug.Log("gameModeChange");
     }
 }

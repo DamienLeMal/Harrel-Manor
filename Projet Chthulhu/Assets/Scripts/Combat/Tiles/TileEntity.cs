@@ -17,7 +17,6 @@ public class TileEntity : MonoBehaviour
     public List<TileEntity> directNeighbourTiles = new List<TileEntity>();
     public List<TileEntity> allNeighbourTiles = new List<TileEntity>();
     public ActorEntity tileUser;
-    public bool isWalkable;
     public TileState tileState;
     public CombatManager manager;
     private GridManager gManager;
@@ -56,6 +55,12 @@ public class TileEntity : MonoBehaviour
     public void UpdateMaterial () {
         cosmetic.UpdateMaterial(tileState);
     }
+
+    public void DoorToggleOpenClose () {
+        if (tileState == TileState.Walk) tileState = TileState.Block;
+        if (tileState == TileState.Block) tileState = TileState.Walk;
+    }
+
 #region Interactions
     private void OnMouseEnter() {
         gManager.ResetTileHighlight();
@@ -80,16 +85,12 @@ public class TileEntity : MonoBehaviour
     }
     private void OnMouseDown() {
         if (EventSystem.current.IsPointerOverGameObject()) return;
-        if (manager.playerState == PlayerState.Moving) {
+        if (manager.playerState == PlayerState.Moving && gManager.tileHighlightRanges.TryGetValue(this,out int val)) {
             manager.playerState = PlayerState.Locked;
-            gManager.ResetTileHighlight();
-            if (gManager.tileHighlightRanges.TryGetValue(this,out int value)){
-                gManager.MoveAlongPath(this,manager.player);
-            }
+            gManager.MoveAlongPath(this,manager.player);
         }
-        if (manager.playerState == PlayerState.Attacking && gManager.tileHighlightRanges.TryGetValue(this,out int val)) {
+        if (manager.playerState == PlayerState.Attacking && gManager.tileHighlightRanges.TryGetValue(this,out int value)) {
             gManager.LaunchAttach(this,manager.player, manager.activeButton.attack);
-            gManager.Invoke("HighlightTiles",0.2f);
         }
     }
 #endregion

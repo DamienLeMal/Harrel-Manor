@@ -71,7 +71,7 @@ public class PlayerDeplacement : MonoBehaviour
     
     public void SetCombatMode(ActorEntity actorPriority)
     {
-        Debug.Log("enbattle");
+        SoundEventManager.current.GamemodeChange();
         agent.SetDestination(this.transform.position);
         agent.isStopped = true;
         agent.enabled = false;
@@ -79,7 +79,6 @@ public class PlayerDeplacement : MonoBehaviour
         GetComponent<PlayerEntity>().manager.StartCombat(actorPriority);
         rb.detectCollisions = false;
         rb.constraints = RigidbodyConstraints.FreezeRotationZ | RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezePosition;
-
     }
 
     public void SetExplorationMode()
