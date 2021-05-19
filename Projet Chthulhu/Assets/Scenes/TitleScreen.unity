@@ -1519,6 +1519,46 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5520404611230051395, guid: 43ac0ac3dfbf4274cafc802ad8e2cddb, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.699
+      objectReference: {fileID: 0}
+    - target: {fileID: 5520404611230051395, guid: 43ac0ac3dfbf4274cafc802ad8e2cddb, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.699
+      objectReference: {fileID: 0}
+    - target: {fileID: 5520404611230051395, guid: 43ac0ac3dfbf4274cafc802ad8e2cddb, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.699
+      objectReference: {fileID: 0}
+    - target: {fileID: 5520404611230051395, guid: 43ac0ac3dfbf4274cafc802ad8e2cddb, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.3611542
+      objectReference: {fileID: 0}
+    - target: {fileID: 5520404611230051395, guid: 43ac0ac3dfbf4274cafc802ad8e2cddb, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 1.286
+      objectReference: {fileID: 0}
+    - target: {fileID: 5520404611230051395, guid: 43ac0ac3dfbf4274cafc802ad8e2cddb, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.46710068
+      objectReference: {fileID: 0}
+    - target: {fileID: 5520404611230051395, guid: 43ac0ac3dfbf4274cafc802ad8e2cddb, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.5308641
+      objectReference: {fileID: 0}
+    - target: {fileID: 5520404611230051395, guid: 43ac0ac3dfbf4274cafc802ad8e2cddb, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.5308653
+      objectReference: {fileID: 0}
+    - target: {fileID: 5520404611230051395, guid: 43ac0ac3dfbf4274cafc802ad8e2cddb, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0.46709988
+      objectReference: {fileID: 0}
+    - target: {fileID: 5520404611230051395, guid: 43ac0ac3dfbf4274cafc802ad8e2cddb, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: -97.312
+      objectReference: {fileID: 0}
     - target: {fileID: 6084289715945984905, guid: 43ac0ac3dfbf4274cafc802ad8e2cddb, type: 3}
       propertyPath: m_Name
       value: scene_menu
