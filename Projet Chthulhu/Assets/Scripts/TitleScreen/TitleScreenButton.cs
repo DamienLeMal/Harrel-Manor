@@ -19,10 +19,18 @@ public class TitleScreenButton : MonoBehaviour
     public GameObject boutonRetourOption;
     public GameObject boutonRetourTuto;
 
+    [Header("Nom des scène")]
+    [SerializeField] private string Hall;
+    [SerializeField] private string EastWing;
+    [SerializeField] private string WestWing;
+    [SerializeField] private string FirstFloor;
+
+
     // Start is called before the first frame update
     void Start()
     {
         ChangeAffiche(0);
+        PlayerPrefs.DeleteAll();
     }
 
     // Update is called once per frame
@@ -36,6 +44,7 @@ public class TitleScreenButton : MonoBehaviour
         if (hasSeenTuto)
         {
             SceneManager.LoadScene("LoadingScreen", LoadSceneMode.Single);
+            PlayerPrefs.SetString("targetscene", Hall);
         }
         else
         {
