@@ -20,9 +20,9 @@ public class Loader : MonoBehaviour
 
         sliderBar.maxValue = 1f;
 
-        sceneName = PlayerPrefs.GetString("targetscene"); // prend en valeur la scène a chargé
 
 
+        
         Invoke("StartLoading", 1F);
 
 
