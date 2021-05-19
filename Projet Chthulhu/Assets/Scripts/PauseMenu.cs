@@ -5,11 +5,7 @@ using UnityEngine;
 public class PauseMenu : MonoBehaviour
 {
     public static bool gamePaused = false;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    [SerializeField] private GameObject canvasPause;
 
     // Update is called once per frame
     void Update()
@@ -22,9 +18,11 @@ public class PauseMenu : MonoBehaviour
 
     private void PauseGame () {
         if (gamePaused) {
+            canvasPause.SetActive(true);
             Time.timeScale = 1;
             SoundEventManager.current.Pause();
         }else{
+            canvasPause.SetActive(false);
             Time.timeScale = 0;
             SoundEventManager.current.Unpause();
         }

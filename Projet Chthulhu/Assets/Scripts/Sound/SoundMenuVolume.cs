@@ -28,15 +28,14 @@ public class SoundMenuVolume : MonoBehaviour
             audioMixerGroup.audioMixer.SetFloat(exposedParam,value);
         }
     }
-    [SerializeField] private AudioGroupMember[] groupAmbiance;
+    [SerializeField] private AudioGroupMember[] groupEffect;
     [SerializeField] private AudioGroupMember[] groupMusic;
     [SerializeField] private AudioGroupMember[] groupVoice;
-    [SerializeField] private AudioGroupMember[] groupSFX;
     [SerializeField] private Slider[] audioSlider;
 
     private void Update() {
         master.volume = SliderValue(0);
-        foreach (AudioGroupMember agm in groupAmbiance) {
+        foreach (AudioGroupMember agm in groupEffect) {
             agm.volume = SliderValue(1);
         }
         foreach (AudioGroupMember agm in groupMusic) {
@@ -44,9 +43,6 @@ public class SoundMenuVolume : MonoBehaviour
         }
         foreach (AudioGroupMember agm in groupVoice) {
             agm.volume = SliderValue(3);
-        }
-        foreach (AudioGroupMember agm in groupSFX) {
-            agm.volume = SliderValue(4);
         }
     }
 
