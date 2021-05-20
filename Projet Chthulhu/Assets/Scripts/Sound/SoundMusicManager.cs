@@ -13,10 +13,14 @@ public class SoundMusicManager : MonoBehaviour
     private void Start() {
         SoundEventManager.current.onGamemodeChange += GameModeMusic;
         SoundEventManager.current.onCombatEnd += CombatEndMusic;
+        SoundEventManager.current.onPlayerTurnHpHigh += CombatLowHpMusicOff;
+        SoundEventManager.current.onPlayerTurnHpLow += CombatLowHpMusicOn;
         SoundEventManager.current.onPause += CombatPauseMusic;
         SoundEventManager.current.onUnpause += CombatUnpauseMusic;
-        SoundEventManager.current.onPause += ExplorationPauseMusicLayer1;
+        SoundEventManager.current.onPause += ExplorationPauseMusic;
         SoundEventManager.current.onUnpause += ExplorationUnpauseMusic;
+        SoundEventManager.current.onEnnemyInSight += ExplorationLayer2On;
+        SoundEventManager.current.onEnnemyLooseSight += ExplorationLayer2Off;
         SetExplorationMusic();
     }
 
@@ -29,13 +33,12 @@ public class SoundMusicManager : MonoBehaviour
     }
 #region Combat Mode
     private void SetCombatMusic () {
-        Debug.Log("Music Combat");
         source[0].outputAudioMixerGroup = bus[0];
         source[0].clip = musics[0];//c-layer 1
         source[1].outputAudioMixerGroup = bus[0];
         source[1].clip = musics[1];//c-layer 1 Game Over
-        //source[2].outputAudioMixerGroup = bus[0];
-        //source[2].clip = musics[2];//c-layer 1 Intro
+        source[2].outputAudioMixerGroup = bus[1];
+        source[2].clip = musics[11];//c-layer 1 Pause
         source[3].outputAudioMixerGroup = bus[0];
         source[3].clip = musics[3];//c-layer 1 Low Hp
         source[4].outputAudioMixerGroup = bus[0];
@@ -54,6 +57,9 @@ public class SoundMusicManager : MonoBehaviour
         yield return new WaitForSeconds(0.444f);
         SetCombatMusic();
         PlayMusic(0,true,1,0.222f);
+        PlayMusic(2,false,0);//Pause
+        PlayMusic(3,false,0);//Low Hp
+        
         mainMusicPlaying = source[0];
     }
 
@@ -82,22 +88,28 @@ public class SoundMusicManager : MonoBehaviour
     private void CombatPauseMusic () {
         if (mainMusicPlaying.clip != musics[0]) return;
         //bus -3db -> low pass
-        StartCoroutine(StartFade(source[0],2f,0.75f));
-        StartCoroutine(SetLowPassFilter(666,1f));
+        StartCoroutine(SetLowPassFilter(1500,1f));
+        StartCoroutine(StartFade(source[2],0.5f,0.75f));
     }
 
     private void CombatUnpauseMusic () {
         if (mainMusicPlaying.clip != musics[0]) return;
         //bus -3db -> low pass
-        StartCoroutine(StartFade(source[0],2f,1));
-        StartCoroutine(SetLowPassFilter(22000,2f));
+        StartCoroutine(StartFade(source[2],0.5f,0f));
+        StartCoroutine(SetLowPassFilter(22000,1f));
+    }
+
+    private void CombatLowHpMusicOn () {
+        StartCoroutine(StartFade(source[3],0.5f,1));
+    }
+    private void CombatLowHpMusicOff () {
+        StartCoroutine(StartFade(source[3],0.5f,0));
     }
 
 #endregion
 #region Exploration Mode
 
     private void SetExplorationMusic () {
-        Debug.Log("Music Exploration");
         source[0].outputAudioMixerGroup = bus[0];
         source[0].clip = musics[5];//e-layer 1
         source[1].outputAudioMixerGroup = bus[1];
@@ -108,7 +120,7 @@ public class SoundMusicManager : MonoBehaviour
         source[3].clip = musics[8];//e-layer 2 Pause
         source[4].outputAudioMixerGroup = bus[0];
         source[4].clip = musics[9];//e-layer 2 Stealth
-        source[3].outputAudioMixerGroup = bus[0];
+        source[5].outputAudioMixerGroup = bus[0];
         source[5].clip = musics[2];//c-layer 1 Intro
         PlayExplorationMusic();
     }
@@ -122,19 +134,45 @@ public class SoundMusicManager : MonoBehaviour
         mainMusicPlaying = source[0];
     }
 
-    private void ExplorationPauseMusicLayer1 () {
-        if (mainMusicPlaying.clip != musics[5]) return;
-        source[0].outputAudioMixerGroup.audioMixer.SetFloat("MusicLowPass",666);
-        StartCoroutine(StartFade(source[0],0.5f,0.2f));
-        StartCoroutine(StartFade(source[1],0.5f,0.2f));
+    private void ExplorationPauseMusic () {
+        if (mainMusicPlaying.clip != musics[5] && mainMusicPlaying.clip != musics[7] && mainMusicPlaying.clip != musics[9]) return;
+        mainMusicPlaying.outputAudioMixerGroup.audioMixer.SetFloat("MusicLowPass",666);
+        StartCoroutine(StartFade(mainMusicPlaying,0.5f,0.2f));
+
+        if (mainMusicPlaying.clip == musics[5]){
+            //e-layer 1
+            StartCoroutine(StartFade(source[1],0.5f,0.2f));
+        }
+        if (mainMusicPlaying.clip == musics[7] || mainMusicPlaying.clip == musics[9]) {
+            //e-layer 2 or stealth
+            StartCoroutine(StartFade(source[3],0.5f,0.2f));
+        }
     }
 
     private void ExplorationUnpauseMusic () {
-        if (mainMusicPlaying.clip != musics[5] && mainMusicPlaying.clip != musics[9]) return;
-        source[0].outputAudioMixerGroup.audioMixer.SetFloat("MusicLowPass",22000);
-        StartCoroutine(StartFade(source[0],0.5f,1));
+        if (mainMusicPlaying.clip != musics[5] && mainMusicPlaying.clip != musics[7] && mainMusicPlaying.clip != musics[9]) return;
+        mainMusicPlaying.outputAudioMixerGroup.audioMixer.SetFloat("MusicLowPass",22000);
+        StartCoroutine(StartFade(mainMusicPlaying,0.5f,1));
         StartCoroutine(StartFade(source[1],0.5f,0));
+        StartCoroutine(StartFade(source[3],0.5f,0));
     }
+
+    private void ExplorationLayer2On () {
+        if (mainMusicPlaying == source[2]) return;
+        StartCoroutine(StartFade(mainMusicPlaying,0.5f,0));
+        StartCoroutine(StartFade(source[2],0.5f,1));
+        mainMusicPlaying = source[2];
+    }
+    private void ExplorationLayer2Off () {
+        StartCoroutine(StartFade(mainMusicPlaying,2f,0));
+        StartCoroutine(StartFade(source[0],2f,1));
+        mainMusicPlaying = source[0];
+    }
+
+    //private void ExplorationStealthMusicOn () {
+    //    StartCoroutine(StartFade(mainMusicPlaying,0.5f,0));
+    //    StartCoroutine(StartFade(source[3],0.5f,0));
+    //}
 
 #endregion
 
@@ -154,6 +192,11 @@ public class SoundMusicManager : MonoBehaviour
         float currentTime = 0;
         float start;
         source[0].outputAudioMixerGroup.audioMixer.GetFloat("MusicLowPass",out start);
+        if (targetValue < start) {
+            source[0].outputAudioMixerGroup.audioMixer.SetFloat("MusicLowPass",15000);
+            start = 15000;
+        }
+        
 
         while (currentTime < duration)
         {

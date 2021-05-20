@@ -65,6 +65,11 @@ public class SoundEventManager : MonoBehaviour
         if (onEnnemyInSight == null) return;
         onEnnemyInSight();
     }
+    public event Action onEnnemyLooseSight;
+    public void EnnemyLooseSight() {
+        if (onEnnemyLooseSight == null) return;
+        onEnnemyLooseSight();
+    }
 
     //Changing gamemode
     public event Action onGamemodeChange;
@@ -75,10 +80,20 @@ public class SoundEventManager : MonoBehaviour
     }
 
     //New player's turn and low hp
-    public event Action onPlayerTurn;
-    public void PlayerTurn() {
-        if (onPlayerTurn == null) return;
-        onPlayerTurn();
+    public event Action onPlayerTurnHpLow;
+    public event Action onPlayerTurnHpHigh;
+    public void PlayerTurn(float ratioHp) {
+        Debug.Log("Event Player Turn");
+        if (ratioHp <= 0.25f) {
+            if (onPlayerTurnHpLow == null) return;
+        Debug.Log("HP is low " + ratioHp);
+            onPlayerTurnHpLow();
+        }else{
+            if (onPlayerTurnHpHigh == null) return;
+        Debug.Log("HP is high " + ratioHp);
+            onPlayerTurnHpHigh();
+        }
+        
     }
 
     //End of Combat

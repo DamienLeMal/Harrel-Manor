@@ -8,7 +8,6 @@ public class EnnemyEntity : ActorEntity
 
     private void Start() {
         level = GetRealLevel();
-        Debug.Log(level);
     }
 
 

@@ -14,6 +14,7 @@ public class InterfaceDistance : MonoBehaviour
     }
     void Update()
     {
+        if (CombatManager.current.combatOn == true && isInteractable == true) MakeInteractable(false);
         if (Vector3.Distance(CombatManager.current.player.transform.position,transform.position) > maxDist && isInteractable) {
             MakeInteractable(false);
             return;
