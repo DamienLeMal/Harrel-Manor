@@ -43,7 +43,6 @@ public class CombatManager : MonoBehaviour
         current = this;
     }
     private void Start() {
-        SoundEventManager.current.onGamemodeChange += OnGamemodeChange;
         uiManager = GetComponent<CombatUiManager>();
         gridManager = GetComponent<GridManager>();
         turnManager = GetComponent<CombatTurnManager>();
@@ -105,7 +104,11 @@ public class CombatManager : MonoBehaviour
         gridManager.HighlightActionTiles();
     }
 
-    private void OnGamemodeChange () {
-        Debug.Log("gameModeChange");
+    public void GameOver() {
+        //Temp
+        player.gameObject.SetActive(false);
+
+        uiManager.GameOverScreen();
+        SoundEventManager.current.CombatEnd(false);
     }
 }

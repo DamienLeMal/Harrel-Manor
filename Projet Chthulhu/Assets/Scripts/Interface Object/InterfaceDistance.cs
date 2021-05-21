@@ -4,12 +4,13 @@ using UnityEngine;
 
 public class InterfaceDistance : MonoBehaviour
 {
-    [SerializeField] private float maxDist;
-    public bool isInteractable = false;
+    private float maxDist;
+    [HideInInspector] public bool isInteractable = false;
     private OutlineGenerator outlineGenerator;
     // Update is called once per frame
     private void Start() {
         outlineGenerator = GetComponent<OutlineGenerator>();
+        maxDist = InteractionManager.current.maxDistInteract;
         if (outlineGenerator == null) Debug.LogError(this + " should have the OutlineGenerator component in order to work");
     }
     void Update()

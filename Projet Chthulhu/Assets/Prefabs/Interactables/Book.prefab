@@ -111,7 +111,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   uiGraphic: {fileID: 0}
-  txt: {fileID: 0}
   title: Le Corbeau et le renard
   content: "Ma\xEEtre Corbeau, sur un arbre perch\xE9,\r\nTenait en son bec un fromage.\r\nMa\xEEtre
     Renard, par l'odeur all\xE9ch\xE9,\r\nLui tint \xE0 peu pr\xE8s ce langage :\r\nEt

@@ -54,7 +54,12 @@ public class CombatUiManager : MonoBehaviour
 
     public void ToggleCombatUi(bool toggle) {
         foreach (GameObject go in combatCanvas) {
+            if (go != combatCanvas[2])
             go.SetActive(toggle);
         }
+    }
+
+    public void GameOverScreen () {
+        combatCanvas[2].SetActive(true);
     }
 }

@@ -86,7 +86,13 @@ public class PlayerEntity : ActorEntity
     {
         base.ActorDeath();
         //GameOver
-        
-        SoundEventManager.current.CombatEnd(false);
+        manager.GameOver();
+    
+    }
+
+    public void AddNewWeapon (WeaponData weapon) {
+        if (weaponInventory.Count < 3) {
+            weaponInventory.Add(weapon);
+        }
     }
 }

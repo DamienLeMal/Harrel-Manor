@@ -24,6 +24,7 @@ public class PopupWindow : MonoBehaviour
     }
 
     public void ActivatePopup (string popupText, string popupTitle, PopupType type, Action afterMethod = null) {
+        Debug.Log(popupTitle);
         StartCoroutine(StartPopup(popupText,popupTitle,type,afterMethod));
     }
 
@@ -42,7 +43,7 @@ public class PopupWindow : MonoBehaviour
                 break;
         }
         txt.text = popupText;
-        title.text = popupText;
+        title.text = popupTitle;
         Time.timeScale = 0;
         popupActivated = true;
         while (popupActivated) yield return null;
