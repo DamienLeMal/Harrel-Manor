@@ -41,17 +41,17 @@ public class CombatManager : MonoBehaviour
     [HideInInspector] public CombatButton activeButton = null;
     private void Awake() {
         current = this;
-    }
-    private void Start() {
-        uiManager = GetComponent<CombatUiManager>();
-        gridManager = GetComponent<GridManager>();
-        turnManager = GetComponent<CombatTurnManager>();
         foreach (GameObject g in gameEntities.entities) {
             if (g.GetComponent<PlayerEntity>() != null) {
                 player = g.GetComponent<PlayerEntity>();
                 break;
             }
         }
+    }
+    private void Start() {
+        uiManager = GetComponent<CombatUiManager>();
+        gridManager = GetComponent<GridManager>();
+        turnManager = GetComponent<CombatTurnManager>();
     }
     public void ResetActorsPositions() {
         foreach (TileEntity t in grid) {
@@ -80,6 +80,7 @@ public class CombatManager : MonoBehaviour
         ResetActorsPositions();
         foreach (WeaponData w in player.weaponInventory) {
             Transform wb = uiManager.ShowWeaponButton().attackContainer;
+            Debug.Log("Weapon button for : " + w);
             foreach(AttackData a in w.attacks) {
                 GetComponent<CombatUiManager>().ShowAttackButton(a,wb);
             }

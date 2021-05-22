@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 203225211}
   - component: {fileID: 203225209}
   - component: {fileID: 203225210}
+  - component: {fileID: 6519336061917794072}
   m_Layer: 5
   m_Name: AttackContainer
   m_TagString: Untagged
@@ -100,6 +101,18 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!225 &6519336061917794072
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 477756171838748128}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &3501023730600177402
 GameObject:
   m_ObjectHideFlags: 0
@@ -185,7 +198,6 @@ GameObject:
   m_Component:
   - component: {fileID: 3501023731806726070}
   - component: {fileID: 3501023731806726071}
-  - component: {fileID: 1521457939463091596}
   m_Layer: 5
   m_Name: WeaponButtonPrefab
   m_TagString: Untagged
@@ -227,15 +239,3 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attackContainer: {fileID: 7765956990384045742}
---- !u!225 &1521457939463091596
-CanvasGroup:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3501023731806726065}
-  m_Enabled: 1
-  m_Alpha: 1
-  m_Interactable: 1
-  m_BlocksRaycasts: 1
-  m_IgnoreParentGroups: 0

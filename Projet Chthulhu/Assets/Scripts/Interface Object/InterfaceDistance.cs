@@ -12,10 +12,18 @@ public class InterfaceDistance : MonoBehaviour
         outlineGenerator = GetComponent<OutlineGenerator>();
         maxDist = InteractionManager.current.maxDistInteract;
         if (outlineGenerator == null) Debug.LogError(this + " should have the OutlineGenerator component in order to work");
+        if (Vector3.Distance(CombatManager.current.player.transform.position,transform.position) > maxDist) {
+            MakeInteractable(false);
+        }else{
+            MakeInteractable(true);
+        }
     }
     void Update()
     {
-        if (CombatManager.current.combatOn == true && isInteractable == true) MakeInteractable(false);
+        if (CombatManager.current.combatOn) {
+            if (isInteractable == true) MakeInteractable(false);
+            return;
+        }
         if (Vector3.Distance(CombatManager.current.player.transform.position,transform.position) > maxDist && isInteractable) {
             MakeInteractable(false);
             return;

@@ -11,6 +11,7 @@ public class CombatUiManager : MonoBehaviour
     [SerializeField] private GameObject weaponButtonPrefab;
     [SerializeField] private TooltipUi attackTooltip;
 
+    #region Combat Buttons
     public WeaponButton ShowWeaponButton () {
         bool recycling = false;
         WeaponButton returnButton = null;
@@ -51,7 +52,7 @@ public class CombatUiManager : MonoBehaviour
         button.GetComponentInChildren<Text>().text = attack.attackName;
         button.GetComponent<CombatButton>().ButtonConstructor(GetComponent<CombatManager>(),PlayerState.Attacking,attack,attackTooltip);
     }
-
+    #endregion
     public void ToggleCombatUi(bool toggle) {
         foreach (GameObject go in combatCanvas) {
             if (go != combatCanvas[2])

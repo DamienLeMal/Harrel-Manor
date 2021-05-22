@@ -37,7 +37,9 @@ public class ActorEntity : MonoBehaviour
 
     private void Constructor (ActorData data) {
         entityName = data.name;
-        weaponInventory = data.weaponInvetory;
+        foreach (WeaponData wd in data.weaponInvetory) {
+            weaponInventory.Add(wd);
+        }
         str = data.str;
         dex = data.dex;
         spd = data.spd;
