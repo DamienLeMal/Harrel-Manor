@@ -26,7 +26,6 @@ public class UiWeaponSelector : MonoBehaviour
     }
 
     public void WeaponDropDown () {
-        Debug.Log(player.weaponInventory.Count);
         if(!deployed) {
             for (int i = 0; i < weapons.Length; i++) {
                 if (player.weaponInventory.Count > i) {

@@ -93,6 +93,16 @@ public class PlayerEntity : ActorEntity
     public void AddNewWeapon (WeaponData weapon) {
         if (weaponInventory.Count < 3) {
             weaponInventory.Add(weapon);
+            return;
         }
+        //Open Popup
+        manager.popup.ActivatePopup("","Choisissez une arme à laisser",PopupType.DropWeapon);
+        manager.popup.PrepareDropWeapon(weapon);
+    }
+
+    public void ReplaceWeapon (WeaponData weaponToRemove, WeaponData weaponToAdd) {
+        Debug.Log("Weapon replaced");
+        weaponInventory.Remove(weaponToRemove);
+        weaponInventory.Add(weaponToAdd);
     }
 }

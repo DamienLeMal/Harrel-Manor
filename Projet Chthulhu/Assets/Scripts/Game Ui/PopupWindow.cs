@@ -6,7 +6,8 @@ using System;
 
 public enum PopupType {
     Information,
-    LevelUp
+    LevelUp,
+    DropWeapon
 }
 public class PopupWindow : MonoBehaviour
 {
@@ -15,6 +16,7 @@ public class PopupWindow : MonoBehaviour
     [SerializeField] private Text txt;
     [SerializeField] private GameObject infoButton;
     [SerializeField] private GameObject lvlUpButtons;
+    [SerializeField] private GameObject dropWeaponButtons;
     private bool popupActivated = false;
     private Action afterCoroutineMethod;
     
@@ -32,14 +34,18 @@ public class PopupWindow : MonoBehaviour
         if (popupActivated) yield break;
         afterCoroutineMethod = afterMethod;
         popupWindow.SetActive(true);
+        if (lvlUpButtons != null) lvlUpButtons.SetActive(false);
+        if (dropWeaponButtons != null) dropWeaponButtons.SetActive(false);
+        infoButton.SetActive(false);
         switch (type) {
             case PopupType.Information :
-                if (lvlUpButtons != null) lvlUpButtons.SetActive(false);
                 infoButton.SetActive(true);
                 break;
             case PopupType.LevelUp :
                 if (lvlUpButtons != null) lvlUpButtons.SetActive(true);
-                infoButton.SetActive(false);
+                break;
+            case PopupType.DropWeapon :
+                if (dropWeaponButtons != null) dropWeaponButtons.SetActive(true);
                 break;
         }
         txt.text = popupText;
@@ -53,5 +59,9 @@ public class PopupWindow : MonoBehaviour
         popupActivated = false;
         popupWindow.SetActive(false);
         if (afterCoroutineMethod != null) afterCoroutineMethod();
+    }
+
+    public void PrepareDropWeapon (WeaponData pickedUpWeapon) {
+        dropWeaponButtons.GetComponent<PopupDropWeapon>().AssignWeaponToButton(pickedUpWeapon);
     }
 }
