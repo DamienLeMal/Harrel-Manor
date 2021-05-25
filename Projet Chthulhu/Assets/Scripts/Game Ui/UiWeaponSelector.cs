@@ -19,7 +19,6 @@ public class UiWeaponSelector : MonoBehaviour
 
     private void InitialiseHeightPose () {
         float sizeY = weapons[0].GetComponent<RectTransform>().sizeDelta.y;
-        Debug.Log(sizeY);
         for (int i = 0; i < weapons.Length; i++) {
             heightPose[i] = sizeY * (i+1) + 10*i +10;
         }
