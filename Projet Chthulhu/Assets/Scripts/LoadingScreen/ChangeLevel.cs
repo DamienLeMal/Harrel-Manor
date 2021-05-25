@@ -24,4 +24,12 @@ public class ChangeLevel : MonoBehaviour
         PlayerPrefs.SetString("targetscene", targetScene);
         SceneManager.LoadScene("LoadingScreen",LoadSceneMode.Single);
     }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other.tag == "player")
+        {
+            ChargeSuite();
+        }
+    }
 }
