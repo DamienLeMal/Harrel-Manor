@@ -15,6 +15,8 @@ public class AttackData : SheetData
     private int[,] damagePatternArray;
     public List<Vector2Int> positionPatternCoord;
     public List<Vector2Int> damagePatternCoord;
+    public Sprite attackIcon;
+    public ParticleSystem attackParticle;
     
 
     public void InitialiseData () {

@@ -1,10 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PopupDropWeapon : MonoBehaviour
 {
     [SerializeField] private GameObject[] buttons;
+    [SerializeField] private Image[] buttonIcon;
     [SerializeField] private PopupWindow popupWindow;
     private Dictionary<GameObject,WeaponData> assignedButtons;
     public void AssignWeaponToButton (WeaponData pickedUpWeapon) {
@@ -13,6 +15,14 @@ public class PopupDropWeapon : MonoBehaviour
         assignedButtons.Add(buttons[1],CombatManager.current.player.weaponInventory[1]);
         assignedButtons.Add(buttons[2],CombatManager.current.player.weaponInventory[2]);
         assignedButtons.Add(buttons[3],pickedUpWeapon);
+        buttonIcon[3].sprite = pickedUpWeapon.weaponIcon;
+        SetWeaponIcons();
+    }
+
+    private void SetWeaponIcons () {
+        for (int i = 0; i < 3; i++) {
+            buttonIcon[i].sprite = CombatManager.current.player.weaponInventory[i].weaponIcon;
+        }
     }
 
     public void ButtonAction (GameObject button) {
