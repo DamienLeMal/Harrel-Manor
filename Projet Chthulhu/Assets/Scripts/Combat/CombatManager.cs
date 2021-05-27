@@ -78,6 +78,7 @@ public class CombatManager : MonoBehaviour
             turnManager.fightingEntities.Add(g.GetComponent<ActorEntity>());
         }
         ResetActorsPositions();
+        /*
         foreach (WeaponData w in player.weaponInventory) {
             Transform wb = uiManager.ShowWeaponButton().attackContainer;
             Debug.Log("Weapon button for : " + w);
@@ -85,6 +86,7 @@ public class CombatManager : MonoBehaviour
                 GetComponent<CombatUiManager>().ShowAttackButton(a,wb);
             }
         }
+        */
         turnManager.NewTurn();
     }
 

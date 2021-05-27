@@ -7,7 +7,7 @@ public class AttackData : SheetData
 {
     public string attackName;
     public string description;
-    public int apCost, mpCost, dmg;
+    public int apCost, mpCost, mntCost, dmg;
     public bool rangedAttack;
     [SerializeField] private string positionPattern;
     private int[,] positionPatternArray;
@@ -28,15 +28,18 @@ public class AttackData : SheetData
     }
 
     private void ProcessText () {
-        attackName = "<B>" + attackName + "</B>";
-        description = "Co�t AP : <color=green>" + apCost.ToString() +
-                      "</color>\nCo�t MP : <color=purple>" + mpCost.ToString() +
-                      "</color>\nD�g�ts : <color=red>" + dmg.ToString() + "</color>";
+        attackName = "<B>" + name + "</B>";
+        description = "";
+        if (apCost != 0) description += "Coût AP : <color=green>" + apCost.ToString() + "</color>";
+        if (mpCost != 0) description += "\nCoût MP : <color=purple>" + mpCost.ToString() + "</color>";
+        if (mntCost != 0) description += "\nCoût Santé Mentale : <color=purple>" + mntCost.ToString() + "</color>";
+        if (dmg != 0) description += "\nDégâts : <color=red>" + dmg.ToString() + "</color>";
 
     }
-
+    public bool CheckCost (ActorEntity attacker) {
+        return (attacker.ap > apCost && attacker.mp > mpCost && attacker.mnt > mntCost);
+    }
     public void Cost (ActorEntity attacker) {
-        if (attacker.ap - apCost < 0) Debug.LogWarning("Ap under 0");
         attacker.ap -= apCost;
     }
 

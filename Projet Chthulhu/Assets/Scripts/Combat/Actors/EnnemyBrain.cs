@@ -105,8 +105,7 @@ public class EnnemyBrain : MonoBehaviour
         attackEnded = false;
         AttackScore(entity.currentTile,bestAttack[entity.currentTile],entity,manager.player);
         TileEntity attackedTile = tileToAttack;
-        int newAp = entity.ap - bestAttack[entity.currentTile].apCost;
-        if (newAp < 0) {
+        if (bestAttack[entity.currentTile].CheckCost(entity)) {
             attackEnded = true;
             yield break;
         }
