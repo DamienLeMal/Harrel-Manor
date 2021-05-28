@@ -9,6 +9,7 @@ public class ToolTipReceiver : MonoBehaviour, IPointerEnterHandler, IPointerExit
     [SerializeField] [TextArea] private string baseTitle = "";
     [SerializeField] [TextArea] private string baseText = "Default Text";
     [SerializeField] private float offsetY = 0f;
+    [SerializeField] private float offsetX = 0f;
 
     public void SetToolTipText (string title, string descrition) {
         baseTitle = title;
@@ -16,6 +17,7 @@ public class ToolTipReceiver : MonoBehaviour, IPointerEnterHandler, IPointerExit
     }
     public void OnPointerEnter(PointerEventData eventData) {
         TooltipUi.current.yOffset = offsetY;
+        TooltipUi.current.xOffset = offsetX;
         TooltipUi.current.SetText(baseTitle,baseText);
         TooltipUi.current.ToggleTooltip(true);
         LayoutRebuilder.ForceRebuildLayoutImmediate(TooltipUi.current.rect);

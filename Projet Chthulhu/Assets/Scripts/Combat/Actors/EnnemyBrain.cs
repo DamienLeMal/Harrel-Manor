@@ -66,7 +66,7 @@ public class EnnemyBrain : MonoBehaviour
             yield return new WaitUntil(()=>entity.currentTile == goToTile);
 
             EvaluateTiles();
-
+            Debug.Log("Best attack score : " + GetBestScore(Score.Attack));
             if (GetBestScore(Score.Attack) > 0) {/// Warning : doesn't care if the tile we're on can attack
                 StartCoroutine(AttackLoop());
                 yield return new WaitUntil(()=>attackEnded == true);
@@ -101,14 +101,22 @@ public class EnnemyBrain : MonoBehaviour
 
     IEnumerator AttackLoop () {
         EvaluateTiles();
+
+        if (!bestAttack.ContainsKey(entity.currentTile)) {
+            attackEnded = true;
+            yield break;
+        }
+
+        if (!bestAttack[entity.currentTile].CheckCost(entity)) {
+            attackEnded = true;
+            yield break;
+        }
+
         if (tileScore[entity.currentTile][Score.Attack] == 0) Debug.LogWarning("The ennemy can't attack from this tile !");
         attackEnded = false;
         AttackScore(entity.currentTile,bestAttack[entity.currentTile],entity,manager.player);
         TileEntity attackedTile = tileToAttack;
-        if (bestAttack[entity.currentTile].CheckCost(entity)) {
-            attackEnded = true;
-            yield break;
-        }
+        
         gridManager.ShowAttackPattern(attackedTile,entity,bestAttack[entity.currentTile]);
         gridManager.LaunchAttach(attackedTile,entity,bestAttack[entity.currentTile]);
         yield return new WaitForSeconds(1f);
@@ -198,6 +206,7 @@ public class EnnemyBrain : MonoBehaviour
             int y = 0;
             foreach (WeaponData w in entity.weaponInventory) {
                 foreach (AttackData a in w.attacks) {
+                    if (!a.CheckCost(entity)) continue;
                     int yScore = AttackScore(t.Key,a,entity,manager.player);
                     if (yScore <= y) continue;
                     y = yScore;
@@ -250,7 +259,6 @@ public class EnnemyBrain : MonoBehaviour
             if (newScore <= score) continue;
             score = newScore;
             tileToAttack = t.Key;
-            
         }
         return score;
     }
@@ -303,8 +311,7 @@ public class EnnemyBrain : MonoBehaviour
             }else{
                dist = t.Value[Score.Movement]; 
             }
-            
-            
+            if (index == Score.Attack) Debug.Log("selected tile : " + selectedTile + "\ntileScore : " + tileScore[selectedTile][Score.Attack] + "\nscore : " + score);
         }
         return selectedTile??GetDefaultTile();
     }

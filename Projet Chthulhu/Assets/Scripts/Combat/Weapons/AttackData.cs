@@ -30,17 +30,22 @@ public class AttackData : SheetData
     private void ProcessText () {
         attackName = "<B>" + name + "</B>";
         description = "";
-        if (apCost != 0) description += "Coût AP : <color=green>" + apCost.ToString() + "</color>";
-        if (mpCost != 0) description += "\nCoût MP : <color=purple>" + mpCost.ToString() + "</color>";
-        if (mntCost != 0) description += "\nCoût Santé Mentale : <color=purple>" + mntCost.ToString() + "</color>";
-        if (dmg != 0) description += "\nDégâts : <color=red>" + dmg.ToString() + "</color>";
+        if (apCost != 0) description += UiColorScheme.current.GetTagColor(UiColorScheme.current.apColor) + "Coût AP : " + apCost.ToString() + "</color>";
+        if (mpCost != 0) description += UiColorScheme.current.GetTagColor(UiColorScheme.current.mpColor) + "\nCoût MP : " + mpCost.ToString() + "</color>";
+        if (mntCost != 0) description += UiColorScheme.current.GetTagColor(UiColorScheme.current.mntColor) + "\nCoût Santé Mentale : " + mntCost.ToString() + "</color>";
+        if (dmg != 0) description += UiColorScheme.current.GetTagColor(UiColorScheme.current.dmgColor) + "\nDégâts : " + dmg.ToString() + "</color>";
 
     }
+    /// <summary>
+    /// Return True if can attack
+    /// </summary>
     public bool CheckCost (ActorEntity attacker) {
-        return (attacker.ap > apCost && attacker.mp > mpCost && attacker.mnt > mntCost);
+        return (attacker.ap >= apCost && attacker.mp >= mpCost && attacker.mnt >= mntCost);
     }
     public void Cost (ActorEntity attacker) {
         attacker.ap -= apCost;
+        attacker.mp -= mpCost;
+        attacker.mnt -= mntCost;
     }
 
     private List<Vector2Int> ProcessData (int[,] data) {

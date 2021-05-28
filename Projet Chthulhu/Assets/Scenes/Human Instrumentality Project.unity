@@ -135,12 +135,148 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 45285805, guid: fffc59bb717eccb40842da71dce18edf, type: 3}
+      propertyPath: baseText
+      value: "Points utilis\xE9s pour\nlancer une attaque"
+      objectReference: {fileID: 0}
+    - target: {fileID: 45285805, guid: fffc59bb717eccb40842da71dce18edf, type: 3}
+      propertyPath: baseTitle
+      value: Points d'Action
+      objectReference: {fileID: 0}
+    - target: {fileID: 267695324, guid: fffc59bb717eccb40842da71dce18edf, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 267695324, guid: fffc59bb717eccb40842da71dce18edf, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 412254797, guid: fffc59bb717eccb40842da71dce18edf, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 412254797, guid: fffc59bb717eccb40842da71dce18edf, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 412254797, guid: fffc59bb717eccb40842da71dce18edf, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 412254797, guid: fffc59bb717eccb40842da71dce18edf, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 904157622, guid: fffc59bb717eccb40842da71dce18edf, type: 3}
+      propertyPath: baseText
+      value: "Points utilis\xE9s lors de \nl'incantation de sorts"
+      objectReference: {fileID: 0}
+    - target: {fileID: 904157622, guid: fffc59bb717eccb40842da71dce18edf, type: 3}
+      propertyPath: baseTitle
+      value: Points de Mana
+      objectReference: {fileID: 0}
+    - target: {fileID: 1070580675, guid: fffc59bb717eccb40842da71dce18edf, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1070580675, guid: fffc59bb717eccb40842da71dce18edf, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1070580675, guid: fffc59bb717eccb40842da71dce18edf, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1070580675, guid: fffc59bb717eccb40842da71dce18edf, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1327866312, guid: fffc59bb717eccb40842da71dce18edf, type: 3}
+      propertyPath: baseText
+      value: "Points utilis\xE9s lors du \nd\xE9placement sur la grille"
+      objectReference: {fileID: 0}
+    - target: {fileID: 1327866312, guid: fffc59bb717eccb40842da71dce18edf, type: 3}
+      propertyPath: baseTitle
+      value: Points de Mouvements
+      objectReference: {fileID: 0}
+    - target: {fileID: 1539679975, guid: fffc59bb717eccb40842da71dce18edf, type: 3}
+      propertyPath: dmgColor.b
+      value: 0.3254717
+      objectReference: {fileID: 0}
+    - target: {fileID: 1539679975, guid: fffc59bb717eccb40842da71dce18edf, type: 3}
+      propertyPath: dmgColor.g
+      value: 0.3254717
+      objectReference: {fileID: 0}
+    - target: {fileID: 1539679975, guid: fffc59bb717eccb40842da71dce18edf, type: 3}
+      propertyPath: dmgColor.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1539679975, guid: fffc59bb717eccb40842da71dce18edf, type: 3}
+      propertyPath: mntColor.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1539679975, guid: fffc59bb717eccb40842da71dce18edf, type: 3}
+      propertyPath: mntColor.g
+      value: 0.41037738
+      objectReference: {fileID: 0}
+    - target: {fileID: 1539679975, guid: fffc59bb717eccb40842da71dce18edf, type: 3}
+      propertyPath: mntColor.r
+      value: 0.78722435
+      objectReference: {fileID: 0}
+    - target: {fileID: 1579230489, guid: fffc59bb717eccb40842da71dce18edf, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1579230489, guid: fffc59bb717eccb40842da71dce18edf, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1579230489, guid: fffc59bb717eccb40842da71dce18edf, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1579230489, guid: fffc59bb717eccb40842da71dce18edf, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1650195892, guid: fffc59bb717eccb40842da71dce18edf, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1650195892, guid: fffc59bb717eccb40842da71dce18edf, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1650195892, guid: fffc59bb717eccb40842da71dce18edf, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1650195892, guid: fffc59bb717eccb40842da71dce18edf, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1653698673, guid: fffc59bb717eccb40842da71dce18edf, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1653698673, guid: fffc59bb717eccb40842da71dce18edf, type: 3}
       propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1653698673, guid: fffc59bb717eccb40842da71dce18edf, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1653698673, guid: fffc59bb717eccb40842da71dce18edf, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 662393731740713469, guid: fffc59bb717eccb40842da71dce18edf, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 662393731740713469, guid: fffc59bb717eccb40842da71dce18edf, type: 3}
+      propertyPath: m_SizeDelta.y
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1535655169830837502, guid: fffc59bb717eccb40842da71dce18edf, type: 3}
@@ -221,7 +357,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2848066963933815196, guid: fffc59bb717eccb40842da71dce18edf, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 208.7358
+      value: 210.5
       objectReference: {fileID: 0}
     - target: {fileID: 2848066963933815196, guid: fffc59bb717eccb40842da71dce18edf, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -265,6 +401,22 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5986378628594719558, guid: fffc59bb717eccb40842da71dce18edf, type: 3}
       propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5986378628594719558, guid: fffc59bb717eccb40842da71dce18edf, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5986378628594719558, guid: fffc59bb717eccb40842da71dce18edf, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5986378628672865991, guid: fffc59bb717eccb40842da71dce18edf, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5986378628672865991, guid: fffc59bb717eccb40842da71dce18edf, type: 3}
+      propertyPath: m_SizeDelta.y
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -802,6 +954,29 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1.0000002, z: 1.0000002}
   m_Center: {x: 0, y: -0.0000009536743, z: 0.00000008940697}
+--- !u!1 &531696299 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 187944758, guid: fffc59bb717eccb40842da71dce18edf, type: 3}
+  m_PrefabInstance: {fileID: 55157236}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &531696304
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 531696299}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 900e01a4a2dc395489c1da55781d91c8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  baseTitle: "Points de Sant\xE9 Mentale"
+  baseText: 'Si ce nombre atteint 0,
+
+    vous mourrez'
+  offsetY: 0
+  offsetX: 70
 --- !u!114 &544984441 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2848066963839871586, guid: fffc59bb717eccb40842da71dce18edf, type: 3}
@@ -1382,6 +1557,29 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 1
   m_Center: {x: 0, y: -0.46, z: 0}
+--- !u!1 &783459759 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5986378628342267547, guid: fffc59bb717eccb40842da71dce18edf, type: 3}
+  m_PrefabInstance: {fileID: 55157236}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &783459764
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 783459759}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 900e01a4a2dc395489c1da55781d91c8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  baseTitle: Points de vie
+  baseText: 'Si ce nombre atteint 0,
+
+    vous mourrez'
+  offsetY: -200
+  offsetX: 0
 --- !u!1 &807331966 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2661416561499058480, guid: 032cf0f77cf418345b2b90e4b6c2b6c0, type: 3}
@@ -2204,6 +2402,29 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1.0000002, z: 1.0000002}
   m_Center: {x: 0, y: 0, z: -0.00000014901161}
+--- !u!1 &1065289430 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1024205593, guid: fffc59bb717eccb40842da71dce18edf, type: 3}
+  m_PrefabInstance: {fileID: 55157236}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1065289435
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1065289430}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 900e01a4a2dc395489c1da55781d91c8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  baseTitle: "Points de Sant\xE9 Mentale"
+  baseText: 'Si ce nombre atteint 0,
+
+    vous mourrez'
+  offsetY: -200
+  offsetX: 70
 --- !u!1 &1066992354 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6477385341095288789, guid: 032cf0f77cf418345b2b90e4b6c2b6c0, type: 3}
@@ -2534,7 +2755,7 @@ MonoBehaviour:
   canvasWeaponButtonParent: {fileID: 0}
   attackButtonPrefab: {fileID: 3659706783343686361, guid: 56c3ebf168d6eb24ea1d519d5c395da7, type: 3}
   weaponButtonPrefab: {fileID: 3501023731806726065, guid: e20ace6a315cd5a4da8b282f9c5f52e6, type: 3}
-  attackTooltip: {fileID: 1808764059}
+  attackTooltip: {fileID: 0}
 --- !u!114 &1391306517
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5871,6 +6092,29 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 032cf0f77cf418345b2b90e4b6c2b6c0, type: 3}
+--- !u!1 &1637528396 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1535655170332902685, guid: fffc59bb717eccb40842da71dce18edf, type: 3}
+  m_PrefabInstance: {fileID: 55157236}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1637528401
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1637528396}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 900e01a4a2dc395489c1da55781d91c8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  baseTitle: Fin de Tour
+  baseText: 'Termine votre tour
+
+    actuel'
+  offsetY: 0
+  offsetX: 0
 --- !u!1 &1637550345 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8364227581947226992, guid: 032cf0f77cf418345b2b90e4b6c2b6c0, type: 3}
@@ -5991,17 +6235,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1.0000002, z: 1.0000002}
   m_Center: {x: 0, y: 0, z: -0.000000029802322}
---- !u!114 &1808764059 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 2848066963978958160, guid: fffc59bb717eccb40842da71dce18edf, type: 3}
-  m_PrefabInstance: {fileID: 55157236}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f50fc12751108df43840ecdb4b89e8a6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1902904293
 GameObject:
   m_ObjectHideFlags: 0
@@ -6418,6 +6651,29 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1.0000002, z: 1.0000002}
   m_Center: {x: 0, y: 0, z: -0.000000029802322}
+--- !u!1 &2146444025 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 991557637390062658, guid: fffc59bb717eccb40842da71dce18edf, type: 3}
+  m_PrefabInstance: {fileID: 55157236}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2146444030
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2146444025}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 900e01a4a2dc395489c1da55781d91c8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  baseTitle: Points de vie
+  baseText: 'Si ce nombre atteint 0,
+
+    vous mourrez'
+  offsetY: 0
+  offsetX: 0
 --- !u!1001 &4798727895151968827
 PrefabInstance:
   m_ObjectHideFlags: 0

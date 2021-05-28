@@ -8,12 +8,13 @@ public class UiWeaponSelector : MonoBehaviour
     [SerializeField] private GameObject[] weapons;
     [SerializeField] private GameObject background;
     [SerializeField] private AttackUiManager attackUiManager;
-    [SerializeField] private int selectedIndex;
+    [SerializeField] private Image selectedIcon;
     private PlayerEntity player;
-    private bool deployed = false;
+    private bool deployed = true;
 
     private void Start() {
         player = CombatManager.current.player;
+        SelectWeapon(0);
     }
 
     public void WeaponDropDown () {
@@ -27,19 +28,21 @@ public class UiWeaponSelector : MonoBehaviour
             }
             background.SetActive(true);
             background.transform.localScale = new Vector3(1,0.1f,1);
-            LeanTween.scaleY(background,1,0.2f);
+            LeanTween.scaleY(background,1,0.2f).setIgnoreTimeScale(true);
         }else{
             foreach(GameObject g in weapons) {
                 g.name = "-";
                 background.transform.localScale = Vector3.one;
-                LeanTween.scaleY(background,0.1f,0.2f);
+                LeanTween.scaleY(background,0.1f,0.2f).setIgnoreTimeScale(true);
+                StartCoroutine(SetActive());
                 Invoke("SetActive",0.2f);
             }
         }
         deployed = !deployed;
     }
 
-    private void SetActive () {
+    private IEnumerator SetActive () {
+        yield return new WaitForSecondsRealtime(0.2f);
         foreach (GameObject g in weapons) {
             g.SetActive(false);
         }
@@ -50,5 +53,6 @@ public class UiWeaponSelector : MonoBehaviour
         WeaponDropDown();
         attackUiManager.LinkAttackAndButton(player.weaponInventory[index]);
         //Set icon here
+        selectedIcon.sprite = player.weaponInventory[index].weaponIcon;
     }
 }

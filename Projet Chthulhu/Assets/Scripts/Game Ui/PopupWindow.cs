@@ -19,14 +19,7 @@ public class PopupWindow : MonoBehaviour
     [SerializeField] private GameObject dropWeaponButtons;
     private bool popupActivated = false;
     private Action afterCoroutineMethod;
-    
-
-    private void Start() {
-        //ActivatePopup("text", PopupType.Information);
-    }
-
     public void ActivatePopup (string popupText, string popupTitle, PopupType type, Action afterMethod = null) {
-        Debug.Log(popupTitle);
         StartCoroutine(StartPopup(popupText,popupTitle,type,afterMethod));
     }
 

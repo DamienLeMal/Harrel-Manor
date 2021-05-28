@@ -14,19 +14,10 @@ public class CombatButton : MonoBehaviour
     private PlayerEntity player;
     private TooltipUi attackTooltip;
 
-    //public void ButtonConstructor (CombatManager _manager, PlayerState _newState, AttackData _attack, TooltipUi _attackTooltip) {
-    //    manager = _manager;
-    //    newState = _newState;
-    //    attack = _attack;
-    //    attackTooltip = _attackTooltip;
-    //    GetComponent<Button>().onClick.AddListener(ToggleState);
-    //}
-
     private void Start() {
         manager = CombatManager.current;
         player = manager.player;
         gridManager = manager.GetComponent<GridManager>();
-        Debug.Log("enabled");
     }
 
     public void ToggleState () {

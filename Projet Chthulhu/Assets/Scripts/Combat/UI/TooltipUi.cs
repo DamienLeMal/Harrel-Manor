@@ -11,14 +11,16 @@ public class TooltipUi : MonoBehaviour
     [SerializeField] public Text title;
     [SerializeField] public Text content;
     [HideInInspector] public float yOffset;
+    [HideInInspector] public float xOffset;
     private CanvasGroup canvasGroup;
-    private bool isActive;
+    private bool isActive = false;
     
     private void Awake() {
         current = this;
         rect = GetComponent<RectTransform>();
         canvasGroup = GetComponent<CanvasGroup>();
         ToggleTooltip(false);
+        
     }
 
     public void SetText (string name, string description) {
@@ -30,13 +32,12 @@ public class TooltipUi : MonoBehaviour
         isActive = toggle;
         if (toggle) {
             gameObject.SetActive(true);
-            LeanTween.alphaCanvas(canvasGroup,1,0.2f).setEaseOutCirc();
+            LeanTween.alphaCanvas(canvasGroup,1,0.2f).setEaseOutCirc().setIgnoreTimeScale(true);
         }
         if (!toggle) {
-            LeanTween.alphaCanvas(canvasGroup,0,0.2f).setEaseOutCirc();
+            LeanTween.alphaCanvas(canvasGroup,0,0.2f).setEaseOutCirc().setIgnoreTimeScale(true);
             Invoke("SetActive",0.2f);
-        } 
-        
+        }
     }
     private void SetActive () {
         if (isActive) return;
@@ -44,6 +45,7 @@ public class TooltipUi : MonoBehaviour
     }
 
     private void Update() {
-        transform.position = Input.mousePosition + new Vector3 (0,rect.rect.height/2 + yOffset,0);
+        if (!isActive) return;
+        transform.position = Input.mousePosition + new Vector3 (0 + xOffset,rect.rect.height*10/canvasRect.rect.height + yOffset,0);
     }
 }
