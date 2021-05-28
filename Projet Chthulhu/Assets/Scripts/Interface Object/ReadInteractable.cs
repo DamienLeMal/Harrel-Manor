@@ -6,7 +6,6 @@ using UnityEngine.UI;
 public class ReadInteractable : MonoBehaviour, IClicked
 {
     [SerializeField] private PopupWindow uiGraphic;
-    [SerializeField] private Text txt;
     [SerializeField] [TextArea] private string title, content;
     private InterfaceDistance interfaceDistance;
 

@@ -5,7 +5,11 @@ using UnityEngine.EventSystems;
 
 public class InteractionManager : MonoBehaviour
 {
-    [SerializeField] private float maxDistInteract;
+    public static InteractionManager current;
+    public float maxDistInteract;
+    private void Awake() {
+        current = this;
+    }
     // Update is called once per frame
     void Update()
     {

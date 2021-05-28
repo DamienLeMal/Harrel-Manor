@@ -41,18 +41,17 @@ public class CombatManager : MonoBehaviour
     [HideInInspector] public CombatButton activeButton = null;
     private void Awake() {
         current = this;
-    }
-    private void Start() {
-        SoundEventManager.current.onGamemodeChange += OnGamemodeChange;
-        uiManager = GetComponent<CombatUiManager>();
-        gridManager = GetComponent<GridManager>();
-        turnManager = GetComponent<CombatTurnManager>();
         foreach (GameObject g in gameEntities.entities) {
             if (g.GetComponent<PlayerEntity>() != null) {
                 player = g.GetComponent<PlayerEntity>();
                 break;
             }
         }
+    }
+    private void Start() {
+        uiManager = GetComponent<CombatUiManager>();
+        gridManager = GetComponent<GridManager>();
+        turnManager = GetComponent<CombatTurnManager>();
     }
     public void ResetActorsPositions() {
         foreach (TileEntity t in grid) {
@@ -79,12 +78,15 @@ public class CombatManager : MonoBehaviour
             turnManager.fightingEntities.Add(g.GetComponent<ActorEntity>());
         }
         ResetActorsPositions();
+        /*
         foreach (WeaponData w in player.weaponInventory) {
             Transform wb = uiManager.ShowWeaponButton().attackContainer;
+            Debug.Log("Weapon button for : " + w);
             foreach(AttackData a in w.attacks) {
                 GetComponent<CombatUiManager>().ShowAttackButton(a,wb);
             }
         }
+        */
         turnManager.NewTurn();
     }
 
@@ -105,7 +107,11 @@ public class CombatManager : MonoBehaviour
         gridManager.HighlightActionTiles();
     }
 
-    private void OnGamemodeChange () {
-        Debug.Log("gameModeChange");
+    public void GameOver() {
+        //Temp
+        player.gameObject.SetActive(false);
+
+        uiManager.GameOverScreen();
+        SoundEventManager.current.CombatEnd(false);
     }
 }

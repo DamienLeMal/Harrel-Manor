@@ -83,14 +83,11 @@ public class SoundEventManager : MonoBehaviour
     public event Action onPlayerTurnHpLow;
     public event Action onPlayerTurnHpHigh;
     public void PlayerTurn(float ratioHp) {
-        Debug.Log("Event Player Turn");
         if (ratioHp <= 0.25f) {
             if (onPlayerTurnHpLow == null) return;
-        Debug.Log("HP is low " + ratioHp);
             onPlayerTurnHpLow();
         }else{
             if (onPlayerTurnHpHigh == null) return;
-        Debug.Log("HP is high " + ratioHp);
             onPlayerTurnHpHigh();
         }
         

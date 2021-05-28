@@ -7,7 +7,7 @@ public class AttackData : SheetData
 {
     public string attackName;
     public string description;
-    public int apCost, mpCost, dmg;
+    public int apCost, mpCost, mntCost, dmg;
     public bool rangedAttack;
     [SerializeField] private string positionPattern;
     private int[,] positionPatternArray;
@@ -15,6 +15,8 @@ public class AttackData : SheetData
     private int[,] damagePatternArray;
     public List<Vector2Int> positionPatternCoord;
     public List<Vector2Int> damagePatternCoord;
+    public Sprite attackIcon;
+    public ParticleSystem attackParticle;
     
 
     public void InitialiseData () {
@@ -26,16 +28,24 @@ public class AttackData : SheetData
     }
 
     private void ProcessText () {
-        attackName = "<B>" + attackName + "</B>";
-        description = "Co�t AP : <color=green>" + apCost.ToString() +
-                      "</color>\nCo�t MP : <color=purple>" + mpCost.ToString() +
-                      "</color>\nD�g�ts : <color=red>" + dmg.ToString() + "</color>";
+        attackName = "<B>" + name + "</B>";
+        description = "";
+        if (apCost != 0) description += UiColorScheme.current.GetTagColor(UiColorScheme.current.apColor) + "Coût AP : " + apCost.ToString() + "</color>";
+        if (mpCost != 0) description += UiColorScheme.current.GetTagColor(UiColorScheme.current.mpColor) + "\nCoût MP : " + mpCost.ToString() + "</color>";
+        if (mntCost != 0) description += UiColorScheme.current.GetTagColor(UiColorScheme.current.mntColor) + "\nCoût Santé Mentale : " + mntCost.ToString() + "</color>";
+        if (dmg != 0) description += UiColorScheme.current.GetTagColor(UiColorScheme.current.dmgColor) + "\nDégâts : " + dmg.ToString() + "</color>";
 
     }
-
+    /// <summary>
+    /// Return True if can attack
+    /// </summary>
+    public bool CheckCost (ActorEntity attacker) {
+        return (attacker.ap >= apCost && attacker.mp >= mpCost && attacker.mnt >= mntCost);
+    }
     public void Cost (ActorEntity attacker) {
-        if (attacker.ap - apCost < 0) Debug.LogWarning("Ap under 0");
         attacker.ap -= apCost;
+        attacker.mp -= mpCost;
+        attacker.mnt -= mntCost;
     }
 
     private List<Vector2Int> ProcessData (int[,] data) {

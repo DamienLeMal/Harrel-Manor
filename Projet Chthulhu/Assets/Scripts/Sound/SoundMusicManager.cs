@@ -88,15 +88,19 @@ public class SoundMusicManager : MonoBehaviour
     private void CombatPauseMusic () {
         if (mainMusicPlaying.clip != musics[0]) return;
         //bus -3db -> low pass
-        StartCoroutine(SetLowPassFilter(1500,1f));
+        //StartCoroutine(SetLowPassFilter(1500,1f));
+        StartCoroutine(StartFade(source[0],0.5f,0.1f));
+        if (source[3].volume != 0) StartCoroutine(StartFade(source[3],0.5f,0.1f));
         StartCoroutine(StartFade(source[2],0.5f,0.75f));
     }
 
     private void CombatUnpauseMusic () {
         if (mainMusicPlaying.clip != musics[0]) return;
         //bus -3db -> low pass
+        StartCoroutine(StartFade(source[0],0.5f,1f));
+        if (source[3].volume != 0) StartCoroutine(StartFade(source[3],0.5f,1f));
         StartCoroutine(StartFade(source[2],0.5f,0f));
-        StartCoroutine(SetLowPassFilter(22000,1f));
+        //StartCoroutine(SetLowPassFilter(22000,1f));
     }
 
     private void CombatLowHpMusicOn () {
