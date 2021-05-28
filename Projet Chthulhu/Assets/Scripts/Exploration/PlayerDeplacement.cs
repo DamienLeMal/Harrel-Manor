@@ -76,7 +76,7 @@ public class PlayerDeplacement : MonoBehaviour
         agent.isStopped = true;
         agent.enabled = false;
         inBattle = true;
-        GetComponent<PlayerEntity>().manager.StartCombat(actorPriority);
+        CombatManager.current.StartCombat(actorPriority);
         rb.detectCollisions = false;
         rb.constraints = RigidbodyConstraints.FreezeRotationZ | RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezePosition;
     }

@@ -10,6 +10,7 @@ public class PlayerEntity : ActorEntity
     private int amountLeft;
 
     private void Start() {
+        Debug.Log(hp + " & " + mnt);
         exp_goal = level * 10;
         realLevel = GetRealLevel();
     }

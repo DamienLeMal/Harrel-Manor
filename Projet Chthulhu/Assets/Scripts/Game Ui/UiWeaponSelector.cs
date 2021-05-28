@@ -13,10 +13,12 @@ public class UiWeaponSelector : MonoBehaviour
     private bool deployed = true;
 
     private void Start() {
+         
+    }
+    private void OnEnable() {
         player = CombatManager.current.player;
         SelectWeapon(0);
     }
-
     public void WeaponDropDown () {
         if(!deployed) {
             for (int i = 0; i < weapons.Length; i++) {
@@ -51,6 +53,8 @@ public class UiWeaponSelector : MonoBehaviour
 
     public void SelectWeapon (int index) {
         WeaponDropDown();
+        Debug.Log(player);
+        Debug.Log(player.weaponInventory[index]);
         attackUiManager.LinkAttackAndButton(player.weaponInventory[index]);
         //Set icon here
         selectedIcon.sprite = player.weaponInventory[index].weaponIcon;

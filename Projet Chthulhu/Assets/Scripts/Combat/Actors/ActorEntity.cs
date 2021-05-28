@@ -21,11 +21,7 @@ public class ActorEntity : MonoBehaviour
         }else{
             Constructor(baseStats);
         }
-        foreach (WeaponData w in weaponInventory) {
-            foreach (AttackData a in w.attacks) {
-                a.InitialiseData();
-            }
-        }
+        
         
         //Security
         if (transform.GetComponentInParent<CombatManager>() == null) {
@@ -33,6 +29,14 @@ public class ActorEntity : MonoBehaviour
         }
         manager = transform.GetComponentInParent<CombatManager>();
         manager.gameEntities.entities.Add(gameObject);
+    }
+
+    private void Start() {
+        foreach (WeaponData w in weaponInventory) {
+            foreach (AttackData a in w.attacks) {
+                a.InitialiseData();
+            }
+        }
     }
 
     private void Constructor (ActorData data) {

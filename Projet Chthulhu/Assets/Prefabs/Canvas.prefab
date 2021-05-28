@@ -419,6 +419,7 @@ GameObject:
   - component: {fileID: 187944762}
   - component: {fileID: 187944761}
   - component: {fileID: 187944760}
+  - component: {fileID: 531696304}
   m_Layer: 5
   m_Name: MNT_Number
   m_TagString: Untagged
@@ -500,6 +501,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stat: 1
+--- !u!114 &531696304
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 187944758}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 900e01a4a2dc395489c1da55781d91c8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  baseTitle: "Points de Sant\xE9 Mentale"
+  baseText: 'Si ce nombre atteint 0,
+
+    vous mourrez'
+  offsetY: 0
+  offsetX: 70
 --- !u!1 &267695323
 GameObject:
   m_ObjectHideFlags: 0
@@ -886,6 +905,7 @@ MonoBehaviour:
   baseTitle: 
   baseText: Default Text
   offsetY: 0
+  offsetX: 0
 --- !u!1 &413322965
 GameObject:
   m_ObjectHideFlags: 0
@@ -2339,6 +2359,7 @@ GameObject:
   - component: {fileID: 1024205597}
   - component: {fileID: 1024205596}
   - component: {fileID: 1024205595}
+  - component: {fileID: 1065289435}
   m_Layer: 5
   m_Name: MNT_Slider
   m_TagString: Untagged
@@ -2439,6 +2460,24 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1024205593}
   m_CullTransparentMesh: 1
+--- !u!114 &1065289435
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1024205593}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 900e01a4a2dc395489c1da55781d91c8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  baseTitle: "Points de Sant\xE9 Mentale"
+  baseText: 'Si ce nombre atteint 0,
+
+    vous mourrez'
+  offsetY: -200
+  offsetX: 70
 --- !u!1 &1031526206
 GameObject:
   m_ObjectHideFlags: 0
@@ -2678,6 +2717,7 @@ MonoBehaviour:
   baseTitle: 
   baseText: Default Text
   offsetY: 0
+  offsetX: 0
 --- !u!1 &1159680185
 GameObject:
   m_ObjectHideFlags: 0
@@ -3892,6 +3932,7 @@ MonoBehaviour:
   baseTitle: 
   baseText: Default Text
   offsetY: 0
+  offsetX: 0
 --- !u!1 &1579674659
 GameObject:
   m_ObjectHideFlags: 0
@@ -4284,6 +4325,7 @@ MonoBehaviour:
   baseTitle: 
   baseText: Default Text
   offsetY: 0
+  offsetX: 0
 --- !u!1 &1653698672
 GameObject:
   m_ObjectHideFlags: 0
@@ -5215,6 +5257,7 @@ GameObject:
   - component: {fileID: 4553343034487942461}
   - component: {fileID: 1785208538002606738}
   - component: {fileID: 5756584567241440558}
+  - component: {fileID: 2146444030}
   m_Layer: 5
   m_Name: HP_Number
   m_TagString: Untagged
@@ -5296,6 +5339,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stat: 0
+--- !u!114 &2146444030
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 991557637390062658}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 900e01a4a2dc395489c1da55781d91c8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  baseTitle: Points de vie
+  baseText: 'Si ce nombre atteint 0,
+
+    vous mourrez'
+  offsetY: 0
+  offsetX: 0
 --- !u!1 &1053908411494857171
 GameObject:
   m_ObjectHideFlags: 0
@@ -5386,6 +5447,25 @@ MonoBehaviour:
   baseTitle: Mouvements
   baseText: "Se d\xE9placer sur la grille"
   offsetY: 30
+  offsetX: 0
+--- !u!114 &1637528401
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1535655170332902685}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 900e01a4a2dc395489c1da55781d91c8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  baseTitle: Fin de Tour
+  baseText: 'Termine votre tour
+
+    actuel'
+  offsetY: 0
+  offsetX: 0
 --- !u!1 &1886965264753259506
 GameObject:
   m_ObjectHideFlags: 0
@@ -6989,8 +7069,8 @@ MonoBehaviour:
   mpColor: {r: 0.5800107, g: 0.5987217, b: 0.9245283, a: 0}
   pmColor: {r: 0.5584282, g: 0.8396226, b: 0.8306253, a: 0}
   hpColor: {r: 0.45229617, g: 0.7924528, b: 0.46901616, a: 0}
-  mntColor: {r: 0.47745997, g: 0.25485048, b: 0.7830189, a: 0}
-  dmgColor: {r: 0.735849, g: 0.3436276, b: 0.3436276, a: 0}
+  mntColor: {r: 0.78722435, g: 0.41037738, b: 1, a: 0}
+  dmgColor: {r: 1, g: 0.3254717, b: 0.3254717, a: 0}
 --- !u!1 &2848066963231650065
 GameObject:
   m_ObjectHideFlags: 0
@@ -7713,9 +7793,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 900e01a4a2dc395489c1da55781d91c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  baseTitle: Action Point
-  baseText: AP for short
+  baseTitle: Points d'Action
+  baseText: "Points utilis\xE9s pour\nlancer une attaque"
   offsetY: 0
+  offsetX: 0
 --- !u!1 &2848066963593702318
 GameObject:
   m_ObjectHideFlags: 0
@@ -8276,7 +8357,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 210.5, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0.5}
 --- !u!222 &2848066963933815199
@@ -8450,6 +8531,7 @@ MonoBehaviour:
   title: {fileID: 2848066963933815198}
   content: {fileID: 2848066964393774424}
   yOffset: 0
+  xOffset: 0
 --- !u!114 &2848066963978958167
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9318,7 +9400,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 30, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0.5}
 --- !u!222 &2848066964393774425
@@ -9632,9 +9714,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 900e01a4a2dc395489c1da55781d91c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  baseTitle: ' MP'
-  baseText: "M\xEAme si j'aggrandis ?\ncomme\nceci ?\n"
+  baseTitle: Points de Mana
+  baseText: "Points utilis\xE9s lors de \nl'incantation de sorts"
   offsetY: 100
+  offsetX: 0
 --- !u!1 &3324592442149142672
 GameObject:
   m_ObjectHideFlags: 0
@@ -10444,6 +10527,7 @@ GameObject:
   - component: {fileID: 5986378628342267544}
   - component: {fileID: 5986378628342267548}
   - component: {fileID: 5986378628342267549}
+  - component: {fileID: 783459764}
   m_Layer: 5
   m_Name: HP_Slider
   m_TagString: Untagged
@@ -10544,6 +10628,24 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5986378628342267547}
   m_CullTransparentMesh: 1
+--- !u!114 &783459764
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5986378628342267547}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 900e01a4a2dc395489c1da55781d91c8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  baseTitle: Points de vie
+  baseText: 'Si ce nombre atteint 0,
+
+    vous mourrez'
+  offsetY: -200
+  offsetX: 0
 --- !u!1 &5986378628393519425
 GameObject:
   m_ObjectHideFlags: 0
@@ -11225,6 +11327,7 @@ MonoBehaviour:
   baseTitle: Information
   baseText: "Donne les informations sur vos \ncapacit\xE9s"
   offsetY: 30
+  offsetX: 0
 --- !u!114 &7572982947801275530
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11344,9 +11447,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 900e01a4a2dc395489c1da55781d91c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  baseTitle: ' '
-  baseText: Default Text
+  baseTitle: Points de Mouvements
+  baseText: "Points utilis\xE9s lors du \nd\xE9placement sur la grille"
   offsetY: 0
+  offsetX: 0
 --- !u!1 &8853461177162077700
 GameObject:
   m_ObjectHideFlags: 0
@@ -11665,6 +11769,11 @@ PrefabInstance:
     m_RemovedComponents:
     - {fileID: 3659706783343686364, guid: 56c3ebf168d6eb24ea1d519d5c395da7, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 56c3ebf168d6eb24ea1d519d5c395da7, type: 3}
+--- !u!1 &1535655170332902685 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3659706783343686361, guid: 56c3ebf168d6eb24ea1d519d5c395da7, type: 3}
+  m_PrefabInstance: {fileID: 2848066963608369092}
+  m_PrefabAsset: {fileID: 0}
 --- !u!224 &1535655170332902684 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 3659706783343686360, guid: 56c3ebf168d6eb24ea1d519d5c395da7, type: 3}
@@ -11851,6 +11960,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 56c3ebf168d6eb24ea1d519d5c395da7, type: 3}
+--- !u!1 &1535655169830837499 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3659706783343686361, guid: 56c3ebf168d6eb24ea1d519d5c395da7, type: 3}
+  m_PrefabInstance: {fileID: 2848066964105719330}
+  m_PrefabAsset: {fileID: 0}
+--- !u!224 &1535655169830837498 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 3659706783343686360, guid: 56c3ebf168d6eb24ea1d519d5c395da7, type: 3}
+  m_PrefabInstance: {fileID: 2848066964105719330}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &1535655169830837502 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3659706783343686364, guid: 56c3ebf168d6eb24ea1d519d5c395da7, type: 3}
@@ -11862,16 +11981,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d812ec74b6cf6fe4391506ab6d09d6aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!224 &1535655169830837498 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 3659706783343686360, guid: 56c3ebf168d6eb24ea1d519d5c395da7, type: 3}
-  m_PrefabInstance: {fileID: 2848066964105719330}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &1535655169830837499 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3659706783343686361, guid: 56c3ebf168d6eb24ea1d519d5c395da7, type: 3}
-  m_PrefabInstance: {fileID: 2848066964105719330}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &6668413625245243232
 PrefabInstance:
   m_ObjectHideFlags: 0
