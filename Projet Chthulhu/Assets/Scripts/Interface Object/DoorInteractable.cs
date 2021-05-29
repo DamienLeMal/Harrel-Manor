@@ -9,21 +9,39 @@ public class DoorInteractable : MonoBehaviour, IClicked
     private NavMeshObstacle collision;
     [SerializeField] private bool isLocked;
     [SerializeField] private int keyId;
+    [SerializeField] private AudioSource source;
+    [SerializeField] private AudioClip doorOpen, doorClose;
+    private InterfaceDistance interfaceDistance;
+    private Animator animator;
+    private bool cooldown;
 
     private void Start() {
+        animator = GetComponent<Animator>();
+        interfaceDistance = GetComponent<InterfaceDistance>();
         collision = GetComponent<NavMeshObstacle>();
+        source = GetComponent<AudioSource>();
     }
     public void OnClickAction () {
+        if (cooldown) return;
+        if (!interfaceDistance.isInteractable) return;
         if (isLocked) {
-            if (!CombatManager.current.player.HasKey(keyId)) return;
+            if (!CombatManager.current.player.HasKey(keyId)) {
+                //locked sound
+                return;
+            } 
             //Unlock sound
             isLocked = false;
         }
         //OpenDoor
-        GetComponent<Animator>().SetTrigger("DoorAction");
+        if (animator.GetAnimatorTransitionInfo(0).duration > 0) {
+            Debug.Log("Stopped");
+            return;
+        }
+        animator.SetTrigger("DoorAction");
 
         //Temp
         ToggleDoor();
+        StartCoroutine(StartCooldown());
     }
 
     /// <summary>
@@ -32,6 +50,16 @@ public class DoorInteractable : MonoBehaviour, IClicked
     private void ToggleDoor () {
         //CombatManager.current.grid[coordX,coordY].DoorToggleOpenClose();
         collision.enabled = !collision.enabled;
+        if (collision.enabled) {
+            source.PlayOneShot(doorOpen);
+        }else{
+            source.PlayOneShot(doorClose);
+        }
+    }
 
+    IEnumerator StartCooldown () {
+        cooldown = true;
+        yield return new WaitForSeconds(0.5f);
+        cooldown = false;
     }
 }

@@ -11,7 +11,6 @@ public class InterfaceDistance : MonoBehaviour
     private void Start() {
         outlineGenerator = GetComponent<OutlineGenerator>();
         maxDist = InteractionManager.current.maxDistInteract;
-        if (outlineGenerator == null) Debug.LogError(this + " should have the OutlineGenerator component in order to work");
         if (Vector3.Distance(CombatManager.current.player.transform.position,transform.position) > maxDist) {
             MakeInteractable(false);
         }else{
@@ -36,7 +35,7 @@ public class InterfaceDistance : MonoBehaviour
 
     private void MakeInteractable (bool value) {
         isInteractable = value;
-        outlineGenerator.ToggleOutline(value);
+        if (outlineGenerator != null) outlineGenerator.ToggleOutline(value);
         //add shader here
     }
 }
