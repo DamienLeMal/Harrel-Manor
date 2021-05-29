@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PlayerEntity : ActorEntity
 {
+    private List<int> keys = new List<int>();
     private int exp = 0;
     private int exp_goal;
     [HideInInspector] public int realLevel;
@@ -105,5 +106,13 @@ public class PlayerEntity : ActorEntity
         Debug.Log("Weapon replaced");
         weaponInventory.Remove(weaponToRemove);
         weaponInventory.Add(weaponToAdd);
+    }
+
+    public void AddKey (int id) {
+        keys.Add(id);
+    }
+
+    public bool HasKey (int id) {
+        return keys.Contains(id);
     }
 }

@@ -43,4 +43,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 01df46bdb8626d940980b701c6aea684, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  windowRead: {fileID: 0}
   maxDistInteract: 4

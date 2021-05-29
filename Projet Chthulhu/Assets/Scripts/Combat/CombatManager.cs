@@ -24,6 +24,7 @@ public class CombatManager : MonoBehaviour
     [HideInInspector] public PlayerState[] pStateAffectGrid = {PlayerState.Moving, PlayerState.Attacking};
     [HideInInspector] public PlayerEntity player = null;
     [HideInInspector] public GridManager gridManager = null;
+    [SerializeField] private float maxCombatDistance;
     public PlayerState playerState {
         get {return _playerState;}
         set {
@@ -73,20 +74,14 @@ public class CombatManager : MonoBehaviour
             t.gameObject.SetActive(true);
         }
         foreach (GameObject g in gameEntities.entities) {
-            if (Vector3.Distance(player.transform.position,g.transform.position) > 123456789) continue;
+            if (Vector3.Distance(player.transform.position,g.transform.position) > maxCombatDistance) {
+                g.SetActive(false);//Ennemies not in combat are unactivated
+                continue;
+            }
             if (turnManager.fightingEntities.Contains(g.GetComponent<ActorEntity>())) continue;
             turnManager.fightingEntities.Add(g.GetComponent<ActorEntity>());
         }
         ResetActorsPositions();
-        /*
-        foreach (WeaponData w in player.weaponInventory) {
-            Transform wb = uiManager.ShowWeaponButton().attackContainer;
-            Debug.Log("Weapon button for : " + w);
-            foreach(AttackData a in w.attacks) {
-                GetComponent<CombatUiManager>().ShowAttackButton(a,wb);
-            }
-        }
-        */
         turnManager.NewTurn();
     }
 
@@ -97,6 +92,16 @@ public class CombatManager : MonoBehaviour
             if (t == null) continue;
             t.gameObject.SetActive(false);
         }
+
+//Not Tested
+
+        //Re-activate all ennemies that were not in combat
+        foreach (GameObject g in gameEntities.entities) {
+            g.SetActive(true);
+        }
+
+//End Not Tested
+
         uiManager.ToggleCombatUi(false);
         player.GetComponent<PlayerDeplacement>().SetExplorationMode();
         SoundEventManager.current.GamemodeChange();

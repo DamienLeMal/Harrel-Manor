@@ -10,6 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 3856151412109133334}
   - component: {fileID: 923941179428254816}
+  - component: {fileID: 1273520606}
+  - component: {fileID: 1273520604}
+  - component: {fileID: 1837734772936768935}
   m_Layer: 0
   m_Name: SIMPLEDOOR_Anim_low
   m_TagString: Untagged
@@ -52,6 +55,49 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &1273520606
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4523898724410367148}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6de1e911f38f77c4fbb7f37933c79fec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  coordX: 0
+  coordY: 0
+--- !u!65 &1273520604
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4523898724410367148}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 2.0079188, z: 0.25316048}
+  m_Center: {x: 0, y: 1.0037906, z: 0.005736351}
+--- !u!208 &1837734772936768935
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4523898724410367148}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.5, y: 2, z: 0.5}
+  m_MoveThreshold: 0.1
+  m_Carve: 0
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 0, z: 0}
+  m_TimeToStationary: 0.5
 --- !u!1 &5552288627975647874
 GameObject:
   m_ObjectHideFlags: 0

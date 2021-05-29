@@ -6,6 +6,7 @@ using UnityEngine.EventSystems;
 public class InteractionManager : MonoBehaviour
 {
     public static InteractionManager current;
+    public PopupWindow windowRead;
     public float maxDistInteract;
     private void Awake() {
         current = this;
