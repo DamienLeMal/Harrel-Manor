@@ -51,7 +51,7 @@ public class EnnemyBrain : MonoBehaviour
         //Start
         EvaluateTiles();
 
-        //Is it better to Attack Player ?    
+        //Is it better to Attack Player ?
         if (tileScore[GetMoveToTile()][Score.Attack] <= tileScore[entity.currentTile][Score.Attack] && tileScore[entity.currentTile][Score.Attack] > 0) {
             Debug.Log("Better to attack first");
             //Yes
@@ -206,8 +206,8 @@ public class EnnemyBrain : MonoBehaviour
             int y = 0;
             foreach (WeaponData w in entity.weaponInventory) {
                 foreach (AttackData a in w.attacks) {
-                    if (!a.CheckCost(entity)) continue;
                     int yScore = AttackScore(t.Key,a,entity,manager.player);
+                    if (!a.CheckCost(entity)) yScore = 0;
                     if (yScore <= y) continue;
                     y = yScore;
                     bestAttack[t.Key] = a;

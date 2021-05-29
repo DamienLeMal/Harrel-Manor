@@ -35,10 +35,10 @@ public class ActorStatUi : MonoBehaviour
                 txt.text = player.pm.ToString();
                 break;
             case Stat.Health :
-                txt.text = player.hp.ToString();
+                txt.text = player.hp.ToString() + "/" + player.hp_max.ToString();
                 break;
             case Stat.MentalHealth :
-                txt.text = player.mnt.ToString();
+                txt.text = player.mnt.ToString() + "/" + player.mnt_max.ToString();
                 break;
         }
     }

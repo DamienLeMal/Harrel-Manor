@@ -72,10 +72,11 @@ public class SoundMusicManager : MonoBehaviour
     }
 
     private void PlayCombatWin () {
+        Debug.Log("Play Combat Win");
         //Current Music fade out 222 -> Music win
         StartCoroutine(StartFade(source[0],0.222f,0));
         StartCoroutine(StartFade(source[3],0.222f,0));
-        source[4].PlayOneShot(source[4].clip);
+        source[6].PlayOneShot(musics[4]);
     }
 
     private void PlayCombatGameOver () {
@@ -129,12 +130,12 @@ public class SoundMusicManager : MonoBehaviour
         PlayExplorationMusic();
     }
     private void PlayExplorationMusic () {
-        
         PlayMusic(0,true,1,0.222f);//e-layer 1
         PlayMusic(1,false,0);//e-layer 1 Pause
         PlayMusic(2,false,0);//e-layer 2
         PlayMusic(3,false,0);//e-layer 2 Pause
         PlayMusic(4,false,0);//e-layer 2 Stealth
+        StartCoroutine(StartFade(source[0],0.5f,1f));
         mainMusicPlaying = source[0];
     }
 

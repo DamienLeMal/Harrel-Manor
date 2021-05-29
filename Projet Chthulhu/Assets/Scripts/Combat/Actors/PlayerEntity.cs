@@ -21,6 +21,7 @@ public class PlayerEntity : ActorEntity
     }
 
     public void AddXpGain (int amount) {
+        Debug.Log("xp ++");
         //if exp + xp gain > exp goal -> LevelUp()
         //Else apply
         if (exp + amount >= exp_goal) {
@@ -37,10 +38,10 @@ public class PlayerEntity : ActorEntity
         amountLeft = amountRemaining;
         string popupText = "Vous gagnez un niveau !\nVous êtes niveau " + level.ToString() + " !\nSélectionnez une stat à améliorer";
         manager.popup.ActivatePopup(popupText,"Level Up",PopupType.LevelUp,LevelUpEnd);
-        //StartCoroutine(manager.popup.ActivatePopup(popupText,PopupType.LevelUp,LevelUpEnd));
     }
     private void LevelUpEnd() {
         //add remaining xp gain -> add XpGain(reste)
+        NewMaxStat();
         AddXpGain(amountLeft);
     }
 

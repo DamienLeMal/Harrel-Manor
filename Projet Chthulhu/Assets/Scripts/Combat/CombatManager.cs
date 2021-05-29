@@ -53,6 +53,7 @@ public class CombatManager : MonoBehaviour
         uiManager = GetComponent<CombatUiManager>();
         gridManager = GetComponent<GridManager>();
         turnManager = GetComponent<CombatTurnManager>();
+        SoundEventManager.current.onCombatEnd += EndCombatMode;
     }
     public void ResetActorsPositions() {
         foreach (TileEntity t in grid) {
@@ -85,7 +86,8 @@ public class CombatManager : MonoBehaviour
         turnManager.NewTurn();
     }
 
-    public void EndCombatMode () {
+    public void EndCombatMode (bool playerWin) {
+        if (!playerWin) return;
         //Set everything off and player exploration mode on
         playerState = PlayerState.Locked;
         foreach (TileEntity t in grid) {
