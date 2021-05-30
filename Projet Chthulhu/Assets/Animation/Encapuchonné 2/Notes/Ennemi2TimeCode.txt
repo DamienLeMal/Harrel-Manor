@@ -1,0 +1,8 @@
+encapuchonné 2 :
+
+10f - 60f idle
+70f -  110f marche
+130f -  160f Mort
+190F - 220F blessé
+230f - 250f - attaque
+260f - 300f Sort
