@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b133a2f84e481664d97c9772d09d79f9, type: 3}
+  m_Name: Melee_Wrench
+  m_EditorClassIdentifier: 
+  weaponIcon: {fileID: 0}
+  attacks:
+  - {fileID: 11400000, guid: 2b516f53fa287cb4b831942ce80a1fa3, type: 2}
+  - {fileID: 11400000, guid: 2b981053e99dcd24da3f07dbbe30957b, type: 2}

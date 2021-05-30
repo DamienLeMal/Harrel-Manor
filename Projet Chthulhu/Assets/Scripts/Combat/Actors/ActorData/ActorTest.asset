@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 80bfe1b1da877b0469863a6d71f39ae9, type: 3}
   m_Name: ActorTest
   m_EditorClassIdentifier: 
+  actorName: 
   str: 68
   dex: 20
   spd: 30
@@ -22,4 +23,4 @@ MonoBehaviour:
   mnt: 80
   weaponInvetory:
   - {fileID: 11400000, guid: 062110da998329b41b39466cb9c89a4f, type: 2}
-  dialogue: {fileID: 0}
+  dialogue: {fileID: 11400000, guid: 657da5b7f6bb0ea45ae1173e2d9c82b9, type: 2}

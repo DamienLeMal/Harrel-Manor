@@ -6,7 +6,8 @@ using System;
 
 public enum PopupType {
     Information,
-    LevelUp
+    LevelUp,
+    DropWeapon
 }
 public class PopupWindow : MonoBehaviour
 {
@@ -15,35 +16,33 @@ public class PopupWindow : MonoBehaviour
     [SerializeField] private Text txt;
     [SerializeField] private GameObject infoButton;
     [SerializeField] private GameObject lvlUpButtons;
+    [SerializeField] private GameObject dropWeaponButtons;
     private bool popupActivated = false;
     private Action afterCoroutineMethod;
-    
-
-    private void Start() {
-        //ActivatePopup("text", PopupType.Information);
-    }
-
     public void ActivatePopup (string popupText, string popupTitle, PopupType type, Action afterMethod = null) {
         StartCoroutine(StartPopup(popupText,popupTitle,type,afterMethod));
     }
 
     public IEnumerator StartPopup (string popupText, string popupTitle, PopupType type, Action afterMethod = null) {
         if (popupActivated) yield break;
-        Debug.Log("call popup");
         afterCoroutineMethod = afterMethod;
         popupWindow.SetActive(true);
+        if (lvlUpButtons != null) lvlUpButtons.SetActive(false);
+        if (dropWeaponButtons != null) dropWeaponButtons.SetActive(false);
+        infoButton.SetActive(false);
         switch (type) {
             case PopupType.Information :
-                if (lvlUpButtons != null) lvlUpButtons.SetActive(false);
                 infoButton.SetActive(true);
                 break;
             case PopupType.LevelUp :
                 if (lvlUpButtons != null) lvlUpButtons.SetActive(true);
-                infoButton.SetActive(false);
+                break;
+            case PopupType.DropWeapon :
+                if (dropWeaponButtons != null) dropWeaponButtons.SetActive(true);
                 break;
         }
         txt.text = popupText;
-        title.text = popupText;
+        title.text = popupTitle;
         Time.timeScale = 0;
         popupActivated = true;
         while (popupActivated) yield return null;
@@ -53,6 +52,9 @@ public class PopupWindow : MonoBehaviour
         popupActivated = false;
         popupWindow.SetActive(false);
         if (afterCoroutineMethod != null) afterCoroutineMethod();
-        Debug.Log("unactivation");
+    }
+
+    public void PrepareDropWeapon (WeaponData pickedUpWeapon) {
+        dropWeaponButtons.GetComponent<PopupDropWeapon>().AssignWeaponToButton(pickedUpWeapon);
     }
 }

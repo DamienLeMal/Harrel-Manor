@@ -5,8 +5,6 @@ using UnityEngine.UI;
 
 public class ReadInteractable : MonoBehaviour, IClicked
 {
-    [SerializeField] private PopupWindow uiGraphic;
-    [SerializeField] private Text txt;
     [SerializeField] [TextArea] private string title, content;
     private InterfaceDistance interfaceDistance;
 
@@ -18,6 +16,6 @@ public class ReadInteractable : MonoBehaviour, IClicked
     public void OnClickAction () {
         if (!interfaceDistance.isInteractable) return;
         Debug.Log("interacted");
-        uiGraphic.ActivatePopup(content,title,PopupType.Information);
+        InteractionManager.current.windowRead.ActivatePopup(content,title,PopupType.Information);
     }
 }

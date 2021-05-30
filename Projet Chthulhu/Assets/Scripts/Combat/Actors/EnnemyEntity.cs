@@ -6,16 +6,17 @@ using System;
 public class EnnemyEntity : ActorEntity
 {
 
-    private void Start() {
+    public override void Start() {
+        base.Start();
         level = GetRealLevel();
-        Debug.Log(level);
     }
-
 
     /// <summary>
     /// Make the ennemy disapear
     /// </summary>
     override protected void ActorDeath () {
+        Debug.Log("Ennemy Death");
+        base.ActorDeath();
         Destroy(gameObject);
         manager.turnManager.fightingEntities.Remove(this);
         manager.ResetActorsPositions();
@@ -24,6 +25,7 @@ public class EnnemyEntity : ActorEntity
     }
 
     private IEnumerator GivePlayerXp () {
+        Debug.Log("Give player xp");
         int xpGain = CalculateExpGain();
         string popupText = "Vous avec vaincu " + entityName + "\nVous avez gagné " + xpGain.ToString() + " xp !";
         yield return StartCoroutine(manager.popup.StartPopup(popupText,"Level Up",PopupType.Information,GivePlayerXpEnd));
@@ -32,7 +34,6 @@ public class EnnemyEntity : ActorEntity
 
     private void GivePlayerXpEnd () {
         manager.player.AddXpGain(CalculateExpGain());
-        Debug.Log("after coroutine");
     }
 
     private int CalculateExpGain () {

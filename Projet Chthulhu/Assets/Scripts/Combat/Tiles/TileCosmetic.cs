@@ -25,6 +25,7 @@ public class TileCosmetic : MonoBehaviour
         }else{
             tileRenderer.material = wallM;
         }
+        UpdateMaterial(currentTile.tileState);
     }
 
     public void UpdateMaterial (TileState state) {
