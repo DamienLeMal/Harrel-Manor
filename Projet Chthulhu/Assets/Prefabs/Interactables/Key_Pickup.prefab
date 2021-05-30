@@ -14,8 +14,8 @@ GameObject:
   - component: {fileID: 1920109402697976951}
   - component: {fileID: 1920109402697976950}
   - component: {fileID: 1920109402697976953}
-  - component: {fileID: 8784050588559711120}
   - component: {fileID: 5849761022419241659}
+  - component: {fileID: 7700836619729542950}
   m_Layer: 0
   m_Name: Key_Pickup
   m_TagString: Untagged
@@ -126,20 +126,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   keyId: 0
---- !u!64 &8784050588559711120
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1613679024308943656}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 1
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 3812749232695659801, guid: dcf4443145147c04bb517226a8428730, type: 3}
 --- !u!82 &5849761022419241659
 AudioSource:
   m_ObjectHideFlags: 0
@@ -236,3 +222,16 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!65 &7700836619729542950
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1613679024308943656}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.021587681, y: 0.16, z: 0.2}
+  m_Center: {x: -1.982064e-10, y: -0.008974296, z: 0.010475591}
