@@ -5,19 +5,18 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "Attack", menuName = "ScriptableObjects/Combat/Attack", order = 3)]
 public class AttackData : SheetData
 {
-    public string attackName;
-    public string description;
+    [HideInInspector] public string attackName;
+    [HideInInspector] public string description;
     public int apCost, mpCost, mntCost, dmg;
-    public bool rangedAttack;
+    public bool rangedAttack, heal;
     [SerializeField] private string positionPattern;
     private int[,] positionPatternArray;
     [SerializeField] private string damagePattern;
     private int[,] damagePatternArray;
-    public List<Vector2Int> positionPatternCoord;
-    public List<Vector2Int> damagePatternCoord;
+    [HideInInspector] public List<Vector2Int> positionPatternCoord = new List<Vector2Int>();
+    [HideInInspector] public List<Vector2Int> damagePatternCoord = new List<Vector2Int>();
     public Sprite attackIcon;
     public ParticleSystem attackParticle;
-    
 
     public void InitialiseData () {
         positionPatternArray = ReadSheetData(positionPattern);
@@ -33,8 +32,8 @@ public class AttackData : SheetData
         if (apCost != 0) description += UiColorScheme.current.GetTagColor(UiColorScheme.current.apColor) + "Coût AP : " + apCost.ToString() + "</color>";
         if (mpCost != 0) description += UiColorScheme.current.GetTagColor(UiColorScheme.current.mpColor) + "\nCoût MP : " + mpCost.ToString() + "</color>";
         if (mntCost != 0) description += UiColorScheme.current.GetTagColor(UiColorScheme.current.mntColor) + "\nCoût Santé Mentale : " + mntCost.ToString() + "</color>";
-        if (dmg != 0) description += UiColorScheme.current.GetTagColor(UiColorScheme.current.dmgColor) + "\nDégâts : " + dmg.ToString() + "</color>";
-
+        if (dmg != 0 && !heal) description += UiColorScheme.current.GetTagColor(UiColorScheme.current.dmgColor) + "\nDégâts : " + dmg.ToString() + "</color>";
+        if (dmg != 0 && heal) description += UiColorScheme.current.GetTagColor(UiColorScheme.current.hpColor) + "\nSoigne : " + dmg.ToString() + "</color>";
     }
     /// <summary>
     /// Return True if can attack

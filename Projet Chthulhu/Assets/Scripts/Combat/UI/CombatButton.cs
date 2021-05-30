@@ -38,6 +38,10 @@ public class CombatButton : MonoBehaviour
                 break;
             case PlayerState.Attacking :
                 if (attack.CheckCost(player)){
+                    if (attack.heal) {
+                        CombatManager.current.player.hp += attack.dmg;
+                        attack.Cost(CombatManager.current.player);
+                    }
                     manager.playerState = PlayerState.Attacking;
                 }
                 break;

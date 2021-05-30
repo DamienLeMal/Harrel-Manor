@@ -13,4 +13,5 @@ MonoBehaviour:
   m_Name: Melee_Syringe
   m_EditorClassIdentifier: 
   weaponIcon: {fileID: 0}
-  attacks: []
+  attacks:
+  - {fileID: 11400000, guid: 3bbf38640e171984bb6828a52e325621, type: 2}

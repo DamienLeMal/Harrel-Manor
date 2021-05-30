@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 92362497ed939444b83ae5440514cc95, type: 3}
+  m_Name: Soin
+  m_EditorClassIdentifier: 
+  attackName: <B>Soin</B>
+  description: "<color=#C969FF>\nCo\xFBt Sant\xE9 Mentale : 3</color><color=#73CA78>\nSoigne
+    : 2</color>"
+  apCost: 2
+  mpCost: 2
+  mntCost: 3
+  dmg: 2
+  rangedAttack: 0
+  heal: 1
+  positionPattern: 0
+  damagePattern: 0
+  positionPatternCoord: []
+  damagePatternCoord: []
+  attackIcon: {fileID: 0}
+  attackParticle: {fileID: 0}

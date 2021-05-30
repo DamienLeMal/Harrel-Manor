@@ -62,9 +62,10 @@ public class ActorEntity : MonoBehaviour
         manager.gameEntities.entities.Add(gameObject);
     }
 
-    private void Start() {
+    public virtual void Start() {
         foreach (WeaponData w in weaponInventory) {
             foreach (AttackData a in w.attacks) {
+                Debug.Log("Initialise data");
                 a.InitialiseData();
             }
         }

@@ -13,4 +13,7 @@ MonoBehaviour:
   m_Name: Gun_WebleyMKIII
   m_EditorClassIdentifier: 
   weaponIcon: {fileID: 0}
-  attacks: []
+  attacks:
+  - {fileID: 11400000, guid: e20bb0b453fd3f04b85e3f4f9ead0f1c, type: 2}
+  - {fileID: 11400000, guid: e41bd0e9c0e172d439f31fd9ed74542c, type: 2}
+  - {fileID: 11400000, guid: 9dd6186146179f54f9e94bc5e0dced52, type: 2}

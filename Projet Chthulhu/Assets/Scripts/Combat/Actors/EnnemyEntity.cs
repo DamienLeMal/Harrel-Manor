@@ -6,7 +6,8 @@ using System;
 public class EnnemyEntity : ActorEntity
 {
 
-    private void Start() {
+    public override void Start() {
+        base.Start();
         level = GetRealLevel();
     }
 

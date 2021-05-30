@@ -13,7 +13,7 @@ public class PickUpInteractable : MonoBehaviour, IClicked
         interfaceDistance = GetComponent<InterfaceDistance>();
     }
     public void OnClickAction () {
-        source.Play();
+        if (source != null) source.Play();
         if (!interfaceDistance.isInteractable) return;
         CombatManager.current.player.AddNewWeapon(weapon);
         Destroy(gameObject);

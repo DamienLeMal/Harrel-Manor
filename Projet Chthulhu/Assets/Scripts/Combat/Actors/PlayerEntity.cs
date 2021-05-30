@@ -10,7 +10,8 @@ public class PlayerEntity : ActorEntity
     [HideInInspector] public int realLevel;
     private int amountLeft;
 
-    private void Start() {
+    public override void Start() {
+        base.Start();
         Debug.Log(hp + " & " + mnt);
         exp_goal = level * 10;
         realLevel = GetRealLevel();

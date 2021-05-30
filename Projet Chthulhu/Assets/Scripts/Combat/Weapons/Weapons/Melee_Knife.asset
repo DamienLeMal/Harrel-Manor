@@ -13,4 +13,6 @@ MonoBehaviour:
   m_Name: Melee_Knife
   m_EditorClassIdentifier: 
   weaponIcon: {fileID: 0}
-  attacks: []
+  attacks:
+  - {fileID: 11400000, guid: 0a51c5019b726b545a3107a0df8d0123, type: 2}
+  - {fileID: 11400000, guid: 5d04a82b108e9da4bb0035246ad075d7, type: 2}

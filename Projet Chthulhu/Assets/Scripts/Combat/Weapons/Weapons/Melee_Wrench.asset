@@ -13,4 +13,6 @@ MonoBehaviour:
   m_Name: Melee_Wrench
   m_EditorClassIdentifier: 
   weaponIcon: {fileID: 0}
-  attacks: []
+  attacks:
+  - {fileID: 11400000, guid: 2b516f53fa287cb4b831942ce80a1fa3, type: 2}
+  - {fileID: 11400000, guid: 2b981053e99dcd24da3f07dbbe30957b, type: 2}

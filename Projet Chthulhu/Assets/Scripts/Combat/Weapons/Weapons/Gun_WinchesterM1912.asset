@@ -13,4 +13,7 @@ MonoBehaviour:
   m_Name: Gun_WinchesterM1912
   m_EditorClassIdentifier: 
   weaponIcon: {fileID: 0}
-  attacks: []
+  attacks:
+  - {fileID: 11400000, guid: 76b6c0261ba3dc349a794516a588769a, type: 2}
+  - {fileID: 11400000, guid: 0af22ae772d083d4d9d926be0d5ef29c, type: 2}
+  - {fileID: 11400000, guid: 9dd6186146179f54f9e94bc5e0dced52, type: 2}
