@@ -7,7 +7,38 @@ public class ActorEntity : MonoBehaviour
     [SerializeField] protected ActorData baseStats;
     [HideInInspector] public List<WeaponData> weaponInventory;
     [HideInInspector] public int str, dex, spd, intl, agi, con, lck, mnt, pm_max, ap_max, mp_max, hp_max, mnt_max;
-    public int pm, ap, mp, hp;
+    public int _pm, _ap, _mp, _hp;
+    #region Points Definition
+    public int pm {
+        get {return _pm;}
+        set {
+            _pm = value;
+            if (_pm > pm_max) _pm = pm_max;
+        }
+    }
+    public int ap {
+        get {return _ap;}
+        set {
+            _ap = value;
+            if (_ap > ap_max) _ap = ap_max;
+        }
+    }
+    public int mp {
+        get {return _mp;}
+        set {
+            _mp = value;
+            if (_mp > mp_max) _mp = mp_max;
+        }
+    }
+    public int hp {
+        get {return _hp;}
+        set {
+            _hp = value;
+            if (_hp > hp_max) _hp = hp_max;
+        }
+    }
+
+    #endregion
     [HideInInspector] public string entityName;
     [HideInInspector] public int level = 0;
     [HideInInspector] public TileEntity currentTile;

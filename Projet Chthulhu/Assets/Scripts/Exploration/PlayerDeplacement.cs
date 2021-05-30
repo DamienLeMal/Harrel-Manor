@@ -11,7 +11,14 @@ public class PlayerDeplacement : MonoBehaviour
     public float rotateSpeedMovement = 0.1f;
     float rotateVelocity;
 
-    public bool stealth = false;
+    private bool _stealth = false;
+    public bool stealth {
+        get {return _stealth;}
+        set {
+            _stealth = value;
+            SoundEventManager.current.ActorStealth(_stealth);
+        }
+    }
     public bool inBattle;
 
     public float minSpeed = 5;

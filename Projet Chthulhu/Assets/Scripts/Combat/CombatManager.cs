@@ -88,6 +88,7 @@ public class CombatManager : MonoBehaviour
 
     public void EndCombatMode (bool playerWin) {
         if (!playerWin) return;
+        player.hp += player.hp_max/4;
         //Set everything off and player exploration mode on
         playerState = PlayerState.Locked;
         foreach (TileEntity t in grid) {

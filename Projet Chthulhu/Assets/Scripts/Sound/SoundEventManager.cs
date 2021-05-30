@@ -16,6 +16,13 @@ public class SoundEventManager : MonoBehaviour
         if (onActorMove == null) return;
         onActorMove();
     }
+    public event Action onActorStealth;
+    public event Action onActorStealthOff;
+    public void ActorStealth(bool isStealth) {
+        if (onActorStealth != null) if (isStealth) onActorStealth();
+        
+        if (onActorStealthOff != null) if (!isStealth) onActorStealthOff();
+    }
 
     //Attack
     public event Action onAttackLaunch;

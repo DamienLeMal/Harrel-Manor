@@ -21,6 +21,8 @@ public class SoundMusicManager : MonoBehaviour
         SoundEventManager.current.onUnpause += ExplorationUnpauseMusic;
         SoundEventManager.current.onEnnemyInSight += ExplorationLayer2On;
         SoundEventManager.current.onEnnemyLooseSight += ExplorationLayer2Off;
+        SoundEventManager.current.onActorStealth += ExplorationStealthMusicOn;
+        SoundEventManager.current.onActorStealthOff += ExplorationStealthMusicOff;
         SetExplorationMusic();
     }
 
@@ -165,8 +167,13 @@ public class SoundMusicManager : MonoBehaviour
     private void ExplorationLayer2On () {
         if (mainMusicPlaying == source[2]) return;
         StartCoroutine(StartFade(mainMusicPlaying,0.5f,0));
-        StartCoroutine(StartFade(source[2],0.5f,1));
         mainMusicPlaying = source[2];
+        if (CombatManager.current.player.GetComponent<PlayerDeplacement>().stealth) {
+            StartCoroutine(StartFade(source[4],0.5f,1));
+            return;
+        }
+        StartCoroutine(StartFade(source[2],0.5f,1));
+        
     }
     private void ExplorationLayer2Off () {
         StartCoroutine(StartFade(mainMusicPlaying,2f,0));
@@ -174,10 +181,22 @@ public class SoundMusicManager : MonoBehaviour
         mainMusicPlaying = source[0];
     }
 
-    //private void ExplorationStealthMusicOn () {
-    //    StartCoroutine(StartFade(mainMusicPlaying,0.5f,0));
-    //    StartCoroutine(StartFade(source[3],0.5f,0));
-    //}
+    private void ExplorationStealthMusicOn () {
+        StartCoroutine(StealthMusicStillOn());
+    }
+
+    private void ExplorationStealthMusicOff () {
+        StartCoroutine(StartFade(mainMusicPlaying,0.5f,1));
+        StartCoroutine(StartFade(source[4],0.5f,0));
+    }
+
+    IEnumerator StealthMusicStillOn () {
+        yield return new WaitForSeconds(1f);
+        if (CombatManager.current.player.GetComponent<PlayerDeplacement>().stealth && mainMusicPlaying == source[2]) {
+            StartCoroutine(StartFade(mainMusicPlaying,0.5f,0));
+            StartCoroutine(StartFade(source[4],0.5f,1));
+        }
+    }
 
 #endregion
 
