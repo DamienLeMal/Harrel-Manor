@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 3119808654906684574}
   - component: {fileID: 3119808654906684575}
   - component: {fileID: 3119808654906684560}
+  - component: {fileID: 4631074181990015645}
   m_Layer: 0
   m_Name: EventSystem
   m_TagString: Untagged
@@ -106,3 +107,28 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   canvasPause: {fileID: 0}
+--- !u!114 &4631074181990015645
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3119808654906684570}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26789805dd1cd2343b11348e17e35d60, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pickUp: []
+  weaponDataId:
+  - {fileID: 11400000, guid: c304375b4d0eeed45ade3b3eb3479659, type: 2}
+  - {fileID: 11400000, guid: 9a9e610e33ba93a4188962a285ba0b95, type: 2}
+  - {fileID: 11400000, guid: d3a9fab7adf1deb45a1fa70c1cf26b59, type: 2}
+  - {fileID: 11400000, guid: 890bd9bdb321692418d21361c9a5184f, type: 2}
+  - {fileID: 11400000, guid: 295fcd573e1f39241993feb6e0207cb6, type: 2}
+  - {fileID: 11400000, guid: 0d10d3381cdf912448c89016d81c02e0, type: 2}
+  - {fileID: 11400000, guid: 05a60b95ed4ea904797defb60b63c867, type: 2}
+  - {fileID: 11400000, guid: 092ec59d86054734bbfe097a6905adcf, type: 2}
+  - {fileID: 11400000, guid: e858b411a9b515848bcc612bf06924b0, type: 2}
+  - {fileID: 11400000, guid: 9a8fabc84563d034c84c7db95b23274b, type: 2}
+  - {fileID: 11400000, guid: 158bb87e3acace140bdf7cf372fa26a5, type: 2}

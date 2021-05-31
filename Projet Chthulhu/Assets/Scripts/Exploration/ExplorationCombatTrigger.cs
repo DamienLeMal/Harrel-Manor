@@ -22,6 +22,7 @@ public class ExplorationCombatTrigger : MonoBehaviour
     }
     private void OnTriggerStay(Collider other)
     {
+        if (ennemy == null) return;
         if (ennemy.inCombat) return;
         
         LaunchRaycastCheck();

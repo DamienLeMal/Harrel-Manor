@@ -6,19 +6,8 @@ using UnityEngine.SceneManagement;
 public class ChangeLevel : MonoBehaviour
 {
     [SerializeField] private string targetScene;
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
+    [SerializeField] private Vector3 spawnPos;
+    [SerializeField] private Vector3 spawnRot;
     private void ChargeSuite()
     {
         PlayerPrefs.SetString("targetscene", targetScene);
@@ -27,8 +16,10 @@ public class ChangeLevel : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.tag == "player")
+        if(other.tag == "Player")
         {
+            Debug.Log(SaveSystem.current);
+            SaveSystem.current.SaveGame(spawnPos, spawnRot);
             ChargeSuite();
         }
     }
