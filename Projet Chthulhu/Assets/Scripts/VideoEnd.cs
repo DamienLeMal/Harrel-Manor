@@ -26,6 +26,12 @@ public class VideoEnd : MonoBehaviour
         {
             timea += Time.deltaTime;
         }
+
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            timea = timemax + 0.1f;
+        }
+
     }
     
 }
