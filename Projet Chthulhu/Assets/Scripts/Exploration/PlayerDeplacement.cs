@@ -8,12 +8,23 @@ public class PlayerDeplacement : MonoBehaviour
 {
     NavMeshAgent agent;
     //Animator
+<<<<<<< HEAD
     [SerializeField] private Animator m_Animator;
+=======
+    Animator m_Animator;
+>>>>>>> parent of f4cc7c2 (ajout étage via package)
 
     public float rotateSpeedMovement = 0.1f;
     float rotateVelocity;
 
-    public bool stealth = false;
+    private bool _stealth = false;
+    public bool stealth {
+        get {return _stealth;}
+        set {
+            _stealth = value;
+            SoundEventManager.current.ActorStealth(_stealth);
+        }
+    }
     public bool inBattle;
 
     public float minSpeed = 5;
@@ -30,6 +41,8 @@ public class PlayerDeplacement : MonoBehaviour
         agent = gameObject.GetComponent<NavMeshAgent>();
         agent.speed = maxSpeed;
         rb = GetComponent<Rigidbody>();
+        //get Animator
+        m_Animator = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -47,12 +60,20 @@ public class PlayerDeplacement : MonoBehaviour
                     if (Vector3.Distance(transform.position,hit.point) > minClick)
                     {
                         agent.SetDestination(hit.point);
+<<<<<<< HEAD
+=======
+                        Quaternion rotationToLookAt = Quaternion.LookRotation(hit.point - transform.position);
+                        float rotationY = Mathf.SmoothDampAngle(transform.eulerAngles.y, rotationToLookAt.eulerAngles.y, ref rotateVelocity, rotateSpeedMovement * (Time.deltaTime * 5));
+                        transform.eulerAngles = new Vector3(0, rotationY, 0);
+>>>>>>> parent of f4cc7c2 (ajout étage via package)
                         //marche
                         m_Animator.SetBool("isWalking", true);
                     }
                     else
                     {
                         agent.SetDestination(transform.position);
+                        //arete de marcher
+                        m_Animator.SetBool("isWalking", false);
                     }
 
                 }
@@ -61,6 +82,8 @@ public class PlayerDeplacement : MonoBehaviour
             else if (Input.GetMouseButtonUp(0))
             {
                 agent.SetDestination(this.transform.position);
+                //arete de marcher
+                m_Animator.SetBool("isWalking", false);
             }
 
             if (Input.GetKeyDown(KeyCode.LeftControl)) //test KeyDown
@@ -77,7 +100,7 @@ public class PlayerDeplacement : MonoBehaviour
         agent.isStopped = true;
         agent.enabled = false;
         inBattle = true;
-        GetComponent<PlayerEntity>().manager.StartCombat(actorPriority);
+        CombatManager.current.StartCombat(actorPriority);
         rb.detectCollisions = false;
         rb.constraints = RigidbodyConstraints.FreezeRotationZ | RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezePosition;
     }

@@ -6,5 +6,6 @@ using UnityEngine;
 public class WeaponData : ScriptableObject
 {
     string weaponName;
+    public Sprite weaponIcon;
     public List<AttackData> attacks;
 }

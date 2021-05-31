@@ -5,6 +5,7 @@ using System;
 
 public class EnnemyEntity : ActorEntity
 {
+<<<<<<< HEAD
     public string id;
     public override void Start() {
         base.Start();
@@ -17,17 +18,28 @@ public class EnnemyEntity : ActorEntity
         } 
             PlayerPrefs.SetInt(id,1);
             PlayerPrefs.Save();
-    }
+=======
 
+    public override void Start() {
+        base.Start();
+        level = GetRealLevel();
+>>>>>>> parent of f4cc7c2 (ajout étage via package)
+    }
 
     /// <summary>
     /// Make the ennemy disapear
     /// </summary>
     override protected void ActorDeath () {
+<<<<<<< HEAD
         PlayerPrefs.SetInt(id,2);
         PlayerPrefs.Save();
         Debug.Log("Ennemy Death");
         base.ActorDeath();
+=======
+        Debug.Log("Ennemy Death");
+        base.ActorDeath();
+        Destroy(gameObject);
+>>>>>>> parent of f4cc7c2 (ajout étage via package)
         manager.turnManager.fightingEntities.Remove(this);
         DestroyEnnemy();
         manager.ResetActorsPositions();
@@ -36,6 +48,7 @@ public class EnnemyEntity : ActorEntity
     }
 
     private IEnumerator GivePlayerXp () {
+        Debug.Log("Give player xp");
         int xpGain = CalculateExpGain();
         string popupText = "Vous avec vaincu " + entityName + "\nVous avez gagné " + xpGain.ToString() + " xp !";
         yield return StartCoroutine(manager.popup.StartPopup(popupText,"Level Up",PopupType.Information,GivePlayerXpEnd));
@@ -44,7 +57,6 @@ public class EnnemyEntity : ActorEntity
 
     private void GivePlayerXpEnd () {
         manager.player.AddXpGain(CalculateExpGain());
-        Debug.Log("after coroutine");
     }
 
     private int CalculateExpGain () {

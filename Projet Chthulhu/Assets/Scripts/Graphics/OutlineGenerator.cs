@@ -11,7 +11,7 @@ public class OutlineGenerator : MonoBehaviour
             UpdateOutline();
         }
     }
-    private float _outlineSize = 0.1f;
+    [SerializeField] private float _outlineSize = 0.1f;
     public Color outlineColor {
         get {return _outlineColor;}
         set {
@@ -29,7 +29,7 @@ public class OutlineGenerator : MonoBehaviour
     private MeshRenderer meshRenderer;
     #endregion
     private void Awake() {
-        outlineGameObject = Instantiate(new GameObject(),transform.position,Quaternion.identity,transform);
+        outlineGameObject = Instantiate(new GameObject(),transform.position,transform.rotation,transform);
         outlineGameObject.name = "Outline Game Object";
         meshFilter = outlineGameObject.AddComponent<MeshFilter>();
         meshRenderer = outlineGameObject.AddComponent<MeshRenderer>();
@@ -41,7 +41,7 @@ public class OutlineGenerator : MonoBehaviour
         meshFilter.mesh = objectMesh;
         meshRenderer.material = outlineMaterial;
         meshRenderer.material.color = outlineColor;
-        outlineGameObject.transform.localScale = gameObject.transform.lossyScale + gameObject.transform.lossyScale * outlineSize;
+        outlineGameObject.transform.localScale = /*gameObject.transform.lossyScale +*/Vector3.one + gameObject.transform.lossyScale * outlineSize;
     }
 
     public void ToggleOutline(bool toggle) {

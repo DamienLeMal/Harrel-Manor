@@ -4,16 +4,25 @@ using UnityEngine;
 
 public class InterfaceDistance : MonoBehaviour
 {
-    [SerializeField] private float maxDist;
-    public bool isInteractable = false;
+    private float maxDist;
+    [HideInInspector] public bool isInteractable = false;
     private OutlineGenerator outlineGenerator;
     // Update is called once per frame
     private void Start() {
         outlineGenerator = GetComponent<OutlineGenerator>();
-        if (outlineGenerator == null) Debug.LogError(this + " should have the OutlineGenerator component in order to work");
+        maxDist = InteractionManager.current.maxDistInteract;
+        if (Vector3.Distance(CombatManager.current.player.transform.position,transform.position) > maxDist) {
+            MakeInteractable(false);
+        }else{
+            MakeInteractable(true);
+        }
     }
     void Update()
     {
+        if (CombatManager.current.combatOn) {
+            if (isInteractable == true) MakeInteractable(false);
+            return;
+        }
         if (Vector3.Distance(CombatManager.current.player.transform.position,transform.position) > maxDist && isInteractable) {
             MakeInteractable(false);
             return;
@@ -26,7 +35,7 @@ public class InterfaceDistance : MonoBehaviour
 
     private void MakeInteractable (bool value) {
         isInteractable = value;
-        outlineGenerator.ToggleOutline(value);
+        if (outlineGenerator != null) outlineGenerator.ToggleOutline(value);
         //add shader here
     }
 }

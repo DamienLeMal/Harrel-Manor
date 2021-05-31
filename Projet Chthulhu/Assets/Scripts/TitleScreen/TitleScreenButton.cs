@@ -81,4 +81,9 @@ public class TitleScreenButton : MonoBehaviour
         }
     }
 
+    public void Quitter()
+    {
+        Application.Quit();
+    }
+
 }
