@@ -7,6 +7,8 @@ using UnityEngine.EventSystems;
 public class PlayerDeplacement : MonoBehaviour
 {
     NavMeshAgent agent;
+    //Animator
+    [SerializeField] private Animator m_Animator;
 
     public float rotateSpeedMovement = 0.1f;
     float rotateVelocity;
@@ -19,7 +21,7 @@ public class PlayerDeplacement : MonoBehaviour
 
     private Rigidbody rb;
 
-    [SerializeField]private float minClick = 2;
+    [SerializeField] private float minClick = 2;
 
 
     // Start is called before the first frame update
@@ -45,9 +47,8 @@ public class PlayerDeplacement : MonoBehaviour
                     if (Vector3.Distance(transform.position,hit.point) > minClick)
                     {
                         agent.SetDestination(hit.point);
-                        Quaternion rotationToLookAt = Quaternion.LookRotation(hit.point - transform.position);
-                        float rotationY = Mathf.SmoothDampAngle(transform.eulerAngles.y, rotationToLookAt.eulerAngles.y, ref rotateVelocity, rotateSpeedMovement * (Time.deltaTime * 5));
-                        transform.eulerAngles = new Vector3(0, rotationY, 0);
+                        //marche
+                        m_Animator.SetBool("isWalking", true);
                     }
                     else
                     {

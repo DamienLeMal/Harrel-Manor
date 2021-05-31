@@ -53,6 +53,7 @@ public class CombatManager : MonoBehaviour
                 break;
             }
         }
+        gameEntities.SetEnnemiesId();
     }
     public void ResetActorsPositions() {
         foreach (TileEntity t in grid) {

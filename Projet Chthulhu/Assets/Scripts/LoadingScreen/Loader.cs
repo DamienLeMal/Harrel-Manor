@@ -77,7 +77,6 @@ public class Loader : MonoBehaviour
         {
             float progress = Mathf.Clamp01(async.progress / 0.9f);
             sliderBar.value = progress;
-            Debug.Log(progress);
             yield return null;
 
         }

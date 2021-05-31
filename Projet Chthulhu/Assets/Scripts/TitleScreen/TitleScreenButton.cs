@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class TitleScreenButton : MonoBehaviour
 {
-    [Header("Catégorie")]
+    [Header("Catï¿½gorie")]
     [SerializeField] private GameObject menuPrincipal;
     [SerializeField] private GameObject options;
     [SerializeField] private GameObject tutoriels;
@@ -19,18 +19,20 @@ public class TitleScreenButton : MonoBehaviour
     public GameObject boutonRetourOption;
     public GameObject boutonRetourTuto;
 
-    [Header("Nom des scène")]
+    [Header("Nom des scï¿½ne")]
     [SerializeField] private string Hall;
     [SerializeField] private string EastWing;
     [SerializeField] private string WestWing;
     [SerializeField] private string FirstFloor;
 
+    private void Awake() {
+        PlayerPrefs.DeleteAll();
+    }
 
     // Start is called before the first frame update
     void Start()
     {
         ChangeAffiche(0);
-        PlayerPrefs.DeleteAll();
     }
 
     // Update is called once per frame

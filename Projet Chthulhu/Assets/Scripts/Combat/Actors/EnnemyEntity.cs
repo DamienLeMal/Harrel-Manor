@@ -5,10 +5,18 @@ using System;
 
 public class EnnemyEntity : ActorEntity
 {
-
-    private void Start() {
+    public string id;
+    public override void Start() {
+        base.Start();
         level = GetRealLevel();
-        Debug.Log(level);
+
+        //Save or Destroy
+        if (PlayerPrefs.GetInt(id) == 2) {
+            DestroyEnnemy();
+            return;
+        } 
+            PlayerPrefs.SetInt(id,1);
+            PlayerPrefs.Save();
     }
 
 
@@ -16,8 +24,12 @@ public class EnnemyEntity : ActorEntity
     /// Make the ennemy disapear
     /// </summary>
     override protected void ActorDeath () {
-        Destroy(gameObject);
+        PlayerPrefs.SetInt(id,2);
+        PlayerPrefs.Save();
+        Debug.Log("Ennemy Death");
+        base.ActorDeath();
         manager.turnManager.fightingEntities.Remove(this);
+        DestroyEnnemy();
         manager.ResetActorsPositions();
         manager.turnManager.TestCombatEnd();
         StartCoroutine(GivePlayerXp());
@@ -40,4 +52,8 @@ public class EnnemyEntity : ActorEntity
         return xpGain;
     }
 
+    private void DestroyEnnemy () {
+        manager.gameEntities.entities.Remove(gameObject);
+        Destroy(gameObject);
+    }
 }
