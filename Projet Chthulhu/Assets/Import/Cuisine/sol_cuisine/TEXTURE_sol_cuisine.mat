@@ -47,7 +47,7 @@ Material:
         m_Offset: {x: 0, y: 0}
     - _BaseColorMap:
         m_Texture: {fileID: 2800000, guid: fb7ab1df83cfc9a4599ee56879770364, type: 3}
-        m_Scale: {x: 18, y: 6}
+        m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _BaseColorMap0:
         m_Texture: {fileID: 0}
@@ -370,17 +370,17 @@ Material:
     - _EnableFogOnTransparent: 1
     - _EnableGeometricSpecularAA: 0
     - _EnergyConservingSpecularColor: 1
-    - _HeightAmplitude: 1.3369999
+    - _HeightAmplitude: 0.62119997
     - _HeightAmplitude0: 0.02
     - _HeightAmplitude1: 0.02
     - _HeightAmplitude2: 0.02
     - _HeightAmplitude3: 0.02
-    - _HeightCenter: 0.041136876
+    - _HeightCenter: 0.264
     - _HeightCenter0: 0.5
     - _HeightCenter1: 0.5
     - _HeightCenter2: 0.5
     - _HeightCenter3: 0.5
-    - _HeightMapParametrization: 0
+    - _HeightMapParametrization: 1
     - _HeightMapParametrization0: 0
     - _HeightMapParametrization1: 0
     - _HeightMapParametrization2: 0
@@ -405,7 +405,7 @@ Material:
     - _HeightPoMAmplitude1: 2
     - _HeightPoMAmplitude2: 2
     - _HeightPoMAmplitude3: 2
-    - _HeightTessAmplitude: 3.23
+    - _HeightTessAmplitude: 62.12
     - _HeightTessAmplitude0: 2
     - _HeightTessAmplitude1: 2
     - _HeightTessAmplitude2: 2
@@ -425,7 +425,7 @@ Material:
     - _InheritBaseNormal1: 0
     - _InheritBaseNormal2: 0
     - _InheritBaseNormal3: 0
-    - _InvTilingScale: 0.083333336
+    - _InvTilingScale: 1
     - _InvTilingScale0: 1
     - _InvTilingScale1: 1
     - _InvTilingScale2: 1

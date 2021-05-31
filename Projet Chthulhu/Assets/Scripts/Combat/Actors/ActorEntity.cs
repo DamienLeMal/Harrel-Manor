@@ -42,7 +42,7 @@ public class ActorEntity : MonoBehaviour
     [HideInInspector] public string entityName;
     [HideInInspector] public int level = 0;
     [HideInInspector] public TileEntity currentTile;
-    public CombatManager manager = null;
+    protected CombatManager manager;
     public ActorUi ui;
 
     
