@@ -4,15 +4,12 @@ using UnityEngine;
 
 public class PlayerEntity : ActorEntity
 {
-    private List<int> keys = new List<int>();
     private int exp = 0;
     private int exp_goal;
     [HideInInspector] public int realLevel;
     private int amountLeft;
 
-    public override void Start() {
-        base.Start();
-        Debug.Log(hp + " & " + mnt);
+    private void Start() {
         exp_goal = level * 10;
         realLevel = GetRealLevel();
     }
@@ -22,7 +19,6 @@ public class PlayerEntity : ActorEntity
     }
 
     public void AddXpGain (int amount) {
-        Debug.Log("xp ++");
         //if exp + xp gain > exp goal -> LevelUp()
         //Else apply
         if (exp + amount >= exp_goal) {
@@ -39,10 +35,10 @@ public class PlayerEntity : ActorEntity
         amountLeft = amountRemaining;
         string popupText = "Vous gagnez un niveau !\nVous êtes niveau " + level.ToString() + " !\nSélectionnez une stat à améliorer";
         manager.popup.ActivatePopup(popupText,"Level Up",PopupType.LevelUp,LevelUpEnd);
+        //StartCoroutine(manager.popup.ActivatePopup(popupText,PopupType.LevelUp,LevelUpEnd));
     }
     private void LevelUpEnd() {
         //add remaining xp gain -> add XpGain(reste)
-        NewMaxStat();
         AddXpGain(amountLeft);
     }
 
@@ -84,37 +80,5 @@ public class PlayerEntity : ActorEntity
     private int CheckIfUnderHundred (int stat, int amount) {
         if (stat+amount <= 100) return amount;
         return 100-stat;
-    }
-
-    protected override void ActorDeath()
-    {
-        base.ActorDeath();
-        //GameOver
-        manager.GameOver();
-    
-    }
-
-    public void AddNewWeapon (WeaponData weapon) {
-        if (weaponInventory.Count < 3) {
-            weaponInventory.Add(weapon);
-            return;
-        }
-        //Open Popup
-        manager.popup.ActivatePopup("","Choisissez une arme à laisser",PopupType.DropWeapon);
-        manager.popup.PrepareDropWeapon(weapon);
-    }
-
-    public void ReplaceWeapon (WeaponData weaponToRemove, WeaponData weaponToAdd) {
-        Debug.Log("Weapon replaced");
-        weaponInventory.Remove(weaponToRemove);
-        weaponInventory.Add(weaponToAdd);
-    }
-
-    public void AddKey (int id) {
-        keys.Add(id);
-    }
-
-    public bool HasKey (int id) {
-        return keys.Contains(id);
     }
 }

@@ -26,11 +26,11 @@ public class Ennemy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
         if (!inCombat)
         {
             changeDetection(player.stealth);
         }
-        
     }
 
     public void SetCombatMode ()
@@ -59,15 +59,5 @@ public class Ennemy : MonoBehaviour
         lilDetect.enabled = state;
         bigDetect.enabled = !state;
         */
-    }
-    private void OnWillRenderObject() {
-        if (CombatManager.current.combatOn) return;
-        StopCoroutine("NotInSightTimer");
-        StartCoroutine("NotInSightTimer");
-        SoundEventManager.current.EnnemyInSight();
-    }
-    IEnumerator NotInSightTimer () {
-        yield return new WaitForSeconds(5f);
-        SoundEventManager.current.EnnemyLooseSight();
     }
 }

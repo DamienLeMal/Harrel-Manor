@@ -86,10 +86,6 @@ public class GridManager : MonoBehaviour
         }
     }
     private void SetAttackRangeValue (AttackData atk) {
-        if (manager.player.currentTile == null) {
-            Debug.LogWarning("SetAttackRangeValue player don't have current tile");
-            return;
-        }
         tileHighlightRanges = GetPattern(manager.player.currentTile,atk.positionPatternCoord,manager.player);
     }
 

@@ -5,16 +5,10 @@ using UnityEngine.EventSystems;
 
 public class InteractionManager : MonoBehaviour
 {
-    public static InteractionManager current;
-    public PopupWindow windowRead;
-    public float maxDistInteract;
-    private void Awake() {
-        current = this;
-    }
+    [SerializeField] private float maxDistInteract;
     // Update is called once per frame
     void Update()
     {
-        if (PauseMenu.gamePaused) return;
         if (Input.GetMouseButtonDown(0))
         {
             DetectObject();
@@ -32,6 +26,7 @@ public class InteractionManager : MonoBehaviour
             if(hit.collider.gameObject.GetComponent<IClicked>() != null && !CombatManager.current.combatOn)
             {
                 hit.collider.gameObject.GetComponent<IClicked>().OnClickAction();
+                Debug.Log(hit.collider.gameObject.name);
             }
         }
     }
