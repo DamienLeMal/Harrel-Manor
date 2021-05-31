@@ -15,12 +15,14 @@ public class Ennemy : MonoBehaviour
 
     [SerializeField] private int minSize = 1, maxSize = 2;
 
+    //ref a l'anamitor
+    [SerializeField] private Animator m_Animator;
+
     void Awake()
     {
         theAgent = GetComponent<NavMeshAgent>();
         GameObject thePlayer = GameObject.Find("Player");
         player = thePlayer.GetComponent<PlayerDeplacement>();
-
     }
 
     // Update is called once per frame
@@ -31,10 +33,19 @@ public class Ennemy : MonoBehaviour
             changeDetection(player.stealth);
         }
         
+        //active la marche
+        if (!m_Animator.GetBool("IsWalking"))
+        {
+            m_Animator.SetBool("IsWalking", true);
+        }
+        
+        
     }
 
     public void SetCombatMode ()
     {
+        //stop la marche
+        m_Animator.SetBool("isWalking", false);
         theAgent.SetDestination(this.transform.position);
         theAgent.isStopped = true;
         Destroy(sphereDetec);
