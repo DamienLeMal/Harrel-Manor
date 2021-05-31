@@ -12,11 +12,10 @@ public class DoorInteractable : MonoBehaviour, IClicked
     private AudioSource source;
     [SerializeField] private AudioClip doorOpen, doorClose;
     private InterfaceDistance interfaceDistance;
-    private Animator animator;
+    [SerializeField] private Animator animator;
     private bool cooldown;
 
     private void Start() {
-        animator = GetComponent<Animator>();
         interfaceDistance = GetComponent<InterfaceDistance>();
         collision = GetComponent<NavMeshObstacle>();
         source = GetComponent<AudioSource>();
@@ -51,15 +50,15 @@ public class DoorInteractable : MonoBehaviour, IClicked
         //CombatManager.current.grid[coordX,coordY].DoorToggleOpenClose();
         collision.enabled = !collision.enabled;
         if (collision.enabled) {
-            source.PlayOneShot(doorOpen);
-        }else{
             source.PlayOneShot(doorClose);
+        }else{
+            source.PlayOneShot(doorOpen);
         }
     }
 
     IEnumerator StartCooldown () {
         cooldown = true;
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(0.8f);
         cooldown = false;
     }
 }
