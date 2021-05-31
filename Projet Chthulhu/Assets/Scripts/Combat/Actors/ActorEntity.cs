@@ -1,10 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class ActorEntity : MonoBehaviour
 {
     [SerializeField] protected ActorData baseStats;
+    public Animator animator;
      public List<WeaponData> weaponInventory;
     [HideInInspector] public int str, dex, spd, intl, agi, con, lck, mnt, pm_max, ap_max, mp_max, hp_max, mnt_max;
     public int _pm, _ap, _mp, _hp;
@@ -44,8 +46,10 @@ public class ActorEntity : MonoBehaviour
     [HideInInspector] public TileEntity currentTile;
     protected CombatManager manager;
     public ActorUi ui;
+    private float heightOffset;
     
     private void Awake() {
+        heightOffset = transform.position.y;
         if (baseStats == null) {
             Debug.LogError("No base stat was set for " + this);
         }else{
@@ -118,16 +122,19 @@ public class ActorEntity : MonoBehaviour
         //Apply
         closestTile.SetTileUser(this);
         currentTile = closestTile;
-        transform.position = closestTile.transform.position + new Vector3(0, GetComponent<MeshRenderer>().bounds.size.y / 2, 0);
+        transform.position = closestTile.transform.position + Vector3.up * heightOffset;
     }
 
     /// <summary>
     /// Move one tile at a time
     /// </summary>
     public IEnumerator MoveOneTile (List<TileEntity> path, bool firstMove) {
+        animator.SetBool("isWalking",true);
+        
         if (path.Count > 0) {
             pm -= 1;
-            Vector3 newPos = path[0].transform.position + new Vector3(0, GetComponent<MeshRenderer>().bounds.size.y / 2, 0);
+            transform.LookAt(new Vector3(path[0].transform.position.x,transform.position.y,path[0].transform.position.z),Vector3.up);
+            Vector3 newPos = path[0].transform.position + Vector3.up * heightOffset;
             float speed = 50/spd;
             if (firstMove) {
                 LeanTween.move(gameObject,newPos,speed).setEaseInSine();
@@ -139,6 +146,8 @@ public class ActorEntity : MonoBehaviour
             StartCoroutine(MoveOneTile(path, false));
         }else{
             //end
+            Debug.Log(animator.GetBool("isWalking"));
+            animator.SetBool("isWalking",false);
             manager.playerState = PlayerState.Normal;
             manager.ResetActorsPositions();
         }

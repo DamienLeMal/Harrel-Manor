@@ -228,9 +228,6 @@ public class EnnemyBrain : MonoBehaviour
 
     public void TestColorEvaluation () {
         EvaluateTiles();
-        foreach (KeyValuePair<TileEntity, Dictionary<Score, int>> t in tileScore) {
-            t.Key.SetText("Defense : " + t.Value[Score.Defense].ToString()+"\nAttack : "+ t.Value[Score.Attack].ToString() + "\nDistance : " + t.Value[Score.Movement].ToString());
-        }
         GetBestAverageTile().cosmetic.ChangeTextureColor(new Color(0,0,1));//Blue
         GetBestDefensiveAttackTile().cosmetic.ChangeTextureColor(new Color(0,1,0));//Green
         GetBestTile(Score.Attack).cosmetic.ChangeTextureColor(new Color(1,0,0));//Red
