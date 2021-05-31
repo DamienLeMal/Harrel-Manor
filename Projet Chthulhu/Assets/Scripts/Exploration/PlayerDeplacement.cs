@@ -37,8 +37,6 @@ public class PlayerDeplacement : MonoBehaviour
         agent = gameObject.GetComponent<NavMeshAgent>();
         agent.speed = maxSpeed;
         rb = GetComponent<Rigidbody>();
-        //get Animator
-        m_Animator = GetComponent<Animator>();
     }
 
     // Update is called once per frame
