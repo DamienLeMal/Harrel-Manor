@@ -260,13 +260,15 @@ MonoBehaviour:
   mp_max: 0
   hp_max: 0
   mnt_max: 0
-  pm: 0
-  ap: 0
-  mp: 0
-  hp: 0
+  _pm: 0
+  _ap: 0
+  _mp: 0
+  _hp: 0
+  entityName: 
+  level: 0
   currentTile: {fileID: 0}
-  manager: {fileID: 0}
   ui: {fileID: 4321360361761160579}
+  id: 
 --- !u!114 &9187895825382230339
 MonoBehaviour:
   m_ObjectHideFlags: 0

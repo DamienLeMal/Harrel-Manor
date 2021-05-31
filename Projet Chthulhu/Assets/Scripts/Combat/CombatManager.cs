@@ -48,6 +48,7 @@ public class CombatManager : MonoBehaviour
                 break;
             }
         }
+        gameEntities.SetEnnemiesId();
     }
     private void Start() {
         uiManager = GetComponent<CombatUiManager>();

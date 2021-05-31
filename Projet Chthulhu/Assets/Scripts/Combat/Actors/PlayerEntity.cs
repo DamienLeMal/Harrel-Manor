@@ -12,7 +12,6 @@ public class PlayerEntity : ActorEntity
 
     public override void Start() {
         base.Start();
-        Debug.Log(hp + " & " + mnt);
         exp_goal = level * 10;
         realLevel = GetRealLevel();
     }
@@ -37,7 +36,7 @@ public class PlayerEntity : ActorEntity
         level++;
         exp_goal = level * 10;
         amountLeft = amountRemaining;
-        string popupText = "Vous gagnez un niveau !\nVous êtes niveau " + level.ToString() + " !\nSélectionnez une stat à améliorer";
+        string popupText = "Vous gagnez un niveau !\nVous êtes niveau " + level.ToString() + " !\nSélectionnez une compétence à améliorer";
         manager.popup.ActivatePopup(popupText,"Level Up",PopupType.LevelUp,LevelUpEnd);
     }
     private void LevelUpEnd() {

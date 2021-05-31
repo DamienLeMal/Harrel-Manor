@@ -5,7 +5,7 @@ using UnityEngine;
 public class ActorEntity : MonoBehaviour
 {
     [SerializeField] protected ActorData baseStats;
-    [HideInInspector] public List<WeaponData> weaponInventory;
+     public List<WeaponData> weaponInventory;
     [HideInInspector] public int str, dex, spd, intl, agi, con, lck, mnt, pm_max, ap_max, mp_max, hp_max, mnt_max;
     public int _pm, _ap, _mp, _hp;
     #region Points Definition
@@ -44,7 +44,6 @@ public class ActorEntity : MonoBehaviour
     [HideInInspector] public TileEntity currentTile;
     protected CombatManager manager;
     public ActorUi ui;
-
     
     private void Awake() {
         if (baseStats == null) {
@@ -61,11 +60,10 @@ public class ActorEntity : MonoBehaviour
         manager = transform.GetComponentInParent<CombatManager>();
         manager.gameEntities.entities.Add(gameObject);
     }
-
+    
     public virtual void Start() {
         foreach (WeaponData w in weaponInventory) {
             foreach (AttackData a in w.attacks) {
-                Debug.Log("Initialise data");
                 a.InitialiseData();
             }
         }
@@ -92,7 +90,7 @@ public class ActorEntity : MonoBehaviour
         hp = hp_max;
     }
 
-    protected void NewMaxStat () {
+    public void NewMaxStat () {
         pm_max = (int)spd/10;
         ap_max = (int)(dex+str)/20;
         mp_max = (int)intl/10;
