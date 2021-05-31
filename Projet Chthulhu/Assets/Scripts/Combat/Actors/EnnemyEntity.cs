@@ -5,7 +5,6 @@ using System;
 
 public class EnnemyEntity : ActorEntity
 {
-<<<<<<< HEAD
     public string id;
     public override void Start() {
         base.Start();
@@ -18,28 +17,16 @@ public class EnnemyEntity : ActorEntity
         } 
             PlayerPrefs.SetInt(id,1);
             PlayerPrefs.Save();
-=======
-
-    public override void Start() {
-        base.Start();
-        level = GetRealLevel();
->>>>>>> parent of f4cc7c2 (ajout étage via package)
     }
 
     /// <summary>
     /// Make the ennemy disapear
     /// </summary>
     override protected void ActorDeath () {
-<<<<<<< HEAD
         PlayerPrefs.SetInt(id,2);
         PlayerPrefs.Save();
         Debug.Log("Ennemy Death");
         base.ActorDeath();
-=======
-        Debug.Log("Ennemy Death");
-        base.ActorDeath();
-        Destroy(gameObject);
->>>>>>> parent of f4cc7c2 (ajout étage via package)
         manager.turnManager.fightingEntities.Remove(this);
         DestroyEnnemy();
         manager.ResetActorsPositions();

@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.14458725, g: 0.09710282, b: 0.0686675, a: 1}
+  m_IndirectSpecularColor: {r: 0.14461808, g: 0.097085245, b: 0.068633504, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -5281,6 +5281,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5340618408358967450, guid: 1b20b9d0544b2204a84428c152aeb065, type: 3}
+      propertyPath: m_Animator
+      value: 
+      objectReference: {fileID: 1429932223}
     - target: {fileID: 5340618409776087656, guid: 1b20b9d0544b2204a84428c152aeb065, type: 3}
       propertyPath: m_Name
       value: CombatManager
@@ -15203,6 +15207,11 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: 2256217737806014729, guid: 8856873e907cd424aa274127a3073203, type: 3}
   m_PrefabInstance: {fileID: 1429837540}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &1429932223 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 8065224018757295713, guid: 1b20b9d0544b2204a84428c152aeb065, type: 3}
+  m_PrefabInstance: {fileID: 512195763}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1459062608
 PrefabInstance:

@@ -69,15 +69,6 @@ public class ActorEntity : MonoBehaviour
         }
     }
 
-    public virtual void Start() {
-        foreach (WeaponData w in weaponInventory) {
-            foreach (AttackData a in w.attacks) {
-                Debug.Log("Initialise data");
-                a.InitialiseData();
-            }
-        }
-    }
-
     private void Constructor (ActorData data) {
         entityName = data.name;
         foreach (WeaponData wd in data.weaponInvetory) {

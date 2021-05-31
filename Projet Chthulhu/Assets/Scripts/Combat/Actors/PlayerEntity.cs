@@ -12,10 +12,6 @@ public class PlayerEntity : ActorEntity
 
     public override void Start() {
         base.Start();
-<<<<<<< HEAD
-=======
-        Debug.Log(hp + " & " + mnt);
->>>>>>> parent of f4cc7c2 (ajout étage via package)
         exp_goal = level * 10;
         realLevel = GetRealLevel();
     }

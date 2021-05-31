@@ -8,11 +8,7 @@ public class PlayerDeplacement : MonoBehaviour
 {
     NavMeshAgent agent;
     //Animator
-<<<<<<< HEAD
     [SerializeField] private Animator m_Animator;
-=======
-    Animator m_Animator;
->>>>>>> parent of f4cc7c2 (ajout étage via package)
 
     public float rotateSpeedMovement = 0.1f;
     float rotateVelocity;
@@ -60,12 +56,6 @@ public class PlayerDeplacement : MonoBehaviour
                     if (Vector3.Distance(transform.position,hit.point) > minClick)
                     {
                         agent.SetDestination(hit.point);
-<<<<<<< HEAD
-=======
-                        Quaternion rotationToLookAt = Quaternion.LookRotation(hit.point - transform.position);
-                        float rotationY = Mathf.SmoothDampAngle(transform.eulerAngles.y, rotationToLookAt.eulerAngles.y, ref rotateVelocity, rotateSpeedMovement * (Time.deltaTime * 5));
-                        transform.eulerAngles = new Vector3(0, rotationY, 0);
->>>>>>> parent of f4cc7c2 (ajout étage via package)
                         //marche
                         m_Animator.SetBool("isWalking", true);
                     }
