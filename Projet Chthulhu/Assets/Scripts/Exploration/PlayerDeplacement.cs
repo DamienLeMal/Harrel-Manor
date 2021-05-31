@@ -7,6 +7,8 @@ using UnityEngine.EventSystems;
 public class PlayerDeplacement : MonoBehaviour
 {
     NavMeshAgent agent;
+    //Animator
+    Animator m_Animator;
 
     public float rotateSpeedMovement = 0.1f;
     float rotateVelocity;
@@ -35,6 +37,8 @@ public class PlayerDeplacement : MonoBehaviour
         agent = gameObject.GetComponent<NavMeshAgent>();
         agent.speed = maxSpeed;
         rb = GetComponent<Rigidbody>();
+        //get Animator
+        m_Animator = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -55,10 +59,14 @@ public class PlayerDeplacement : MonoBehaviour
                         Quaternion rotationToLookAt = Quaternion.LookRotation(hit.point - transform.position);
                         float rotationY = Mathf.SmoothDampAngle(transform.eulerAngles.y, rotationToLookAt.eulerAngles.y, ref rotateVelocity, rotateSpeedMovement * (Time.deltaTime * 5));
                         transform.eulerAngles = new Vector3(0, rotationY, 0);
+                        //marche
+                        m_Animator.SetBool("isWalking", true);
                     }
                     else
                     {
                         agent.SetDestination(transform.position);
+                        //arete de marcher
+                        m_Animator.SetBool("isWalking", false);
                     }
 
                 }
@@ -67,6 +75,8 @@ public class PlayerDeplacement : MonoBehaviour
             else if (Input.GetMouseButtonUp(0))
             {
                 agent.SetDestination(this.transform.position);
+                //arete de marcher
+                m_Animator.SetBool("isWalking", false);
             }
 
             if (Input.GetKeyDown(KeyCode.LeftControl)) //test KeyDown
