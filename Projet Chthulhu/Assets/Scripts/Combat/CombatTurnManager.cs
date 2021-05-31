@@ -14,12 +14,14 @@ public class CombatTurnManager : MonoBehaviour
     public List<ActorEntity> fightingEntities;
     private int currentActorIndex = 0;
 
-    private void Start() {
-        manager = CombatManager.current;
+    private void Awake() {
+        manager = GetComponent<CombatManager>();
         gridManager = GetComponent<GridManager>();
     }
     
     public void NewTurn() {
+        Debug.Log("Very new turn");
+        //gridManager.ResetTileHighlight();
         manager.playerState = PlayerState.Normal;
         manager.turn = Turn.Start;
         foreach (ActorEntity a in fightingEntities) {
@@ -33,6 +35,7 @@ public class CombatTurnManager : MonoBehaviour
 
     public void EndTurn (ActorEntity a) {
         manager.gridManager.ClearTileHighlight();
+        Debug.Log(a + " end of turn");
         currentActorIndex += 1;
         if (currentActorIndex > fightingEntities.Count - 1) {
             NewTurn();
@@ -42,9 +45,9 @@ public class CombatTurnManager : MonoBehaviour
     }
 
     private void StartTurn (ActorEntity a) {
+        Debug.Log(a + " turn");
         if (a == manager.player) {
             manager.turn = Turn.PlayerTurn;
-            SoundEventManager.current.PlayerTurn((float)manager.player.hp/(float)manager.player.hp_max);
         }else{
             manager.turn = Turn.EnnemyTurn;
             StartCoroutine(a.GetComponent<EnnemyBrain>().PlayTurn());
@@ -55,6 +58,6 @@ public class CombatTurnManager : MonoBehaviour
         if (fightingEntities.Count != 1) return;
         manager.turn = Turn.End;
         //Combat end, player win
-        SoundEventManager.current.CombatEnd(true);
+        manager.EndCombatMode();
     }
 }

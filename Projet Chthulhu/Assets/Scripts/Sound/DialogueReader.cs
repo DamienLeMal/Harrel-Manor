@@ -16,7 +16,6 @@ public class DialogueReader : MonoBehaviour
     }
 
     IEnumerator ReadDialogue (int id) {
-        Debug.LogWarning("Read Dialogue not Implemented");
         yield return new WaitForSeconds(0.1f);
     }
 }

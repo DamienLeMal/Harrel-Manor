@@ -16,13 +16,6 @@ public class SoundEventManager : MonoBehaviour
         if (onActorMove == null) return;
         onActorMove();
     }
-    public event Action onActorStealth;
-    public event Action onActorStealthOff;
-    public void ActorStealth(bool isStealth) {
-        if (onActorStealth != null) if (isStealth) onActorStealth();
-        
-        if (onActorStealthOff != null) if (!isStealth) onActorStealthOff();
-    }
 
     //Attack
     public event Action onAttackLaunch;
@@ -72,11 +65,6 @@ public class SoundEventManager : MonoBehaviour
         if (onEnnemyInSight == null) return;
         onEnnemyInSight();
     }
-    public event Action onEnnemyLooseSight;
-    public void EnnemyLooseSight() {
-        if (onEnnemyLooseSight == null) return;
-        onEnnemyLooseSight();
-    }
 
     //Changing gamemode
     public event Action onGamemodeChange;
@@ -87,24 +75,17 @@ public class SoundEventManager : MonoBehaviour
     }
 
     //New player's turn and low hp
-    public event Action onPlayerTurnHpLow;
-    public event Action onPlayerTurnHpHigh;
-    public void PlayerTurn(float ratioHp) {
-        if (ratioHp <= 0.25f) {
-            if (onPlayerTurnHpLow == null) return;
-            onPlayerTurnHpLow();
-        }else{
-            if (onPlayerTurnHpHigh == null) return;
-            onPlayerTurnHpHigh();
-        }
-        
+    public event Action onPlayerTunrLowHp;
+    public void PlayerTunrLowHp() {
+        if (onPlayerTunrLowHp == null) return;
+        onPlayerTunrLowHp();
     }
 
     //End of Combat
-    public event Action<bool> onCombatEnd;
-    public void CombatEnd(bool playerWin) {
+    public event Action onCombatEnd;
+    public void CombatEnd() {
         if (onCombatEnd == null) return;
-        onCombatEnd(playerWin);
+        onCombatEnd();
     }
 
     //Pause
@@ -112,12 +93,6 @@ public class SoundEventManager : MonoBehaviour
     public void Pause() {
         if (onPause == null) return;
         onPause();
-    }
-    //Unpause
-    public event Action onUnpause;
-    public void Unpause() {
-        if (onUnpause == null) return;
-        onUnpause();
     }
 
     public event Action<int> onDialogue;

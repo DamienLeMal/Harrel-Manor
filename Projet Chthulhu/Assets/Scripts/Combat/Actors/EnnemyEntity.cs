@@ -19,6 +19,7 @@ public class EnnemyEntity : ActorEntity
             PlayerPrefs.Save();
     }
 
+
     /// <summary>
     /// Make the ennemy disapear
     /// </summary>
@@ -35,7 +36,6 @@ public class EnnemyEntity : ActorEntity
     }
 
     private IEnumerator GivePlayerXp () {
-        Debug.Log("Give player xp");
         int xpGain = CalculateExpGain();
         string popupText = "Vous avec vaincu " + entityName + "\nVous avez gagné " + xpGain.ToString() + " xp !";
         yield return StartCoroutine(manager.popup.StartPopup(popupText,"Level Up",PopupType.Information,GivePlayerXpEnd));
@@ -44,6 +44,7 @@ public class EnnemyEntity : ActorEntity
 
     private void GivePlayerXpEnd () {
         manager.player.AddXpGain(CalculateExpGain());
+        Debug.Log("after coroutine");
     }
 
     private int CalculateExpGain () {
