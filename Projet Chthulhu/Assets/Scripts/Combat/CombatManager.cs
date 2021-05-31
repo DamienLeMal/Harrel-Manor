@@ -80,6 +80,7 @@ public class CombatManager : MonoBehaviour
                 g.SetActive(false);//Ennemies not in combat are unactivated
                 continue;
             }
+            g.GetComponent<ActorEntity>().animator.SetBool("isWalking",false);
             if (turnManager.fightingEntities.Contains(g.GetComponent<ActorEntity>())) continue;
             turnManager.fightingEntities.Add(g.GetComponent<ActorEntity>());
         }
