@@ -9,7 +9,7 @@ public class DoorInteractable : MonoBehaviour, IClicked
     private NavMeshObstacle collision;
     [SerializeField] private bool isLocked;
     [SerializeField] private int keyId;
-    [SerializeField] private AudioSource source;
+    private AudioSource source;
     [SerializeField] private AudioClip doorOpen, doorClose;
     private InterfaceDistance interfaceDistance;
     private Animator animator;
