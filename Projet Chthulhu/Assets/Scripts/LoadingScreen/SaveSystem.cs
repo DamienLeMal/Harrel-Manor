@@ -13,7 +13,6 @@ public class SaveSystem : MonoBehaviour
 
     private void Awake() {
         current = this;
-        Debug.Log(loadCount);
         if (loadCount == 0) PlayerPrefs.DeleteAll();
         
     }

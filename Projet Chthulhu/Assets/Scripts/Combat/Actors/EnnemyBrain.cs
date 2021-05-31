@@ -245,6 +245,9 @@ public class EnnemyBrain : MonoBehaviour
         foreach (KeyValuePair<TileEntity,int> t in pattern) {
             
             Dictionary<TileEntity,int> damagePattern = gridManager.GetPattern(t.Key,attack.damagePatternCoord,actor);
+            Debug.Log(damagePattern.Count);
+
+            Debug.Log("attack reach ? " + damagePattern.TryGetValue(target.currentTile, out int val));
 
             if (!damagePattern.TryGetValue(target.currentTile, out int value)) continue;
 
@@ -308,7 +311,6 @@ public class EnnemyBrain : MonoBehaviour
             }else{
                dist = t.Value[Score.Movement]; 
             }
-            if (index == Score.Attack) Debug.Log("selected tile : " + selectedTile + "\ntileScore : " + tileScore[selectedTile][Score.Attack] + "\nscore : " + score);
         }
         return selectedTile??GetDefaultTile();
     }

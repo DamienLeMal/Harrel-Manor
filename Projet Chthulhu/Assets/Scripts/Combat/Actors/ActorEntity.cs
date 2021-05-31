@@ -129,6 +129,7 @@ public class ActorEntity : MonoBehaviour
     /// Move one tile at a time
     /// </summary>
     public IEnumerator MoveOneTile (List<TileEntity> path, bool firstMove) {
+        Debug.Log("Move one tile");
         animator.SetBool("isWalking",true);
         
         if (path.Count > 0) {
@@ -146,7 +147,6 @@ public class ActorEntity : MonoBehaviour
             StartCoroutine(MoveOneTile(path, false));
         }else{
             //end
-            Debug.Log(animator.GetBool("isWalking"));
             animator.SetBool("isWalking",false);
             manager.playerState = PlayerState.Normal;
             manager.ResetActorsPositions();
