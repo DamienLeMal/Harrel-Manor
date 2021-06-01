@@ -15,11 +15,16 @@ public class EnnemyPatrol : MonoBehaviour
             currentIndex = 0;
         }else{
             currentIndex++;
+            navMesh.GetComponent<EnnemyEntity>().animator.SetBool("isWalking", true);
         }
     }
 
     private void Update() {
         if (navMesh == null) {
+            Destroy(gameObject);
+            return;
+        }
+        if (!navMesh.gameObject.activeSelf) {
             Destroy(gameObject);
             return;
         }

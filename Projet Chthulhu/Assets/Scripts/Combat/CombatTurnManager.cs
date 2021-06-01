@@ -12,7 +12,7 @@ public class CombatTurnManager : MonoBehaviour
     private CombatManager manager = null;
     private GridManager gridManager = null;
     public List<ActorEntity> fightingEntities;
-    private int currentActorIndex = 0;
+    public int currentActorIndex = 0;
 
     private void Start() {
         manager = CombatManager.current;
@@ -32,6 +32,9 @@ public class CombatTurnManager : MonoBehaviour
     }
 
     public void EndTurn (ActorEntity a) {
+        if (fightingEntities[currentActorIndex] != manager.player) {
+            if (fightingEntities[currentActorIndex] != a) return;
+        }
         manager.gridManager.ClearTileHighlight();
         currentActorIndex += 1;
         if (currentActorIndex > fightingEntities.Count - 1) {

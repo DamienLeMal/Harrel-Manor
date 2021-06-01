@@ -34,14 +34,9 @@ public class ExplorationCombatTrigger : MonoBehaviour
                 actorPriority = ennemy.GetComponent<ActorEntity>();
             }
             ennemy.SetCombatMode();
-            player.SetCombatMode(actorPriority);
+            player.SetCombatMode(actorPriority, ennemy.GetComponent<EnnemyEntity>());
         }
         
-    }
-
-    private void FixedUpdate()
-    {
-       
     }
 
     private void LaunchRaycastCheck()
@@ -59,10 +54,5 @@ public class ExplorationCombatTrigger : MonoBehaviour
         {
             Debug.DrawLine(ennemy.transform.position, player.transform.position, Color.green);
         }
-
-        /*foreach (RaycastHit hit in hits)
-        {
-            Debug.Log(hit.collider.gameObject.name);
-        }*/
     }
 }

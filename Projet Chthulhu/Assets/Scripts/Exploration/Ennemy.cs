@@ -34,10 +34,10 @@ public class Ennemy : MonoBehaviour
         }
         
         //active la marche
-        if (!m_Animator.GetBool("isWalking"))
-        {
-            m_Animator.SetBool("isWalking", true);
-        }
+        //if (!m_Animator.GetBool("isWalking"))
+        //{
+        //    m_Animator.SetBool("isWalking", true);
+        //}
         
         
     }

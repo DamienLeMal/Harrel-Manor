@@ -129,7 +129,6 @@ public class ActorEntity : MonoBehaviour
     /// Move one tile at a time
     /// </summary>
     public IEnumerator MoveOneTile (List<TileEntity> path, bool firstMove) {
-        Debug.Log("Move one tile");
         animator.SetBool("isWalking",true);
         
         if (path.Count > 0) {
@@ -142,6 +141,7 @@ public class ActorEntity : MonoBehaviour
             }else{
                 LeanTween.move(gameObject,newPos,speed);
             }
+            currentTile.SetTileUser(this);
             path.RemoveAt(0);
             yield return new WaitForSeconds(speed);
             StartCoroutine(MoveOneTile(path, false));

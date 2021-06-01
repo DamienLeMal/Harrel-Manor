@@ -21,7 +21,6 @@ public class PlayerEntity : ActorEntity
     }
 
     public void AddXpGain (int amount) {
-        Debug.Log("xp ++");
         //if exp + xp gain > exp goal -> LevelUp()
         //Else apply
         if (exp + amount >= exp_goal) {

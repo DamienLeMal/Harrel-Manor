@@ -69,8 +69,6 @@ public class SaveSystem : MonoBehaviour
         player.mnt = PlayerPrefs.GetInt("s_mnt");
         player.hp = PlayerPrefs.GetInt("s_hp");
 
-        Debug.Log(player.weaponInventory.Count);
-
         if (loadCount > 0) player.weaponInventory.Clear();
 
         if (PlayerPrefs.GetInt("s_wp1") < weaponDataId.Count && PlayerPrefs.GetInt("s_wp1") >= 0) player.weaponInventory.Add(weaponDataId[PlayerPrefs.GetInt("s_wp1")]);

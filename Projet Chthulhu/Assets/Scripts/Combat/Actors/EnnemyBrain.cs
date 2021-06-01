@@ -46,6 +46,7 @@ public class EnnemyBrain : MonoBehaviour
     //Play Turn
 
 #region Take Decisions
+    public TileEntity gtile;
     public IEnumerator PlayTurn() {
 
         //Start
@@ -59,9 +60,13 @@ public class EnnemyBrain : MonoBehaviour
             yield return new WaitUntil(()=>attackEnded == true);
         }else{
             //No
+            
             TileEntity goToTile = GetMoveToTile();
             MoveToTile(goToTile);
             Debug.Log("Better to move to " + goToTile.coordinates + " first");
+
+            gtile = goToTile;
+
             //Wait until he's arrived
             yield return new WaitUntil(()=>entity.currentTile == goToTile);
 
@@ -237,18 +242,18 @@ public class EnnemyBrain : MonoBehaviour
     /// <summary>
     /// Loop through all tiles the ennemy can attack and set a value based on its chances to successfully hit it's target
     /// </summary>
-    private int AttackScore (TileEntity tileToScore, AttackData attack, ActorEntity actor, ActorEntity target) {
+    private int AttackScore (TileEntity tileToScore, AttackData attack, ActorEntity actor, ActorEntity target, bool debug = false) {
         int score = 0;
         int newScore;
+
+        if (debug) Debug.Log("target tile : " + target.currentTile);
+
         Dictionary<TileEntity,int> pattern = gridManager.GetPattern(tileToScore,attack.positionPatternCoord,actor);
 
         foreach (KeyValuePair<TileEntity,int> t in pattern) {
-            
+            if (debug) Debug.Log("pattern count : " + pattern.Count);
             Dictionary<TileEntity,int> damagePattern = gridManager.GetPattern(t.Key,attack.damagePatternCoord,actor);
-            Debug.Log(damagePattern.Count);
-
-            Debug.Log("attack reach ? " + damagePattern.TryGetValue(target.currentTile, out int val));
-
+            if (debug) Debug.Log("is our target in the pattern ? " + damagePattern.TryGetValue(target.currentTile, out int val));
             if (!damagePattern.TryGetValue(target.currentTile, out int value)) continue;
 
             if (attack.rangedAttack) {
@@ -283,7 +288,7 @@ public class EnnemyBrain : MonoBehaviour
     /// <summary>
     /// Get the tile with the lowest or highest value on one parameter
     /// </summary>
-    private TileEntity GetBestTile (Score index) {
+    private TileEntity GetBestTile (Score index, bool debug = false) {
         TileEntity selectedTile = null;
         bool searchLowest = (index == Score.Defense);
         int score;
@@ -296,6 +301,7 @@ public class EnnemyBrain : MonoBehaviour
             dist = 9000;
         }
         foreach (KeyValuePair<TileEntity, Dictionary<Score, int>> t in tileScore) {
+            if (debug == true) Debug.Log(t.Value[index]);
             if (searchLowest) {
                 if (t.Value[index] > score) continue;
             }else{
@@ -305,12 +311,14 @@ public class EnnemyBrain : MonoBehaviour
             if (t.Value[index] == score && t.Value[Score.Movement] <= dist && index == Score.Defense) continue;
             
             score = t.Value[index];
+            
             selectedTile = t.Key;
             if (searchLowest) {
                 dist = (int)Vector3.Distance(t.Key.transform.position,manager.player.transform.position);
             }else{
                dist = t.Value[Score.Movement]; 
             }
+            if (debug == true) Debug.Log(selectedTile + " score : " + score);
         }
         return selectedTile??GetDefaultTile();
     }
@@ -361,8 +369,8 @@ public class EnnemyBrain : MonoBehaviour
     /// <summary>
     /// Return the Best Score for the given value
     /// </summary>
-    private int GetBestScore (Score index) {
-        return tileScore[GetBestTile(index)][index];
+    private int GetBestScore (Score index, bool debug = false) {
+        return tileScore[GetBestTile(index,debug)][index];
     }
 
     private TileEntity GetDefaultTile () {
