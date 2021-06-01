@@ -29,4 +29,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/GameScene/FirstFloor.unity
     guid: e6995dadfbbd55f458add91f87749edc
+  - enabled: 1
+    path: Assets/Scenes/Video.unity
+    guid: 0fb3bccafdd7260478b24b232c1ab283
   m_configObjects: {}

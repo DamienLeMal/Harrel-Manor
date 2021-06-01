@@ -45,7 +45,7 @@ public class TitleScreenButton : MonoBehaviour
     {
         if (hasSeenTuto)
         {
-            SceneManager.LoadScene("LoadingScreen", LoadSceneMode.Single);
+            SceneManager.LoadScene("Video", LoadSceneMode.Single);
             PlayerPrefs.SetString("targetscene", Hall);
         }
         else
@@ -84,6 +84,11 @@ public class TitleScreenButton : MonoBehaviour
     public void Quitter()
     {
         Application.Quit();
+    }
+
+    public void ETPA()
+    {
+        Application.OpenURL("https://www.etpa.com/");
     }
 
 }
