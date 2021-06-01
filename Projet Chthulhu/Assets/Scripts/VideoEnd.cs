@@ -1,10 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class VideoEnd : MonoBehaviour
 {
-    [SerializeField] GameObject targetVideo;
     [SerializeField] private float timemax;
     [SerializeField] private float timea;
 
@@ -20,7 +20,7 @@ public class VideoEnd : MonoBehaviour
         
         if (timea >= timemax)
         {
-            targetVideo.SetActive(false);
+            SceneManager.LoadScene("LoadingScreen", LoadSceneMode.Single);
         }
         else
         {
