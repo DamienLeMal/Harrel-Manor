@@ -86,4 +86,9 @@ public class TitleScreenButton : MonoBehaviour
         Application.Quit();
     }
 
+    public void ETPA()
+    {
+        Application.OpenURL("https://www.etpa.com/");
+    }
+
 }
