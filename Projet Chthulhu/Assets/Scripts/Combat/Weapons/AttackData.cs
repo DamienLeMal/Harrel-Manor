@@ -16,7 +16,7 @@ public class AttackData : SheetData
     [HideInInspector] public List<Vector2Int> positionPatternCoord = new List<Vector2Int>();
     [HideInInspector] public List<Vector2Int> damagePatternCoord = new List<Vector2Int>();
     public Sprite attackIcon;
-    public ParticleSystem attackParticle;
+    public int attackParticleId;
 
     public void InitialiseData () {
         positionPatternArray = ReadSheetData(positionPattern);
