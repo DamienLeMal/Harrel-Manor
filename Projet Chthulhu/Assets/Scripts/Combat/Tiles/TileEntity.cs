@@ -22,12 +22,6 @@ public class TileEntity : MonoBehaviour
     private GridManager gManager;
     public TileCosmetic cosmetic;
 
-    //Test
-    public Text text;
-    public void SetText (string txt) {
-        text.text = txt;
-    }
-
     //PathFinding
     [HideInInspector] public int gCost;
     [HideInInspector] public int hCost;

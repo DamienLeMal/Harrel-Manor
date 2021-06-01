@@ -120,6 +120,7 @@ public class GridManager : MonoBehaviour
     /// Move the Actor along the shortest path
     /// </summary>
     public void MoveAlongPath (TileEntity endTile, ActorEntity actor) {
+        Debug.Log("Move along path");
         List<TileEntity> path = PathFinding(actor.currentTile,endTile);
         StartCoroutine(actor.MoveOneTile(path, true));
     }

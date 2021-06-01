@@ -53,8 +53,6 @@ public class UiWeaponSelector : MonoBehaviour
 
     public void SelectWeapon (int index) {
         WeaponDropDown();
-        Debug.Log(player);
-        Debug.Log(player.weaponInventory[index]);
         attackUiManager.LinkAttackAndButton(player.weaponInventory[index]);
         //Set icon here
         selectedIcon.sprite = player.weaponInventory[index].weaponIcon;

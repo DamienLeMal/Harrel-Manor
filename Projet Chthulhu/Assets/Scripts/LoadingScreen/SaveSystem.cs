@@ -13,7 +13,6 @@ public class SaveSystem : MonoBehaviour
 
     private void Awake() {
         current = this;
-        Debug.Log(loadCount);
         if (loadCount == 0) PlayerPrefs.DeleteAll();
         
     }
@@ -69,8 +68,6 @@ public class SaveSystem : MonoBehaviour
         player.agi = PlayerPrefs.GetInt("s_agi");
         player.mnt = PlayerPrefs.GetInt("s_mnt");
         player.hp = PlayerPrefs.GetInt("s_hp");
-
-        Debug.Log(player.weaponInventory.Count);
 
         if (loadCount > 0) player.weaponInventory.Clear();
 

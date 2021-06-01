@@ -82,10 +82,17 @@ public class SoundMusicManager : MonoBehaviour
     }
 
     private void PlayCombatGameOver () {
+        Debug.Log("game over sound");
         //Current Music fade out 222 -> Music gameOver
         StartCoroutine(StartFade(source[0],0.222f,0));
         StartCoroutine(StartFade(source[3],0.222f,0));
-        source[1].PlayOneShot(source[1].clip);
+        source[3].clip = null;
+
+        //Avoid double play
+        if (source[1].volume ==  0) {
+            source[1].volume = 1;
+            source[1].PlayOneShot(musics[1]);
+        }
     }
 
     private void CombatPauseMusic () {
