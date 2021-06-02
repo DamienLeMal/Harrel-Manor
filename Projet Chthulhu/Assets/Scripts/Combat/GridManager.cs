@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class GridManager : MonoBehaviour
 {
+    [SerializeField] private Color accessColor;
+    [SerializeField] private Color pathColor;
+    [SerializeField] private Color attackColor;
     private CombatManager manager = null;
     private TileEntity[,] tileGrid = null;
     /// <summary>
@@ -57,7 +60,16 @@ public class GridManager : MonoBehaviour
 
     private void HighlightTiles () {
         foreach (KeyValuePair<TileEntity,int> d in tileHighlightRanges) {
-            d.Key.cosmetic.ChangeTextureColor(new Color(d.Value,0,0));
+            switch (manager.playerState) {
+            case PlayerState.Moving :
+                d.Key.cosmetic.ChangeTextureColor(accessColor);
+                CombatManager.current.player.currentTile.cosmetic.ChangeTextureColor(accessColor);
+                break;
+            case PlayerState.Attacking :
+                d.Key.cosmetic.ChangeTextureColor(attackColor);
+                break;
+        }
+            
         }
     }
     public Dictionary<TileEntity,int> EnnemyGetMoveRange (ActorEntity ennemyEntity, int range) {
@@ -103,9 +115,9 @@ public class GridManager : MonoBehaviour
         bool first = true;
         foreach (TileEntity next in PathFinding(startTile,endTile)) {
             if (!first) {
-                current.cosmetic.TraceLine(prev,next);
+                current.cosmetic.TraceLine(prev,pathColor,next);
             }else{
-                manager.player.currentTile.cosmetic.TraceLine(next);
+                manager.player.currentTile.cosmetic.TraceLine(next,pathColor,null);
                 tileHighlightRanges.Add(manager.player.currentTile,0);
             }
             prev = current;
@@ -113,7 +125,7 @@ public class GridManager : MonoBehaviour
             first = false;
         }
         if (!first) {
-            current.cosmetic.TraceLine(prev);
+            current.cosmetic.TraceLine(prev,pathColor,null);
         }
     }
     

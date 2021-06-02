@@ -59,7 +59,6 @@ MonoBehaviour:
   tileState: 0
   manager: {fileID: 0}
   cosmetic: {fileID: 1229385355826847415}
-  text: {fileID: 0}
   gCost: 0
   hCost: 0
   previousInPath: {fileID: 0}
@@ -78,7 +77,7 @@ MonoBehaviour:
   wallM: {fileID: 2100000, guid: d22f59f4d2392ed448611ac2a2ec5adf, type: 2}
   pathM: {fileID: 2100000, guid: 4cf7646917b65994eabd1bec71d8c990, type: 2}
   lineT: {fileID: 2800000, guid: c3a54cb5269150641bf47d1ebd330355, type: 3}
-  angleT: {fileID: 2800000, guid: 9961664b61fb8ae40b2b0f1c4bef5e69, type: 3}
+  angleT: {fileID: 2800000, guid: ba62e5ba36ef57440b433d481479bc8f, type: 3}
   singleT: {fileID: 2800000, guid: 23840bb25594e3245b4324e751924eb5, type: 3}
   occupiedT: {fileID: 2800000, guid: 64a1b12276fbb044b9d49ecdb499e6c0, type: 3}
 --- !u!65 &7742255542589420512

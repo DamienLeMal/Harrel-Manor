@@ -11074,7 +11074,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2848066963933815196, guid: fffc59bb717eccb40842da71dce18edf, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 100.10669
+      value: 103.5
       objectReference: {fileID: 0}
     - target: {fileID: 2848066963933815196, guid: fffc59bb717eccb40842da71dce18edf, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -63897,7 +63897,7 @@ MonoBehaviour:
   walkMaterial: {fileID: 2100000, guid: ae064c7f7f866674990b333d4282fc0c, type: 2}
   blockMaterial: {fileID: 2100000, guid: ac525ea38c26812428df849ddea27cd7, type: 2}
   occupiedMaterial: {fileID: 2100000, guid: 0dc3b251c860432459115314955809ec, type: 2}
-  particleManager: {fileID: 0}
+  particleManager: {fileID: 5340618409193880197}
   activeButton: {fileID: 0}
 --- !u!4 &5340618409193880219
 Transform:
@@ -63948,6 +63948,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 505a44cc7655c89419f01926c19c2338, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  accessColor: {r: 1, g: 0.73838365, b: 0.4198113, a: 1}
+  pathColor: {r: 0.5707547, g: 0.7903136, b: 1, a: 1}
+  attackColor: {r: 0.8584906, g: 0.19987306, b: 0, a: 1}
   attackCooldownEnded: 0
 --- !u!114 &5340618409193880223
 MonoBehaviour:
