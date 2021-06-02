@@ -46,9 +46,11 @@ public class CombatTurnManager : MonoBehaviour
 
     private void StartTurn (ActorEntity a) {
         if (a == manager.player) {
+            CombatEventSystem.current.PlayerTurn();
             manager.turn = Turn.PlayerTurn;
             SoundEventManager.current.PlayerTurn((float)manager.player.hp/(float)manager.player.hp_max);
         }else{
+            CombatEventSystem.current.EnnemyTurn();
             Debug.Log("Start ennemy turn");
             manager.turn = Turn.EnnemyTurn;
             StartCoroutine(a.GetComponent<EnnemyBrain>().PlayTurn());

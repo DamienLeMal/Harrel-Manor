@@ -13,4 +13,6 @@ MonoBehaviour:
   m_Name: Spell_Fire
   m_EditorClassIdentifier: 
   weaponIcon: {fileID: 0}
-  attacks: []
+  attacks:
+  - {fileID: 11400000, guid: 12f7b073a92ac9447a298afe736489b0, type: 2}
+  - {fileID: 11400000, guid: 1056ff77b3725464dac8e2551d5f037a, type: 2}

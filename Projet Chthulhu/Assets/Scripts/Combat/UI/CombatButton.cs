@@ -4,20 +4,23 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 
-public class CombatButton : MonoBehaviour
+public class CombatButton : GameButton
 {
     private CombatManager manager;
     [SerializeField] private PlayerState newState;
-    [SerializeField] private GameObject cameraTarget;
     public AttackData attack = null;
     private GridManager gridManager = null;
     private PlayerEntity player;
-    private TooltipUi attackTooltip;
 
     private void Start() {
         manager = CombatManager.current;
         player = manager.player;
         gridManager = manager.GetComponent<GridManager>();
+        CombatEventSystem.current.onPlayerLocked += LockButton;
+        CombatEventSystem.current.onPlayerUnlocked += UnlockButton;
+        CombatEventSystem.current.onEnnemyTurn += LockButton;
+        CombatEventSystem.current.onPlayerTurn += UnlockButton;
+        CombatEventSystem.current.onPlayerEndAttack += LockAttack;
     }
 
     public void ToggleState () {
@@ -47,13 +50,23 @@ public class CombatButton : MonoBehaviour
                 break;
         }
     }
+    private void LockAttack () {
+        if (!CanAttack() && attack != null) LockButton();
+    }
 
-    public void RotateCamera (bool clockwise) {
-        float rotation = cameraTarget.transform.eulerAngles.y;
-        if (clockwise) {
-            LeanTween.rotateY(cameraTarget,rotation+90f,0.8f).setEaseInOutQuint();
-        }else{
-            LeanTween.rotateY(cameraTarget,rotation-90f,0.8f).setEaseInOutQuint();
-        }
+    private void LockButton () {
+        TemporaryUnactivate(GetComponent<Button>());
+    }
+
+    private void UnlockButton () {
+        if (manager.playerState == PlayerState.Locked) return;
+        if (manager.turn != Turn.PlayerTurn) return;
+        if (!CanAttack()) return;
+        ReactivateButton(GetComponent<Button>());
+    }
+
+    private bool CanAttack () {
+        if (attack == null) return true;
+        return attack.CheckCost(player);
     }
 }

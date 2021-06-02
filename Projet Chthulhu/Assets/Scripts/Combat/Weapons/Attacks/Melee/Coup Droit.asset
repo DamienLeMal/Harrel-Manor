@@ -39,3 +39,4 @@ MonoBehaviour:
   - {x: 0, y: 0}
   attackIcon: {fileID: 0}
   attackParticleId: 99
+  animation: 5

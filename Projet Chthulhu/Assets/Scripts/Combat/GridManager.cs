@@ -17,6 +17,7 @@ public class GridManager : MonoBehaviour
     private void Start() {
         manager = GetComponent<CombatManager>();
         tileGrid = manager.grid;
+        CombatEventSystem.current.onPlayerEndAttack += LaunchAttackEnd;
     }
 
 #region Higlight Surroundings
@@ -194,13 +195,15 @@ public class GridManager : MonoBehaviour
         tileHighlightAttack = new Dictionary<TileEntity, int>();
         tileHighlightAttack = GetPattern(startTile, attack.damagePatternCoord,attacker);
         foreach (KeyValuePair<TileEntity,int> t in tileHighlightAttack) {
-            t.Key.cosmetic.ChangeTextureColor(new Color(0,0,0));
+            t.Key.cosmetic.ChangeTextureColor(new Color(250,215,0));
         }
     }
     /// <summary>
     /// Get all tiles from the attack damage pattern and attack them
     /// </summary>
     public void LaunchAttach (TileEntity targetTile, ActorEntity attacker, AttackData attack) {
+        Vector3 lookRotation = Quaternion.LookRotation(targetTile.transform.position - attacker.transform.position).eulerAngles;
+        LeanTween.rotate(attacker.gameObject,new Vector3(0,lookRotation.y,0),0.5f);
         ShowAttackPattern(targetTile,attacker,attack);
         List<TileEntity> tileToAttack = new List<TileEntity>();
         foreach (KeyValuePair<TileEntity,int> t in tileHighlightAttack) {
@@ -238,9 +241,8 @@ public class GridManager : MonoBehaviour
 
         //Effects
         foreach (KeyValuePair<TileEntity,int> t in tileHighlightAttack) {
-            t.Key.cosmetic.ChangeTextureColor(new Color(0,0,5));
+            t.Key.cosmetic.ChangeTextureColor(new Color(2,2,0));
         }
-        Invoke("LaunchAttackEnd",0.2f);
     }
 
     private void LaunchAttackEnd() {

@@ -26,3 +26,4 @@ MonoBehaviour:
   damagePatternCoord: []
   attackIcon: {fileID: 0}
   attackParticleId: 99
+  animation: 5
