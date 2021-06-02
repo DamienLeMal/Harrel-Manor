@@ -136,7 +136,10 @@ public class ActorEntity : MonoBehaviour
         
         if (path.Count > 0) {
             pm -= 1;
-            transform.LookAt(new Vector3(path[0].transform.position.x,transform.position.y,path[0].transform.position.z),Vector3.up);
+
+            Vector3 lookRotation = Quaternion.LookRotation(path[0].transform.position - transform.position).eulerAngles;
+            LeanTween.rotate(gameObject,new Vector3(0,lookRotation.y,0),0.2f);
+
             Vector3 newPos = path[0].transform.position + Vector3.up * heightOffset;
             float speed = 50/spd;
             if (firstMove) {

@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class GridManager : MonoBehaviour
 {
+    [SerializeField] private Color accessColor;
+    [SerializeField] private Color pathColor;
+    [SerializeField] private Color attackColor;
     private CombatManager manager = null;
     private TileEntity[,] tileGrid = null;
     /// <summary>
@@ -17,6 +20,7 @@ public class GridManager : MonoBehaviour
     private void Start() {
         manager = GetComponent<CombatManager>();
         tileGrid = manager.grid;
+        CombatEventSystem.current.onPlayerEndAttack += LaunchAttackEnd;
     }
 
 #region Higlight Surroundings
@@ -56,7 +60,16 @@ public class GridManager : MonoBehaviour
 
     private void HighlightTiles () {
         foreach (KeyValuePair<TileEntity,int> d in tileHighlightRanges) {
-            d.Key.cosmetic.ChangeTextureColor(new Color(d.Value,0,0));
+            switch (manager.playerState) {
+            case PlayerState.Moving :
+                d.Key.cosmetic.ChangeTextureColor(accessColor);
+                CombatManager.current.player.currentTile.cosmetic.ChangeTextureColor(accessColor);
+                break;
+            case PlayerState.Attacking :
+                d.Key.cosmetic.ChangeTextureColor(attackColor);
+                break;
+        }
+            
         }
     }
     public Dictionary<TileEntity,int> EnnemyGetMoveRange (ActorEntity ennemyEntity, int range) {
@@ -102,9 +115,9 @@ public class GridManager : MonoBehaviour
         bool first = true;
         foreach (TileEntity next in PathFinding(startTile,endTile)) {
             if (!first) {
-                current.cosmetic.TraceLine(prev,next);
+                current.cosmetic.TraceLine(prev,pathColor,next);
             }else{
-                manager.player.currentTile.cosmetic.TraceLine(next);
+                manager.player.currentTile.cosmetic.TraceLine(next,pathColor,null);
                 tileHighlightRanges.Add(manager.player.currentTile,0);
             }
             prev = current;
@@ -112,7 +125,7 @@ public class GridManager : MonoBehaviour
             first = false;
         }
         if (!first) {
-            current.cosmetic.TraceLine(prev);
+            current.cosmetic.TraceLine(prev,pathColor,null);
         }
     }
     
@@ -194,13 +207,15 @@ public class GridManager : MonoBehaviour
         tileHighlightAttack = new Dictionary<TileEntity, int>();
         tileHighlightAttack = GetPattern(startTile, attack.damagePatternCoord,attacker);
         foreach (KeyValuePair<TileEntity,int> t in tileHighlightAttack) {
-            t.Key.cosmetic.ChangeTextureColor(new Color(0,0,0));
+            t.Key.cosmetic.ChangeTextureColor(new Color(250,215,0));
         }
     }
     /// <summary>
     /// Get all tiles from the attack damage pattern and attack them
     /// </summary>
     public void LaunchAttach (TileEntity targetTile, ActorEntity attacker, AttackData attack) {
+        Vector3 lookRotation = Quaternion.LookRotation(targetTile.transform.position - attacker.transform.position).eulerAngles;
+        LeanTween.rotate(attacker.gameObject,new Vector3(0,lookRotation.y,0),0.5f);
         ShowAttackPattern(targetTile,attacker,attack);
         List<TileEntity> tileToAttack = new List<TileEntity>();
         foreach (KeyValuePair<TileEntity,int> t in tileHighlightAttack) {
@@ -238,9 +253,8 @@ public class GridManager : MonoBehaviour
 
         //Effects
         foreach (KeyValuePair<TileEntity,int> t in tileHighlightAttack) {
-            t.Key.cosmetic.ChangeTextureColor(new Color(0,0,5));
+            t.Key.cosmetic.ChangeTextureColor(new Color(2,2,0));
         }
-        Invoke("LaunchAttackEnd",0.2f);
     }
 
     private void LaunchAttackEnd() {

@@ -30,6 +30,8 @@ public class CombatManager : MonoBehaviour
         set {
             _playerState = value;
             UpdateTileHighlight();
+            if (value == PlayerState.Locked) CombatEventSystem.current.PlayerLocked();
+            if (value != PlayerState.Locked) CombatEventSystem.current.PlayerUnlocked();
         }
     }
     private PlayerState _playerState = PlayerState.Normal;
@@ -57,6 +59,8 @@ public class CombatManager : MonoBehaviour
         turnManager = GetComponent<CombatTurnManager>();
         particleManager = GetComponent<CombatParticleManager>();
         SoundEventManager.current.onCombatEnd += EndCombatMode;
+        CombatEventSystem.current.onPlayerAttack += LockPlayer;
+        CombatEventSystem.current.onPlayerEndAttack += UnlockPlayer;
     }
     public void ResetActorsPositions() {
         foreach (TileEntity t in grid) {
@@ -111,7 +115,7 @@ public class CombatManager : MonoBehaviour
             g.SetActive(true);
         }
 
-//End Not Tested
+//End Not Tested (I think it worked last time I checked)
 
         uiManager.ToggleCombatUi(false);
         player.GetComponent<PlayerDeplacement>().SetExplorationMode();
@@ -129,5 +133,12 @@ public class CombatManager : MonoBehaviour
 
         uiManager.GameOverScreen();
         SoundEventManager.current.CombatEnd(false);
+    }
+
+    private void LockPlayer () {
+        playerState = PlayerState.Locked;
+    }
+    private void UnlockPlayer () {
+        playerState = PlayerState.Normal;
     }
 }

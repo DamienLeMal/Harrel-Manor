@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b133a2f84e481664d97c9772d09d79f9, type: 3}
   m_Name: Gun_WebleyMKIII
   m_EditorClassIdentifier: 
-  weaponIcon: {fileID: 0}
+  weaponIcon: {fileID: 21300000, guid: 618bf3f6c743198479ec9a33bea4cc0f, type: 3}
   attacks:
   - {fileID: 11400000, guid: e20bb0b453fd3f04b85e3f4f9ead0f1c, type: 2}
   - {fileID: 11400000, guid: e41bd0e9c0e172d439f31fd9ed74542c, type: 2}

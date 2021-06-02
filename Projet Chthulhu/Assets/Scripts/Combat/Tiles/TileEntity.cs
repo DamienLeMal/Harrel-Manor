@@ -21,6 +21,7 @@ public class TileEntity : MonoBehaviour
     public CombatManager manager;
     private GridManager gManager;
     public TileCosmetic cosmetic;
+    private bool isTarget = false;
 
     //PathFinding
     [HideInInspector] public int gCost;
@@ -34,6 +35,7 @@ public class TileEntity : MonoBehaviour
     private void Start() {
         UpdateMaterial();
         gManager = manager.GetComponent<GridManager>();
+        CombatEventSystem.current.onPlayerAttack += BeginLaunchAttack;
     }
 
     public void SetTileUser (ActorEntity user) {
@@ -84,8 +86,19 @@ public class TileEntity : MonoBehaviour
             gManager.MoveAlongPath(this,manager.player);
         }
         if (manager.playerState == PlayerState.Attacking && gManager.tileHighlightRanges.TryGetValue(this,out int value)) {
-            gManager.LaunchAttach(this,manager.player, manager.activeButton.attack);
+            //gManager.LaunchAttach(this,manager.player, manager.activeButton.attack);
+            Debug.Log("Launghing the attack");
+            manager.playerState = PlayerState.Locked;
+            manager.player.animator.SetTrigger(manager.activeButton.attack.GetAnimation());
+            isTarget = true;
         }
+    }
+
+    private void BeginLaunchAttack () {
+        if (!isTarget) return;
+        Debug.Log("Begin Launch Attack");
+        gManager.LaunchAttach(this,manager.player, manager.activeButton.attack);
+        isTarget = false;
     }
 #endregion
 }

@@ -2,6 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+public enum AttackAnimation {
+    Shot,
+    ShotgunShot,
+    Stab,
+    Slash,
+    Cast,
+    HitKnuckle
+}
+
 [CreateAssetMenu(fileName = "Attack", menuName = "ScriptableObjects/Combat/Attack", order = 3)]
 public class AttackData : SheetData
 {
@@ -17,6 +26,7 @@ public class AttackData : SheetData
     [HideInInspector] public List<Vector2Int> damagePatternCoord = new List<Vector2Int>();
     public Sprite attackIcon;
     public int attackParticleId;
+    [SerializeField] private AttackAnimation animation;
 
     public void InitialiseData () {
         positionPatternArray = ReadSheetData(positionPattern);
@@ -65,5 +75,18 @@ public class AttackData : SheetData
             finalCoords.Add(new Vector2Int(-v.y,v.x));// angle 270
         }
         return finalCoords;
+    }
+
+    public string GetAnimation () {
+        switch (animation) {
+            case AttackAnimation.Shot : return "isShotting";
+            case AttackAnimation.ShotgunShot : return "isShottingPump";
+            case AttackAnimation.Stab : return "isStabing";
+            case AttackAnimation.Slash : return "isSlashing";
+            case AttackAnimation.Cast : return "isCasting";
+            case AttackAnimation.HitKnuckle : return "isHittingKnuckle";
+            default : goto case AttackAnimation.Shot;
+            
+        }
     }
 }

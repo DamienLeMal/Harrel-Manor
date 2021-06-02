@@ -37,10 +37,11 @@ public class TileCosmetic : MonoBehaviour
     }
 
     public void ChangeTextureColor (Color clr) {
-        tileRenderer.material.color = clr;
+        tileRenderer.material.color = clr*0.5f;
     }
 
-    public void TraceLine (TileEntity connectedTile1, TileEntity connectedTile2 = null) {
+    public void TraceLine (TileEntity connectedTile1, Color clr, TileEntity connectedTile2 = null) {
+        ChangeTextureColor(clr);
         int value = GetCase(connectedTile1,connectedTile2);
         currentTile.transform.Rotate(new Vector3(0,0,0),Space.World);
         switch (value) {

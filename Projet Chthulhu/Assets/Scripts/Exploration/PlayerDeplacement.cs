@@ -23,9 +23,6 @@ public class PlayerDeplacement : MonoBehaviour
     }
     public bool inBattle;
 
-    public float minSpeed = 5;
-    public float maxSpeed = 10;
-
     private Rigidbody rb;
 
 
@@ -33,7 +30,6 @@ public class PlayerDeplacement : MonoBehaviour
     void Start()
     {
         agent = gameObject.GetComponent<NavMeshAgent>();
-        agent.speed = maxSpeed;
         rb = GetComponent<Rigidbody>();
     }
 
@@ -67,6 +63,7 @@ public class PlayerDeplacement : MonoBehaviour
     
     public void SetCombatMode(ActorEntity actorPriority, EnnemyEntity firstEnnemy)
     {
+        ToggleSteath();
         SoundEventManager.current.GamemodeChange();
         agent.SetDestination(this.transform.position);
         agent.isStopped = true;
@@ -90,14 +87,8 @@ public class PlayerDeplacement : MonoBehaviour
     private void ToggleSteath()
     {
         stealth = !stealth;
-        if (stealth)
-        {
-            agent.speed = minSpeed;
-        }
-        else
-        {
-            agent.speed = maxSpeed;
-        }
+        if (stealth) m_Animator.speed = 0.5f;
+        if (!stealth) m_Animator.speed = 1f;
     }
     
 }
