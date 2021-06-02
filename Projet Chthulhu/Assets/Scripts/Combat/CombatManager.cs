@@ -40,7 +40,7 @@ public class CombatManager : MonoBehaviour
     public Material walkMaterial;
     public Material blockMaterial;
     public Material occupiedMaterial;
-    public CombatParticleManager particleManager;
+    [HideInInspector] public CombatParticleManager particleManager;
 
     [HideInInspector] public CombatButton activeButton = null;
     private void Awake() {

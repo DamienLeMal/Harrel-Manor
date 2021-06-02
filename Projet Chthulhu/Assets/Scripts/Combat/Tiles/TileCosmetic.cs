@@ -37,7 +37,7 @@ public class TileCosmetic : MonoBehaviour
     }
 
     public void ChangeTextureColor (Color clr) {
-        tileRenderer.material.color = clr*0.5f;
+        tileRenderer.material.color = clr*1.5f;
     }
 
     public void TraceLine (TileEntity connectedTile1, Color clr, TileEntity connectedTile2 = null) {
