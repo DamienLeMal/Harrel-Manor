@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.1446363, g: 0.097246826, b: 0.068902135, a: 1}
+  m_IndirectSpecularColor: {r: 0.14458764, g: 0.09728968, b: 0.06910837, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -550,7 +550,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 16
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &45825577
 GameObject:
@@ -2762,7 +2762,7 @@ Transform:
   - {fileID: 1507795883}
   - {fileID: 1855016682}
   m_Father: {fileID: 0}
-  m_RootOrder: 13
+  m_RootOrder: 19
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &148138973
 PrefabInstance:
@@ -8122,7 +8122,7 @@ Transform:
   m_LocalScale: {x: 0.28452, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 31
+  m_RootOrder: 37
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
 --- !u!1001 &191365642
 PrefabInstance:
@@ -13067,7 +13067,7 @@ Transform:
   m_LocalScale: {x: 0.28452, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 30
+  m_RootOrder: 36
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
 --- !u!1001 &198790254
 PrefabInstance:
@@ -13931,7 +13931,7 @@ Transform:
   - {fileID: 2059305639}
   - {fileID: 9052892457720591784}
   m_Father: {fileID: 0}
-  m_RootOrder: 18
+  m_RootOrder: 24
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &232762289
 PrefabInstance:
@@ -14131,6 +14131,75 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 393781212876982823, guid: 958c770f0c8ac164099e8dc95a7fa7b2, type: 3}
   m_PrefabInstance: {fileID: 240220932}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &243139334
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 8403599014385068736, guid: 35e03d6617ada1e4ca03110f7a43aa82, type: 3}
+      propertyPath: title
+      value: "M\xE9moire de matriarche V"
+      objectReference: {fileID: 0}
+    - target: {fileID: 8403599014385068736, guid: 35e03d6617ada1e4ca03110f7a43aa82, type: 3}
+      propertyPath: content
+      value: "\u201CJe fr\xE9quentais cet homme, depuis un moment, quand Chris n\u2019\xE9tait
+        pas \xE0 la maison.. Oh non, je suis pas ce genre de personne trompeuse\u2026
+        Mais lui, il sentait si bon, chaque fois qu\u2019il s\u2019approchait, je
+        n\u2019avais qu\u2019une envie, c\u2019\xE9tait de faire courir mes doigts
+        sur sa gorge, de lui voler son souffle, et de faire couler son sang..\u201D\r\n"
+      objectReference: {fileID: 0}
+    - target: {fileID: 8403599014385068741, guid: 35e03d6617ada1e4ca03110f7a43aa82, type: 3}
+      propertyPath: m_Name
+      value: Book (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8403599014385068748, guid: 35e03d6617ada1e4ca03110f7a43aa82, type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8403599014385068748, guid: 35e03d6617ada1e4ca03110f7a43aa82, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 76.99284
+      objectReference: {fileID: 0}
+    - target: {fileID: 8403599014385068748, guid: 35e03d6617ada1e4ca03110f7a43aa82, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 8403599014385068748, guid: 35e03d6617ada1e4ca03110f7a43aa82, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -22.839367
+      objectReference: {fileID: 0}
+    - target: {fileID: 8403599014385068748, guid: 35e03d6617ada1e4ca03110f7a43aa82, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.6579278
+      objectReference: {fileID: 0}
+    - target: {fileID: 8403599014385068748, guid: 35e03d6617ada1e4ca03110f7a43aa82, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8403599014385068748, guid: 35e03d6617ada1e4ca03110f7a43aa82, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.753081
+      objectReference: {fileID: 0}
+    - target: {fileID: 8403599014385068748, guid: 35e03d6617ada1e4ca03110f7a43aa82, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8403599014385068748, guid: 35e03d6617ada1e4ca03110f7a43aa82, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8403599014385068748, guid: 35e03d6617ada1e4ca03110f7a43aa82, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: -97.716
+      objectReference: {fileID: 0}
+    - target: {fileID: 8403599014385068748, guid: 35e03d6617ada1e4ca03110f7a43aa82, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 35e03d6617ada1e4ca03110f7a43aa82, type: 3}
 --- !u!1001 &246811671
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -24952,7 +25021,7 @@ Transform:
   m_LocalScale: {x: 0.28452, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 33
+  m_RootOrder: 39
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
 --- !u!1001 &504491135
 PrefabInstance:
@@ -26196,7 +26265,7 @@ Transform:
   - {fileID: 1942828573}
   - {fileID: 510026733}
   m_Father: {fileID: 0}
-  m_RootOrder: 14
+  m_RootOrder: 20
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &575881578
 PrefabInstance:
@@ -31482,7 +31551,7 @@ Transform:
   m_LocalScale: {x: 0.28452, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 26
+  m_RootOrder: 32
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
 --- !u!1 &617014510
 GameObject:
@@ -36295,7 +36364,7 @@ Transform:
   m_LocalScale: {x: 0.28452, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 34
+  m_RootOrder: 40
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
 --- !u!1 &618511410
 GameObject:
@@ -42709,7 +42778,7 @@ Transform:
   m_LocalScale: {x: 0.28452, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 27
+  m_RootOrder: 33
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
 --- !u!1001 &774458721
 PrefabInstance:
@@ -43652,7 +43721,7 @@ Transform:
   - {fileID: 1549386741}
   - {fileID: 618511411}
   m_Father: {fileID: 0}
-  m_RootOrder: 16
+  m_RootOrder: 22
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &823518708
 PrefabInstance:
@@ -50199,7 +50268,7 @@ Transform:
   m_LocalScale: {x: 0.28452, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 25
+  m_RootOrder: 31
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
 --- !u!1001 &949085032
 PrefabInstance:
@@ -51445,7 +51514,7 @@ Transform:
   m_Children:
   - {fileID: 353194882}
   m_Father: {fileID: 0}
-  m_RootOrder: 15
+  m_RootOrder: 21
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1017283330
 PrefabInstance:
@@ -56800,7 +56869,7 @@ Transform:
   m_LocalScale: {x: 0.28452, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 22
+  m_RootOrder: 28
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
 --- !u!1001 &1050762878
 PrefabInstance:
@@ -57050,7 +57119,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 17
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1073710675
 GameObject:
@@ -62507,8 +62576,75 @@ Transform:
   m_LocalScale: {x: 0.28452, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 29
+  m_RootOrder: 35
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
+--- !u!1001 &1117352120
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 8403599014385068736, guid: 35e03d6617ada1e4ca03110f7a43aa82, type: 3}
+      propertyPath: title
+      value: "M\xE9moire de matriarche IV"
+      objectReference: {fileID: 0}
+    - target: {fileID: 8403599014385068736, guid: 35e03d6617ada1e4ca03110f7a43aa82, type: 3}
+      propertyPath: content
+      value: "\"Hehe je me suis coup\xE9e aujourd\u2019hui, je n\u2019avais rien
+        pour arr\xEAter le saignement, hehehe\u2026 Je ne sava\\is p@s q~e le sang
+        \xA7uma}iNs \xA5va*is si bon go\xFBt\u2026 \u201C"
+      objectReference: {fileID: 0}
+    - target: {fileID: 8403599014385068741, guid: 35e03d6617ada1e4ca03110f7a43aa82, type: 3}
+      propertyPath: m_Name
+      value: Book (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8403599014385068748, guid: 35e03d6617ada1e4ca03110f7a43aa82, type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8403599014385068748, guid: 35e03d6617ada1e4ca03110f7a43aa82, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 2.0916052
+      objectReference: {fileID: 0}
+    - target: {fileID: 8403599014385068748, guid: 35e03d6617ada1e4ca03110f7a43aa82, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 8403599014385068748, guid: 35e03d6617ada1e4ca03110f7a43aa82, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -17.848055
+      objectReference: {fileID: 0}
+    - target: {fileID: 8403599014385068748, guid: 35e03d6617ada1e4ca03110f7a43aa82, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.94594747
+      objectReference: {fileID: 0}
+    - target: {fileID: 8403599014385068748, guid: 35e03d6617ada1e4ca03110f7a43aa82, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8403599014385068748, guid: 35e03d6617ada1e4ca03110f7a43aa82, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.32431984
+      objectReference: {fileID: 0}
+    - target: {fileID: 8403599014385068748, guid: 35e03d6617ada1e4ca03110f7a43aa82, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8403599014385068748, guid: 35e03d6617ada1e4ca03110f7a43aa82, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8403599014385068748, guid: 35e03d6617ada1e4ca03110f7a43aa82, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 37.849
+      objectReference: {fileID: 0}
+    - target: {fileID: 8403599014385068748, guid: 35e03d6617ada1e4ca03110f7a43aa82, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 35e03d6617ada1e4ca03110f7a43aa82, type: 3}
 --- !u!1 &1117567838
 GameObject:
   m_ObjectHideFlags: 0
@@ -67320,7 +67456,7 @@ Transform:
   m_LocalScale: {x: 0.28452, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 32
+  m_RootOrder: 38
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
 --- !u!1001 &1119249461
 PrefabInstance:
@@ -67611,7 +67747,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
 --- !u!1001 &1145249543
 PrefabInstance:
@@ -68040,6 +68176,77 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5582398304737590671, guid: bc2ebcbd51969bc47a2edf452f92dc0a, type: 3}
   m_PrefabInstance: {fileID: 1179802449}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &1182154718
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 8403599014385068736, guid: 35e03d6617ada1e4ca03110f7a43aa82, type: 3}
+      propertyPath: title
+      value: "\u201CJournal des Harrell, m\xE9moire d\u2019une famille\u201D"
+      objectReference: {fileID: 0}
+    - target: {fileID: 8403599014385068736, guid: 35e03d6617ada1e4ca03110f7a43aa82, type: 3}
+      propertyPath: content
+      value: "L\u2019une des traditions pr\xE9cieuses de la famille Harrell concernent
+        les portraits des ma\xEEtres de la maison\u2026 En effet, depuis la construction
+        du manoir et \xE0 travers toutes les g\xE9n\xE9rations, il est coutume de
+        peindre son portrait et de l\u2019afficher fi\xE8rement dans le hall. Ce
+        portrait n\u2019est pas seulement un moyen de repr\xE9senter le dirigeant
+        actuel du manoir, il renferme aussi un secret bien gard\xE9, le cadre fait
+        office de porte et quiconque en trouve la cl\xE9 verra le passage se former.\r\n"
+      objectReference: {fileID: 0}
+    - target: {fileID: 8403599014385068741, guid: 35e03d6617ada1e4ca03110f7a43aa82, type: 3}
+      propertyPath: m_Name
+      value: Book
+      objectReference: {fileID: 0}
+    - target: {fileID: 8403599014385068748, guid: 35e03d6617ada1e4ca03110f7a43aa82, type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8403599014385068748, guid: 35e03d6617ada1e4ca03110f7a43aa82, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 79.096725
+      objectReference: {fileID: 0}
+    - target: {fileID: 8403599014385068748, guid: 35e03d6617ada1e4ca03110f7a43aa82, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.74
+      objectReference: {fileID: 0}
+    - target: {fileID: 8403599014385068748, guid: 35e03d6617ada1e4ca03110f7a43aa82, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -14.91
+      objectReference: {fileID: 0}
+    - target: {fileID: 8403599014385068748, guid: 35e03d6617ada1e4ca03110f7a43aa82, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.9584353
+      objectReference: {fileID: 0}
+    - target: {fileID: 8403599014385068748, guid: 35e03d6617ada1e4ca03110f7a43aa82, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8403599014385068748, guid: 35e03d6617ada1e4ca03110f7a43aa82, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.28531
+      objectReference: {fileID: 0}
+    - target: {fileID: 8403599014385068748, guid: 35e03d6617ada1e4ca03110f7a43aa82, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8403599014385068748, guid: 35e03d6617ada1e4ca03110f7a43aa82, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8403599014385068748, guid: 35e03d6617ada1e4ca03110f7a43aa82, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 33.155
+      objectReference: {fileID: 0}
+    - target: {fileID: 8403599014385068748, guid: 35e03d6617ada1e4ca03110f7a43aa82, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 35e03d6617ada1e4ca03110f7a43aa82, type: 3}
 --- !u!1001 &1183377831
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -74182,7 +74389,7 @@ Transform:
   m_LocalScale: {x: 0.28452, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 23
+  m_RootOrder: 29
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
 --- !u!1001 &1299982817
 PrefabInstance:
@@ -75416,7 +75623,7 @@ Transform:
   - {fileID: 1540392252}
   - {fileID: 1000961880}
   m_Father: {fileID: 0}
-  m_RootOrder: 19
+  m_RootOrder: 25
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1454153333
 PrefabInstance:
@@ -78161,7 +78368,7 @@ Transform:
   - {fileID: 1073710676}
   - {fileID: 157826508}
   m_Father: {fileID: 0}
-  m_RootOrder: 12
+  m_RootOrder: 18
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1660422094
 PrefabInstance:
@@ -78986,7 +79193,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 44.096, y: -57.324, z: 3.831}
 --- !u!114 &1697281526
 MonoBehaviour:
@@ -84861,7 +85068,7 @@ Transform:
   m_LocalScale: {x: 0.28452, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 24
+  m_RootOrder: 30
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
 --- !u!1001 &1776692979
 PrefabInstance:
@@ -84995,6 +85202,73 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5582398304737590671, guid: bc2ebcbd51969bc47a2edf452f92dc0a, type: 3}
   m_PrefabInstance: {fileID: 1783027053}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &1783507655
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 8403599014385068736, guid: 35e03d6617ada1e4ca03110f7a43aa82, type: 3}
+      propertyPath: title
+      value: "M\xE9moire de matriarche III"
+      objectReference: {fileID: 0}
+    - target: {fileID: 8403599014385068736, guid: 35e03d6617ada1e4ca03110f7a43aa82, type: 3}
+      propertyPath: content
+      value: "\u201CCes voix, cette voix.. elle ne me l\xE2che plus... \xC7a commen\xE7ait
+        par un subtil murmure, puis, petit \xE0 p#t/t, c\u2019$st c@mme s\xA7\u2026
+        Je\u2026 Je deviens folle, n\u2019est-ce pas..?\u201D\r\n"
+      objectReference: {fileID: 0}
+    - target: {fileID: 8403599014385068741, guid: 35e03d6617ada1e4ca03110f7a43aa82, type: 3}
+      propertyPath: m_Name
+      value: Book (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8403599014385068748, guid: 35e03d6617ada1e4ca03110f7a43aa82, type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8403599014385068748, guid: 35e03d6617ada1e4ca03110f7a43aa82, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 24.261093
+      objectReference: {fileID: 0}
+    - target: {fileID: 8403599014385068748, guid: 35e03d6617ada1e4ca03110f7a43aa82, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.23
+      objectReference: {fileID: 0}
+    - target: {fileID: 8403599014385068748, guid: 35e03d6617ada1e4ca03110f7a43aa82, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -27.918985
+      objectReference: {fileID: 0}
+    - target: {fileID: 8403599014385068748, guid: 35e03d6617ada1e4ca03110f7a43aa82, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.8510528
+      objectReference: {fileID: 0}
+    - target: {fileID: 8403599014385068748, guid: 35e03d6617ada1e4ca03110f7a43aa82, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8403599014385068748, guid: 35e03d6617ada1e4ca03110f7a43aa82, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.52508014
+      objectReference: {fileID: 0}
+    - target: {fileID: 8403599014385068748, guid: 35e03d6617ada1e4ca03110f7a43aa82, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8403599014385068748, guid: 35e03d6617ada1e4ca03110f7a43aa82, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8403599014385068748, guid: 35e03d6617ada1e4ca03110f7a43aa82, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 63.347
+      objectReference: {fileID: 0}
+    - target: {fileID: 8403599014385068748, guid: 35e03d6617ada1e4ca03110f7a43aa82, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 35e03d6617ada1e4ca03110f7a43aa82, type: 3}
 --- !u!1001 &1791058022
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -85787,6 +86061,77 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1760663351311964722, guid: e166e4f706e065f45824a6859312766e, type: 3}
   m_PrefabInstance: {fileID: 1836428715}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &1837255882
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 8403599014385068736, guid: 35e03d6617ada1e4ca03110f7a43aa82, type: 3}
+      propertyPath: title
+      value: Note de Journal de Chris Harrell V
+      objectReference: {fileID: 0}
+    - target: {fileID: 8403599014385068736, guid: 35e03d6617ada1e4ca03110f7a43aa82, type: 3}
+      propertyPath: content
+      value: "16 F\xE9vrier 1916 \r\n\u201CAvant hier, en revenant \xE0 la maison
+        avec Jill, nous avons trouv\xE9 Vivian en pleine crise de col\xE8re, son
+        couturier favoris lui a refus\xE9 la confection d\u2019une robe\u2026 Je
+        le savais, je le sentais, que ce type allait d\xE9sormais faire partie de
+        ses victimes, et aujourd\u2019hui, j\u2019ai trouv\xE9 son cadavre dans la
+        cave, une fois de plus, je me retrouve complice de son horrible addiction
+        pour le sang\u2026\u201D\r\n"
+      objectReference: {fileID: 0}
+    - target: {fileID: 8403599014385068741, guid: 35e03d6617ada1e4ca03110f7a43aa82, type: 3}
+      propertyPath: m_Name
+      value: Book (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8403599014385068748, guid: 35e03d6617ada1e4ca03110f7a43aa82, type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8403599014385068748, guid: 35e03d6617ada1e4ca03110f7a43aa82, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 61.682487
+      objectReference: {fileID: 0}
+    - target: {fileID: 8403599014385068748, guid: 35e03d6617ada1e4ca03110f7a43aa82, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.97
+      objectReference: {fileID: 0}
+    - target: {fileID: 8403599014385068748, guid: 35e03d6617ada1e4ca03110f7a43aa82, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -16.109571
+      objectReference: {fileID: 0}
+    - target: {fileID: 8403599014385068748, guid: 35e03d6617ada1e4ca03110f7a43aa82, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.9355872
+      objectReference: {fileID: 0}
+    - target: {fileID: 8403599014385068748, guid: 35e03d6617ada1e4ca03110f7a43aa82, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8403599014385068748, guid: 35e03d6617ada1e4ca03110f7a43aa82, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.35309574
+      objectReference: {fileID: 0}
+    - target: {fileID: 8403599014385068748, guid: 35e03d6617ada1e4ca03110f7a43aa82, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8403599014385068748, guid: 35e03d6617ada1e4ca03110f7a43aa82, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8403599014385068748, guid: 35e03d6617ada1e4ca03110f7a43aa82, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: -41.354
+      objectReference: {fileID: 0}
+    - target: {fileID: 8403599014385068748, guid: 35e03d6617ada1e4ca03110f7a43aa82, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 35e03d6617ada1e4ca03110f7a43aa82, type: 3}
 --- !u!1 &1838991753
 GameObject:
   m_ObjectHideFlags: 0
@@ -90598,7 +90943,7 @@ Transform:
   m_LocalScale: {x: 0.28452, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 28
+  m_RootOrder: 34
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
 --- !u!1001 &1843034777
 PrefabInstance:
@@ -92732,6 +93077,76 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1760663351311964722, guid: e166e4f706e065f45824a6859312766e, type: 3}
   m_PrefabInstance: {fileID: 1973365549}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &1977129170
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 8403599014385068736, guid: 35e03d6617ada1e4ca03110f7a43aa82, type: 3}
+      propertyPath: title
+      value: Note de Journal de Chris Harrell IV
+      objectReference: {fileID: 0}
+    - target: {fileID: 8403599014385068736, guid: 35e03d6617ada1e4ca03110f7a43aa82, type: 3}
+      propertyPath: content
+      value: "17 Avril 1914\r\n\u201CVivian est une criminelle, je l\u2019ai trouv\xE9e
+        aujourd\u2019hui, dans la cave encore une fois, Elle\u2026 Elle torturait
+        un pauvre homme, ses yeux \xE9taient grands ouverts, et elle rigolait, je
+        suis descendu apr\xE8s avoir entendu de faibles bruits \xE9touff\xE9s mais,
+        je n\u2019en croyais pas mes yeux\u2026 et Vivian, elle avait du sang autour
+        de la bouche\u2026\u201D\r\n"
+      objectReference: {fileID: 0}
+    - target: {fileID: 8403599014385068741, guid: 35e03d6617ada1e4ca03110f7a43aa82, type: 3}
+      propertyPath: m_Name
+      value: Book (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8403599014385068748, guid: 35e03d6617ada1e4ca03110f7a43aa82, type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8403599014385068748, guid: 35e03d6617ada1e4ca03110f7a43aa82, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 16.798592
+      objectReference: {fileID: 0}
+    - target: {fileID: 8403599014385068748, guid: 35e03d6617ada1e4ca03110f7a43aa82, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.41
+      objectReference: {fileID: 0}
+    - target: {fileID: 8403599014385068748, guid: 35e03d6617ada1e4ca03110f7a43aa82, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -21.871885
+      objectReference: {fileID: 0}
+    - target: {fileID: 8403599014385068748, guid: 35e03d6617ada1e4ca03110f7a43aa82, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.915901
+      objectReference: {fileID: 0}
+    - target: {fileID: 8403599014385068748, guid: 35e03d6617ada1e4ca03110f7a43aa82, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8403599014385068748, guid: 35e03d6617ada1e4ca03110f7a43aa82, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.4014043
+      objectReference: {fileID: 0}
+    - target: {fileID: 8403599014385068748, guid: 35e03d6617ada1e4ca03110f7a43aa82, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8403599014385068748, guid: 35e03d6617ada1e4ca03110f7a43aa82, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8403599014385068748, guid: 35e03d6617ada1e4ca03110f7a43aa82, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 47.332
+      objectReference: {fileID: 0}
+    - target: {fileID: 8403599014385068748, guid: 35e03d6617ada1e4ca03110f7a43aa82, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 35e03d6617ada1e4ca03110f7a43aa82, type: 3}
 --- !u!1001 &1986042812
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -100527,7 +100942,7 @@ Transform:
   - {fileID: 420359035}
   - {fileID: 914995224}
   m_Father: {fileID: 0}
-  m_RootOrder: 20
+  m_RootOrder: 26
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &3149795855636521898
 PrefabInstance:
@@ -105382,7 +105797,7 @@ Transform:
   m_LocalScale: {x: 0.28452, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 21
+  m_RootOrder: 27
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
 --- !u!1 &3929972538627394278
 GameObject:
