@@ -1,5 +1,18 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!65 &403608703
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1367299102812639952}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.3473967, y: 0.19342934, z: 2.1000004}
+  m_Center: {x: -0.67369837, y: 0.014825005, z: 1.0540001}
 --- !u!95 &4085272946595334828
 Animator:
   serializedVersion: 3
@@ -33,9 +46,9 @@ GameObject:
   - component: {fileID: 3720661014621165131}
   - component: {fileID: 6184734532679862531}
   - component: {fileID: 1962267999}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: SingleDoor
-  m_TagString: Untagged
+  m_TagString: BlockRaycast
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -67,8 +80,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6de1e911f38f77c4fbb7f37933c79fec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  coordX: 0
-  coordY: 0
   isLocked: 0
   keyId: 0
   doorOpen: {fileID: 8300000, guid: fb8930e94272aaa4089a2035cd5a4394, type: 3}
@@ -85,8 +96,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.44, y: 2.19, z: 0.25316048}
-  m_Center: {x: 1, y: 1.11, z: 0.2}
+  m_Size: {x: 3, y: 3, z: 3}
+  m_Center: {x: 1, y: 1.11, z: 0}
 --- !u!208 &3720661014621165131
 NavMeshObstacle:
   m_ObjectHideFlags: 0
@@ -97,7 +108,7 @@ NavMeshObstacle:
   m_Enabled: 1
   serializedVersion: 3
   m_Shape: 1
-  m_Extents: {x: 0.79, y: 1.28, z: 0.675}
+  m_Extents: {x: 0.79, y: 1.31, z: 0.125}
   m_MoveThreshold: 0.1
   m_Carve: 0
   m_CarveOnlyStationary: 1
@@ -222,6 +233,14 @@ PrefabInstance:
     - target: {fileID: 8181906523586000656, guid: 2314c7803a6592840935d7a9111039b0, type: 3}
       propertyPath: m_Name
       value: 1Door
+      objectReference: {fileID: 0}
+    - target: {fileID: 8181906523586000656, guid: 2314c7803a6592840935d7a9111039b0, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8181906523586000656, guid: 2314c7803a6592840935d7a9111039b0, type: 3}
+      propertyPath: m_TagString
+      value: Door
       objectReference: {fileID: 0}
     - target: {fileID: 8845113711593729450, guid: 2314c7803a6592840935d7a9111039b0, type: 3}
       propertyPath: m_RootOrder

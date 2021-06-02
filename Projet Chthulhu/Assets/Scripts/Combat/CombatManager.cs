@@ -38,6 +38,7 @@ public class CombatManager : MonoBehaviour
     public Material walkMaterial;
     public Material blockMaterial;
     public Material occupiedMaterial;
+    public CombatParticleManager particleManager;
 
     [HideInInspector] public CombatButton activeButton = null;
     private void Awake() {
@@ -54,6 +55,7 @@ public class CombatManager : MonoBehaviour
         uiManager = GetComponent<CombatUiManager>();
         gridManager = GetComponent<GridManager>();
         turnManager = GetComponent<CombatTurnManager>();
+        particleManager = GetComponent<CombatParticleManager>();
         SoundEventManager.current.onCombatEnd += EndCombatMode;
     }
     public void ResetActorsPositions() {
@@ -67,19 +69,24 @@ public class CombatManager : MonoBehaviour
         gridManager.ClearTileHighlight();
     }
 
-    public void StartCombat (ActorEntity actorPriority) {
+    public void StartCombat (ActorEntity actorPriority, EnnemyEntity firstEnnemy) {
         uiManager.ToggleCombatUi(true);
         turnManager.fightingEntities = new List<ActorEntity>();
         turnManager.fightingEntities.Add(actorPriority);
+        if (!turnManager.fightingEntities.Contains(firstEnnemy)) turnManager.fightingEntities.Add(firstEnnemy);
         foreach (TileEntity t in grid) {
             if (t == null) continue;
             t.gameObject.SetActive(true);
+            t.UpdateMaterial();
         }
         foreach (GameObject g in gameEntities.entities) {
             if (Vector3.Distance(player.transform.position,g.transform.position) > maxCombatDistance) {
-                g.SetActive(false);//Ennemies not in combat are unactivated
-                continue;
+                if (!turnManager.fightingEntities.Contains(g.GetComponent<ActorEntity>())) {
+                    g.SetActive(false);//Ennemies not in combat are unactivated
+                    continue;
+                }
             }
+            g.GetComponent<ActorEntity>().animator.SetBool("isWalking",false);
             if (turnManager.fightingEntities.Contains(g.GetComponent<ActorEntity>())) continue;
             turnManager.fightingEntities.Add(g.GetComponent<ActorEntity>());
         }

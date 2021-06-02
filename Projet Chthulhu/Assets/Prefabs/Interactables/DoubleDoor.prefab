@@ -19,6 +19,19 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!65 &1851991767
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3733764583880029414}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.3473967, y: 0.19342934, z: 2.1000004}
+  m_Center: {x: -0.67369837, y: 0.014825005, z: 1.0540001}
 --- !u!1 &4610704468578239663
 GameObject:
   m_ObjectHideFlags: 0
@@ -33,7 +46,7 @@ GameObject:
   - component: {fileID: 4432675091239041715}
   - component: {fileID: 178039295291757385}
   - component: {fileID: 178039295291757384}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: DoubleDoor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -66,7 +79,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 2.78, y: 2.42, z: 0.32}
+  m_Size: {x: 3, y: 3, z: 3}
   m_Center: {x: 0, y: 1, z: 0}
 --- !u!208 &4432675091239041714
 NavMeshObstacle:
@@ -96,8 +109,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6de1e911f38f77c4fbb7f37933c79fec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  coordX: 0
-  coordY: 0
   isLocked: 0
   keyId: 0
   doorOpen: {fileID: 8300000, guid: fb8930e94272aaa4089a2035cd5a4394, type: 3}
@@ -212,6 +223,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isInteractable: 0
+--- !u!65 &427031353
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7310575770052328841}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.3473967, y: 0.19342934, z: 2.1000004}
+  m_Center: {x: -0.67369837, y: 0.014825005, z: 1.0540001}
 --- !u!1001 &6575542419136933280
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -219,9 +243,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 3798597055993732629}
     m_Modifications:
+    - target: {fileID: 4482600140013604905, guid: 0693042d61ebb6e459d1adc4c8a6d596, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7535080619029633350, guid: 0693042d61ebb6e459d1adc4c8a6d596, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 8383701295096067834, guid: 0693042d61ebb6e459d1adc4c8a6d596, type: 3}
       propertyPath: m_Name
       value: 2Door
+      objectReference: {fileID: 0}
+    - target: {fileID: 8383701295096067834, guid: 0693042d61ebb6e459d1adc4c8a6d596, type: 3}
+      propertyPath: m_Layer
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 9156718835189853248, guid: 0693042d61ebb6e459d1adc4c8a6d596, type: 3}
       propertyPath: m_RootOrder
@@ -278,5 +314,15 @@ GameObject:
 --- !u!4 &2617215605286486496 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 9156718835189853248, guid: 0693042d61ebb6e459d1adc4c8a6d596, type: 3}
+  m_PrefabInstance: {fileID: 6575542419136933280}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &3733764583880029414 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7535080619029633350, guid: 0693042d61ebb6e459d1adc4c8a6d596, type: 3}
+  m_PrefabInstance: {fileID: 6575542419136933280}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &7310575770052328841 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4482600140013604905, guid: 0693042d61ebb6e459d1adc4c8a6d596, type: 3}
   m_PrefabInstance: {fileID: 6575542419136933280}
   m_PrefabAsset: {fileID: 0}

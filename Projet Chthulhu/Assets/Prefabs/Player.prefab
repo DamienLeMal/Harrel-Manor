@@ -268,6 +268,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   baseStats: {fileID: 11400000, guid: 979d7dab3b925ac4cbafb07f3ef7efa0, type: 2}
+  animator: {fileID: 8827388901517730061}
   weaponInventory: []
   str: 0
   dex: 0
@@ -364,13 +365,13 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6877543952668379123}
   serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 10
-  m_AngularDrag: 0.05
+  m_Mass: 10
+  m_Drag: 8
+  m_AngularDrag: 100
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 80
+  m_Constraints: 84
   m_CollisionDetection: 0
 --- !u!1001 &2408506933981285814
 PrefabInstance:
@@ -393,7 +394,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6658337137205416917, guid: 72812dc96d455fe46b23c933ecd2b346, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -1.05
       objectReference: {fileID: 0}
     - target: {fileID: 6658337137205416917, guid: 72812dc96d455fe46b23c933ecd2b346, type: 3}
       propertyPath: m_LocalPosition.z
@@ -427,7 +428,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 6624112411648164888, guid: 72812dc96d455fe46b23c933ecd2b346, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 72812dc96d455fe46b23c933ecd2b346, type: 3}
 --- !u!4 &9010460487815437923 stripped
 Transform:

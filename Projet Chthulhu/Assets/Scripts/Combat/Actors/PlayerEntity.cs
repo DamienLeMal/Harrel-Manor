@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerEntity : ActorEntity
 {
-    private List<int> keys = new List<int>();
+    public List<int> keys = new List<int>();
     private int exp = 0;
     private int exp_goal;
     [HideInInspector] public int realLevel;
@@ -21,7 +21,6 @@ public class PlayerEntity : ActorEntity
     }
 
     public void AddXpGain (int amount) {
-        Debug.Log("xp ++");
         //if exp + xp gain > exp goal -> LevelUp()
         //Else apply
         if (exp + amount >= exp_goal) {

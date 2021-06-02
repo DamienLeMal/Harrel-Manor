@@ -28,8 +28,6 @@ public class PlayerDeplacement : MonoBehaviour
 
     private Rigidbody rb;
 
-    [SerializeField] private float minClick = 2;
-
 
     // Start is called before the first frame update
     void Start()
@@ -44,51 +42,37 @@ public class PlayerDeplacement : MonoBehaviour
     {
         if (inBattle) return;
         if (EventSystem.current.IsPointerOverGameObject()) return;
-            if (Input.GetMouseButton(0))
-            {
-                RaycastHit hit;
 
-                if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hit, Mathf.Infinity))
-                {
-                if (hit.collider.gameObject.GetComponent<IClicked>() != null) return;
-                    if (Vector3.Distance(transform.position,hit.point) > minClick)
-                    {
-                        agent.SetDestination(hit.point);
-                        //marche
-                        m_Animator.SetBool("isWalking", true);
-                    }
-                    else
-                    {
-                        agent.SetDestination(transform.position);
-                        //arete de marcher
-                        m_Animator.SetBool("isWalking", false);
-                    }
+        if (Input.GetMouseButton(0)) {
+            m_Animator.SetBool("isWalking", true);
+            Vector3 pos = Camera.main.WorldToScreenPoint(transform.position) - Input.mousePosition;
+            Vector3 direction = new Vector3(pos.x,0,pos.y);
+            transform.rotation = Quaternion.Lerp(transform.rotation,Quaternion.LookRotation(-direction) * Camera.main.transform.parent.transform.rotation,Time.deltaTime * 5f);
+            float speed = 100;
+            if (_stealth) speed = 50;
+            GetComponent<Rigidbody>().AddForce(transform.forward * speed,ForceMode.Force);
+            
 
-                }
-                
-            }
-            else if (Input.GetMouseButtonUp(0))
-            {
-                agent.SetDestination(this.transform.position);
-                //arete de marcher
-                m_Animator.SetBool("isWalking", false);
-            }
+        }else if (Input.GetMouseButtonUp(0)) {
+            //arete de marcher
+            m_Animator.SetBool("isWalking", false);
+        }
 
-            if (Input.GetKeyDown(KeyCode.LeftControl)) //test KeyDown
-            {
-                ToggleSteath();
-            }
+        if (Input.GetKeyDown(KeyCode.LeftControl)) //test KeyDown
+        {
+            ToggleSteath();
+        }
     }
 
     
-    public void SetCombatMode(ActorEntity actorPriority)
+    public void SetCombatMode(ActorEntity actorPriority, EnnemyEntity firstEnnemy)
     {
         SoundEventManager.current.GamemodeChange();
         agent.SetDestination(this.transform.position);
         agent.isStopped = true;
         agent.enabled = false;
         inBattle = true;
-        CombatManager.current.StartCombat(actorPriority);
+        CombatManager.current.StartCombat(actorPriority,firstEnnemy);
         rb.detectCollisions = false;
         rb.constraints = RigidbodyConstraints.FreezeRotationZ | RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezePosition;
     }

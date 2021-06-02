@@ -26,7 +26,7 @@ public class GenerateGrid : MonoBehaviour
             for (int j = 0; j < Mathf.Sqrt(map.Length); j++) {
                 if (map[i, j] == 0) continue;
                 MeshRenderer mesh = tile.GetComponentInChildren<MeshRenderer>();
-                GameObject g = Instantiate(tile, new Vector3((float)i*mesh.bounds.size.x, 0, -(float)j*mesh.bounds.size.x),Quaternion.identity,tileParent.transform);
+                GameObject g = Instantiate(tile, new Vector3((float)i*mesh.bounds.size.x, 0.3f, -(float)j*mesh.bounds.size.x),Quaternion.identity,tileParent.transform);
                 TileEntity t = g.GetComponent<TileEntity>();
                 tileGrid[i,j] = t;
                 t.coordinates = new Vector2Int(i,j);

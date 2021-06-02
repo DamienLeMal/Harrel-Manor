@@ -8,10 +8,15 @@ public class VideoEnd : MonoBehaviour
     [SerializeField] private float timemax;
     [SerializeField] private float timea;
 
+    [SerializeField] private GameObject skipText;
+    [SerializeField] private bool inTime;
+    [SerializeField] private float timerSkip;
+
     // Start is called before the first frame update
     void Start()
     {
-       
+        inTime = false;
+        skipText.SetActive(false);
     }
 
     // Update is called once per frame
@@ -27,14 +32,37 @@ public class VideoEnd : MonoBehaviour
             timea += Time.deltaTime;
         }
 
-        /*
+
+        if (inTime)
+        {
+            timerSkip += Time.deltaTime;
+        }
+        
+        if (inTime && timerSkip > 3)
+        {
+            timerSkip = 0;
+            skipText.SetActive(false);
+            inTime = !inTime;
+        }
+        
+            
+        
+        
 
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            timea = timemax + 0.1f;
+            if (inTime)
+            {
+                SceneManager.LoadScene("LoadingScreen", LoadSceneMode.Single);
+            }
+            else
+            {
+                inTime = true;
+                skipText.SetActive(true);
+            }
         }
 
-        */
+        
     }
     
 }

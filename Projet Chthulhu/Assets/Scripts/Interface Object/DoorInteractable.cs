@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class DoorInteractable : MonoBehaviour, IClicked
+public class DoorInteractable : MonoBehaviour
 {
-    [SerializeField] private int coordX, coordY;
+    private TileEntity doorTile;
     private NavMeshObstacle collision;
     [SerializeField] private bool isLocked;
     [SerializeField] private int keyId;
@@ -20,7 +20,35 @@ public class DoorInteractable : MonoBehaviour, IClicked
         collision = GetComponent<NavMeshObstacle>();
         source = GetComponent<AudioSource>();
     }
-    public void OnClickAction () {
+
+    private void GetCorrespondingTile () {
+        float minDist = Mathf.Infinity;
+        float a;
+        TileEntity closestTile = null;
+        foreach (TileEntity t in CombatManager.current.grid) {
+            if (t == null) { continue; }
+            a = (transform.position - t.transform.position).magnitude;
+            if (a < minDist) {
+                minDist = a;
+                closestTile = t;
+            }
+        }
+        doorTile = closestTile;
+    }
+
+    private void OnTriggerEnter(Collider other) {
+        if(other.tag != "Player") return;
+        TriggerDoor();
+    }
+
+    private void OnTriggerExit(Collider other) {
+        if(other.tag != "Player") return;
+        TriggerDoor();
+    }
+
+    private void TriggerDoor () {
+        if (doorTile == null) GetCorrespondingTile();
+        if (CombatManager.current.combatOn) return;
         if (cooldown) return;
         if (!interfaceDistance.isInteractable) return;
         if (isLocked) {
@@ -33,7 +61,6 @@ public class DoorInteractable : MonoBehaviour, IClicked
         }
         //OpenDoor
         if (animator.GetAnimatorTransitionInfo(0).duration > 0) {
-            Debug.Log("Stopped");
             return;
         }
         animator.SetTrigger("DoorAction");
@@ -48,11 +75,14 @@ public class DoorInteractable : MonoBehaviour, IClicked
     /// </summary>
     private void ToggleDoor () {
         //CombatManager.current.grid[coordX,coordY].DoorToggleOpenClose();
+        
         collision.enabled = !collision.enabled;
         if (collision.enabled) {
             source.PlayOneShot(doorClose);
+            doorTile.tileState = TileState.Block;
         }else{
             source.PlayOneShot(doorOpen);
+            doorTile.tileState = TileState.Walk;
         }
     }
 
