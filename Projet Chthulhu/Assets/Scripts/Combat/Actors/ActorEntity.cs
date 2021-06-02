@@ -36,6 +36,9 @@ public class ActorEntity : MonoBehaviour
         get {return _hp;}
         set {
             _hp = value;
+            if (CombatEventSystem.current != null) {
+                CombatEventSystem.current.HpChange(this);
+            }
             if (_hp > hp_max) _hp = hp_max;
         }
     }

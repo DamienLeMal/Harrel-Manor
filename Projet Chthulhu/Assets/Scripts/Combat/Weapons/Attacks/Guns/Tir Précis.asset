@@ -25,4 +25,4 @@ MonoBehaviour:
   positionPatternCoord: []
   damagePatternCoord: []
   attackIcon: {fileID: 0}
-  attackParticle: {fileID: 0}
+  attackParticleId: 99

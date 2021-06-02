@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerEntity : ActorEntity
 {
-    private List<int> keys = new List<int>();
+    public List<int> keys = new List<int>();
     private int exp = 0;
     private int exp_goal;
     [HideInInspector] public int realLevel;

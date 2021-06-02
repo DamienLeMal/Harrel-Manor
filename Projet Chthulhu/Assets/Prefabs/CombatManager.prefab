@@ -1,5 +1,35 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &2221912133864413843
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5383945325040961141}
+  m_Layer: 0
+  m_Name: ParticleHolder
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5383945325040961141
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2221912133864413843}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 5340618409776087671}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &949311664
 Animator:
   serializedVersion: 3
@@ -33,6 +63,7 @@ GameObject:
   - component: {fileID: 5340618409776087666}
   - component: {fileID: 5340618409776087667}
   - component: {fileID: 5340618409776087669}
+  - component: {fileID: 1578754665041422887}
   - component: {fileID: 5340618409776087668}
   m_Layer: 0
   m_Name: CombatManager
@@ -54,6 +85,7 @@ Transform:
   m_Children:
   - {fileID: 5340618408358967454}
   - {fileID: 5340618410061623877}
+  - {fileID: 5383945325040961141}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -96,6 +128,7 @@ MonoBehaviour:
   walkMaterial: {fileID: 2100000, guid: ae064c7f7f866674990b333d4282fc0c, type: 2}
   blockMaterial: {fileID: 2100000, guid: ac525ea38c26812428df849ddea27cd7, type: 2}
   occupiedMaterial: {fileID: 2100000, guid: 0dc3b251c860432459115314955809ec, type: 2}
+  particleManager: {fileID: 0}
   activeButton: {fileID: 0}
 --- !u!114 &5340618409776087666
 MonoBehaviour:
@@ -139,6 +172,25 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fightingEntities: []
+  currentActorIndex: 0
+--- !u!114 &1578754665041422887
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5340618409776087656}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c4cb85d9fac231a42afb715e6d235850, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  particlePrefabs:
+  - {fileID: 8904372431627793173, guid: fe029d05609368e448cfee910ac758c9, type: 3}
+  - {fileID: 7237239539377134731, guid: e9f7ae02841f6b84d804c39800697dcd, type: 3}
+  heightOffset: 0.1
+  attackDuration: 3
+  particleParent: {fileID: 5383945325040961141}
 --- !u!64 &5340618409776087668
 MeshCollider:
   m_ObjectHideFlags: 0

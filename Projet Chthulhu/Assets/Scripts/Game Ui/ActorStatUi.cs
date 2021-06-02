@@ -9,18 +9,23 @@ public class ActorStatUi : MonoBehaviour
     private Text txt;
     private Slider slider;
     [SerializeField] private Stat stat;
+    private bool sliderReached;
 
     private void Start() {
         txt = GetComponent<Text>();
         slider = GetComponent<Slider>();
         player = CombatManager.current.player;
+        CombatEventSystem.current.onHpChange += UpdateSlider;
     }
 
     // Update is called once per frame
     void Update()
     {
         if (txt != null) SetText();
-        if (slider != null) SetSliderValue();
+        if (slider != null && !sliderReached) {
+            SetSliderValue();
+            if (Mathf.Abs((float)player.hp/(float)player.hp_max - slider.value) < 0.1f) sliderReached = true;
+        } 
     }
 
     private void SetText () {
@@ -41,6 +46,10 @@ public class ActorStatUi : MonoBehaviour
                 txt.text = player.mnt.ToString() + "/" + player.mnt_max.ToString();
                 break;
         }
+    }
+
+    private void UpdateSlider () {
+        sliderReached = false;
     }
 
     private void SetSliderValue () {

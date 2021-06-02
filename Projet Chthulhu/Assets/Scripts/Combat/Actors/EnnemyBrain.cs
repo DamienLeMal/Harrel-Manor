@@ -124,7 +124,7 @@ public class EnnemyBrain : MonoBehaviour
         
         gridManager.ShowAttackPattern(attackedTile,entity,bestAttack[entity.currentTile]);
         gridManager.LaunchAttach(attackedTile,entity,bestAttack[entity.currentTile]);
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(CombatManager.current.particleManager.attackDuration);
         EvaluateTiles();
         StartCoroutine(AttackLoop());
     }

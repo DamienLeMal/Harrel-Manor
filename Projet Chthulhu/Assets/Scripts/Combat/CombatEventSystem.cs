@@ -25,5 +25,12 @@ public class CombatEventSystem : MonoBehaviour
         onDealDamage(damageAmount);
     }
 
+    public event Action onHpChange;
+    public void HpChange(ActorEntity actor) {
+        if (onHpChange == null) return;
+        if (actor != CombatManager.current.player) return;
+        onHpChange();
+    }
+
 #endregion
 }

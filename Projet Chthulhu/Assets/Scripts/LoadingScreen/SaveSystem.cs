@@ -46,6 +46,11 @@ public class SaveSystem : MonoBehaviour
         PlayerPrefs.SetInt("s_wp2",999);
         PlayerPrefs.SetInt("s_wp3",999);
 
+        foreach (int id in player.keys) {
+            PlayerPrefs.SetInt("key_" + player.keys.IndexOf(id),id);
+        }
+        PlayerPrefs.SetInt("numberOfKeys",player.keys.Count);
+
         if (player.weaponInventory.Count >= 1) if (player.weaponInventory[0] != null) PlayerPrefs.SetInt("s_wp1",weaponDataId.IndexOf(player.weaponInventory[0]));
         if (player.weaponInventory.Count >= 2) if (player.weaponInventory[1] != null) PlayerPrefs.SetInt("s_wp2",weaponDataId.IndexOf(player.weaponInventory[1]));
         if (player.weaponInventory.Count >= 3) if (player.weaponInventory[2] != null) PlayerPrefs.SetInt("s_wp3",weaponDataId.IndexOf(player.weaponInventory[2]));
@@ -68,6 +73,10 @@ public class SaveSystem : MonoBehaviour
         player.agi = PlayerPrefs.GetInt("s_agi");
         player.mnt = PlayerPrefs.GetInt("s_mnt");
         player.hp = PlayerPrefs.GetInt("s_hp");
+
+        for (int i = 0; i < PlayerPrefs.GetInt("numberOfKeys"); i++) {
+            player.keys.Add(PlayerPrefs.GetInt("key_"+i.ToString()));
+        }
 
         if (loadCount > 0) player.weaponInventory.Clear();
 
