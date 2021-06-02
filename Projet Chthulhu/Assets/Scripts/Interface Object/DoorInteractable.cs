@@ -38,15 +38,17 @@ public class DoorInteractable : MonoBehaviour
 
     private void OnTriggerEnter(Collider other) {
         if(other.tag != "Player") return;
-        TriggerDoor();
+        TriggerDoor(true);
     }
 
     private void OnTriggerExit(Collider other) {
         if(other.tag != "Player") return;
-        TriggerDoor();
+        TriggerDoor(false);
     }
 
-    private void TriggerDoor () {
+    private void TriggerDoor (bool open) {
+        if (isLocked && !open) return;
+        if (!isLocked && open) return;
         if (doorTile == null) GetCorrespondingTile();
         if (CombatManager.current.combatOn) return;
         if (cooldown) return;
