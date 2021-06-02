@@ -30,8 +30,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8403599014385068741}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 42.827248, y: 1.8236427, z: -28.408464}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.6556189, y: 0.0046775877, z: 0.86244833}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -63,7 +63,7 @@ MeshRenderer:
   m_RenderingLayerMask: 257
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 73c176f402d2c2f4d929aa5da7585d17, type: 2}
+  - {fileID: 2100000, guid: b00c8622170f0064ab2f86910f58d170, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -110,7 +110,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3b70f418e096ee247a9be4c0f6c2dce6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  uiGraphic: {fileID: 0}
   title: Le Corbeau et le renard
   content: "Ma\xEEtre Corbeau, sur un arbre perch\xE9,\r\nTenait en son bec un fromage.\r\nMa\xEEtre
     Renard, par l'odeur all\xE9ch\xE9,\r\nLui tint \xE0 peu pr\xE8s ce langage :\r\nEt
