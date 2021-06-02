@@ -45,15 +45,10 @@ public class CombatManager : MonoBehaviour
     [HideInInspector] public CombatButton activeButton = null;
     private void Awake() {
         current = this;
-        foreach (GameObject g in gameEntities.entities) {
-            if (g.GetComponent<PlayerEntity>() != null) {
-                player = g.GetComponent<PlayerEntity>();
-                break;
-            }
-        }
-        gameEntities.SetEnnemiesId();
+        player = GetComponentInChildren<PlayerEntity>();
     }
     private void Start() {
+        gameEntities.SetEnnemiesId();
         uiManager = GetComponent<CombatUiManager>();
         gridManager = GetComponent<GridManager>();
         turnManager = GetComponent<CombatTurnManager>();
@@ -84,8 +79,10 @@ public class CombatManager : MonoBehaviour
             t.UpdateMaterial();
         }
         foreach (GameObject g in gameEntities.entities) {
+            Debug.Log(g + " dist ? " + (Vector3.Distance(player.transform.position,g.transform.position) > maxCombatDistance));
             if (Vector3.Distance(player.transform.position,g.transform.position) > maxCombatDistance) {
                 if (!turnManager.fightingEntities.Contains(g.GetComponent<ActorEntity>())) {
+                    Debug.Log("Deactivated");
                     g.SetActive(false);//Ennemies not in combat are unactivated
                     continue;
                 }
@@ -115,7 +112,9 @@ public class CombatManager : MonoBehaviour
             g.SetActive(true);
         }
 
-//End Not Tested (I think it worked last time I checked)
+        //It doesn't re activate patrols
+
+//End Not Tested
 
         uiManager.ToggleCombatUi(false);
         player.GetComponent<PlayerDeplacement>().SetExplorationMode();

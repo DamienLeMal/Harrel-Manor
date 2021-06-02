@@ -34,7 +34,7 @@ public class PlayerDeplacement : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         if (inBattle) return;
         if (EventSystem.current.IsPointerOverGameObject()) return;

@@ -25,7 +25,6 @@ public class EnnemyPatrol : MonoBehaviour
             return;
         }
         if (!navMesh.gameObject.activeSelf) {
-            Destroy(gameObject);
             return;
         }
         navMesh.SetDestination(waypoints[currentIndex].position);
