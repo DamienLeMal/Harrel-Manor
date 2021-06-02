@@ -204,6 +204,7 @@ public class GridManager : MonoBehaviour
         ShowAttackPattern(targetTile,attacker,attack);
         List<TileEntity> tileToAttack = new List<TileEntity>();
         foreach (KeyValuePair<TileEntity,int> t in tileHighlightAttack) {
+            CombatManager.current.particleManager.PlayParticle(attack.attackParticleId,t.Key);
             if (t.Key.tileUser == null) continue;
             //Calcul precision
             bool missed;

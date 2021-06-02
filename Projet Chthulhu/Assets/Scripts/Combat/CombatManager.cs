@@ -38,6 +38,7 @@ public class CombatManager : MonoBehaviour
     public Material walkMaterial;
     public Material blockMaterial;
     public Material occupiedMaterial;
+    public CombatParticleManager particleManager;
 
     [HideInInspector] public CombatButton activeButton = null;
     private void Awake() {
@@ -54,6 +55,7 @@ public class CombatManager : MonoBehaviour
         uiManager = GetComponent<CombatUiManager>();
         gridManager = GetComponent<GridManager>();
         turnManager = GetComponent<CombatTurnManager>();
+        particleManager = GetComponent<CombatParticleManager>();
         SoundEventManager.current.onCombatEnd += EndCombatMode;
     }
     public void ResetActorsPositions() {

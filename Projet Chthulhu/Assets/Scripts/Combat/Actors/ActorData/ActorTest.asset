@@ -23,4 +23,5 @@ MonoBehaviour:
   mnt: 80
   weaponInvetory:
   - {fileID: 11400000, guid: c304375b4d0eeed45ade3b3eb3479659, type: 2}
+  - {fileID: 11400000, guid: 295fcd573e1f39241993feb6e0207cb6, type: 2}
   dialogue: {fileID: 11400000, guid: 657da5b7f6bb0ea45ae1173e2d9c82b9, type: 2}

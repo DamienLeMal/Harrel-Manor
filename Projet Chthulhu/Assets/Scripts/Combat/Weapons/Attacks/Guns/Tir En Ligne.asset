@@ -50,4 +50,4 @@ MonoBehaviour:
   - {x: 0, y: 0}
   - {x: 0, y: 0}
   attackIcon: {fileID: 0}
-  attackParticle: {fileID: 0}
+  attackParticleId: 99
