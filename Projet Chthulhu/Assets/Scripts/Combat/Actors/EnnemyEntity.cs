@@ -10,7 +10,7 @@ public class EnnemyEntity : ActorEntity
         base.Start();
         level = GetRealLevel();
 
-        Invoke("SaveEnnemy",1f);
+        Invoke("SaveEnnemy",0.1f);
     }
 
     private void SaveEnnemy () {
