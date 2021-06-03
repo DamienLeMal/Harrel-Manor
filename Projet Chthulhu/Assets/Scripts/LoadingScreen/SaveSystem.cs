@@ -14,12 +14,13 @@ public class SaveSystem : MonoBehaviour
     private void Awake() {
         current = this;
         if (loadCount == 0) PlayerPrefs.DeleteAll();
+        if (loadCount == 0) Debug.Log("fIRST");
         
     }
     private void Start() {
         manager = CombatManager.current;
         player = manager.player;
-        SaveGame(player.transform.position, player.transform.rotation.eulerAngles);
+        if (loadCount == 0) SaveGame(player.transform.position, player.transform.rotation.eulerAngles);
         LoadGame();
         
     }

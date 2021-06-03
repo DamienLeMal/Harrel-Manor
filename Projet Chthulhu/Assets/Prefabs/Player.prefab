@@ -280,7 +280,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c022dac68cbe104385585b866a5dd33, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  baseStats: {fileID: 11400000, guid: 979d7dab3b925ac4cbafb07f3ef7efa0, type: 2}
+  baseStats: {fileID: 11400000, guid: a7b51270c93c33a4c9f3d5c8f4825939, type: 2}
   animator: {fileID: 6037894835677261760}
   weaponInventory: []
   str: 0

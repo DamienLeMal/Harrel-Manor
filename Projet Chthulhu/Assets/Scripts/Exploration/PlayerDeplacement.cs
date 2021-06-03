@@ -34,7 +34,7 @@ public class PlayerDeplacement : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         if (inBattle) return;
         if (EventSystem.current.IsPointerOverGameObject()) return;
@@ -49,11 +49,14 @@ public class PlayerDeplacement : MonoBehaviour
             GetComponent<Rigidbody>().AddForce(transform.forward * speed,ForceMode.Force);
             
 
-        }else if (Input.GetMouseButtonUp(0)) {
+        }
+        if (Input.GetMouseButtonUp(0) || rb.velocity.magnitude < 0.1f) {
             //arete de marcher
             m_Animator.SetBool("isWalking", false);
         }
+    }
 
+    private void Update() {
         if (Input.GetKeyDown(KeyCode.LeftControl)) //test KeyDown
         {
             ToggleSteath();
@@ -63,7 +66,7 @@ public class PlayerDeplacement : MonoBehaviour
     
     public void SetCombatMode(ActorEntity actorPriority, EnnemyEntity firstEnnemy)
     {
-        ToggleSteath();
+        ToggleSteath(false);
         SoundEventManager.current.GamemodeChange();
         agent.SetDestination(this.transform.position);
         agent.isStopped = true;
@@ -87,6 +90,12 @@ public class PlayerDeplacement : MonoBehaviour
     private void ToggleSteath()
     {
         stealth = !stealth;
+        if (stealth) m_Animator.speed = 0.5f;
+        if (!stealth) m_Animator.speed = 1f;
+    }
+    private void ToggleSteath(bool state)
+    {
+        stealth = state;
         if (stealth) m_Animator.speed = 0.5f;
         if (!stealth) m_Animator.speed = 1f;
     }

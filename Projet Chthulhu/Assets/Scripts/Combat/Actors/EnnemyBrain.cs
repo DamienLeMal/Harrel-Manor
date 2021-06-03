@@ -46,7 +46,6 @@ public class EnnemyBrain : MonoBehaviour
     //Play Turn
 
 #region Take Decisions
-    public TileEntity gtile;
     public IEnumerator PlayTurn() {
 
         //Start
@@ -65,7 +64,6 @@ public class EnnemyBrain : MonoBehaviour
             MoveToTile(goToTile);
             Debug.Log("Better to move to " + goToTile.coordinates + " first");
 
-            gtile = goToTile;
 
             //Wait until he's arrived
             yield return new WaitUntil(()=>entity.currentTile == goToTile);
@@ -122,8 +120,8 @@ public class EnnemyBrain : MonoBehaviour
         AttackScore(entity.currentTile,bestAttack[entity.currentTile],entity,manager.player);
         TileEntity attackedTile = tileToAttack;
         
-        gridManager.ShowAttackPattern(attackedTile,entity,bestAttack[entity.currentTile]);
-        gridManager.LaunchAttach(attackedTile,entity,bestAttack[entity.currentTile]);
+        gridManager.ShowAttackPattern(attackedTile,entity,bestAttack[entity.currentTile],false);
+        gridManager.LaunchAttach(attackedTile,entity,bestAttack[entity.currentTile],false);
         yield return new WaitForSeconds(CombatManager.current.particleManager.attackDuration);
         EvaluateTiles();
         StartCoroutine(AttackLoop());
@@ -230,15 +228,7 @@ public class EnnemyBrain : MonoBehaviour
             tileScore.Add(t.Key,new Dictionary<Score, int> {[Score.Movement] = x,[Score.Attack] = y,[Score.Defense] = z});
         }
     }
-
-    public void TestColorEvaluation () {
-        EvaluateTiles();
-        GetBestAverageTile().cosmetic.ChangeTextureColor(new Color(0,0,1));//Blue
-        GetBestDefensiveAttackTile().cosmetic.ChangeTextureColor(new Color(0,1,0));//Green
-        GetBestTile(Score.Attack).cosmetic.ChangeTextureColor(new Color(1,0,0));//Red
-        GetBestTile(Score.Defense).cosmetic.ChangeTextureColor(new Color(1,1,0));//Red+Green
-    }
-
+    
     /// <summary>
     /// Loop through all tiles the ennemy can attack and set a value based on its chances to successfully hit it's target
     /// </summary>

@@ -13,13 +13,14 @@ MonoBehaviour:
   m_Name: Ennemy1
   m_EditorClassIdentifier: 
   actorName: '#1'
-  str: 35
-  dex: 65
+  str: 20
+  dex: 50
   spd: 35
   intl: 65
   agi: 50
   con: 20
   lck: 80
   mnt: 0
-  weaponInvetory: []
+  weaponInvetory:
+  - {fileID: 11400000, guid: 07ee5fb87afc14242bbac321f5408ad5, type: 2}
   dialogue: {fileID: 0}

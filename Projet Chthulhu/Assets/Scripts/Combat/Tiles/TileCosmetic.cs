@@ -37,6 +37,8 @@ public class TileCosmetic : MonoBehaviour
     }
 
     public void ChangeTextureColor (Color clr) {
+        Debug.Log("Change tile color");
+        if (CombatManager.current.playerState == PlayerState.Locked) return;
         tileRenderer.material.color = clr*1.5f;
     }
 

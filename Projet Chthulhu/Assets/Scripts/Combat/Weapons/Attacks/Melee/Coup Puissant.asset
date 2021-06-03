@@ -45,6 +45,6 @@ MonoBehaviour:
   - {x: 0, y: 0}
   - {x: 0, y: 0}
   - {x: 0, y: 0}
-  attackIcon: {fileID: 0}
+  attackIcon: {fileID: 21300000, guid: 7d550fa42a7f36949bcc83f08eaec898, type: 3}
   attackParticleId: 99
   animation: 5

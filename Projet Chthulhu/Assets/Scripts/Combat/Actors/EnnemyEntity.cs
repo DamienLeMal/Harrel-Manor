@@ -10,13 +10,17 @@ public class EnnemyEntity : ActorEntity
         base.Start();
         level = GetRealLevel();
 
+        Invoke("SaveEnnemy",0.1f);
+    }
+
+    private void SaveEnnemy () {
         //Save or Destroy
         if (PlayerPrefs.GetInt(id) == 2) {
             DestroyEnnemy();
             return;
         } 
-            PlayerPrefs.SetInt(id,1);
-            PlayerPrefs.Save();
+        PlayerPrefs.SetInt(id,1);
+        PlayerPrefs.Save();
     }
 
     /// <summary>

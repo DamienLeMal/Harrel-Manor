@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerEntity : ActorEntity
 {
     public List<int> keys = new List<int>();
-    private int exp = 0;
+    [SerializeField] private int exp = 0;
     private int exp_goal;
     [HideInInspector] public int realLevel;
     private int amountLeft;

@@ -13,7 +13,8 @@ MonoBehaviour:
   m_Name: Soin
   m_EditorClassIdentifier: 
   attackName: <B>Soin</B>
-  description: "<color=#C969FF>\nCo\xFBt Sant\xE9 Mentale : 3</color><color=#73CA78>\nSoigne
+  description: "<color=#FF9861>Co\xFBt AP : 2</color><color=#9499EC>\nCo\xFBt MP
+    : 2</color><color=#C969FF>\nCo\xFBt Sant\xE9 Mentale : 3</color><color=#73CA78>\nSoigne
     : 2</color>"
   apCost: 2
   mpCost: 2
@@ -25,6 +26,6 @@ MonoBehaviour:
   damagePattern: 0
   positionPatternCoord: []
   damagePatternCoord: []
-  attackIcon: {fileID: 0}
+  attackIcon: {fileID: 21300000, guid: db29a334d7568a0449d49da0a9c0b943, type: 3}
   attackParticleId: 99
   animation: 5

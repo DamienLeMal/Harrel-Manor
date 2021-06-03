@@ -38,15 +38,15 @@ public class DoorInteractable : MonoBehaviour
 
     private void OnTriggerEnter(Collider other) {
         if(other.tag != "Player") return;
-        TriggerDoor();
+        TriggerDoor(true);
     }
 
     private void OnTriggerExit(Collider other) {
         if(other.tag != "Player") return;
-        TriggerDoor();
+        TriggerDoor(false);
     }
 
-    private void TriggerDoor () {
+    private void TriggerDoor (bool open) {
         if (doorTile == null) GetCorrespondingTile();
         if (CombatManager.current.combatOn) return;
         if (cooldown) return;
@@ -63,21 +63,21 @@ public class DoorInteractable : MonoBehaviour
         if (animator.GetAnimatorTransitionInfo(0).duration > 0) {
             return;
         }
-        animator.SetTrigger("DoorAction");
-
         //Temp
-        ToggleDoor();
+        ToggleDoor(open);
         StartCoroutine(StartCooldown());
     }
 
     /// <summary>
     /// Toggle Open or Close Door, meant to be activated on animation end.
     /// </summary>
-    private void ToggleDoor () {
+    private void ToggleDoor (bool open) {
         //CombatManager.current.grid[coordX,coordY].DoorToggleOpenClose();
-        
-        collision.enabled = !collision.enabled;
+        animator.SetBool("DoorAction",open);
+        collision.enabled = !open;
+
         if (collision.enabled) {
+            
             source.PlayOneShot(doorClose);
             doorTile.tileState = TileState.Block;
         }else{

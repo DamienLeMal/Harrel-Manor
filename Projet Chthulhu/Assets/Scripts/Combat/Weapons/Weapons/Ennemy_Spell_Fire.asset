@@ -13,4 +13,6 @@ MonoBehaviour:
   m_Name: Ennemy_Spell_Fire
   m_EditorClassIdentifier: 
   weaponIcon: {fileID: 0}
-  attacks: []
+  attacks:
+  - {fileID: 11400000, guid: 3df83ec546446414fa8008d4c70d9ea8, type: 2}
+  - {fileID: 11400000, guid: 3e25c5b1803f52f4f87a821b921a90fd, type: 2}

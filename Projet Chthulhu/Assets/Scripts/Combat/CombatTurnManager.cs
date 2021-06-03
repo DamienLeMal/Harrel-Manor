@@ -48,6 +48,7 @@ public class CombatTurnManager : MonoBehaviour
         if (a == manager.player) {
             CombatEventSystem.current.PlayerTurn();
             manager.turn = Turn.PlayerTurn;
+            manager.playerState = PlayerState.Normal;
             SoundEventManager.current.PlayerTurn((float)manager.player.hp/(float)manager.player.hp_max);
         }else{
             CombatEventSystem.current.EnnemyTurn();

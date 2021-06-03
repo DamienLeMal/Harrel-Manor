@@ -1,7 +1,6 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class GameOverScreen : MonoBehaviour
 {
@@ -23,5 +22,8 @@ public class GameOverScreen : MonoBehaviour
     private void EndGame () {
         //Go to title screen
         Debug.Log("Go Back to title screen");
+        PlayerPrefs.DeleteAll();
+        SceneManager.LoadScene("TitleScreen",LoadSceneMode.Single);
+
     }
 }
