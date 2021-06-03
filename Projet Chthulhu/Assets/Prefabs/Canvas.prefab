@@ -5537,6 +5537,20 @@ MonoBehaviour:
   baseText: "Se d\xE9placer sur la grille"
   offsetY: 30
   offsetX: 0
+--- !u!114 &872119673
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1535655170332902685}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d812ec74b6cf6fe4391506ab6d09d6aa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  newState: 0
+  attack: {fileID: 0}
 --- !u!114 &1637528401
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5555,20 +5569,6 @@ MonoBehaviour:
     actuel'
   offsetY: 0
   offsetX: 0
---- !u!114 &872119673
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1535655170332902685}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d812ec74b6cf6fe4391506ab6d09d6aa, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  newState: 0
-  attack: {fileID: 0}
 --- !u!1 &1886965264753259506
 GameObject:
   m_ObjectHideFlags: 0
@@ -7186,12 +7186,12 @@ MonoBehaviour:
   agiColor: {r: 0.34963512, g: 0.764151, b: 0.6676439, a: 1}
   conColor: {r: 0.8537219, g: 0.59527415, b: 0.8584906, a: 1}
   lckColor: {r: 0.20558906, g: 0.7264151, b: 0.18845676, a: 1}
-  apColor: {r: 1, g: 0.59609485, b: 0.3820755, a: 0}
-  mpColor: {r: 0.5800107, g: 0.5987217, b: 0.9245283, a: 0}
-  pmColor: {r: 0.5584282, g: 0.8396226, b: 0.8306253, a: 0}
-  hpColor: {r: 0.45229617, g: 0.7924528, b: 0.46901616, a: 0}
-  mntColor: {r: 0.78722435, g: 0.41037738, b: 1, a: 0}
-  dmgColor: {r: 1, g: 0.3254717, b: 0.3254717, a: 0}
+  apColor: {r: 1, g: 0.59609485, b: 0.3820755, a: 1}
+  mpColor: {r: 0.5800107, g: 0.5987217, b: 0.9245283, a: 1}
+  pmColor: {r: 0.5584282, g: 0.8396226, b: 0.8306253, a: 1}
+  hpColor: {r: 0.45229617, g: 0.7924528, b: 0.46901616, a: 1}
+  mntColor: {r: 0.78722435, g: 0.41037738, b: 1, a: 1}
+  dmgColor: {r: 1, g: 0.3254717, b: 0.3254717, a: 1}
 --- !u!1 &2848066963231650065
 GameObject:
   m_ObjectHideFlags: 0
@@ -8478,7 +8478,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 100.10669, y: 0}
+  m_AnchoredPosition: {x: 95.53612, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0.5}
 --- !u!222 &2848066963933815199
