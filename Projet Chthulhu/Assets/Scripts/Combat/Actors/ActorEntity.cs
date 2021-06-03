@@ -171,7 +171,7 @@ public class ActorEntity : MonoBehaviour
 
         hp -= dmg;
         ui.ShowDamageAmount(dmg);
-        if (hp <= 0) {
+        if (hp <= 0 || mnt <= 0) {
             ActorDeath();
         }
         CombatEventSystem.current.TakeDamage(dmg,this);

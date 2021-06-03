@@ -69,7 +69,7 @@ public class TileEntity : MonoBehaviour
                     gManager.StartPathFinding(manager.player.currentTile,this);
                     break;
                 case PlayerState.Attacking :
-                    gManager.ShowAttackPattern(this, manager.player, manager.activeButton.attack);
+                    gManager.ShowAttackPattern(this, manager.player, manager.activeButton.attack,true);
                     //Hard code because problems :(
                     cosmetic.ChangeTextureColor(new Color(0,0,0));
                     break;
@@ -97,7 +97,7 @@ public class TileEntity : MonoBehaviour
     private void BeginLaunchAttack () {
         if (!isTarget) return;
         Debug.Log("Begin Launch Attack");
-        gManager.LaunchAttach(this,manager.player, manager.activeButton.attack);
+        gManager.LaunchAttach(this,manager.player, manager.activeButton.attack,true);
         isTarget = false;
     }
 #endregion

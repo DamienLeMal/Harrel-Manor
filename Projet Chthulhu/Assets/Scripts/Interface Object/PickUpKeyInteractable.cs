@@ -14,7 +14,6 @@ public class PickUpKeyInteractable : MonoBehaviour, IClicked
         interfaceDistance = GetComponent<InterfaceDistance>();
         SaveSystem.current.pickUp.Add(gameObject);
         id = "pkupkey_" + SceneManager.GetActiveScene().name + "_" + SaveSystem.current.pickUp.IndexOf(gameObject).ToString();
-        Debug.Log(id + " & " + PlayerPrefs.GetInt(id));
 
         if (PlayerPrefs.GetInt(id) == 2) {
             Destroy(gameObject);

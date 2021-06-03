@@ -203,9 +203,10 @@ public class GridManager : MonoBehaviour
     /// <summary>
     /// Get all tiles from the attack damage pattern and color them
     /// </summary>
-    public void ShowAttackPattern (TileEntity startTile, ActorEntity attacker, AttackData attack) {
+    public void ShowAttackPattern (TileEntity startTile, ActorEntity attacker, AttackData attack,bool colorise) {
         tileHighlightAttack = new Dictionary<TileEntity, int>();
         tileHighlightAttack = GetPattern(startTile, attack.damagePatternCoord,attacker);
+        if (!colorise) return;
         foreach (KeyValuePair<TileEntity,int> t in tileHighlightAttack) {
             t.Key.cosmetic.ChangeTextureColor(new Color(250,215,0));
         }
@@ -213,10 +214,10 @@ public class GridManager : MonoBehaviour
     /// <summary>
     /// Get all tiles from the attack damage pattern and attack them
     /// </summary>
-    public void LaunchAttach (TileEntity targetTile, ActorEntity attacker, AttackData attack) {
+    public void LaunchAttach (TileEntity targetTile, ActorEntity attacker, AttackData attack, bool colorise) {
         Vector3 lookRotation = Quaternion.LookRotation(targetTile.transform.position - attacker.transform.position).eulerAngles;
         LeanTween.rotate(attacker.gameObject,new Vector3(0,lookRotation.y,0),0.5f);
-        ShowAttackPattern(targetTile,attacker,attack);
+        ShowAttackPattern(targetTile,attacker,attack,colorise);
         List<TileEntity> tileToAttack = new List<TileEntity>();
         foreach (KeyValuePair<TileEntity,int> t in tileHighlightAttack) {
             CombatManager.current.particleManager.PlayParticle(attack.attackParticleId,t.Key);
@@ -252,6 +253,7 @@ public class GridManager : MonoBehaviour
         if (canAttack) manager.playerState = PlayerState.Normal;
 
         //Effects
+        if (!colorise) return;
         foreach (KeyValuePair<TileEntity,int> t in tileHighlightAttack) {
             t.Key.cosmetic.ChangeTextureColor(new Color(2,2,0));
         }

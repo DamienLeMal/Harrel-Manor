@@ -13,4 +13,6 @@ MonoBehaviour:
   m_Name: Ennemy_Spell_Dark
   m_EditorClassIdentifier: 
   weaponIcon: {fileID: 0}
-  attacks: []
+  attacks:
+  - {fileID: 11400000, guid: 2239cfc73ecd4ab4597fa1ef92f2deba, type: 2}
+  - {fileID: 11400000, guid: 24f97890dbad88f4b8c0014384560e35, type: 2}
