@@ -19,6 +19,32 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!65 &511233809
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2886359778234296354}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.013473967, y: 0.0019342934, z: 0.021000003}
+  m_Center: {x: -0.0067369835, y: 0.00014825008, z: 0.010540002}
+--- !u!65 &1284373690
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4608974431322598849}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.013473995, y: 0.0019342934, z: 0.021000003}
+  m_Center: {x: 0.0067371903, y: 0.00015037897, z: 0.010540002}
 --- !u!1 &4610704468578239663
 GameObject:
   m_ObjectHideFlags: 0
@@ -100,7 +126,7 @@ MonoBehaviour:
   keyId: 31
   doorOpen: {fileID: 8300000, guid: fb8930e94272aaa4089a2035cd5a4394, type: 3}
   doorClose: {fileID: 8300000, guid: 6eb2e30bc46d212429be91d6f11b31c1, type: 3}
-  animator: {fileID: 0}
+  animator: {fileID: 3637612727008232690}
 --- !u!82 &178039295291757385
 AudioSource:
   m_ObjectHideFlags: 0
@@ -285,6 +311,14 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[1]
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: -5912151760994427116, guid: c56ac1822916e8f47b4402aadb4d77ec, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: -5040684172959802633, guid: c56ac1822916e8f47b4402aadb4d77ec, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: -2323666335567497265, guid: c56ac1822916e8f47b4402aadb4d77ec, type: 3}
       propertyPath: m_Materials.Array.size
       value: 1
@@ -320,6 +354,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: c56ac1822916e8f47b4402aadb4d77ec, type: 3}
       propertyPath: m_Name
       value: 2Door
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: c56ac1822916e8f47b4402aadb4d77ec, type: 3}
+      propertyPath: m_Layer
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1463818524632634466, guid: c56ac1822916e8f47b4402aadb4d77ec, type: 3}
       propertyPath: m_LocalScale.x
@@ -359,5 +397,15 @@ GameObject:
 --- !u!4 &1553519641392846142 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: c56ac1822916e8f47b4402aadb4d77ec, type: 3}
+  m_PrefabInstance: {fileID: 1298598684080829141}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &4608974431322598849 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -5912151760994427116, guid: c56ac1822916e8f47b4402aadb4d77ec, type: 3}
+  m_PrefabInstance: {fileID: 1298598684080829141}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &2886359778234296354 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -5040684172959802633, guid: c56ac1822916e8f47b4402aadb4d77ec, type: 3}
   m_PrefabInstance: {fileID: 1298598684080829141}
   m_PrefabAsset: {fileID: 0}
