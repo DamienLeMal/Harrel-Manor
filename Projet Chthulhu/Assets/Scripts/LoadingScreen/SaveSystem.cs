@@ -33,6 +33,7 @@ public class SaveSystem : MonoBehaviour
         PlayerPrefs.SetFloat("rotY",spawnRot.y);
         PlayerPrefs.SetFloat("rotZ",spawnRot.z);
 
+        PlayerPrefs.SetInt("s_lvl",player.level);
         PlayerPrefs.SetInt("s_str",player.str);
         PlayerPrefs.SetInt("s_dex",player.dex);
         PlayerPrefs.SetInt("s_spd",player.spd);
@@ -65,6 +66,7 @@ public class SaveSystem : MonoBehaviour
         player.transform.position = new Vector3 (PlayerPrefs.GetFloat("posX"),PlayerPrefs.GetFloat("posY"),PlayerPrefs.GetFloat("posZ"));
         player.transform.eulerAngles = new Vector3 (PlayerPrefs.GetFloat("rotX"),PlayerPrefs.GetFloat("rotY"),PlayerPrefs.GetFloat("rotZ"));
 
+        player.level = PlayerPrefs.GetInt("s_lvl");
         player.str = PlayerPrefs.GetInt("s_str");
         player.dex = PlayerPrefs.GetInt("s_dex");
         player.spd = PlayerPrefs.GetInt("s_spd");
