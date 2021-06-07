@@ -26,7 +26,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3682838740510553500}
   m_LocalRotation: {x: -0.70710677, y: -0, z: -0, w: -0.7071069}
-  m_LocalPosition: {x: 0, y: 4.11, z: 0}
+  m_LocalPosition: {x: 0, y: 2.285, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 6877543952668379122}
@@ -44,7 +44,7 @@ Light:
   m_Type: 2
   m_Shape: 0
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 38.794018
+  m_Intensity: 45.011314
   m_Range: 10
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
@@ -85,7 +85,7 @@ Light:
   m_RenderingLayerMask: 1
   m_Lightmapping: 4
   m_LightShadowCasterMode: 2
-  m_AreaSize: {x: 4, y: 4}
+  m_AreaSize: {x: 2.867387, y: 2.5354555}
   m_BounceIntensity: 1
   m_ColorTemperature: 5759
   m_UseColorTemperature: 1
@@ -114,7 +114,7 @@ MonoBehaviour:
   m_PointlightHDType: 1
   m_SpotLightShape: 0
   m_AreaLightShape: 0
-  m_Intensity: 1950
+  m_Intensity: 1028.0492
   m_EnableSpotReflector: 1
   m_LuxAtDistance: 1
   m_InnerSpotPercent: 0
@@ -127,8 +127,8 @@ MonoBehaviour:
   m_AffectDiffuse: 1
   m_AffectSpecular: 1
   m_NonLightmappedOnly: 0
-  m_ShapeWidth: 4
-  m_ShapeHeight: 4
+  m_ShapeWidth: 2.867387
+  m_ShapeHeight: 2.5354555
   m_AspectRatio: 1
   m_ShapeRadius: 0.025
   m_SoftnessScale: 1
@@ -166,7 +166,7 @@ MonoBehaviour:
   m_EvsmBlurPasses: 0
   m_LightlayersMask: 1
   m_LinkShadowLayers: 1
-  m_ShadowNearPlane: 0.1
+  m_ShadowNearPlane: 10
   m_BlockerSampleCount: 24
   m_FilterSampleCount: 16
   m_MinFilterSize: 0.1
@@ -305,6 +305,7 @@ MonoBehaviour:
   currentTile: {fileID: 0}
   ui: {fileID: 5283367842206002321}
   keys: 
+  exp: 0
   realLevel: 0
 --- !u!114 &6877543952668379126
 MonoBehaviour:
