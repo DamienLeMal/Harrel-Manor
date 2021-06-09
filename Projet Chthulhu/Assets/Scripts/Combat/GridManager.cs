@@ -223,15 +223,16 @@ public class GridManager : MonoBehaviour
             CombatManager.current.particleManager.PlayParticle(attack.attackParticleId,t.Key);
             if (t.Key.tileUser == null) continue;
             //Calcul precision
-            bool missed;
             float rand1 = Random.Range(0,attacker.dex)+attacker.lck/10;
-            float rand2 = Random.Range(0,t.Value*15);
-            float rand3 = Random.Range(0,100)-t.Key.tileUser.agi/10;
-            missed = rand1+rand2 < rand3;
-            if (!missed) {
+            float rand2 = Random.Range(0,t.Value*10);
+            float rand3 = 100 - Random.Range(t.Key.tileUser.agi,100);
+            bool hit = rand2 - rand1 < rand3;
+            if (hit) {
                 //Damage Calcul
                 tileToAttack.Add(t.Key);
             }else{
+
+                //What is this ???
                 t.Key.tileUser.ui.ShowDamageAmount(0);
                 CombatEventSystem.current.DealDamage(0,attacker);
                 CombatEventSystem.current.TakeDamage(0,targetTile.tileUser);
