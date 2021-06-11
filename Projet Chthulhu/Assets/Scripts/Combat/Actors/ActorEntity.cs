@@ -163,9 +163,9 @@ public class ActorEntity : MonoBehaviour
         //Damage Calcul
         int bonusDmg;
         if (attack.rangedAttack) {
-            bonusDmg = (int)(Random.Range(0,attacker.dex)/10);
+            bonusDmg = (int)(Random.Range(0,attacker.dex)/100*attack.dmg);
         }else{
-            bonusDmg = (int)(Random.Range(0,attacker.str)/10);
+            bonusDmg = (int)(Random.Range(0,attacker.str)/100*attack.dmg);
         }
         int dmg = attack.dmg + bonusDmg;
 
