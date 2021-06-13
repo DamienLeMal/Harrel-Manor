@@ -38,3 +38,5 @@ sysinfo.txt
 *.log
 Projet Chthulhu/UserSettings/EditorUserSettings.asset
 Projet Chthulhu/Assets/Scenes/GameScene/EastWing.unity
+Projet Chthulhu/Projet Chthulhu_WwiseProject/*
+*.zip

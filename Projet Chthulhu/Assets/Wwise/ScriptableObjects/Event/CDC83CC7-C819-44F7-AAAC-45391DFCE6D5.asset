@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd55f5ec85dd68a46a994beefcbf3d79, type: 3}
+  m_Name: CDC83CC7-C819-44F7-AAAC-45391DFCE6D5
+  m_EditorClassIdentifier: 
+  objectName: Play_Enfield_Shoot
+  id: 1688124557
+  guid: CDC83CC7-C819-44F7-AAAC-45391DFCE6D5

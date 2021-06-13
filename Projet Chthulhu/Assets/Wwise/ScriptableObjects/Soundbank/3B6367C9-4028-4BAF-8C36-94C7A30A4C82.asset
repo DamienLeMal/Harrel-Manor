@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f0a65ed4d5012c4d9dc81b439c42e68, type: 3}
+  m_Name: 3B6367C9-4028-4BAF-8C36-94C7A30A4C82
+  m_EditorClassIdentifier: 
+  objectName: General_SNK
+  id: 456350576
+  guid: 3B6367C9-4028-4BAF-8C36-94C7A30A4C82
