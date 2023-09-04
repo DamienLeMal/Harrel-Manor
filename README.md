@@ -1,5 +1,5 @@
 # Harrel-Manor
-Harrell's Manor is a Tactical RPG game (Turn based strategy) that is divided into several parts, exploration phases in which the player progresses in the manor, and fight phases in which they fight against the entities that live in the house.
+Harrell's Manor is a tactical RPG game (turn-based strategy) divided into several parts: exploration phases, where the player progresses through the manor, and combat phases, where they engage with the entities residing in the house.
 
 [Video Trailer](https://youtu.be/LICrbLJ959A?si=lw-_kNNu1Wlx_DOS)<br/>
 [Itch Page](https://dexeat.itch.io/harrells-manor)
